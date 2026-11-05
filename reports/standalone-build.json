@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-10-05T05:32:59.378Z",
+  "output": "dist-standalone/KimyoLab_standalone.html",
+  "aliases": [
+    "dist-standalone/index.html"
+  ],
+  "entry": "kl/app/bootstrap.js",
+  "moduleCount": 134,
+  "contentJsonFiles": 48,
+  "embeddedAssetCount": 4,
+  "sizeBytes": 6101937,
+  "sha256": "22a62db14ebd08455c2c3015b08fa0b678c36c0fe7db0cd97ffec14aa2d978c1",
+  "architecture": "modular-esm-in-single-html-delivery",
+  "routeMode": "hash",
+  "host": "embedded",
+  "embeddedAssets": [
+    "assets/brand/kimyolab-logo.webp",
+    "assets/home/results.png",
+    "assets/home/topic-studio.png",
+    "assets/home/virtual-lab.png"
+  ],
+  "valid": true
+}

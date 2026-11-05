@@ -1,0 +1,12 @@
+node_modules/
+/dist/
+/test-results/
+/playwright-report/
+/.tmp-*/
+/reports/p0-acceptance.json
+/reports/p0-release-freeze.json
+/review-output/*.json
+/authoring-output/
+/dist-deploy/
+/reports/ci-environment.observed.json
+/dist-studio/

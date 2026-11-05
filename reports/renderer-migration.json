@@ -1,0 +1,69 @@
+{
+  "schema": "kimyolab.renderer-migration.v1",
+  "semantics": "Strangler migration: an activity with a rendererRequirement is drawn by the RendererRegistry; every other routed activity keeps the legacy practice renderer unchanged.",
+  "totalActivities": 146,
+  "registryRendered": 7,
+  "legacyRendered": 138,
+  "rendererBlocked": 0,
+  "unrouted": 1,
+  "registryActivities": [
+    {
+      "activityId": "practice.experiment.8.1",
+      "capability": "ionic-precipitation",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.experiment.9.14",
+      "capability": "hydrolysis-medium",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.7.07.planned",
+      "capability": "atom-builder",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.9.23.planned",
+      "capability": "condition-prediction",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.11.11.planned",
+      "capability": "hydrolysis-medium",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.11.18.planned",
+      "capability": "condition-prediction",
+      "runtime": "READY"
+    },
+    {
+      "activityId": "practice.simulation.11.20.planned",
+      "capability": "condition-prediction",
+      "runtime": "READY"
+    }
+  ],
+  "legacyByEngine": {
+    "experiment": 55,
+    "trainer": 17,
+    "calculation": 10,
+    "case": 10,
+    "simulation": 46
+  },
+  "futureCandidates": [],
+  "notCandidates": [
+    {
+      "candidate": "electrolysis",
+      "reason": [
+        "chemistry data too small for exploration: content-src/chemistry/electrolysis.json=1",
+        "black-swan: would be canned animation, not a model-based simulation"
+      ]
+    },
+    {
+      "candidate": "single-field-simulations",
+      "reason": [
+        "black-swan: would be canned animation, not a model-based simulation"
+      ]
+    }
+  ]
+}

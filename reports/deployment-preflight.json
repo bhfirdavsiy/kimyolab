@@ -1,0 +1,118 @@
+{
+  "schema": "kimyolab.deployment-preflight.v1",
+  "semantics": "Read-only checks of the built deployment artefact (scripts/deploy-preflight.ts). Fails closed; never repairs a file.",
+  "settings": [
+    "basePath",
+    "portalHomeUrl"
+  ],
+  "status": "PASS",
+  "mount": "/kimyolab/",
+  "checks": [
+    {
+      "id": "config",
+      "pass": true,
+      "detail": {
+        "basePath": "/kimyolab/",
+        "storageNamespace": "kimyolab@/kimyolab/"
+      }
+    },
+    {
+      "id": "build-complete",
+      "pass": true,
+      "detail": {
+        "required": 5
+      }
+    },
+    {
+      "id": "content-manifest",
+      "pass": true,
+      "detail": {
+        "activeVersion": "2026.09.1"
+      }
+    },
+    {
+      "id": "artifact-checksum",
+      "pass": true,
+      "detail": {
+        "files": 229,
+        "sha256": "4dfbc46b582bd2626696c3e7b6cfb4b989fffb4921ac5b3a6048ab0baad480a9"
+      }
+    },
+    {
+      "id": "content-integrity",
+      "pass": true
+    },
+    {
+      "id": "content-revision",
+      "pass": true,
+      "detail": {
+        "contentVersion": "2026.09.1",
+        "contentRevision": "b7b90841c668d717c2d9af684a6674a79d8e5365fb84ff7339d31a1ea9c08a60",
+        "comparedWithPrevious": false
+      }
+    },
+    {
+      "id": "base-path",
+      "pass": true,
+      "detail": {
+        "basePath": "/kimyolab/"
+      }
+    },
+    {
+      "id": "root-asset-leak",
+      "pass": true
+    },
+    {
+      "id": "content-base",
+      "pass": true,
+      "detail": {
+        "contentBase": "/kimyolab/content"
+      }
+    },
+    {
+      "id": "brand-asset",
+      "pass": true
+    },
+    {
+      "id": "storage-namespace",
+      "pass": true,
+      "detail": {
+        "namespace": "kimyolab@/kimyolab/",
+        "indexedDb": "kimyolab@/kimyolab/.runtime",
+        "webLocks": "kimyolab@/kimyolab/.attempt.",
+        "coHosted": []
+      }
+    },
+    {
+      "id": "service-worker",
+      "pass": true
+    },
+    {
+      "id": "external-dependency",
+      "pass": true
+    },
+    {
+      "id": "forbidden-files",
+      "pass": true
+    },
+    {
+      "id": "line-endings",
+      "pass": true
+    },
+    {
+      "id": "reproducible-build",
+      "pass": true,
+      "detail": {
+        "sha256": "4dfbc46b582bd2626696c3e7b6cfb4b989fffb4921ac5b3a6048ab0baad480a9"
+      }
+    },
+    {
+      "id": "config-match",
+      "pass": true
+    }
+  ],
+  "summary": {
+    "checks": 17,
+    "pass": 17
+  }
+}

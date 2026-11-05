@@ -1,0 +1,31 @@
+{
+  "speciesRecords": 84,
+  "reactionRecords": 28,
+  "dissociationRules": 12,
+  "formulaErrors": 0,
+  "reactionBalanceErrors": 0,
+  "referenceErrors": 0,
+  "sourceErrors": 0,
+  "schoolLabModelRecords": 28,
+  "schoolLabModelErrors": 0,
+  "unknownReactionPolicy": "REACTION_NOT_MODELED",
+  "hydrolysisRecords": 4,
+  "hydrolysisIndicator": {
+    "id": "litmus",
+    "modeledMedia": [
+      "acidic",
+      "basic",
+      "neutral"
+    ],
+    "missingMedia": [],
+    "reviewStatus": "pending"
+  },
+  "hydrolysisErrors": 0,
+  "expertApproval": "pending",
+  "expertApprovalValid": false,
+  "expertApprovalReason": "APPROVAL_PENDING",
+  "expertReviewVersion": "1.0.0-rc.1",
+  "expertReviewHash": "88e10ec5cc355f96b700d2fc5dfee7af900558319f4cbe58157ed694a9284454",
+  "expertReviewSurfaceSchema": "kimyolab.chemistry-review-surface.v2",
+  "expertReviewSurfaceFileCount": 28
+}

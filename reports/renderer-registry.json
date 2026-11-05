@@ -1,0 +1,95 @@
+{
+  "schema": "kimyolab.renderer-registry.v1",
+  "semantics": "Resolution key = capability id + compatible version (semver range). Activity ids never select a renderer. Accessibility is a registration gate.",
+  "catalogMatchesRegistry": true,
+  "renderers": [
+    {
+      "capability": "atom-builder",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.atom-state.v1",
+      "intents": [
+        "simulation-action"
+      ],
+      "implementation": "src/renderers/atom-builder/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "capability": "hydrolysis-medium",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.hydrolysis-medium.v1",
+      "intents": [
+        "experiment-action",
+        "simulation-action"
+      ],
+      "implementation": "src/renderers/hydrolysis-medium/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.experiment.9.14",
+        "practice.simulation.11.11.planned"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "capability": "ionic-precipitation",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.ionic-precipitation.v1",
+      "intents": [
+        "experiment-action"
+      ],
+      "implementation": "src/renderers/ionic-precipitation/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.experiment.8.1"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "capability": "condition-prediction",
+      "rendererVersion": "1.0.0",
+      "rendererModelSchema": "kimyolab.renderer.condition-prediction.v1",
+      "intents": [
+        "simulation-action"
+      ],
+      "implementation": "src/renderers/condition-prediction/renderer.ts",
+      "implementationExists": true,
+      "accessibility": {
+        "keyboard": true,
+        "nonColorCues": true,
+        "screenReaderSummary": true,
+        "reducedMotion": "static",
+        "nonVisualAlternative": "text-state"
+      },
+      "compatibleActivities": [
+        "practice.simulation.11.18.planned",
+        "practice.simulation.11.20.planned",
+        "practice.simulation.9.23.planned"
+      ],
+      "status": "ACTIVE"
+    }
+  ]
+}

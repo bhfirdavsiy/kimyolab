@@ -1,0 +1,257 @@
+{
+  "contentVersion": "2026.09.1",
+  "curriculumVersion": "2026.09",
+  "schemaVersion": "1.0.0",
+  "chemistryRulesVersion": "1.0.0-rc.1",
+  "assessmentVersion": "0.0.0",
+  "scoringVersion": "0.0.0",
+  "createdAt": "2026-09-22T00:00:00.000Z",
+  "checksum": "b7b90841c668d717c2d9af684a6674a79d8e5365fb84ff7339d31a1ea9c08a60",
+  "compatibility": {
+    "minAppVersion": "20.1.0"
+  },
+  "grades": [
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "files": [
+    {
+      "path": "activity-configs/beta1.json",
+      "checksum": "44300543ee18f775537d5e203a765dc7a54a3fb59ebc7d8d936360f7672e1ff5",
+      "size": 23450
+    },
+    {
+      "path": "activity-configs/beta2-advanced.json",
+      "checksum": "ae26fd00755a3c9d90a8f03af5f080b8d1461aed37d17746fa9d119fbad094d9",
+      "size": 1107
+    },
+    {
+      "path": "activity-configs/beta2-organic.json",
+      "checksum": "0e2c55f55cd3cd4a10fc992a75b30e31dfc15980789904a306c0bd068cdbaf46",
+      "size": 4907
+    },
+    {
+      "path": "activity-configs/beta2-safe.json",
+      "checksum": "0a57998ff94cfde0f8dae9a3204e2cd8b75675174a17eeee19e52822d4c5a280",
+      "size": 18942
+    },
+    {
+      "path": "activity-configs/beta3-advanced.json",
+      "checksum": "1e4527ef74a8ffc7cb017d28fda2c8177e12a4ddf87e231c628fcf3b8521ee0c",
+      "size": 6187
+    },
+    {
+      "path": "activity-configs/beta3-safe.json",
+      "checksum": "1569a400f5deab726858a35f0e60f45637e0ad49d4c24c20f9c3da74c306c3ce",
+      "size": 935
+    },
+    {
+      "path": "activity-configs/guided-labs.json",
+      "checksum": "f48f98e2ed9e75b0040fe48e0f774d95e14a76f46e1d236e3b9fe78c99f2d919",
+      "size": 63978
+    },
+    {
+      "path": "activity-configs/reference-slices.json",
+      "checksum": "0b5ebca97b976b92e3050fa59b8e04683671b475bd70eee4b2546ef47e1dde15",
+      "size": 4095
+    },
+    {
+      "path": "activity-readiness.json",
+      "checksum": "5749c7a0bd5f7b371e9aeacc481c3dea07fef87666de3a9e5ea2b195fc8034de",
+      "size": 59089
+    },
+    {
+      "path": "aliases.yaml",
+      "checksum": "7db3ed84e10c586d4f269dd951eaac13a89519e18df8e09f695e5a002daabd37",
+      "size": 32029
+    },
+    {
+      "path": "assessment/keys.json",
+      "checksum": "ce14b4d7c41a651e8e8f84ff07d8d324f1905907550b0b6863fda4ea185bc4c7",
+      "size": 1523
+    },
+    {
+      "path": "assessment/prompts.json",
+      "checksum": "fbc78848d528780175b6d469ec1f67252ac121d222cba15810cb013b39766f0a",
+      "size": 4128
+    },
+    {
+      "path": "chemistry/condition-vocabulary.json",
+      "checksum": "b6d463b39f67c580826689a3c747949f51bcff298d0f4873b22cf01c22d8b19e",
+      "size": 1443
+    },
+    {
+      "path": "chemistry/constants.json",
+      "checksum": "8e89098b4771da61472261b89bcdbdb5a9cf69e174ce92f63ef52a1a5552aeb4",
+      "size": 350
+    },
+    {
+      "path": "chemistry/electrolysis.json",
+      "checksum": "104f9379a1a5c81880022dc67fe505525ac94edda799bf071b7c5237a7bb4b97",
+      "size": 410
+    },
+    {
+      "path": "chemistry/equilibrium.json",
+      "checksum": "e384aa8ebfdee97464542e3a8cbdbb57e39b2631764d38a44e82406c39eb4167",
+      "size": 598
+    },
+    {
+      "path": "chemistry/guided-step-coverage-targets.json",
+      "checksum": "4edbf557822031908a33516578288126e563506c326f2afff5e2f365f25b1836",
+      "size": 1115
+    },
+    {
+      "path": "chemistry/guided-step-model-map.json",
+      "checksum": "ecfe94d726adeb4ad018717dba5318c0ca2401bd710d892edbe3b91a7d13279e",
+      "size": 1818
+    },
+    {
+      "path": "chemistry/guided-step-reaction-map.json",
+      "checksum": "cd96ebff6e726d8fddab353693b58cb80d5d9d982290a602dc83813343070a3a",
+      "size": 906
+    },
+    {
+      "path": "chemistry/hydrolysis.json",
+      "checksum": "15ca79febd7edefc43c2c4d652b86726338b23122a852f95a35be602bb0773eb",
+      "size": 1219
+    },
+    {
+      "path": "chemistry/kinetics.json",
+      "checksum": "bf8aa16f0d066939f8a595ddb6b7c77a140cd7c4e83b281e385e470f8fd7e3f1",
+      "size": 513
+    },
+    {
+      "path": "chemistry/manganese-redox.json",
+      "checksum": "453e8e0be62803e02aedac0711265e6b7de43a4b82e4ff9a356193e0b1cf0329",
+      "size": 623
+    },
+    {
+      "path": "chemistry/organic.json",
+      "checksum": "5e60fcd9eec50bd91e5a32c71819e6281ba46df4998a2644cafbc02e8f1b0368",
+      "size": 7117
+    },
+    {
+      "path": "chemistry/qualitative-tests.json",
+      "checksum": "28714102ee260be208da80dec466c25b849e2582530e6a1d167b6867fe0a01f4",
+      "size": 672
+    },
+    {
+      "path": "chemistry/reactions.json",
+      "checksum": "ff40a908873b01693e6548c40572d7d882c139c9188dc5b9b2870e156d56e9b8",
+      "size": 22111
+    },
+    {
+      "path": "chemistry/school-lab-models.json",
+      "checksum": "3110e9349af6f8a99f5b811b54c26498bca9c9a2f449d88e647c0d3a6cdcc55a",
+      "size": 18113
+    },
+    {
+      "path": "chemistry/solubility.json",
+      "checksum": "e678752ba9cd6f1f1252286857de92a7aa00d623eeef824d4c1984a3f7daeaad",
+      "size": 2928
+    },
+    {
+      "path": "chemistry/species.json",
+      "checksum": "4bcbaf0a565d9d37035f687061e9d49f9bea0d361c3c82af0dc85f5bb4a0823c",
+      "size": 33000
+    },
+    {
+      "path": "concepts.json",
+      "checksum": "693491c8a4ce9481caaaf1da4eb5c10f2b522fb8c4a997918c364a441ddafa39",
+      "size": 148051
+    },
+    {
+      "path": "execution-plans.json",
+      "checksum": "b93544f30c0e6a9e83d447a234fbdaf9e7a1ccbece3b0afaa8aa02f093183e87",
+      "size": 34745
+    },
+    {
+      "path": "external-lab-bindings.json",
+      "checksum": "2b2bdf8ca78de14ebf48a6ccdf9439d3f9c26efeba28dc2b3cd6567aafab70da",
+      "size": 5291
+    },
+    {
+      "path": "learning-cycle.json",
+      "checksum": "0b529a02a10041eec0fa2a752df30151d8f021427a328a35c8804860f81b1f25",
+      "size": 1397
+    },
+    {
+      "path": "learning-units/grade-10.json",
+      "checksum": "0556079fcdabca7f0e5e5b6b7ab2935faf26c42b731e45176b0208d25f256a84",
+      "size": 16951
+    },
+    {
+      "path": "learning-units/grade-11.json",
+      "checksum": "885db2aacf58ec1fb87d24785e5cf9f5f78ea30edf0f2e803a90a50f0a853b67",
+      "size": 13638
+    },
+    {
+      "path": "learning-units/grade-7.json",
+      "checksum": "896255d88adc3d8df0e7cff4dd6e6b262b2e82d61628ad6065329292e3bf239d",
+      "size": 14621
+    },
+    {
+      "path": "learning-units/grade-8.json",
+      "checksum": "114bb43f37a92a0e5b525f564a973157f9a7b45192564b7982600a7ecc51d5ba",
+      "size": 15544
+    },
+    {
+      "path": "learning-units/grade-9.json",
+      "checksum": "a3f6707da4a0216f086886e97f54c32343e6a9776fa669ffdd39241d763382db",
+      "size": 16898
+    },
+    {
+      "path": "locales/uz-latn/chemistry-elements.json",
+      "checksum": "f3f3e25646aa3e3b2d3163db93d1da0a32e2728fcf18de08e37cb68ce2321cdb",
+      "size": 793
+    },
+    {
+      "path": "locales/uz-latn/chemistry-species.json",
+      "checksum": "e702971d77b027d6363aaad58161e62b28d76ab6a347e53d3cc8f6218a00a93e",
+      "size": 955
+    },
+    {
+      "path": "locales/uz-latn/learner-interaction.json",
+      "checksum": "f173cb2780fa0459d77dd1a24e2f6b2a56109e01417837b76a9209019f3579ce",
+      "size": 35680
+    },
+    {
+      "path": "locales/uz-latn/name-provenance.json",
+      "checksum": "724dd064c9c229750e19d26bf9c7bc4490fb8ede30cef727f88156edc28f6fc0",
+      "size": 6785
+    },
+    {
+      "path": "mapping-links.json",
+      "checksum": "957a316cd7d46b13aceb1bcb286b77aa85ffffb96a23ff7ffa46780874ec8699",
+      "size": 72213
+    },
+    {
+      "path": "periodic/element-hub.json",
+      "checksum": "c52b5013f93ae73eb81252f8dbfa175d62409b4ac910c091e2c3ae207f81b471",
+      "size": 119048
+    },
+    {
+      "path": "practice-activities.json",
+      "checksum": "6d69e2c2cb8ee454b8f022ad1ed1a4aba9f6ad080f654383df69f4bbfca3b5a4",
+      "size": 311097
+    },
+    {
+      "path": "theory-activities.json",
+      "checksum": "ed96e578f9414524c812c2cb64773124821f2c8e621cd5ad9daacfd8cd91f398",
+      "size": 193632
+    },
+    {
+      "path": "theory-structured.json",
+      "checksum": "4f807020de554be08cf5b39dc1d32a2b0e0910b2dad9c0f743d590b9882beb32",
+      "size": 87
+    },
+    {
+      "path": "topic-lab-profiles.json",
+      "checksum": "c5812b386c0c71bae071ab800a9d4e2859d5b54659cef1ac004a3fe00a5cf0dc",
+      "size": 61882
+    }
+  ]
+}
