@@ -3,124 +3,20 @@
   "semantics": "Real-artefact rollback drill (scripts/deploy-rollback-drill.mjs): current → previous known-good → restore through the release registry, one browser profile on one origin. Learner storage is never touched by a rollback (it lives in the browser under the mount namespace, not in the artefact).",
   "mount": "/kimyolab/",
   "storage": "kimyolab@/kimyolab/.runtime",
-  "status": "PASS",
-  "previous": {
-    "commit": "965b0dee48a25b30aa587b9db356cd65ac8e4715",
-    "resolution": {
-      "method": "merge-base",
-      "mainline": "origin/main",
-      "mergeBase": "965b0dee48a25b30aa587b9db356cd65ac8e4715",
-      "walked": [
-        "965b0dee48a25b30aa587b9db356cd65ac8e4715"
-      ]
-    },
-    "builder": "that commit's own scripts/build-production.ts",
-    "sha256": "906178a1c78aafa6212609db4f620bf5b209c03678deaa8c627ef8eeee9f9bf7",
-    "fileCount": 224
+  "status": "FAIL",
+  "code": "DEPLOY_ROLLBACK_SOURCE_MISSING",
+  "message": "The clone is shallow: the mainline history ends after 1 commit(s). Fetch the full history (git fetch --unshallow origin; CI: actions/checkout fetch-depth: 0).",
+  "detail": {
+    "mainline": "origin/main",
+    "mainlineSha": "798695bc1de5ade99af0661b4a13a0e245f3350c",
+    "head": "798695bc1de5ade99af0661b4a13a0e245f3350c",
+    "mergeBase": "798695bc1de5ade99af0661b4a13a0e245f3350c",
+    "shallow": true,
+    "shallowBoundaries": [
+      "798695bc1de5"
+    ]
   },
-  "current": {
-    "source": "dist-deploy/kimyolab/",
-    "sha256": "4dfbc46b582bd2626696c3e7b6cfb4b989fffb4921ac5b3a6048ab0baad480a9",
-    "fileCount": 229
-  },
-  "steps": [
-    {
-      "id": "registry-promote",
-      "pass": true,
-      "detail": {
-        "activeRelease": "current",
-        "previousRelease": "previous"
-      }
-    },
-    {
-      "id": "immutable-urls-stable",
-      "pass": true,
-      "detail": {
-        "collisions": [],
-        "previousPack": "2026.09.1/manifest.json",
-        "currentPack": "2026.09.1/b7b90841c668d717c2d9af684a6674a79d8e5365fb84ff7339d31a1ea9c08a60/manifest.json"
-      }
-    },
-    {
-      "id": "serve-current",
-      "pass": true
-    },
-    {
-      "id": "current-smoke",
-      "pass": true,
-      "detail": {
-        "served": "current"
-      }
-    },
-    {
-      "id": "learner-evidence-recorded",
-      "pass": true,
-      "detail": {
-        "evidence": 1
-      }
-    },
-    {
-      "id": "rollback-pointer",
-      "pass": true,
-      "detail": {
-        "activeRelease": "previous",
-        "previousRelease": "current"
-      }
-    },
-    {
-      "id": "serve-previous",
-      "pass": true
-    },
-    {
-      "id": "previous-smoke",
-      "pass": true,
-      "detail": {
-        "served": "previous"
-      }
-    },
-    {
-      "id": "evidence-kept-after-rollback",
-      "pass": true,
-      "detail": {
-        "before": 1,
-        "after": 1
-      }
-    },
-    {
-      "id": "restore-pointer",
-      "pass": true,
-      "detail": {
-        "activeRelease": "current",
-        "previousRelease": "previous"
-      }
-    },
-    {
-      "id": "serve-restored",
-      "pass": true
-    },
-    {
-      "id": "restored-smoke",
-      "pass": true,
-      "detail": {
-        "served": "current"
-      }
-    },
-    {
-      "id": "evidence-kept-after-restore",
-      "pass": true,
-      "detail": {
-        "before": 1,
-        "after": 1
-      }
-    },
-    {
-      "id": "restored-bytes-identical",
-      "pass": true,
-      "detail": {
-        "sha256": "4dfbc46b582bd2626696c3e7b6cfb4b989fffb4921ac5b3a6048ab0baad480a9"
-      }
-    }
-  ],
+  "steps": [],
   "audit": {
     "scripts/rollback-drill.ts (P0)": "registry pointer drill with placeholder bundles (\"one\"/\"two\"): proves promote/rollback bookkeeping only; kept, superseded for deployment by this drill",
     "scripts/release-registry.ts": "reused unchanged: promote copies the artefact into releases/<id>, rollback only switches the pointer to the previous release",
