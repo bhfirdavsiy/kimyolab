@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-05T11:50:26.682Z",
+  "createdAt": "2026-11-20T04:05:51.191Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -1247,8 +1247,8 @@
     {
       "path": "content/2026.09.1/chemistry/reactions.json",
       "sourcePath": "public/content/2026.09.1/chemistry/reactions.json",
-      "checksum": "ff40a908873b01693e6548c40572d7d882c139c9188dc5b9b2870e156d56e9b8",
-      "size": 22111
+      "checksum": "08edcbbe1998f151bccbd478169ebcbb2deca71b02ae2cbd79d425df72180713",
+      "size": 19796
     },
     {
       "path": "content/2026.09.1/chemistry/school-lab-models.json",
@@ -1289,8 +1289,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "ad71bb72708a0e8c134f83729034236d62bb7ec5da120139226d1b6b1984c38b",
-      "size": 69016
+      "checksum": "a9b0f94d87e0d20aaa2e694299222a8700fa64c532d9942822abe88cc863a0da",
+      "size": 67512
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1355,7 +1355,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "02c65b1ee306efc25933d32bac8a47150cab97d13579950a4a0f9743f2096291",
+      "checksum": "4b5638307492e86ffe7358b701c551800768eb674d82141e3e92fae02b4786e0",
       "size": 8343
     },
     {
@@ -1367,8 +1367,8 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "c52b5013f93ae73eb81252f8dbfa175d62409b4ac910c091e2c3ae207f81b471",
-      "size": 119048
+      "checksum": "c2f8441cdd0e323179b64b504a8b878ec6e2347814d845dd58d52e86c7fe4353",
+      "size": 117955
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
@@ -1397,7 +1397,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "cc608c23df4b679953610b4d9933370f4d33e80d346ae5b946c62fe0e0438cb6",
+      "checksum": "2e5f156253f5be3f0e9ff4cf9000eee2d9a31784ef7042bb638bd843446a4422",
       "size": 158
     },
     {
