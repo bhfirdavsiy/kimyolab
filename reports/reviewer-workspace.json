@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T03:36:55.739Z",
+  "generatedAt": "2026-11-20T03:42:20.275Z",
   "schema": "kimyolab.reviewer-workspace.v1",
   "workspaceFingerprint": "e764c28a15d5c51310d8fabb922a5c46abed3f9a6002c4f047065e082ff5961e",
   "status": "READY",
@@ -34,13 +34,13 @@
   "output": "review-packets/reviewer-workspace.html",
   "workbench": {
     "schema": "kimyolab.review-workbench.v1",
-    "fingerprint": "bc5318fe52be37eceee4c5e351d0b5886b2d9842139745f7902c2f4c14333d2b",
+    "fingerprint": "97ea002dc5057e6dd28db995ac3a068fc1720422e8f0311af16f9b1ec4594d5e",
     "surfaces": {
-      "chemistry": 134,
+      "chemistry": 127,
       "candidates": 18,
       "assessment": 5,
       "pilot": 4,
-      "authoring": 130,
+      "authoring": 123,
       "release": 31
     },
     "decisionsSchema": "kimyolab.review-decisions.v1",

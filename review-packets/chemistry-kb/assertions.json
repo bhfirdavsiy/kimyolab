@@ -362,28 +362,6 @@
       "comment": null
     },
     {
-      "id": "condition:rxn.p-combustion",
-      "category": "condition",
-      "claim": "rxn.p-combustion talab qiladi: ignition",
-      "data": {
-        "tags": [
-          "ignition"
-        ],
-        "dimensions": {
-          "ignition": "present"
-        }
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
       "id": "condition:rxn.s-combustion",
       "category": "condition",
       "claim": "rxn.s-combustion talab qiladi: ignition",
@@ -1801,28 +1779,6 @@
       "comment": null
     },
     {
-      "id": "observation:rxn.cuso4-na2s",
-      "category": "observation",
-      "claim": "rxn.cuso4-na2s: [{\"type\":\"precipitate\",\"color\":\"black\"}]",
-      "data": {
-        "observations": [
-          {
-            "type": "precipitate",
-            "color": "black"
-          }
-        ]
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
       "id": "observation:rxn.fe-combustion",
       "category": "observation",
       "claim": "rxn.fe-combustion: [{\"type\":\"no-visible-change\"}]",
@@ -1909,28 +1865,6 @@
       ],
       "reviewStatus": "pending",
       "currentHash": "1e996b31833c3305ea52ac91aeccee145fa7c612465ef8d29f0d24809da66b93",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
-      "id": "observation:rxn.na2s-hcl",
-      "category": "observation",
-      "claim": "rxn.na2s-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.na2s-hcl.observation\"}]",
-      "data": {
-        "observations": [
-          {
-            "type": "gas",
-            "descriptionKey": "rxn.na2s-hcl.observation"
-          }
-        ]
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -2032,27 +1966,6 @@
       ],
       "reviewStatus": "pending",
       "currentHash": "1ffa40c60fa4fba65b72f649e0923fa8eda6f49e3c1ce9949c2d4cc7279fb97e",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
-      "id": "observation:rxn.p-combustion",
-      "category": "observation",
-      "claim": "rxn.p-combustion: [{\"type\":\"no-visible-change\"}]",
-      "data": {
-        "observations": [
-          {
-            "type": "no-visible-change"
-          }
-        ]
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -2605,40 +2518,6 @@
       "comment": null
     },
     {
-      "id": "reaction:rxn.cuso4-na2s",
-      "category": "reaction",
-      "claim": "CuSO4 + Na2S → CuS + Na2SO4",
-      "data": {
-        "reactants": [
-          {
-            "formula": "CuSO4"
-          },
-          {
-            "formula": "Na2S"
-          }
-        ],
-        "products": [
-          {
-            "formula": "CuS"
-          },
-          {
-            "formula": "Na2SO4"
-          }
-        ],
-        "reactionType": "precipitation",
-        "direction": "forward"
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
       "id": "reaction:rxn.fe-combustion",
       "category": "reaction",
       "claim": "3Fe + 2O2 → Fe3O4",
@@ -2766,40 +2645,6 @@
       ],
       "reviewStatus": "pending",
       "currentHash": "5820da22b5a3622e76f61f4e0f3ac3b44b41bda55b446371529509347d6c89a3",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
-      "id": "reaction:rxn.na2s-hcl",
-      "category": "reaction",
-      "claim": "Na2S + 2HCl → H2S + 2NaCl",
-      "data": {
-        "reactants": [
-          {
-            "formula": "Na2S"
-          },
-          {
-            "formula": "HCl"
-          }
-        ],
-        "products": [
-          {
-            "formula": "H2S"
-          },
-          {
-            "formula": "NaCl"
-          }
-        ],
-        "reactionType": "gas_evolution",
-        "direction": "forward"
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -2944,37 +2789,6 @@
       ],
       "reviewStatus": "pending",
       "currentHash": "dbb96203805c49e8ac1a1bd42a164dd1ed41519210b7ee4af9677dbb4f75bb4c",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
-      "id": "reaction:rxn.p-combustion",
-      "category": "reaction",
-      "claim": "4P + 5O2 → 2P2O5",
-      "data": {
-        "reactants": [
-          {
-            "formula": "P"
-          },
-          {
-            "formula": "O2"
-          }
-        ],
-        "products": [
-          {
-            "formula": "P2O5"
-          }
-        ],
-        "reactionType": "combustion",
-        "direction": "forward"
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
       "flags": [],
       "reviewDecision": null,
       "comment": null

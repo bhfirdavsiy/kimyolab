@@ -1,0 +1,489 @@
+{
+  "schema": "kimyolab.chemistry-review-decisions.v1",
+  "instructions": "Kimyo eksperti Xasanova Sevara 2026-11-04 da kiritgan qarorlar, ekspert yuborgan fayldan o‘zgarishsiz ko‘chirilgan. O‘chirilgan 3 ta reaksiyaga (rxn.na2s-hcl, rxn.cuso4-na2s, rxn.p-combustion) tegishli 7 ta qaror kiritilmagan: ular docs/reviews/tt-4.2-expert-review-2026-11-04.md hujjatida saqlangan. Import (faqat inson, agent/CI muhitida rad etiladi): npm run chemistry:review-import -- docs/reviews/tt-4.2-expert-decisions-2026-11-04.json",
+  "decisions": [
+    {
+      "assertionId": "reaction:rxn.h2-combustion",
+      "assertionHash": "bb6fcddaa95681ec17d28887a9562d54a80d6e1e7cd19fe9478af1e3dabbcd70",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:21:37.476Z",
+      "comment": "7-sinflarda kimyoviy jarayon, reaksiyalar to'liq ochilmagan"
+    },
+    {
+      "assertionId": "condition:rxn.h2-combustion",
+      "assertionHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:22:37.764Z"
+    },
+    {
+      "assertionId": "observation:rxn.h2-combustion",
+      "assertionHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:23:09.044Z",
+      "comment": "7-sinfda dastlabki tushunchalar berilgan, bu reaksiyar to'liq 8-sinfda beriladi"
+    },
+    {
+      "assertionId": "reaction:rxn.c-combustion",
+      "assertionHash": "66ceda2138644554ba8f54d44be8565df09f14cb53b1cbf375d650233559c5af",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:23:41.076Z"
+    },
+    {
+      "assertionId": "condition:rxn.c-combustion",
+      "assertionHash": "a02d049dce99ed68136479da35a79b0bb8b066933b0cce11f897b99b87a72689",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:23:47.028Z"
+    },
+    {
+      "assertionId": "observation:rxn.c-combustion",
+      "assertionHash": "df01349c96b3b18e827b3e571ddff677a963d788cc22b08899717d17a9e2d42b",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:23:53.332Z"
+    },
+    {
+      "assertionId": "reaction:rxn.s-combustion",
+      "assertionHash": "9b210554bf998985f70aac6db1194bafee5cecbe131917a554bb0084b544693d",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:24:09.101Z",
+      "comment": "Mashq daftarida hamma mavzu to'liq qamrab olinmagan"
+    },
+    {
+      "assertionId": "condition:rxn.s-combustion",
+      "assertionHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:24:30.261Z"
+    },
+    {
+      "assertionId": "observation:rxn.s-combustion",
+      "assertionHash": "10b14380fa8810564e221d2daff0774d0b02cfe148182e6a8dcfe2cc4fda8473",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:24:33.388Z"
+    },
+    {
+      "assertionId": "reaction:rxn.fe-combustion",
+      "assertionHash": "2938f9cd1e044ef3f329af3b1231d258940d96b6c199c95ba01f4f0cb3364be9",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:25:04.268Z",
+      "comment": "Bu tenglama va tenglashtirish bo'yicha ma'lumotlar 7-sinf darsliklarida berilmagan."
+    },
+    {
+      "assertionId": "condition:rxn.fe-combustion",
+      "assertionHash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:26:16.149Z"
+    },
+    {
+      "assertionId": "observation:rxn.fe-combustion",
+      "assertionHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:26:18.532Z"
+    },
+    {
+      "assertionId": "reaction:rxn.zn-hcl",
+      "assertionHash": "02a117e6cb683c14ccd614a8f93608d50896665f77e8ce249923f5c8e505454b",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:26:29.717Z"
+    },
+    {
+      "assertionId": "observation:rxn.zn-hcl",
+      "assertionHash": "0ac51f6cdb5927430535190283a7bf8a2dcdc840fb20ab0b07077a3715a7ce62",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:26:32.580Z"
+    },
+    {
+      "assertionId": "reaction:rxn.zn-h2so4",
+      "assertionHash": "8ee0d84f8c9cc5e8fe45c3a3d8e1e8519d1800e64fed83a91ffb7bdddb408a9b",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:29:45.293Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, lekin qo'shimcha resurslar sifatida berish xato emas"
+    },
+    {
+      "assertionId": "condition:rxn.zn-h2so4",
+      "assertionHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:32:50.039Z"
+    },
+    {
+      "assertionId": "observation:rxn.zn-h2so4",
+      "assertionHash": "596cca75de8027716005635c5b9f58df3885b374021cbf8ab90a8a7d1cfb74d7",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:32:53.519Z"
+    },
+    {
+      "assertionId": "reaction:rxn.mg-h2so4",
+      "assertionHash": "5820da22b5a3622e76f61f4e0f3ac3b44b41bda55b446371529509347d6c89a3",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:39:34.175Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, lekin qo'shimcha resurslar sifatida berish xato emas"
+    },
+    {
+      "assertionId": "condition:rxn.mg-h2so4",
+      "assertionHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:39:42.183Z"
+    },
+    {
+      "assertionId": "observation:rxn.mg-h2so4",
+      "assertionHash": "1e996b31833c3305ea52ac91aeccee145fa7c612465ef8d29f0d24809da66b93",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:39:45.127Z"
+    },
+    {
+      "assertionId": "condition:rxn.h2-cuo",
+      "assertionHash": "e1e99c41f75a2214d74876f4c61665ec874bb1bb776bbfe68c727eab61340cbd",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:41:36.583Z"
+    },
+    {
+      "assertionId": "observation:rxn.h2-cuo",
+      "assertionHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:41:38.247Z"
+    },
+    {
+      "assertionId": "reaction:rxn.nacl-h2so4",
+      "assertionHash": "d7f6463ba9122c09afabb91dd28d4da94b4e1a99024e95df80864aedce26821d",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:41:47.015Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash tavsiya etiladi"
+    },
+    {
+      "assertionId": "condition:rxn.nacl-h2so4",
+      "assertionHash": "e6da9fcc8a66f9d7b667203206375a8d213e18797a9ab8276211a9ce9bca249c",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:42:26.328Z"
+    },
+    {
+      "assertionId": "observation:rxn.nacl-h2so4",
+      "assertionHash": "0f03806f43e6d13239b0b4c6c117f58eebb571f3a45b924acbf7307f2076f0b2",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:42:34.535Z"
+    },
+    {
+      "assertionId": "reaction:rxn.cuo-hcl",
+      "assertionHash": "c07c6e0b10e27d42cd827869f6cb936dc772b76631bf9d0f062dcb1250ff8711",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:43:20.743Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.cuo-hcl",
+      "assertionHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:43:21.943Z"
+    },
+    {
+      "assertionId": "reaction:rxn.naoh-hcl",
+      "assertionHash": "93857b0f9320bc1034f6533926a819ccc5e3934b30e1d6cc5e1893c0d91ad9b7",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:43:31.303Z",
+      "comment": "Bu reaksiya olib tashlansin."
+    },
+    {
+      "assertionId": "observation:rxn.naoh-hcl",
+      "assertionHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:54:30.879Z"
+    },
+    {
+      "assertionId": "reaction:rxn.caco3-hcl",
+      "assertionHash": "670e374c4f38d690b2a76c3a727b5fb138b42f2d613d4910ab69b41193053694",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:54:40.151Z"
+    },
+    {
+      "assertionId": "observation:rxn.caco3-hcl",
+      "assertionHash": "7abb8ee6f3e52c4471f78928a9af21465b0cdf65301b987eb591b77dc21fc97c",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:54:42.375Z"
+    },
+    {
+      "assertionId": "observation:rxn.cao-water",
+      "assertionHash": "d84b34901ada2ebccbcbc9eeba6b5f808c5d11d6bc290d778fc5ff953b9a8e02",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T03:55:07.527Z"
+    },
+    {
+      "assertionId": "reaction:rxn.co2-water",
+      "assertionHash": "e09dddd47599b2428ebea7df2d3acd3c0af826347613bd5392f2f0dfde60401e",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:02:51.765Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.co2-water",
+      "assertionHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:02:56.597Z"
+    },
+    {
+      "assertionId": "reaction:rxn.zncl2-naoh",
+      "assertionHash": "24b6fe8cd35a6e5b11a07e86fe8587cc8f0ec940c568d6a211a5a2b3da31f015",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:03:06.285Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.zncl2-naoh",
+      "assertionHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:03:08.725Z"
+    },
+    {
+      "assertionId": "reaction:rxn.znoh2-hcl",
+      "assertionHash": "e7d5f2294b1921ee0ed9a1746b78759cc858dde045e4250e7f2656dbdc17161a",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:03:15.493Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.znoh2-hcl",
+      "assertionHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:03:16.813Z"
+    },
+    {
+      "assertionId": "reaction:rxn.agno3-nacl",
+      "assertionHash": "0a144f1f693e3e5596d6b2cdbf529d26a694cce5868a898eb5c8bf0bf85137bd",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:03:26.093Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.agno3-nacl",
+      "assertionHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:00.029Z"
+    },
+    {
+      "assertionId": "reaction:rxn.agno3-nabr",
+      "assertionHash": "2f6dd9c04167c14352029ef7f9c88cf68fc70ffb6865903fc785be103c4bf875",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:03.205Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.agno3-nabr",
+      "assertionHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:07.261Z"
+    },
+    {
+      "assertionId": "reaction:rxn.agno3-nai",
+      "assertionHash": "1140fcd5777519698b8fd781de8722923dbe204049a821d776a196190816dd0d",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:11.613Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.agno3-nai",
+      "assertionHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:15.621Z"
+    },
+    {
+      "assertionId": "reaction:rxn.cl2-kbr",
+      "assertionHash": "925606d40bfb2bff930f7d6f25ffed20c432c79758d10ac3469d64a54b705a4c",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:20.261Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.cl2-kbr",
+      "assertionHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:24.189Z"
+    },
+    {
+      "assertionId": "reaction:rxn.br2-ki",
+      "assertionHash": "bae6fd137662c002cea02737f63499a0357f243ead233e2929706b775ce7dd16",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:28.381Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.br2-ki",
+      "assertionHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:31.917Z"
+    },
+    {
+      "assertionId": "reaction:rxn.bacl2-h2so4",
+      "assertionHash": "9ae3af8a1529f89df89e3f2c9fc5325af254547888c726f6e6ef341d0587ce3f",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:40.069Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "observation:rxn.bacl2-h2so4",
+      "assertionHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:41.565Z"
+    },
+    {
+      "assertionId": "reaction:rxn.nh4cl-caoh2",
+      "assertionHash": "dbb96203805c49e8ac1a1bd42a164dd1ed41519210b7ee4af9677dbb4f75bb4c",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:46.941Z",
+      "comment": "Yangi dasrilkda  bu reaksiyalar berilmagan, bu reaksiyani olib tashlash kerak"
+    },
+    {
+      "assertionId": "condition:rxn.nh4cl-caoh2",
+      "assertionHash": "c3f5f5638a3a735e34fb689f7e4d3fbbeb8fae5c16776f376c1dd8084faedb14",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:50.053Z"
+    },
+    {
+      "assertionId": "observation:rxn.nh4cl-caoh2",
+      "assertionHash": "1ffa40c60fa4fba65b72f649e0923fa8eda6f49e3c1ce9949c2d4cc7279fb97e",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:52.277Z"
+    },
+    {
+      "assertionId": "reaction:rxn.nh3-hcl",
+      "assertionHash": "2dfdff30c8647e8002ce96f7decba2a57b12c30949f362beab44db1dc7a864a8",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:57.382Z"
+    },
+    {
+      "assertionId": "observation:rxn.nh3-hcl",
+      "assertionHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:04:58.886Z"
+    },
+    {
+      "assertionId": "reaction:rxn.c-combustion-limited",
+      "assertionHash": "98378b1852fa5e9c84b2d93898423619d5795feb3c19a63702de3e6c4ac62e91",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:05:33.007Z"
+    },
+    {
+      "assertionId": "condition:rxn.c-combustion-limited",
+      "assertionHash": "80180d5adceccb429db01c1690278bf678c66fd17017c1024ca81240a0c6c0d6",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:05:33.871Z"
+    },
+    {
+      "assertionId": "observation:rxn.c-combustion-limited",
+      "assertionHash": "b14249fee27757fd2174ec79b3f9a4590cd253c3329881ea655b5629bbe820c6",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-04T04:05:35.271Z"
+    }
+  ]
+}

@@ -17,26 +17,26 @@
     ]
   },
   "summary": {
-    "reactions": 28,
-    "equationParsed": 28,
-    "formulasMatchRecord": 28,
-    "atomBalanced": 28,
-    "chargeBalanced": 28,
-    "balancerAgrees": 28,
-    "arrowMatchesDirection": 28,
-    "speciesResolved": 27,
+    "reactions": 25,
+    "equationParsed": 25,
+    "formulasMatchRecord": 25,
+    "atomBalanced": 25,
+    "chargeBalanced": 25,
+    "balancerAgrees": 25,
+    "arrowMatchesDirection": 25,
+    "speciesResolved": 24,
     "conditionRejected": 0,
     "observationFlagged": 6,
     "sourceEligible": 0,
-    "decisionsToMake": 67,
+    "decisionsToMake": 60,
     "expertReviewed": 0,
     "hazardSpecies": 39,
     "hazardCodes": 45,
-    "reactionSafetyTags": 20
+    "reactionSafetyTags": 18
   },
   "acceptance": {
     "criterion": "28/28 reactions reviewed by a chemistry expert; 0 unapproved assertions shown as approved",
-    "reviewed": "0/28",
+    "reviewed": "0/25",
     "shownReviewedWithoutApproval": [],
     "status": "NOT_MET — human review outstanding (DRAFT/PENDING never counts as PASS)"
   },
@@ -2435,295 +2435,6 @@
       ]
     },
     {
-      "id": "rxn.na2s-hcl",
-      "molecularEquation": "Na2S + 2HCl → H2S + 2NaCl",
-      "reactionType": "gas_evolution",
-      "direction": "forward",
-      "machineChecks": {
-        "equationParse": "PARSED",
-        "formulasMatchRecord": true,
-        "statedCoefficients": [
-          1,
-          2,
-          1,
-          2
-        ],
-        "atomBalance": "BALANCED",
-        "chargeBalance": "BALANCED",
-        "atoms": {
-          "reactants": {
-            "Cl": 2,
-            "H": 2,
-            "Na": 2,
-            "S": 1
-          },
-          "products": {
-            "Cl": 2,
-            "H": 2,
-            "Na": 2,
-            "S": 1
-          }
-        },
-        "balancer": {
-          "status": "AGREES",
-          "coefficients": [
-            1,
-            2,
-            1,
-            2
-          ]
-        },
-        "arrowMatchesDirection": true,
-        "speciesResolution": "RESOLVED",
-        "unresolvedParticipants": [],
-        "participants": {
-          "reactants": [
-            "species.na2s",
-            "species.hcl"
-          ],
-          "products": [
-            "species.h2s",
-            "species.nacl"
-          ]
-        },
-        "conditionFields": [],
-        "conditionUnknownFields": [],
-        "conditionVerdict": "CONTRACT_OK",
-        "observationFlags": []
-      },
-      "safetyTags": [
-        "toxic gas"
-      ],
-      "sources": [
-        {
-          "id": "src.beta1.migration",
-          "category": "INTERNAL_PROPOSAL",
-          "classification": "PROPOSED",
-          "canonicalAuthoringEligible": false,
-          "bibliographyMissing": [
-            "authority",
-            "edition",
-            "authors",
-            "isbnOrUrl",
-            "license",
-            "effectiveDate"
-          ]
-        }
-      ],
-      "knowledgeIndexReview": "MODEL_RECORD",
-      "decisions": [
-        {
-          "assertionId": "reaction:rxn.na2s-hcl",
-          "assertionHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
-          "claim": "Na2S + 2HCl → H2S + 2NaCl",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        },
-        {
-          "assertionId": "observation:rxn.na2s-hcl",
-          "assertionHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
-          "claim": "rxn.na2s-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.na2s-hcl.observation\"}]",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        }
-      ]
-    },
-    {
-      "id": "rxn.cuso4-na2s",
-      "molecularEquation": "CuSO4 + Na2S → CuS + Na2SO4",
-      "reactionType": "precipitation",
-      "direction": "forward",
-      "machineChecks": {
-        "equationParse": "PARSED",
-        "formulasMatchRecord": true,
-        "statedCoefficients": [
-          1,
-          1,
-          1,
-          1
-        ],
-        "atomBalance": "BALANCED",
-        "chargeBalance": "BALANCED",
-        "atoms": {
-          "reactants": {
-            "Cu": 1,
-            "Na": 2,
-            "O": 4,
-            "S": 2
-          },
-          "products": {
-            "Cu": 1,
-            "Na": 2,
-            "O": 4,
-            "S": 2
-          }
-        },
-        "balancer": {
-          "status": "AGREES",
-          "coefficients": [
-            1,
-            1,
-            1,
-            1
-          ]
-        },
-        "arrowMatchesDirection": true,
-        "speciesResolution": "RESOLVED",
-        "unresolvedParticipants": [],
-        "participants": {
-          "reactants": [
-            "species.cuso4",
-            "species.na2s"
-          ],
-          "products": [
-            "species.cus",
-            "species.na2so4"
-          ]
-        },
-        "conditionFields": [],
-        "conditionUnknownFields": [],
-        "conditionVerdict": "CONTRACT_OK",
-        "observationFlags": []
-      },
-      "safetyTags": [],
-      "sources": [
-        {
-          "id": "src.beta1.migration",
-          "category": "INTERNAL_PROPOSAL",
-          "classification": "PROPOSED",
-          "canonicalAuthoringEligible": false,
-          "bibliographyMissing": [
-            "authority",
-            "edition",
-            "authors",
-            "isbnOrUrl",
-            "license",
-            "effectiveDate"
-          ]
-        }
-      ],
-      "knowledgeIndexReview": "MODEL_RECORD",
-      "decisions": [
-        {
-          "assertionId": "reaction:rxn.cuso4-na2s",
-          "assertionHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-          "claim": "CuSO4 + Na2S → CuS + Na2SO4",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        },
-        {
-          "assertionId": "observation:rxn.cuso4-na2s",
-          "assertionHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
-          "claim": "rxn.cuso4-na2s: [{\"type\":\"precipitate\",\"color\":\"black\"}]",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        }
-      ]
-    },
-    {
-      "id": "rxn.p-combustion",
-      "molecularEquation": "4P + 5O2 → 2P2O5",
-      "reactionType": "combustion",
-      "direction": "forward",
-      "machineChecks": {
-        "equationParse": "PARSED",
-        "formulasMatchRecord": true,
-        "statedCoefficients": [
-          4,
-          5,
-          2
-        ],
-        "atomBalance": "BALANCED",
-        "chargeBalance": "BALANCED",
-        "atoms": {
-          "reactants": {
-            "O": 10,
-            "P": 4
-          },
-          "products": {
-            "O": 10,
-            "P": 4
-          }
-        },
-        "balancer": {
-          "status": "AGREES",
-          "coefficients": [
-            4,
-            5,
-            2
-          ]
-        },
-        "arrowMatchesDirection": true,
-        "speciesResolution": "RESOLVED",
-        "unresolvedParticipants": [],
-        "participants": {
-          "reactants": [
-            "species.p",
-            "species.o2"
-          ],
-          "products": [
-            "species.p2o5"
-          ]
-        },
-        "conditionFields": [
-          "tags"
-        ],
-        "conditionUnknownFields": [],
-        "conditionVerdict": "CONTRACT_OK",
-        "observationFlags": []
-      },
-      "safetyTags": [
-        "flammable"
-      ],
-      "sources": [
-        {
-          "id": "src.beta1.migration",
-          "category": "INTERNAL_PROPOSAL",
-          "classification": "PROPOSED",
-          "canonicalAuthoringEligible": false,
-          "bibliographyMissing": [
-            "authority",
-            "edition",
-            "authors",
-            "isbnOrUrl",
-            "license",
-            "effectiveDate"
-          ]
-        }
-      ],
-      "knowledgeIndexReview": "MODEL_RECORD",
-      "decisions": [
-        {
-          "assertionId": "reaction:rxn.p-combustion",
-          "assertionHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
-          "claim": "4P + 5O2 → 2P2O5",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        },
-        {
-          "assertionId": "condition:rxn.p-combustion",
-          "assertionHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
-          "claim": "rxn.p-combustion talab qiladi: ignition",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        },
-        {
-          "assertionId": "observation:rxn.p-combustion",
-          "assertionHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
-          "claim": "rxn.p-combustion: [{\"type\":\"no-visible-change\"}]",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        }
-      ]
-    },
-    {
       "id": "rxn.c-combustion-limited",
       "molecularEquation": "2C + O2 → 2CO",
       "reactionType": "combustion",
@@ -3973,18 +3684,6 @@
         "id": "rxn.nh3-hcl",
         "tags": [
           "irritant fumes"
-        ]
-      },
-      {
-        "id": "rxn.na2s-hcl",
-        "tags": [
-          "toxic gas"
-        ]
-      },
-      {
-        "id": "rxn.p-combustion",
-        "tags": [
-          "flammable"
         ]
       },
       {

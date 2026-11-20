@@ -38,7 +38,7 @@
       "kind": "review-chemistry",
       "priority": "B",
       "role": "chemistry",
-      "count": 28,
+      "count": 27,
       "targetIds": [
         "condition-context:solution-mixing",
         "condition-term:concentrated acid",
@@ -57,7 +57,6 @@
         "condition:rxn.mg-h2so4",
         "condition:rxn.nacl-h2so4",
         "condition:rxn.nh4cl-caoh2",
-        "condition:rxn.p-combustion",
         "condition:rxn.s-combustion",
         "condition:rxn.zn-h2so4",
         "hydrolysis:AlCl3",
@@ -70,9 +69,9 @@
         "reaction:rxn.agno3-nacl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 21/28 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 20/27 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 28 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
+      "nextHumanAction": "Chemistry reviewer: review 27 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
     },
     {
       "rank": 3,
@@ -136,7 +135,7 @@
       "kind": "review-chemistry",
       "priority": "E",
       "role": "chemistry",
-      "count": 69,
+      "count": 63,
       "targetIds": [
         "dissociation:AgNO3",
         "dissociation:BaCl2",
@@ -168,14 +167,11 @@
         "observation:rxn.cao-water",
         "observation:rxn.co2-water",
         "observation:rxn.cuo-hcl",
-        "observation:rxn.cuso4-na2s",
         "observation:rxn.fe-combustion",
         "observation:rxn.h2-cuo",
         "observation:rxn.mg-h2so4",
-        "observation:rxn.na2s-hcl",
         "observation:rxn.nh3-hcl",
         "observation:rxn.nh4cl-caoh2",
-        "observation:rxn.p-combustion",
         "observation:rxn.s-combustion",
         "observation:rxn.zn-h2so4",
         "observation:rxn.zn-hcl",
@@ -191,17 +187,14 @@
         "reaction:rxn.cl2-kbr",
         "reaction:rxn.co2-water",
         "reaction:rxn.cuo-hcl",
-        "reaction:rxn.cuso4-na2s",
         "reaction:rxn.fe-combustion",
         "reaction:rxn.h2-combustion",
         "reaction:rxn.h2-cuo",
         "reaction:rxn.mg-h2so4",
-        "reaction:rxn.na2s-hcl",
         "reaction:rxn.nacl-h2so4",
         "reaction:rxn.naoh-hcl",
         "reaction:rxn.nh3-hcl",
         "reaction:rxn.nh4cl-caoh2",
-        "reaction:rxn.p-combustion",
         "reaction:rxn.s-combustion",
         "reaction:rxn.zn-h2so4",
         "reaction:rxn.zn-hcl",
@@ -209,9 +202,9 @@
         "reaction:rxn.znoh2-hcl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 69/69 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 63/63 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 69 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
+      "nextHumanAction": "Chemistry reviewer: review 63 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
     },
     {
       "rank": 6,
@@ -329,7 +322,7 @@
       "kind": "add-source",
       "priority": "A",
       "role": "author",
-      "count": 67,
+      "count": 60,
       "targetIds": [
         "observation:rxn.h2-combustion",
         "observation:rxn.cl2-kbr",
@@ -347,7 +340,6 @@
         "condition:rxn.nacl-h2so4",
         "condition:rxn.c-combustion",
         "condition:rxn.mg-h2so4",
-        "condition:rxn.p-combustion",
         "condition:rxn.h2-combustion",
         "observation:rxn.s-combustion",
         "observation:rxn.fe-combustion",
@@ -355,12 +347,10 @@
         "reaction:rxn.bacl2-h2so4",
         "reaction:rxn.mg-h2so4",
         "reaction:rxn.s-combustion",
-        "reaction:rxn.cuso4-na2s",
         "reaction:rxn.zn-hcl",
         "reaction:rxn.nh4cl-caoh2",
         "observation:rxn.zn-h2so4",
         "reaction:rxn.co2-water",
-        "observation:rxn.cuso4-na2s",
         "observation:rxn.agno3-nabr",
         "reaction:rxn.nh3-hcl",
         "reaction:rxn.zn-h2so4",
@@ -389,19 +379,15 @@
         "reaction:rxn.h2-cuo",
         "reaction:rxn.cl2-kbr",
         "reaction:rxn.fe-combustion",
-        "reaction:rxn.p-combustion",
         "observation:rxn.c-combustion",
         "reaction:rxn.znoh2-hcl",
         "observation:rxn.cao-water",
-        "reaction:rxn.na2s-hcl",
-        "observation:rxn.na2s-hcl",
         "observation:rxn.nh3-hcl",
-        "observation:rxn.p-combustion",
         "observation:rxn.zncl2-naoh"
       ],
       "file": "content-src/chemistry/reactions.json",
       "blockedBy": [],
-      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 67 claim(s) in content-src/chemistry/reactions.json."
+      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 60 claim(s) in content-src/chemistry/reactions.json."
     },
     {
       "rank": 15,

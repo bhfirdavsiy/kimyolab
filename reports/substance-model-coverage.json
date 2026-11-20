@@ -5,8 +5,8 @@
   "summary": {
     "materialItems": 154,
     "byStatus": {
-      "COVERED_BY_BOUND_AUTHORITY": 34,
-      "KNOWN_TO_OTHER_AUTHORITY": 16,
+      "COVERED_BY_BOUND_AUTHORITY": 32,
+      "KNOWN_TO_OTHER_AUTHORITY": 18,
       "NAME_NOT_RESOLVED": 96,
       "SPECIES_WITHOUT_AUTHORITY": 1,
       "UNKNOWN_SUBSTANCE": 7
@@ -132,8 +132,7 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
@@ -220,10 +219,9 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
-          "status": "COVERED_BY_BOUND_AUTHORITY"
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
         {
           "text": "KOH yoki NaOH",
@@ -386,10 +384,9 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
-          "status": "COVERED_BY_BOUND_AUTHORITY"
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
         {
           "text": "NaOH",
@@ -1246,8 +1243,7 @@
           "speciesId": "species.na2so4",
           "authorities": [
             "IonicEngine",
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
@@ -1256,8 +1252,7 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
@@ -1834,8 +1829,7 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },

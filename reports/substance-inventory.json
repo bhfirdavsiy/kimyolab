@@ -21,7 +21,7 @@
     },
     "reactions": {
       "file": "content-src/chemistry/reactions.json",
-      "records": 28,
+      "records": 25,
       "runtime": "ReactionMatcher (src/domain/chemistry/reaction-matcher.ts), policy require-record-conditions"
     },
     "ionicEngine": {
@@ -100,21 +100,21 @@
     }
   },
   "reactions": {
-    "total": 28,
+    "total": 25,
     "byType": {
       "acid_base": 2,
       "combination": 2,
-      "combustion": 5,
+      "combustion": 4,
       "equilibrium": 1,
-      "gas_evolution": 4,
+      "gas_evolution": 3,
       "neutralization": 1,
-      "precipitation": 6,
+      "precipitation": 5,
       "redox": 4,
       "single_displacement": 3
     },
     "explicitNoReaction": 0,
     "sourceRefIds": {
-      "src.beta1.migration": 28
+      "src.beta1.migration": 25
     }
   },
   "perSpecies": [

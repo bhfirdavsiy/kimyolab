@@ -2,21 +2,21 @@
   "schema": "kimyolab.chemistry-kb-inventory.v1",
   "counts": {
     "species": 84,
-    "reactions": 28,
+    "reactions": 25,
     "solubilityRecords": {
       "dissociation": 12,
       "insoluble": 8
     },
     "hydrolysisSalts": 4,
     "electrolysisRecords": 1,
-    "conditionedReactions": 11,
+    "conditionedReactions": 10,
     "explicitNoReactionRecords": 0,
-    "assertions": 134,
+    "assertions": 127,
     "reviewed": 0,
-    "pending": 134,
+    "pending": 127,
     "rejected": 0,
     "stale": 0,
-    "sourceBacked": 104,
+    "sourceBacked": 97,
     "missingSource": 30
   },
   "reactions": [
@@ -893,108 +893,6 @@
       "observationFlags": []
     },
     {
-      "reactionId": "rxn.na2s-hcl",
-      "reactants": [
-        "Na2S",
-        "HCl"
-      ],
-      "products": [
-        "H2S",
-        "NaCl"
-      ],
-      "reactionType": "gas_evolution",
-      "conditions": {
-        "tags": [],
-        "dimensions": {}
-      },
-      "observation": [
-        {
-          "type": "gas",
-          "descriptionKey": "rxn.na2s-hcl.observation"
-        }
-      ],
-      "netIonicDerivable": false,
-      "netIonicUnsupported": [
-        "Na2S",
-        "H2S"
-      ],
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "reviewStatus": "pending",
-      "usedByActivities": [],
-      "observationFlags": []
-    },
-    {
-      "reactionId": "rxn.cuso4-na2s",
-      "reactants": [
-        "CuSO4",
-        "Na2S"
-      ],
-      "products": [
-        "CuS",
-        "Na2SO4"
-      ],
-      "reactionType": "precipitation",
-      "conditions": {
-        "tags": [],
-        "dimensions": {}
-      },
-      "observation": [
-        {
-          "type": "precipitate",
-          "color": "black"
-        }
-      ],
-      "netIonicDerivable": false,
-      "netIonicUnsupported": [
-        "CuSO4",
-        "Na2S"
-      ],
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "reviewStatus": "pending",
-      "usedByActivities": [],
-      "observationFlags": []
-    },
-    {
-      "reactionId": "rxn.p-combustion",
-      "reactants": [
-        "P",
-        "O2"
-      ],
-      "products": [
-        "P2O5"
-      ],
-      "reactionType": "combustion",
-      "conditions": {
-        "tags": [
-          "ignition"
-        ],
-        "dimensions": {
-          "ignition": "present"
-        }
-      },
-      "observation": [
-        {
-          "type": "no-visible-change"
-        }
-      ],
-      "netIonicDerivable": false,
-      "netIonicUnsupported": [
-        "P",
-        "O2",
-        "P2O5"
-      ],
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "reviewStatus": "pending",
-      "usedByActivities": [],
-      "observationFlags": []
-    },
-    {
       "reactionId": "rxn.c-combustion-limited",
       "reactants": [
         "C",
@@ -1060,16 +958,13 @@
       "NET_IONIC_UNSUPPORTED:rxn.cl2-kbr:Cl2,KBr,KCl,Br2",
       "NET_IONIC_UNSUPPORTED:rxn.co2-water:CO2,H2CO3",
       "NET_IONIC_UNSUPPORTED:rxn.cuo-hcl:CuO,CuCl2",
-      "NET_IONIC_UNSUPPORTED:rxn.cuso4-na2s:CuSO4,Na2S",
       "NET_IONIC_UNSUPPORTED:rxn.fe-combustion:Fe,O2,Fe3O4",
       "NET_IONIC_UNSUPPORTED:rxn.h2-combustion:H2,O2",
       "NET_IONIC_UNSUPPORTED:rxn.h2-cuo:H2,CuO,Cu",
       "NET_IONIC_UNSUPPORTED:rxn.mg-h2so4:Mg,MgSO4,H2",
-      "NET_IONIC_UNSUPPORTED:rxn.na2s-hcl:Na2S,H2S",
       "NET_IONIC_UNSUPPORTED:rxn.nacl-h2so4:NaHSO4",
       "NET_IONIC_UNSUPPORTED:rxn.nh3-hcl:NH3",
       "NET_IONIC_UNSUPPORTED:rxn.nh4cl-caoh2:Ca(OH)2,NH3",
-      "NET_IONIC_UNSUPPORTED:rxn.p-combustion:P,O2,P2O5",
       "NET_IONIC_UNSUPPORTED:rxn.s-combustion:S,O2,SO2",
       "NET_IONIC_UNSUPPORTED:rxn.zn-h2so4:Zn,ZnSO4,H2",
       "NET_IONIC_UNSUPPORTED:rxn.zn-hcl:Zn,H2",
@@ -1091,7 +986,6 @@
       "REVIEW_PENDING:condition:rxn.mg-h2so4",
       "REVIEW_PENDING:condition:rxn.nacl-h2so4",
       "REVIEW_PENDING:condition:rxn.nh4cl-caoh2",
-      "REVIEW_PENDING:condition:rxn.p-combustion",
       "REVIEW_PENDING:condition:rxn.s-combustion",
       "REVIEW_PENDING:condition:rxn.zn-h2so4",
       "REVIEW_PENDING:dissociation:AgNO3",
@@ -1154,17 +1048,14 @@
       "REVIEW_PENDING:observation:rxn.cl2-kbr",
       "REVIEW_PENDING:observation:rxn.co2-water",
       "REVIEW_PENDING:observation:rxn.cuo-hcl",
-      "REVIEW_PENDING:observation:rxn.cuso4-na2s",
       "REVIEW_PENDING:observation:rxn.fe-combustion",
       "REVIEW_PENDING:observation:rxn.h2-combustion",
       "REVIEW_PENDING:observation:rxn.h2-cuo",
       "REVIEW_PENDING:observation:rxn.mg-h2so4",
-      "REVIEW_PENDING:observation:rxn.na2s-hcl",
       "REVIEW_PENDING:observation:rxn.nacl-h2so4",
       "REVIEW_PENDING:observation:rxn.naoh-hcl",
       "REVIEW_PENDING:observation:rxn.nh3-hcl",
       "REVIEW_PENDING:observation:rxn.nh4cl-caoh2",
-      "REVIEW_PENDING:observation:rxn.p-combustion",
       "REVIEW_PENDING:observation:rxn.s-combustion",
       "REVIEW_PENDING:observation:rxn.zn-h2so4",
       "REVIEW_PENDING:observation:rxn.zn-hcl",
@@ -1182,17 +1073,14 @@
       "REVIEW_PENDING:reaction:rxn.cl2-kbr",
       "REVIEW_PENDING:reaction:rxn.co2-water",
       "REVIEW_PENDING:reaction:rxn.cuo-hcl",
-      "REVIEW_PENDING:reaction:rxn.cuso4-na2s",
       "REVIEW_PENDING:reaction:rxn.fe-combustion",
       "REVIEW_PENDING:reaction:rxn.h2-combustion",
       "REVIEW_PENDING:reaction:rxn.h2-cuo",
       "REVIEW_PENDING:reaction:rxn.mg-h2so4",
-      "REVIEW_PENDING:reaction:rxn.na2s-hcl",
       "REVIEW_PENDING:reaction:rxn.nacl-h2so4",
       "REVIEW_PENDING:reaction:rxn.naoh-hcl",
       "REVIEW_PENDING:reaction:rxn.nh3-hcl",
       "REVIEW_PENDING:reaction:rxn.nh4cl-caoh2",
-      "REVIEW_PENDING:reaction:rxn.p-combustion",
       "REVIEW_PENDING:reaction:rxn.s-combustion",
       "REVIEW_PENDING:reaction:rxn.zn-h2so4",
       "REVIEW_PENDING:reaction:rxn.zn-hcl",
@@ -1225,7 +1113,6 @@
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.mg-h2so4",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.nacl-h2so4",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.nh4cl-caoh2",
-      "SOURCE_NOT_ACCEPTABLE:condition:rxn.p-combustion",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.s-combustion",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.zn-h2so4",
       "SOURCE_NOT_ACCEPTABLE:dissociation:AgNO3",
@@ -1281,17 +1168,14 @@
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.cl2-kbr",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.co2-water",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.cuo-hcl",
-      "SOURCE_NOT_ACCEPTABLE:observation:rxn.cuso4-na2s",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.fe-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.h2-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.h2-cuo",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.mg-h2so4",
-      "SOURCE_NOT_ACCEPTABLE:observation:rxn.na2s-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.nacl-h2so4",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.naoh-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.nh3-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.nh4cl-caoh2",
-      "SOURCE_NOT_ACCEPTABLE:observation:rxn.p-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.s-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.zn-h2so4",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.zn-hcl",
@@ -1309,17 +1193,14 @@
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.cl2-kbr",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.co2-water",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuo-hcl",
-      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuso4-na2s",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.fe-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.h2-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.h2-cuo",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.mg-h2so4",
-      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.na2s-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.nacl-h2so4",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.naoh-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.nh3-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.nh4cl-caoh2",
-      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.p-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.s-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.zn-h2so4",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.zn-hcl",
