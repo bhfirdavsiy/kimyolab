@@ -21,7 +21,8 @@ test('chemistry validator writes machine-readable zero-error technical report',(
   execFileSync(process.execPath,['--experimental-strip-types','scripts/validate-chemistry.ts'],{cwd:root,stdio:'pipe'});
   const report=JSON.parse(fs.readFileSync(path.join(root,'reports/chemistry-validation.json'),'utf8'));
   assert.ok(report.speciesRecords>=71);
-  assert.ok(report.reactionRecords>=27);
+  // TT 4.2 expert review (2026-11-04): 3 unused reactions removed by user decision (28 → 25).
+  assert.ok(report.reactionRecords>=25);
   assert.equal(report.formulaErrors,0);
   assert.equal(report.reactionBalanceErrors,0);
   assert.equal(report.referenceErrors,0);

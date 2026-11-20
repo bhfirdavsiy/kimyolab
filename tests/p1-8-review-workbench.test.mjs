@@ -266,7 +266,8 @@ test('workbench page: offline (CSP, no network), DOM-safe rendering, accessible 
   assert.equal(report.workbench.registerWrites,false); assert.equal(report.workbench.networkRequests,false);
   // P1.9 adds the authoring (read-only) and release-decision surfaces to the same workbench; the P1.8 four are unchanged
   const {authoring:_a,release:_r,...p18}=report.workbench.surfaces;
-  assert.deepEqual(p18,{chemistry:134,candidates:18,assessment:5,pilot:4});
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
+  assert.deepEqual(p18,{chemistry:127,candidates:18,assessment:5,pilot:4});
   assert.equal(report.approveAllAvailable,false);
 });
 
@@ -288,7 +289,7 @@ test('review reports are deterministic, derived from registers, and report 0 hum
   assert.deepEqual(read(REVIEW_REPORTS.goldenSlice),goldenSliceDependencies(m,root));
   const s=read(REVIEW_REPORTS.status);
   assert.equal(s.humanDecisionsImported.total,0,'0 human decisions imported — nothing fabricated');
-  assert.deepEqual([s.chemistry.total,s.chemistry.pending,s.chemistry.approved,s.chemistry.rejected,s.chemistry.stale],[134,134,0,0,0]);
+  assert.deepEqual([s.chemistry.total,s.chemistry.pending,s.chemistry.approved,s.chemistry.rejected,s.chemistry.stale],[127,127,0,0,0]); // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
   assert.deepEqual([s.assessment.total,s.assessment.chemistryApproved,s.assessment.didacticApproved,s.assessment.fullyApproved],[5,0,0,0]);
   assert.deepEqual([s.pilot.pendingSignoff,s.pilot.signedOff],[4,0]);
   assert.equal(s.globalStrictEnforcement,false);

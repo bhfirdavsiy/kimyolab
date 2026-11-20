@@ -261,7 +261,10 @@ test('localization: every key the renderer reads is in the catalog; labels are t
 
 test('no chemistry truth invented: record counts unchanged since P2.5; new text is display only (review pending)',()=>{
   assert.equal(expansion.newChemistryRecords,0);
-  assert.deepEqual(expansion.chemistryRecordCounts,P25_BASELINE.chemistryRecords);
+  // TT 4.2 expert review (2026-11-04): the user removed 3 unused reactions (28 → 25). The P2.5 baseline is history and
+  // is not rewritten; the invariant is still "nothing added": reactions may only have gone down, every other count is equal.
+  const {reactions:nowReactions,...nowRest}=expansion.chemistryRecordCounts, {reactions:baseReactions,...baseRest}=P25_BASELINE.chemistryRecords;
+  assert.deepEqual(nowRest,baseRest); assert.equal(nowReactions,25); assert.ok(nowReactions<=baseReactions);
   assert.equal(json('content-src/chemistry/equilibrium.json').records.length,2);
   assert.equal(json('content-src/chemistry/manganese-redox.json').records.length,3);
   assert.equal(json('content-src/chemistry/kinetics.json').records.length,3,'no kinetics record added to unblock 11.16');
