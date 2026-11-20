@@ -15,7 +15,7 @@
       "id": "repository-files-only",
       "pass": true,
       "detail": {
-        "files": 1939
+        "files": 1557
       }
     },
     {
@@ -31,6 +31,8 @@
           "PATH",
           "PLAYWRIGHT_BROWSERS_PATH",
           "SSL_CERT_FILE",
+          "TEMP",
+          "TMP",
           "USERPROFILE",
           "https_proxy",
           "no_proxy",
@@ -47,7 +49,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 1.7
+        "seconds": 1.4
       }
     },
     {
@@ -63,7 +65,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 0.6
+        "seconds": 0.5
       }
     },
     {
@@ -71,7 +73,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 10.1
+        "seconds": 11.5
       }
     },
     {
