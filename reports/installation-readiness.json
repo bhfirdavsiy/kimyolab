@@ -170,7 +170,7 @@
           "npm run deploy:preflight",
           "npm run deploy:smoke"
         ],
-        "seconds": 12
+        "seconds": 14
       }
     },
     {
