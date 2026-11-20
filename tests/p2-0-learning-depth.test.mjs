@@ -192,7 +192,8 @@ test('provenance debt and pending review are their own categories — never coun
   assert.ok(g.units.flatMap(u=>u.blockingGaps).filter(x=>x.gap==='PROVENANCE_DEBT').every(x=>x.category==='PROVENANCE'));
   assert.ok(g.units.flatMap(u=>u.blockingGaps).filter(x=>['UNREVIEWED','ASSESSMENT_NOT_APPROVED','NOT_RELEASED'].includes(x.gap)).every(x=>x.category==='GOVERNANCE'));
   const prov=reports.workPackages.packages.find(p=>p.id==='wp.provenance');
-  assert.equal(prov.facts.addSourceTasks,127); assert.match(prov.facts.note,/PROVENANCE DEBT/);
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived add-source tasks drop by 7 (127 → 120).
+  assert.equal(prov.facts.addSourceTasks,120); assert.match(prov.facts.note,/PROVENANCE DEBT/);
   for(const u of g.units) for(const k of ['strongestLayer','weakestLayer','blockingGaps','nextTechnicalOpportunity','nextHumanDependency']) assert.ok(k in u,k);
 });
 

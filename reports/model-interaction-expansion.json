@@ -227,7 +227,8 @@
           "formula": "Mg",
           "speciesId": "species.mg",
           "existingRecordsWithThisSpecies": [
-            "rxn.mg-h2so4"
+            "rxn.mg-h2so4",
+            "rxn.mg-hcl"
           ]
         },
         {
@@ -305,6 +306,13 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
         }
       ]
     },
@@ -356,6 +364,13 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
           ]
         }
       ]
@@ -414,6 +429,13 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
         }
       ]
     },
@@ -460,6 +482,13 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
         }
       ]
     },
@@ -471,6 +500,18 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "unlockFacts": [
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
           ]
         }
       ]
@@ -491,13 +532,6 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
-          ]
-        },
-        {
-          "formula": "Na2S",
-          "speciesId": "species.na2s",
-          "existingRecordsWithThisSpecies": [
-            "rxn.na2s-hcl"
           ]
         }
       ]
@@ -524,6 +558,20 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
           ]
         },
         {
@@ -721,7 +769,8 @@
           "formula": "Mg",
           "speciesId": "species.mg",
           "existingRecordsWithThisSpecies": [
-            "rxn.mg-h2so4"
+            "rxn.mg-h2so4",
+            "rxn.mg-hcl"
           ]
         },
         {
@@ -999,6 +1048,13 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
         }
       ],
       "eligible": false,
@@ -1252,6 +1308,13 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
           ]
         }
       ],
@@ -1661,6 +1724,13 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
         }
       ],
       "eligible": false,
@@ -1872,6 +1942,13 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
         }
       ],
       "eligible": false,
@@ -2065,7 +2142,15 @@
           "species.h2so4"
         ]
       },
-      "unlockFacts": [],
+      "unlockFacts": [
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
+        }
+      ],
       "eligible": false,
       "reasons": [
         "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
@@ -2175,13 +2260,6 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
-          ]
-        },
-        {
-          "formula": "Na2S",
-          "speciesId": "species.na2s",
-          "existingRecordsWithThisSpecies": [
-            "rxn.na2s-hcl"
           ]
         }
       ],
@@ -2313,6 +2391,20 @@
           ]
         },
         {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
+        },
+        {
           "formula": "CaCO3",
           "speciesId": "species.caco3",
           "existingRecordsWithThisSpecies": [
@@ -2361,8 +2453,8 @@
         {
           "formula": "KOH",
           "from": "legacy reagent list",
-          "reason": "NOT_IN_SPECIES_REGISTRY",
-          "speciesId": null
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.koh"
         },
         {
           "formula": "Ca(OH)2",

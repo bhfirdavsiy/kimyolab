@@ -12,7 +12,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {buildHostAudit,hostAuditBefore} from './lib/host-audit.ts';
+import {buildHostAudit,hostAuditBefore,P21_MERGE} from './lib/host-audit.ts';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const rel=(...p:string[])=>path.join(root,...p);
@@ -66,7 +66,12 @@ export function buildBrandReport(base:string,resolves:{portal:boolean;standalone
 function webpSize(bytes:Buffer){ if(bytes.subarray(12,16).toString()!=='VP8X') return null; return {width:bytes.readUIntLE(24,3)+1,height:bytes.readUIntLE(27,3)+1}; }
 
 export async function buildHostReports(){
-  const audit={...buildHostAudit(root),before:hostAuditBefore(root)};
+  // The "before" column is a historical measurement of the P2.1 merge. In a clone whose history does not contain that
+  // commit (the standalone kimyolab repository starts after it), it cannot be re-measured: keep the value measured when
+  // the report was first generated instead of overwriting it with null. Nothing is invented: absent both, it stays null.
+  const measured=hostAuditBefore(root);
+  const previous=fs.existsSync(rel(HOST_REPORTS[0]))?readJson(HOST_REPORTS[0]).before??null:null;
+  const audit={...buildHostAudit(root),before:measured??(previous?.commit===P21_MERGE?previous:null)};
   // ---------------------------------------------------------------- runtime: parity scenarios + host E2E specs
   const {chromium}=await import('@playwright/test');
   // the Playwright scenario module is plain .mjs test code (no types); it is loaded by URL at run time

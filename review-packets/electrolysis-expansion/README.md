@@ -21,7 +21,7 @@
 ## Qo‘shimcha nomzodlar (dizayndan tashqarida)
 
 - **KI(aq), inert** → H₂ / I₂. lu.9.15 outcome’i “CuCl₂ va KI eritmalari elektrolizi” deydi: NaCl o‘rniga KI kerakmi?
-- **NaCl(l), inert** → Na / Cl₂. `Na` species ro‘yxatda yo‘q.
+- **NaCl(l), inert** → Na / Cl₂. `Na` species ro‘yxatda bor (2026-11-20 da darslikdagi “natriy + xlor” reaksiyasi bilan qo‘shildi; tekshirilmagan).
 - **CuSO₄(aq), mis elektrod** → katodda Cu, anod eriydi. Yozuv formatida “elektrod eriydi” degan mahsulot yo‘q, shuning uchun avval model o‘zgarishi kerak.
 
 ## Reviewer qarori (har holat uchun)

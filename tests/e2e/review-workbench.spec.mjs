@@ -28,7 +28,9 @@ test('workbench: offline, keyboard-operable tabs, hostile packet text stays text
   page.on('pageerror',e=>errors.push(String(e)));
   page.on('request',r=>{ if(!r.url().startsWith('file:')&&!r.url().startsWith('blob:')) external.push(r.url()); });
   await page.goto(pathToFileURL(path.join(fixture,'review-packets/reviewer-workspace.html')).href);
-  await expect(page.locator('#wbChemList article')).toHaveCount(134);
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); review items 127 → 172.
+  await expect(page.locator('#wbChemList article')).toHaveCount(172);
   // decisions are disabled until a person with the right role is named
   await expect(page.locator('#wbChemList article').first().locator('input[type=radio]').first()).toBeDisabled();
   await page.fill('#wbReviewerId','claude');await page.locator('#wbReviewerId').press('Tab');

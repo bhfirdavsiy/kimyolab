@@ -174,6 +174,28 @@
       "comment": null
     },
     {
+      "id": "condition:rxn.ag2o-decomposition",
+      "category": "condition",
+      "claim": "rxn.ag2o-decomposition talab qiladi: heating",
+      "data": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "condition:rxn.c-combustion",
       "category": "condition",
       "claim": "rxn.c-combustion talab qiladi: oxygen-excess, ignition",
@@ -222,6 +244,50 @@
       "comment": null
     },
     {
+      "id": "condition:rxn.caco3-decomposition",
+      "category": "condition",
+      "claim": "rxn.caco3-decomposition talab qiladi: heating",
+      "data": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.co-combustion",
+      "category": "condition",
+      "claim": "rxn.co-combustion talab qiladi: ignition",
+      "data": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "f28334305f68eb60c7ef7aa5aad7b77b7e11b43d84bf16e5a52e15b69764e3e9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "condition:rxn.fe-combustion",
       "category": "condition",
       "claim": "rxn.fe-combustion talab qiladi: strong heating",
@@ -239,6 +305,52 @@
       "affectedActivities": [],
       "reviewStatus": "pending",
       "currentHash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.fe-hcl",
+      "category": "condition",
+      "claim": "rxn.fe-hcl talab qiladi: dilute acid",
+      "data": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.fe-s",
+      "category": "condition",
+      "claim": "rxn.fe-s talab qiladi: heating",
+      "data": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "03645edabb39a9e931eccc6660be8a4b31edf0239d39370bcd99d4c3a01aba83",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -288,6 +400,135 @@
       "comment": null
     },
     {
+      "id": "condition:rxn.h2o-electrolysis",
+      "category": "condition",
+      "claim": "rxn.h2o-electrolysis talab qiladi: electricalCurrent=true",
+      "data": {
+        "tags": [],
+        "dimensions": {},
+        "electricalCurrent": true
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "8b7a60ef37b69ae652a173d7996458f256db98d4cc09ca585f493d1f7cf4ac36",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.hgo-decomposition",
+      "category": "condition",
+      "claim": "rxn.hgo-decomposition talab qiladi: heating",
+      "data": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.hno3-caco3",
+      "category": "condition",
+      "claim": "rxn.hno3-caco3 talab qiladi: dilute acid",
+      "data": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "0b7a9e661a54cbbe13ae0183f3a2c7b5aef4cd7f965cd23c09fe2a17263eceae",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.koh-hno3",
+      "category": "condition",
+      "claim": "rxn.koh-hno3 talab qiladi: dilute acid",
+      "data": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "0b7a9e661a54cbbe13ae0183f3a2c7b5aef4cd7f965cd23c09fe2a17263eceae",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.malachite-decomposition",
+      "category": "condition",
+      "claim": "rxn.malachite-decomposition talab qiladi: heating",
+      "data": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "839e7e5b4d485187fe97c91b5ab717acce73f7e9f7ef9bb289125682925a746e",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.mg-combustion",
+      "category": "condition",
+      "claim": "rxn.mg-combustion talab qiladi: ignition",
+      "data": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "f28334305f68eb60c7ef7aa5aad7b77b7e11b43d84bf16e5a52e15b69764e3e9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "condition:rxn.mg-h2so4",
       "category": "condition",
       "claim": "rxn.mg-h2so4 talab qiladi: dilute acid",
@@ -307,6 +548,51 @@
       ],
       "reviewStatus": "pending",
       "currentHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.mg-hcl",
+      "category": "condition",
+      "claim": "rxn.mg-hcl talab qiladi: dilute acid",
+      "data": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "condition:rxn.na-cl2",
+      "category": "condition",
+      "claim": "rxn.na-cl2 talab qiladi: heating",
+      "data": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -357,28 +643,6 @@
       ],
       "reviewStatus": "pending",
       "currentHash": "c3f5f5638a3a735e34fb689f7e4d3fbbeb8fae5c16776f376c1dd8084faedb14",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
-      "id": "condition:rxn.p-combustion",
-      "category": "condition",
-      "claim": "rxn.p-combustion talab qiladi: ignition",
-      "data": {
-        "tags": [
-          "ignition"
-        ],
-        "dimensions": {
-          "ignition": "present"
-        }
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -1510,6 +1774,28 @@
       "comment": null
     },
     {
+      "id": "observation:rxn.ag2o-decomposition",
+      "category": "observation",
+      "claim": "rxn.ag2o-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.ag2o-decomposition.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.ag2o-decomposition.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "ba8af3d48f565d2fdac3f6115781db2d3edab2a546050ecc21b188cd2cabba8a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "observation:rxn.agno3-nabr",
       "category": "observation",
       "claim": "rxn.agno3-nabr: [{\"type\":\"precipitate\",\"color\":\"yellow\"}]",
@@ -1679,6 +1965,26 @@
       "comment": null
     },
     {
+      "id": "observation:rxn.caco3-decomposition",
+      "category": "observation",
+      "claim": "rxn.caco3-decomposition: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "observation:rxn.caco3-hcl",
       "category": "observation",
       "claim": "rxn.caco3-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.caco3-hcl.observation\"}]",
@@ -1755,6 +2061,26 @@
       "comment": null
     },
     {
+      "id": "observation:rxn.co-combustion",
+      "category": "observation",
+      "claim": "rxn.co-combustion: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "observation:rxn.co2-water",
       "category": "observation",
       "claim": "rxn.co2-water: [{\"type\":\"no-visible-change\"}]",
@@ -1801,28 +2127,6 @@
       "comment": null
     },
     {
-      "id": "observation:rxn.cuso4-na2s",
-      "category": "observation",
-      "claim": "rxn.cuso4-na2s: [{\"type\":\"precipitate\",\"color\":\"black\"}]",
-      "data": {
-        "observations": [
-          {
-            "type": "precipitate",
-            "color": "black"
-          }
-        ]
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
       "id": "observation:rxn.fe-combustion",
       "category": "observation",
       "claim": "rxn.fe-combustion: [{\"type\":\"no-visible-change\"}]",
@@ -1839,6 +2143,52 @@
       "affectedActivities": [],
       "reviewStatus": "pending",
       "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.fe-hcl",
+      "category": "observation",
+      "claim": "rxn.fe-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.fe-hcl.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.fe-hcl.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "84e85f3adcec434f676647fe7bf461ffe0bd6a759ee0e2614f00893cf393c428",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.fe-s",
+      "category": "observation",
+      "claim": "rxn.fe-s: [{\"type\":\"light\",\"descriptionKey\":\"rxn.fe-s.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "light",
+            "descriptionKey": "rxn.fe-s.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "7142c7ddd3a59c9183ef8ea7f23901f3ada3be78427df5fba726f4c8f3629ac6",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -1890,6 +2240,150 @@
       "comment": null
     },
     {
+      "id": "observation:rxn.h2o-electrolysis",
+      "category": "observation",
+      "claim": "rxn.h2o-electrolysis: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.h2o-electrolysis.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.h2o-electrolysis.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "7e5a05d37be3d2ea7b972798c733249adbb6ba7152ed0744af85da7d4c4ba6f0",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.hgo-decomposition",
+      "category": "observation",
+      "claim": "rxn.hgo-decomposition: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.hno3-caco3",
+      "category": "observation",
+      "claim": "rxn.hno3-caco3: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.hno3-caco3.observation\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.hno3-caco3.observation"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "a46958c98a35b3af2776f15bd50bf50116029e68da01747ef0781ad0b1e42627",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.koh-hcl",
+      "category": "observation",
+      "claim": "rxn.koh-hcl: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.koh-hno3",
+      "category": "observation",
+      "claim": "rxn.koh-hno3: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.malachite-decomposition",
+      "category": "observation",
+      "claim": "rxn.malachite-decomposition: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.mg-combustion",
+      "category": "observation",
+      "claim": "rxn.mg-combustion: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "observation:rxn.mg-h2so4",
       "category": "observation",
       "claim": "rxn.mg-h2so4: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.mg-h2so4.observation\"}]",
@@ -1914,24 +2408,65 @@
       "comment": null
     },
     {
-      "id": "observation:rxn.na2s-hcl",
+      "id": "observation:rxn.mg-hcl",
       "category": "observation",
-      "claim": "rxn.na2s-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.na2s-hcl.observation\"}]",
+      "claim": "rxn.mg-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.mg-hcl.observation\"}]",
       "data": {
         "observations": [
           {
             "type": "gas",
-            "descriptionKey": "rxn.na2s-hcl.observation"
+            "descriptionKey": "rxn.mg-hcl.observation"
           }
         ]
       },
       "sourceRefs": [
-        "src.beta1.migration"
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
+      "currentHash": "d19cfcd532a6aa3680c8ec863d652818fa1bb5a735db8e0b28f22f799ba703be",
       "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.mgo-water",
+      "category": "observation",
+      "claim": "rxn.mgo-water: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.na-cl2",
+      "category": "observation",
+      "claim": "rxn.na-cl2: []",
+      "data": {
+        "observations": []
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "flags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ],
       "reviewDecision": null,
       "comment": null
     },
@@ -2037,22 +2572,23 @@
       "comment": null
     },
     {
-      "id": "observation:rxn.p-combustion",
+      "id": "observation:rxn.no-o2",
       "category": "observation",
-      "claim": "rxn.p-combustion: [{\"type\":\"no-visible-change\"}]",
+      "claim": "rxn.no-o2: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.no-o2.observation\"}]",
       "data": {
         "observations": [
           {
-            "type": "no-visible-change"
+            "type": "gas",
+            "descriptionKey": "rxn.no-o2.observation"
           }
         ]
       },
       "sourceRefs": [
-        "src.beta1.migration"
+        "src.textbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "currentHash": "34a4cc3cbf17e8035cc6fe88bfef5b2747e9c1cf674b9dfa1c76bcc58e75eac3",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -2175,6 +2711,37 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
       ],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.ag2o-decomposition",
+      "category": "reaction",
+      "claim": "2Ag2O → 4Ag + O2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Ag2O"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Ag"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "reactionType": "decomposition",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "d0f561a81ee3e9da7f45423e33f0c49d5db9b43ff65b038f07213d17b6496edd",
+      "flags": [],
       "reviewDecision": null,
       "comment": null
     },
@@ -2427,6 +2994,37 @@
       "comment": null
     },
     {
+      "id": "reaction:rxn.caco3-decomposition",
+      "category": "reaction",
+      "claim": "CaCO3 → CaO + CO2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "CaCO3"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CaO"
+          },
+          {
+            "formula": "CO2"
+          }
+        ],
+        "reactionType": "decomposition",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "7e58d643ff699f39ae881a781a8bcbcf46e1c5cdaa6172a135a1956c71ded721",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "reaction:rxn.caco3-hcl",
       "category": "reaction",
       "claim": "CaCO3 + 2HCl → CaCl2 + H2O + CO2",
@@ -2536,6 +3134,37 @@
       "comment": null
     },
     {
+      "id": "reaction:rxn.co-combustion",
+      "category": "reaction",
+      "claim": "2CO + O2 → 2CO2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "CO"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CO2"
+          }
+        ],
+        "reactionType": "combustion",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "f14ce583835d31f79834d32bea723cfa6f601fd5a205cbe0acb21247af74c37a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "reaction:rxn.co2-water",
       "category": "reaction",
       "claim": "CO2 + H2O ⇌ H2CO3",
@@ -2605,40 +3234,6 @@
       "comment": null
     },
     {
-      "id": "reaction:rxn.cuso4-na2s",
-      "category": "reaction",
-      "claim": "CuSO4 + Na2S → CuS + Na2SO4",
-      "data": {
-        "reactants": [
-          {
-            "formula": "CuSO4"
-          },
-          {
-            "formula": "Na2S"
-          }
-        ],
-        "products": [
-          {
-            "formula": "CuS"
-          },
-          {
-            "formula": "Na2SO4"
-          }
-        ],
-        "reactionType": "precipitation",
-        "direction": "forward"
-      },
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
       "id": "reaction:rxn.fe-combustion",
       "category": "reaction",
       "claim": "3Fe + 2O2 → Fe3O4",
@@ -2665,6 +3260,73 @@
       "affectedActivities": [],
       "reviewStatus": "pending",
       "currentHash": "2938f9cd1e044ef3f329af3b1231d258940d96b6c199c95ba01f4f0cb3364be9",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.fe-hcl",
+      "category": "reaction",
+      "claim": "Fe + 2HCl → FeCl2 + H2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Fe"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "FeCl2"
+          },
+          {
+            "formula": "H2"
+          }
+        ],
+        "reactionType": "single_displacement",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "429e539e3ae8e5aa0c21a00d5398831c79f6e316c8865ab8b3668aa686d887c6",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.fe-s",
+      "category": "reaction",
+      "claim": "Fe + S → FeS",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Fe"
+          },
+          {
+            "formula": "S"
+          }
+        ],
+        "products": [
+          {
+            "formula": "FeS"
+          }
+        ],
+        "reactionType": "combination",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "c89837cbd0ffbb47dbdea8a1403fd3dc62bc033ef2520490c54376e3d4eb22d7",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -2735,6 +3397,238 @@
       "comment": null
     },
     {
+      "id": "reaction:rxn.h2o-electrolysis",
+      "category": "reaction",
+      "claim": "2H2O → 2H2 + O2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "H2O"
+          }
+        ],
+        "products": [
+          {
+            "formula": "H2"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "reactionType": "decomposition",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "7db7c5ae6ac2550ad99b4eb2912e8218d73624ac2e2f84239f1cfc0aff602c2a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.hgo-decomposition",
+      "category": "reaction",
+      "claim": "2HgO → 2Hg + O2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "HgO"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Hg"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "reactionType": "decomposition",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "3cfcc86347011a5910eb1b1c000a377be81de1b29860900ff24700d69440697a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.hno3-caco3",
+      "category": "reaction",
+      "claim": "2HNO3 + CaCO3 → Ca(NO3)2 + H2O + CO2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "HNO3"
+          },
+          {
+            "formula": "CaCO3"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Ca(NO3)2"
+          },
+          {
+            "formula": "H2O"
+          },
+          {
+            "formula": "CO2"
+          }
+        ],
+        "reactionType": "gas_evolution",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "6052fe22d584a5c6b8de8855ce2e38771ed49c35729187f6c03fbe447b510fce",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.koh-hcl",
+      "category": "reaction",
+      "claim": "KOH + HCl → KCl + H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "KOH"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "products": [
+          {
+            "formula": "KCl"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "neutralization",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "03285d5750eb2ced2b50e0cf3def5691e95f6d68d36dbecf4ab1ef477b164bdd",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.koh-hno3",
+      "category": "reaction",
+      "claim": "KOH + HNO3 → KNO3 + H2O",
+      "data": {
+        "reactants": [
+          {
+            "formula": "KOH"
+          },
+          {
+            "formula": "HNO3"
+          }
+        ],
+        "products": [
+          {
+            "formula": "KNO3"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "reactionType": "neutralization",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "1b16bb8ba6236e84ed469c5373eb7ca11c00de3bfd5ddf5dbe311ec92478c869",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.malachite-decomposition",
+      "category": "reaction",
+      "claim": "Cu2(OH)2CO3 → 2CuO + H2O + CO2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Cu2(OH)2CO3"
+          }
+        ],
+        "products": [
+          {
+            "formula": "CuO"
+          },
+          {
+            "formula": "H2O"
+          },
+          {
+            "formula": "CO2"
+          }
+        ],
+        "reactionType": "decomposition",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "491af5c82b533944f4c80a4911e1aebd21e5da85e63124f4db6e00a5b2ef71cd",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.mg-combustion",
+      "category": "reaction",
+      "claim": "2Mg + O2 → 2MgO",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Mg"
+          },
+          {
+            "formula": "O2"
+          }
+        ],
+        "products": [
+          {
+            "formula": "MgO"
+          }
+        ],
+        "reactionType": "combustion",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "a74aa56cfbbde0270eccd0fe5a13693a1bff07ad8180088bdf77b9307eef18a1",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "reaction:rxn.mg-h2so4",
       "category": "reaction",
       "claim": "Mg + H2SO4 → MgSO4 + H2",
@@ -2771,13 +3665,13 @@
       "comment": null
     },
     {
-      "id": "reaction:rxn.na2s-hcl",
+      "id": "reaction:rxn.mg-hcl",
       "category": "reaction",
-      "claim": "Na2S + 2HCl → H2S + 2NaCl",
+      "claim": "Mg + 2HCl → MgCl2 + H2",
       "data": {
         "reactants": [
           {
-            "formula": "Na2S"
+            "formula": "Mg"
           },
           {
             "formula": "HCl"
@@ -2785,21 +3679,84 @@
         ],
         "products": [
           {
-            "formula": "H2S"
+            "formula": "MgCl2"
           },
+          {
+            "formula": "H2"
+          }
+        ],
+        "reactionType": "single_displacement",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "f55f4bf3ba7b26a67f95f8d2343421b44957871d70281f28faeb50a8d6f44bce",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.mgo-water",
+      "category": "reaction",
+      "claim": "MgO + H2O → Mg(OH)2",
+      "data": {
+        "reactants": [
+          {
+            "formula": "MgO"
+          },
+          {
+            "formula": "H2O"
+          }
+        ],
+        "products": [
+          {
+            "formula": "Mg(OH)2"
+          }
+        ],
+        "reactionType": "combination",
+        "direction": "forward"
+      },
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "f4a027501f307e3b4a57d88582151d74ee704076c7d3b717f0874659ee868c1a",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "reaction:rxn.na-cl2",
+      "category": "reaction",
+      "claim": "2Na + Cl2 → 2NaCl",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Na"
+          },
+          {
+            "formula": "Cl2"
+          }
+        ],
+        "products": [
           {
             "formula": "NaCl"
           }
         ],
-        "reactionType": "gas_evolution",
+        "reactionType": "combination",
         "direction": "forward"
       },
       "sourceRefs": [
-        "src.beta1.migration"
+        "src.textbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
+      "currentHash": "544351b3aad418a5232b81b8936e459cd91398fca5132a7b723a6db79b0b82a3",
       "flags": [],
       "reviewDecision": null,
       "comment": null
@@ -2949,13 +3906,13 @@
       "comment": null
     },
     {
-      "id": "reaction:rxn.p-combustion",
+      "id": "reaction:rxn.no-o2",
       "category": "reaction",
-      "claim": "4P + 5O2 → 2P2O5",
+      "claim": "2NO + O2 → 2NO2",
       "data": {
         "reactants": [
           {
-            "formula": "P"
+            "formula": "NO"
           },
           {
             "formula": "O2"
@@ -2963,18 +3920,18 @@
         ],
         "products": [
           {
-            "formula": "P2O5"
+            "formula": "NO2"
           }
         ],
-        "reactionType": "combustion",
+        "reactionType": "combination",
         "direction": "forward"
       },
       "sourceRefs": [
-        "src.beta1.migration"
+        "src.textbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
+      "currentHash": "959cdf3f28066cc5a94513f38653cec2624b0e015f5c9ef279c2508adbfe3b38",
       "flags": [],
       "reviewDecision": null,
       "comment": null

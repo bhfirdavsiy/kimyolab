@@ -119,7 +119,8 @@ test('IonicEngine: derivable equations are deterministic and atom- and charge-ba
   }
   assert.ok(derived>=5,`${derived} derivable`);
   // a soluble salt without a dissociation rule is unsupported, never treated as molecular
-  assert.deepEqual(e.support('rxn.cuso4-na2s'),{supported:false,unsupported:['CuSO4','Na2S']});
+  // TT 4.2 expert review: rxn.cuso4-na2s was removed; rxn.agno3-nai shows the same rule (NaI has no dissociation rule)
+  assert.deepEqual(e.support('rxn.agno3-nai'),{supported:false,unsupported:['NaI']});
   assert.throws(()=>e.netIonicEquation('rxn.agno3-nabr'),/NET_IONIC_UNSUPPORTED:NaBr/);
 });
 
@@ -204,7 +205,10 @@ test('ionic shelf: 21 pairs, 100% classified; NOT_MODELED is never "no reaction"
   const bacl=shelf.pairs.find(p=>p.formulas.join('+')==='AgNO3+BaCl2');
   assert.deepEqual([bacl.class,bacl.candidate.kind],['NOT_MODELED','reaction-candidate']);
   for(const p of shelf.pairs.filter(p=>p.class==='NOT_MODELED')){ assert.match(p.currentBehavior,/never shown as no reaction/); assert.equal(p.reviewDecisionRequired,true); }
-  assert.equal(REACTIONS.length,28,'no candidate became a KB record');
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); none of them is an ionic-shelf candidate
+  assert.equal(REACTIONS.length,41,'no candidate became a KB record');
+  for(const p of shelf.pairs) if(p.candidate) assert.ok(!REACTIONS.some(r=>r.reactants.map(x=>x.formula).sort().join('+')===[...p.formulas].sort().join('+')),p.formulas.join('+'));
   assert.equal(coverage.ionic.totals.NOT_MODELED,shelf.summary.NOT_MODELED,'unknowns are reported, not hidden');
 });
 

@@ -1,0 +1,23 @@
+{
+  "schema": "kimyolab.chemistry-review-decisions.v1",
+  "instructions": "Kimyo eksperti Xasanova Sevara Giyosiddinovna 2026-11-20 da kiritgan qarorlar (ekspert tekshiruvi 2-sahifasi), ekspert yuborgan matndan o‘zgarishsiz ko‘chirilgan. Import (faqat inson, agent/CI muhitida rad etiladi): npm run chemistry:review-import -- docs/reviews/tt-4.2-expert-decisions-2026-11-20.json",
+  "decisions": [
+    {
+      "assertionId": "reaction:rxn.h2-cuo",
+      "assertionHash": "6727d2d118c44218717330fe2a4b11bc36bbdc2116933beeeaea6af638b9caf4",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara Giyosiddinovna",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-20T10:31:56.058Z",
+      "comment": "t belgisini qo‘yish maqsadga muvofiq"
+    },
+    {
+      "assertionId": "reaction:rxn.cao-water",
+      "assertionHash": "c413b15762a78ddce2e21dac15c5dc6cbd52a2dbae5d149afc7d43f8b5980184",
+      "decision": "approve",
+      "reviewerId": "Xasanova Sevara Giyosiddinovna",
+      "reviewerRole": "chemistry",
+      "reviewedAt": "2026-11-20T10:32:20.290Z"
+    }
+  ]
+}

@@ -265,7 +265,8 @@ test('reports are deterministic; the action queue shows every blocker and one ne
   assert.deepEqual(read(GOVERNANCE_REPORTS.actions),humanActionQueue(m,tasks,entries,root));
   assert.deepEqual(read(GOVERNANCE_REPORTS.goldenGraph),goldenSliceGraph(m,tasks,entries,root));
   const a=read(GOVERNANCE_REPORTS.authoring);
-  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[130,127,3]);
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived add-source authoring tasks drop by 7 (130/127 → 123/120).
+  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[123,120,3]);
   assert.equal(a.canonicalContentMutated,false);
   const q=read(GOVERNANCE_REPORTS.actions);
   assert.ok(q.items.every(i=>typeof i.nextHumanAction==='string'&&i.nextHumanAction.length>10&&Array.isArray(i.blockedBy)&&i.role));

@@ -86,7 +86,8 @@ test('sources workbench: machine metadata checks; only a human who is not the su
   const errors=[]; page.on('pageerror',e=>errors.push(String(e)));
   await page.goto(page$);
   await page.getByRole('tab',{name:'Manbalar'}).click();
-  await expect(page.locator('#csRegistry li')).toHaveCount(5);
+  // TT 4.2 expert review (2026-11-20): the textbook and workbook behind the owner-added reactions were registered as PROPOSED (not accepted) in a pull request the owner reviews; the registry lists 5 → 7 sources
+  await expect(page.locator('#csRegistry li')).toHaveCount(7);
   await page.fill('#csf-sourceId','src.fixture.textbook'); await page.selectOption('#csf-category','TEXTBOOK');
   await page.fill('#csf-title','Fixture textbook title'); await page.fill('#csf-authority','Fixture publisher'); await page.fill('#csf-language','uz-Latn');
   await page.fill('#csf-submittedBy','fixture.submitter'); await page.selectOption('#csf-status','ready-for-review');

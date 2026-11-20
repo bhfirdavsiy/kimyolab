@@ -30,7 +30,8 @@ const REG=parseSourceRegistry(json('content-src/source-registry.json')).registry
 // decision — used to exercise the governance mechanics, not to claim anything about real chemistry
 const H=(c)=>c.repeat(64);
 const FIX_REGISTRY={schema:'kimyolab.source-registry.v1',sources:[...json('content-src/source-registry.json').sources,
-  {id:'src.test.accepted',category:'AUTHORITATIVE_REFERENCE',title:'Test fixture reference',classification:'HUMAN_ACCEPTED',acceptedBy:'Test Reviewer',acceptedAt:'2026-01-01T00:00:00.000Z',reviewedHash:H('a')},
+  // TT 4.2.4: an eligible source now also needs complete bibliography (fixture values, not a real source)
+  {id:'src.test.accepted',category:'AUTHORITATIVE_REFERENCE',title:'Test fixture reference',classification:'HUMAN_ACCEPTED',acceptedBy:'Test Reviewer',acceptedAt:'2026-01-01T00:00:00.000Z',reviewedHash:H('a'),authority:'Fixture publisher',edition:'1',bibliographic:{authors:['Fixture Author'],isbn:'fixture-isbn'},license:'fixture-licence',effectiveDate:'2026-01-01'},
   {id:'src.test.proposal',category:'INTERNAL_PROPOSAL',title:'Test fixture proposal',classification:'PROPOSED'}]};
 const FIX_REG=parseSourceRegistry(FIX_REGISTRY).registry;
 const META=(entries,ruleRefs=[])=>({schema:'kimyolab.element-metadata.v1',rules:{periodGroup:{sourceRefs:ruleRefs}},entries});
@@ -307,5 +308,7 @@ test('closeout 10–13: the repository state fabricates nothing; identity, e-con
   assert.ok(h.elements.slice(36).every(e=>e.electronConfiguration.status==='GAP'));
   // 13. formula-derived participation and explicit chains unchanged
   const rel=JSON.parse(periodicOutputs(root)[PERIODIC_REPORTS.relationships]);
-  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[261,154,19,16]);
+  // TT 4.2 expert review (2026-11-04): three reaction records were removed, so formula-derived element ↔ reaction links 261 → 251
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): formula-derived links 251 → 328; Hg now has a substance (19 → 20)
+  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[328,154,20,16]);
 });
