@@ -9,8 +9,8 @@
     "total": 0
   },
   "chemistry": {
-    "total": 134,
-    "pending": 134,
+    "total": 127,
+    "pending": 127,
     "approved": 0,
     "rejected": 0,
     "changeRequired": 0,
@@ -39,8 +39,8 @@
       },
       "B": {
         "label": "B — asosiy modellar (indikator, sharoit lug‘ati, gidroliz, ion reaksiya maqsadlari)",
-        "total": 28,
-        "pending": 28,
+        "total": 27,
+        "pending": 27,
         "ids": [
           "condition-context:solution-mixing",
           "condition-term:concentrated acid",
@@ -59,7 +59,6 @@
           "condition:rxn.mg-h2so4",
           "condition:rxn.nacl-h2so4",
           "condition:rxn.nh4cl-caoh2",
-          "condition:rxn.p-combustion",
           "condition:rxn.s-combustion",
           "condition:rxn.zn-h2so4",
           "hydrolysis:AlCl3",
@@ -119,8 +118,8 @@
       },
       "E": {
         "label": "E — qolgan assertion’lar",
-        "total": 69,
-        "pending": 69
+        "total": 63,
+        "pending": 63
       }
     }
   },

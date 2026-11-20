@@ -308,5 +308,6 @@ test('closeout 10–13: the repository state fabricates nothing; identity, e-con
   assert.ok(h.elements.slice(36).every(e=>e.electronConfiguration.status==='GAP'));
   // 13. formula-derived participation and explicit chains unchanged
   const rel=JSON.parse(periodicOutputs(root)[PERIODIC_REPORTS.relationships]);
-  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[261,154,19,16]);
+  // TT 4.2 expert review (2026-11-04): three reaction records were removed, so formula-derived element ↔ reaction links 261 → 251
+  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[251,154,19,16]);
 });

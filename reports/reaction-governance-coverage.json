@@ -4,13 +4,13 @@
   "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
   "semantics": "A reaction record in the model is not a human approval. Review state comes from the chemistry decision register (kb-review: current hash, human reviewer, stale on edit); a source counts only when registered, acceptable for chemistry and human-accepted.",
   "totals": {
-    "canonicalModelRecords": 28,
+    "canonicalModelRecords": 25,
     "effectiveHumanReviewed": 0,
-    "reviewPending": 28,
+    "reviewPending": 25,
     "stale": 0,
     "approvedButSourceNotEligible": 0,
     "source": {
-      "SOURCE_NOT_ELIGIBLE": 28
+      "SOURCE_NOT_ELIGIBLE": 25
     },
     "observationFlagged": 6
   },
@@ -39,13 +39,13 @@
   },
   "conditionGovernance": {
     "rule": "the condition assertion hashes EVERY canonical condition field the record requires (not only tags); changing medium, solvent, catalysts, light, current, temperature, pressure or concentration makes a decision on the old hash stale. A reaction counts as reviewed only when its condition claim is approved too",
-    "recordsWithRequirements": 11,
-    "conditionAssertions": 11,
+    "recordsWithRequirements": 10,
+    "conditionAssertions": 10,
     "fieldsCovered": {
-      "tags": 11
+      "tags": 10
     },
     "review": {
-      "pending": 11
+      "pending": 10
     }
   },
   "reactions": [
@@ -392,46 +392,6 @@
       "reviewed": false,
       "observationFlags": [],
       "condition": null,
-      "unsupportedConditions": []
-    },
-    {
-      "id": "rxn.na2s-hcl",
-      "assertionId": "reaction:rxn.na2s-hcl",
-      "hash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
-      "review": "pending",
-      "source": "SOURCE_NOT_ELIGIBLE",
-      "reviewed": false,
-      "observationFlags": [],
-      "condition": null,
-      "unsupportedConditions": []
-    },
-    {
-      "id": "rxn.cuso4-na2s",
-      "assertionId": "reaction:rxn.cuso4-na2s",
-      "hash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-      "review": "pending",
-      "source": "SOURCE_NOT_ELIGIBLE",
-      "reviewed": false,
-      "observationFlags": [],
-      "condition": null,
-      "unsupportedConditions": []
-    },
-    {
-      "id": "rxn.p-combustion",
-      "assertionId": "reaction:rxn.p-combustion",
-      "hash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
-      "review": "pending",
-      "source": "SOURCE_NOT_ELIGIBLE",
-      "reviewed": false,
-      "observationFlags": [],
-      "condition": {
-        "assertionId": "condition:rxn.p-combustion",
-        "hash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
-        "review": "pending",
-        "fields": [
-          "tags"
-        ]
-      },
       "unsupportedConditions": []
     },
     {

@@ -85,8 +85,9 @@ test('4.2.3 machine checks: atom/charge conservation and the canonical balancer,
 
 test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewed; the agent chooses nothing',()=>{
   const p=expertPacket(root);
-  assert.equal(p.reactions.length,28);
-  assert.equal(p.summary.atomBalanced,28); assert.equal(p.summary.balancerAgrees,28); assert.equal(p.summary.speciesResolved,27);
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records
+  assert.equal(p.reactions.length,25);
+  assert.equal(p.summary.atomBalanced,25); assert.equal(p.summary.balancerAgrees,25); assert.equal(p.summary.speciesResolved,24);
   assert.deepEqual(p.speciesIdentity.issues,[],'SpeciesRegistry identity invariants hold');
   assert.doesNotThrow(()=>SpeciesRegistry.from(json('content-src/chemistry/species.json')));
   for(const r of p.reactions){
@@ -95,7 +96,7 @@ test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewe
     assert.equal(r.knowledgeIndexReview,'MODEL_RECORD');
     assert.equal(r.machineChecks.conditionVerdict,'CONTRACT_OK',r.id);
   }
-  assert.equal(p.summary.decisionsToMake,28+11+28,'28 reaction + 11 condition + 28 observation claims');
+  assert.equal(p.summary.decisionsToMake,25+10+25,'25 reaction + 10 condition + 25 observation claims');
   assert.deepEqual(p.acceptance.shownReviewedWithoutApproval,[]);
   assert.match(p.acceptance.status,/^NOT_MET/,'PENDING never counts as PASS');
   assert.equal(p.naclDecision.machineRecommendation,null); assert.equal(p.naclDecision.expertDecision,'PENDING'); assert.equal(p.naclDecision.options.length,3);

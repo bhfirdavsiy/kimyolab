@@ -481,19 +481,20 @@ test('closeout 11: changing a non-tag condition makes the condition decision sta
 });
 
 test('closeout 12: the 28 canonical records use only tag conditions and stay reachable exactly as before',()=>{
-  assert.equal(REACTIONS.length,28);
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records; rxn.p-combustion carried the ignition tag (tag-condition records 11 → 10)
+  assert.equal(REACTIONS.length,25);
   assert.ok(REACTIONS.every(r=>conditionRequirementFields(r.conditions).every(f=>f==='tags')));
   assert.ok(index.reactions.every(r=>r.unsupportedConditions.length===0));
   const ex=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.explorer]);
-  assert.equal(ex.reachability.reachable,27);
+  assert.equal(ex.reachability.reachable,24);
   assert.deepEqual(ex.reachability.unreachable.map(x=>[x.id,x.reason]),[['rxn.agno3-nacl','REACTANT_NOT_A_CANONICAL_SPECIES']]);
-  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{tags:11});
+  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{tags:10});
   assert.deepEqual(ex.conditionContract.explorerSupportedFields,['tags']);
   assert.deepEqual(ex.conditionContract.unsupportedRecords,[]);
   assert.equal(ex.conditionContract.explorerUnsupportedFields.length,8);
   const gov=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.governance]);
-  assert.equal(gov.conditionGovernance.conditionAssertions,11);
-  assert.deepEqual(gov.conditionGovernance.review,{pending:11});
+  assert.equal(gov.conditionGovernance.conditionAssertions,10);
+  assert.deepEqual(gov.conditionGovernance.review,{pending:10});
   // the explorer's single matcher call states vocabulary dimensions only (every other field stays absent)
   assert.match(read('src/features/chemistry-knowledge/explorer.ts'),/conditions:\{dimensions:\{\.\.\.stated\}\},conditionPolicy:'require-record-conditions'/);
 });

@@ -5,7 +5,7 @@
 ## Qabul mezoni
 
 - Mezon: 28/28 reactions reviewed by a chemistry expert; 0 unapproved assertions shown as approved
-- Ekspert ko‘rib chiqqan: **0/28**
+- Ekspert ko‘rib chiqqan: **0/25**
 - Holat: **NOT_MET — human review outstanding (DRAFT/PENDING never counts as PASS)**
 - Tasdiqsiz “reviewed” ko‘rsatilganlar: 0
 
@@ -13,20 +13,20 @@
 
 | Tekshiruv | Natija |
 |---|---|
-| Tenglama o‘qildi | 28/28 |
-| Formulalar yozuvga mos | 28/28 |
-| Atomlar saqlangan | 28/28 |
-| Zaryad saqlangan | 28/28 |
-| Kanonik balancer bilan mos koeffitsientlar | 28/28 |
-| Strelka ↔ direction | 28/28 |
-| Species aniqlangan (formula + faza) | 27/28 |
+| Tenglama o‘qildi | 25/25 |
+| Formulalar yozuvga mos | 25/25 |
+| Atomlar saqlangan | 25/25 |
+| Zaryad saqlangan | 25/25 |
+| Kanonik balancer bilan mos koeffitsientlar | 25/25 |
+| Strelka ↔ direction | 25/25 |
+| Species aniqlangan (formula + faza) | 24/25 |
 | Noma’lum condition maydoni (REJECT) | 0 |
 | Kuzatuv bayroqlari | 6 |
-| Yaroqli manba | 0/28 |
+| Yaroqli manba | 0/25 |
 | Species identity buzilishi | 0 (84 ta yozuv) |
 | Formula o‘rnida nom (parser qo‘llamaydi) | 6: `species.etanol`, `species.kraxmal`, `species.saxaroza`, `species.sirka`, `species.moy`, `species.indikator` |
 
-Qaror kutayotgan da’volar: **67** (reaction / condition / observation).
+Qaror kutayotgan da’volar: **60** (reaction / condition / observation).
 
 ## Reaksiyalar
 
@@ -56,10 +56,7 @@ Qaror kutayotgan da’volar: **67** (reaction / condition / observation).
 | 22 | `rxn.bacl2-h2so4` | BaCl2 + H2SO4 → BaSO4 + 2HCl | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`observation` pending |
 | 23 | `rxn.nh4cl-caoh2` | 2NH4Cl + Ca(OH)2 → 2NH3 + CaCl2 + 2H2O | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 24 | `rxn.nh3-hcl` | NH3 + HCl → NH4Cl | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`observation` pending |
-| 25 | `rxn.na2s-hcl` | Na2S + 2HCl → H2S + 2NaCl | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`observation` pending |
-| 26 | `rxn.cuso4-na2s` | CuSO4 + Na2S → CuS + Na2SO4 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`observation` pending |
-| 27 | `rxn.p-combustion` | 4P + 5O2 → 2P2O5 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
-| 28 | `rxn.c-combustion-limited` | 2C + O2 → 2CO | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 25 | `rxn.c-combustion-limited` | 2C + O2 → 2CO | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 
 Har bir da’voning `assertionId` va `assertionHash` qiymatlari: `reports/chemistry-expert-review-packet.json` → `reactions[].decisions[]`.
 
@@ -75,7 +72,7 @@ Agent tanlamaydi (variantlar tartibi tavsiya emas). Qaror: **PENDING**.
 
 ## Xavf da’volari (safety review)
 
-39 ta species 45 ta xavf kodini da’vo qiladi; reaksiyalarda 20 ta safety tegi bor. Manba: INTERNAL_PROPOSAL (yaroqsiz). Xavf uchun kb-review kategoriyasi hali yo‘q — review yo‘lini inson belgilashi kerak.
+39 ta species 45 ta xavf kodini da’vo qiladi; reaksiyalarda 18 ta safety tegi bor. Manba: INTERNAL_PROPOSAL (yaroqsiz). Xavf uchun kb-review kategoriyasi hali yo‘q — review yo‘lini inson belgilashi kerak.
 
 | Species | Faza | Xavf kodlari | Qaror |
 |---|---|---|---|

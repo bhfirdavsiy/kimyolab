@@ -492,13 +492,6 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
-        },
-        {
-          "formula": "Na2S",
-          "speciesId": "species.na2s",
-          "existingRecordsWithThisSpecies": [
-            "rxn.na2s-hcl"
-          ]
         }
       ]
     },
@@ -2175,13 +2168,6 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
-          ]
-        },
-        {
-          "formula": "Na2S",
-          "speciesId": "species.na2s",
-          "existingRecordsWithThisSpecies": [
-            "rxn.na2s-hcl"
           ]
         }
       ],

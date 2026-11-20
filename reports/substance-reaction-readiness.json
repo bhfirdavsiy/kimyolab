@@ -31,22 +31,22 @@
     "dissociationModeled": 12,
     "reviewedProperties": 0,
     "reviewedHazards": 0,
-    "reactionRecords": 28,
-    "explorerReachable": 27,
+    "reactionRecords": 25,
+    "explorerReachable": 24,
     "explorerConditionUnsupported": 0,
     "explicitNoReactionRecords": 0,
     "pairs": {
       "total": 3486,
-      "modeledReaction": 26,
+      "modeledReaction": 23,
       "modeledNoReaction": 0,
-      "notModeled": 3460,
-      "conditionDependent": 10,
+      "notModeled": 3463,
+      "conditionDependent": 9,
       "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
     },
     "ionicEquationSupported": 5,
     "humanReviewedReactions": 0,
     "sourceGaps": {
-      "SOURCE_NOT_ELIGIBLE": 28
+      "SOURCE_NOT_ELIGIBLE": 25
     },
     "topicLabBacklinks": {
       "substancesWithLabs": 37,
@@ -86,7 +86,7 @@
     "chemistry": "browser-local: the ReactionMatcher runs in the page over the pack records; no server lookup",
     "knowledgeIndex": {
       "packFile": "knowledge/chemistry-knowledge.json",
-      "bytes": 69016
+      "bytes": 67512
     },
     "bundle": {
       "learnerModules": 4,

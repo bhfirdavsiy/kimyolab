@@ -2,8 +2,8 @@
   "schema": "kimyolab.authoring-status.v1",
   "semantics": "Authoring tasks are DERIVED from human decisions (and machine flags a person must resolve). A task is work for an author — never a content change, an approval or a release. Content changes only through a person running authoring:apply; the new hash then needs a new human review.",
   "totals": {
-    "tasks": 130,
-    "OPEN": 130,
+    "tasks": 123,
+    "OPEN": 123,
     "IN_PROGRESS": 0,
     "READY_FOR_REVIEW": 0,
     "SUPERSEDED": 0,
@@ -18,7 +18,7 @@
       "CLOSED": 0
     },
     "chemistry": {
-      "OPEN": 127,
+      "OPEN": 120,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -27,7 +27,7 @@
   },
   "byAction": {
     "add-source": {
-      "OPEN": 127,
+      "OPEN": 120,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -50,7 +50,7 @@
       "CLOSED": 0
     },
     "B": {
-      "OPEN": 24,
+      "OPEN": 23,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -71,7 +71,7 @@
       "CLOSED": 0
     },
     "E": {
-      "OPEN": 69,
+      "OPEN": 63,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -80,7 +80,7 @@
   },
   "byAffectedActivity": {
     "(none)": {
-      "OPEN": 46,
+      "OPEN": 39,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -1091,37 +1091,6 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.school.solution-rules"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
-      "id": "task.f44a389c75d4600acc5c",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.p-combustion",
-      "surface": "chemistry",
-      "targetId": "condition:rxn.p-combustion",
-      "action": "add-source",
-      "basisHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
-      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "B",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -2403,37 +2372,6 @@
       "status": "OPEN"
     },
     {
-      "id": "task.360974ef9a625167292b",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuso4-na2s",
-      "surface": "chemistry",
-      "targetId": "reaction:rxn.cuso4-na2s",
-      "action": "add-source",
-      "basisHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-      "currentHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
       "id": "task.36db4bf28d68280af12a",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.zn-hcl",
       "surface": "chemistry",
@@ -2581,37 +2519,6 @@
       "affectedActivities": [
         "practice.experiment.7.11"
       ],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
-      "id": "task.4da2a049b568335fe595",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.cuso4-na2s",
-      "surface": "chemistry",
-      "targetId": "observation:rxn.cuso4-na2s",
-      "action": "add-source",
-      "basisHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
-      "currentHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
       "reviewerDecision": null,
       "priority": "E",
       "context": {
@@ -3979,37 +3886,6 @@
       "status": "OPEN"
     },
     {
-      "id": "task.dd843d2c234bcf4cd3fc",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.p-combustion",
-      "surface": "chemistry",
-      "targetId": "reaction:rxn.p-combustion",
-      "action": "add-source",
-      "basisHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
-      "currentHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
       "id": "task.e3576b2e1c2a0c9c5c8f",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.c-combustion",
       "surface": "chemistry",
@@ -4108,37 +3984,6 @@
       "status": "OPEN"
     },
     {
-      "id": "task.e8f4f3e50ea8bc4c56e0",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.na2s-hcl",
-      "surface": "chemistry",
-      "targetId": "reaction:rxn.na2s-hcl",
-      "action": "add-source",
-      "basisHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
-      "currentHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
       "id": "task.eca8051680a2fcba542a",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:BaCl2",
       "surface": "chemistry",
@@ -4170,37 +4015,6 @@
       "status": "OPEN"
     },
     {
-      "id": "task.ee19b932673b404cbf26",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.na2s-hcl",
-      "surface": "chemistry",
-      "targetId": "observation:rxn.na2s-hcl",
-      "action": "add-source",
-      "basisHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
-      "currentHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
       "id": "task.ef4157f39776a16a0e36",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.nh3-hcl",
       "surface": "chemistry",
@@ -4214,37 +4028,6 @@
       "affectedActivities": [
         "practice.experiment.8.14"
       ],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
-      "id": "task.f00dbed6478543b8106a",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.p-combustion",
-      "surface": "chemistry",
-      "targetId": "observation:rxn.p-combustion",
-      "action": "add-source",
-      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
-      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
       "reviewerDecision": null,
       "priority": "E",
       "context": {
