@@ -514,7 +514,7 @@
         "practice.trainer.9.05.planned"
       ],
       "facts": {
-        "chemistryAssertionsPending": 127,
+        "chemistryAssertionsPending": 172,
         "assessmentItemsPending": 5,
         "activitiesContentPending": 146,
         "releaseDecisionsMissing": 146,
@@ -1036,7 +1036,7 @@
         "practice.trainer.9.05.planned"
       ],
       "facts": {
-        "modelRecords": 25,
+        "modelRecords": 41,
         "realLearnerChoicePossible": true,
         "currentBrowserLimitation": "FORM",
         "rendererReuse": "ionic-precipitation"
@@ -1082,7 +1082,7 @@
         "practice.experiment.9.4"
       ],
       "facts": {
-        "modelRecords": 25,
+        "modelRecords": 41,
         "realLearnerChoicePossible": true,
         "currentBrowserLimitation": "SCRIPTED",
         "rendererReuse": "ionic-precipitation"

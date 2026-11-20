@@ -5,11 +5,10 @@
   "summary": {
     "materialItems": 154,
     "byStatus": {
-      "COVERED_BY_BOUND_AUTHORITY": 32,
-      "KNOWN_TO_OTHER_AUTHORITY": 18,
+      "COVERED_BY_BOUND_AUTHORITY": 33,
+      "KNOWN_TO_OTHER_AUTHORITY": 19,
       "NAME_NOT_RESOLVED": 96,
-      "SPECIES_WITHOUT_AUTHORITY": 1,
-      "UNKNOWN_SUBSTANCE": 7
+      "UNKNOWN_SUBSTANCE": 6
     }
   },
   "rows": [
@@ -226,9 +225,11 @@
         {
           "text": "KOH yoki NaOH",
           "formula": "KOH",
-          "speciesId": null,
-          "authorities": [],
-          "status": "UNKNOWN_SUBSTANCE"
+          "speciesId": "species.koh",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
         },
         {
           "text": "KOH yoki NaOH",
@@ -1410,8 +1411,10 @@
           "text": "HNO3",
           "formula": "HNO3",
           "speciesId": "species.hno3",
-          "authorities": [],
-          "status": "SPECIES_WITHOUT_AUTHORITY"
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
         {
           "text": "HCl",

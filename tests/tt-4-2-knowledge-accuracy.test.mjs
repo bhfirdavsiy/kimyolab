@@ -38,7 +38,8 @@ test('4.2.4 a source needs complete bibliography before it can back a canonical 
 
 test('4.2.4 the registry holds no eligible source: every legacy record lacks its bibliography (nothing is filled in)',()=>{
   const {registry}=parseSourceRegistry(json('content-src/source-registry.json'));
-  assert.equal(registry.byId.size,5);
+  // TT 4.2 expert review (2026-11-20): the textbook and workbook behind the owner-added reactions were registered as PROPOSED (not accepted, no licence or effective date) in a pull request the owner reviews (SOURCE_POLICY: a new source is registered by a person in a reviewed pull request)
+  assert.equal(registry.byId.size,7);
   for(const e of registry.byId.values()){ const a=sourceAcceptance(e); assert.equal(a.canonicalAuthoringEligible,false,e.id); assert.equal(a.bibliographicComplete,false,e.id); }
   // so molar mass stays unknown: no substance shows one
   const {index}=buildChemistryKnowledge(root);
@@ -86,8 +87,9 @@ test('4.2.3 machine checks: atom/charge conservation and the canonical balancer,
 test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewed; the agent chooses nothing',()=>{
   const p=expertPacket(root);
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records
-  assert.equal(p.reactions.length,25);
-  assert.equal(p.summary.atomBalanced,25); assert.equal(p.summary.balancerAgrees,25); assert.equal(p.summary.speciesResolved,24);
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); every one is balanced and agrees with the canonical balancer
+  assert.equal(p.reactions.length,41);
+  assert.equal(p.summary.atomBalanced,41); assert.equal(p.summary.balancerAgrees,41); assert.equal(p.summary.speciesResolved,40);
   assert.deepEqual(p.speciesIdentity.issues,[],'SpeciesRegistry identity invariants hold');
   assert.doesNotThrow(()=>SpeciesRegistry.from(json('content-src/chemistry/species.json')));
   for(const r of p.reactions){
@@ -96,13 +98,14 @@ test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewe
     assert.equal(r.knowledgeIndexReview,'MODEL_RECORD');
     assert.equal(r.machineChecks.conditionVerdict,'CONTRACT_OK',r.id);
   }
-  assert.equal(p.summary.decisionsToMake,25+10+25,'25 reaction + 10 condition + 25 observation claims');
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): 23 records now state a condition
+  assert.equal(p.summary.decisionsToMake,41+23+41,'41 reaction + 23 condition + 41 observation claims');
   assert.deepEqual(p.acceptance.shownReviewedWithoutApproval,[]);
   assert.match(p.acceptance.status,/^NOT_MET/,'PENDING never counts as PASS');
   assert.equal(p.naclDecision.machineRecommendation,null); assert.equal(p.naclDecision.expertDecision,'PENDING'); assert.equal(p.naclDecision.options.length,3);
   assert.deepEqual(p.naclDecision.finding.map(f=>f.reason),['PHASE_NOT_IN_REGISTRY']);
   const hazardous=json('content-src/chemistry/species.json').filter(s=>(s.hazards??[]).length);
-  assert.equal(p.hazards.species.length,hazardous.length); assert.equal(p.hazards.species.length,39);
+  assert.equal(p.hazards.species.length,hazardous.length); assert.equal(p.hazards.species.length,41); // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); of the new species only Hg (textbook p. 10: toxic) and KOH (p. 82: corrosive) carry a hazard the textbook states (39 → 41)
   assert.ok(p.hazards.species.every(h=>h.expertDecision==='PENDING'&&h.sources.every(s=>!s.canonicalAuthoringEligible)));
 });
 

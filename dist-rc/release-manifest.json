@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-20T04:05:51.191Z",
+  "createdAt": "2026-11-20T11:18:17.127Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -1247,8 +1247,8 @@
     {
       "path": "content/2026.09.1/chemistry/reactions.json",
       "sourcePath": "public/content/2026.09.1/chemistry/reactions.json",
-      "checksum": "08edcbbe1998f151bccbd478169ebcbb2deca71b02ae2cbd79d425df72180713",
-      "size": 19796
+      "checksum": "f627b1ad6fc384087eae420ba46f18f3c498187e34077440a807e3180081da26",
+      "size": 34241
     },
     {
       "path": "content/2026.09.1/chemistry/school-lab-models.json",
@@ -1265,8 +1265,8 @@
     {
       "path": "content/2026.09.1/chemistry/species.json",
       "sourcePath": "public/content/2026.09.1/chemistry/species.json",
-      "checksum": "4bcbaf0a565d9d37035f687061e9d49f9bea0d361c3c82af0dc85f5bb4a0823c",
-      "size": 33000
+      "checksum": "dc6e388578a447ee7b81d26336713de2f715d7333f2442a073173a9f775bad15",
+      "size": 40594
     },
     {
       "path": "content/2026.09.1/concepts.json",
@@ -1289,8 +1289,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "a9b0f94d87e0d20aaa2e694299222a8700fa64c532d9942822abe88cc863a0da",
-      "size": 67512
+      "checksum": "5cf10b7ad396023409a9b96ed3735f79396f2a00326c119a1ddb807591f277b4",
+      "size": 81922
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1343,8 +1343,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "8355a81b94629226034283ad410a983442908ba34748d579a9160293d970d629",
-      "size": 45909
+      "checksum": "28ce1d1d0d539afc16b65f2c332487e2f88ff4fec3013a8ab76bb1a94755d70a",
+      "size": 45954
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1355,7 +1355,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "4b5638307492e86ffe7358b701c551800768eb674d82141e3e92fae02b4786e0",
+      "checksum": "6fb1b3a6a24581f5989f9ca27402d07e81512513fe60e5368f038f8343bcac67",
       "size": 8343
     },
     {
@@ -1367,8 +1367,8 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "c2f8441cdd0e323179b64b504a8b878ec6e2347814d845dd58d52e86c7fe4353",
-      "size": 117955
+      "checksum": "cd7c17a7d55601b23d71e91593ed7066a8e05262a38b5c8f66a63932b7ab1959",
+      "size": 126966
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
@@ -1397,7 +1397,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "2e5f156253f5be3f0e9ff4cf9000eee2d9a31784ef7042bb638bd843446a4422",
+      "checksum": "26192cbb889aff8f77e25528e7f6dacfc3758c14b49704f53558ec9e19eef0ba",
       "size": 158
     },
     {

@@ -25,6 +25,7 @@ import {searchStudentContent} from '../src/features/search/model.ts';
 import {parseAppRoute} from '../src/app/routes.ts';
 import {FEATURE_FLAGS,isFeatureEnabled} from '../src/app/feature-flags.ts';
 import {knowledgeOutputs,KNOWLEDGE_REPORTS} from '../scripts/chemistry-knowledge-report.ts';
+import {OWNER_DECIDED_RECORD_CHANGES} from '../scripts/lib/computed-model-interaction.ts';
 
 const root=fileURLToPath(new URL('..',import.meta.url));
 const read=(rel)=>fs.readFileSync(path.join(root,rel),'utf8');
@@ -138,7 +139,9 @@ test('7. a modeled reaction comes from the matcher with its record',()=>{
   // every reaction record whose reactants resolve opens from its own explorer link and the matcher finds THAT record
   let reachable=0;
   for(const r of index.reactions){ const h=reactionExplorerHref(index,r.id,''); if(!h) continue; const st=parseExplorerQuery(new URL(`http://x${h}`).searchParams,index); const o=explore(domain,st.speciesIds,st.stated); assert.equal(o.kind,'MODELED_REACTION',r.id); assert.equal(o.reactionId,r.id); reachable++; }
-  assert.equal(reachable,index.reactions.filter(r=>r.participants.reactants.every(Boolean)).length);
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry)
+  assert.equal(reactionExplorerHref(index,'rxn.h2o-electrolysis',''),null);
+  assert.equal(reachable,index.reactions.filter(r=>r.participants.reactants.every(Boolean)&&r.unsupportedConditions.length===0).length);
 });
 
 test('8. an explicit modeled no-reaction record is a separate outcome',()=>{
@@ -217,7 +220,9 @@ test('13. no ionic equation is invented where IonicEngine does not support it',(
 test('14. an observation comes only from the record (flagged ones wait for review)',()=>{
   for(const r of index.reactions){
     const rec=REACTIONS.find(x=>x.id===r.id); const g=governance.reactions.find(x=>x.id===r.id);
-    if(g.observationFlags.includes('CHEMISTRY_REVIEW_REQUIRED')) assert.deepEqual(r.observations,{status:'GAP',reason:'OBSERVATION_REVIEW_REQUIRED'});
+    // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); where the textbook states no observation the record has none and the index shows a GAP (nothing is invented)
+    if(!rec.observations.length) assert.deepEqual(r.observations,{status:'GAP',reason:'OBSERVATION_MISSING'});
+    else if(g.observationFlags.includes('CHEMISTRY_REVIEW_REQUIRED')) assert.deepEqual(r.observations,{status:'GAP',reason:'OBSERVATION_REVIEW_REQUIRED'});
     else assert.deepEqual(r.observations,{status:'MODEL',value:rec.observations,provenance:'CANONICAL_MODEL'});
   }
   // the renderer names no colour, gas or heat effect of its own (colour names come from the record via the catalog)
@@ -287,7 +292,8 @@ test('23. global search: substances (formula exact, name) and reactions (formula
   assert.equal(agbr[0].kind,'substance'); assert.ok(agbr.some(r=>r.kind==='reaction'&&r.href.startsWith('/reactions?')));
   // a reaction without an explorer link (unresolved reactant) has no entry; no reaction href names a record id
   assert.ok(entries.filter(e=>e.kind==='reaction').every(e=>!/rxn\./.test(e.href)));
-  assert.equal(entries.filter(e=>e.kind==='reaction').length,index.reactions.length-1);
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry) (unresolved reactant + unsupported condition = 2 without an entry)
+  assert.equal(entries.filter(e=>e.kind==='reaction').length,index.reactions.length-2);
   assert.match(read('src/features/search/model.ts'),/entry\.kind==='substance'\|\|entry\.kind==='reaction'/);
 });
 
@@ -390,7 +396,7 @@ test('reports: generator-equal; dimensions separate (no merged percentage); form
   const inv=JSON.parse(out[KNOWLEDGE_REPORTS.inventory]);
   assert.equal(inv.species.total,SPECIES.length); assert.equal(inv.reactions.total,REACTIONS.length);
   const ex=JSON.parse(out[KNOWLEDGE_REPORTS.explorer]);
-  assert.equal(ex.pairsOfCanonicalSpecies.modeledNoReaction,0); assert.equal(ex.reachability.unreachable.length,1);
+  assert.equal(ex.pairsOfCanonicalSpecies.modeledNoReaction,0); assert.equal(ex.reachability.unreachable.length,2); // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry)
 });
 
 // ------------------------------------------------------------------ P2.14 closeout: complete condition semantics
@@ -482,19 +488,22 @@ test('closeout 11: changing a non-tag condition makes the condition decision sta
 
 test('closeout 12: the 28 canonical records use only tag conditions and stay reachable exactly as before',()=>{
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records; rxn.p-combustion carried the ignition tag (tag-condition records 11 → 10)
-  assert.equal(REACTIONS.length,25);
-  assert.ok(REACTIONS.every(r=>conditionRequirementFields(r.conditions).every(f=>f==='tags')));
-  assert.ok(index.reactions.every(r=>r.unsupportedConditions.length===0));
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41). The 25 earlier records still use only tag
+  // conditions and stay reachable as before; of the new ones, rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry).
+  const OWNER_ADDED=new Set(OWNER_DECIDED_RECORD_CHANGES.reactions.added);
+  assert.equal(REACTIONS.length,41); assert.equal(REACTIONS.filter(r=>!OWNER_ADDED.has(r.id)).length,25);
+  assert.ok(REACTIONS.filter(r=>r.id!=='rxn.h2o-electrolysis').every(r=>conditionRequirementFields(r.conditions).every(f=>f==='tags')));
+  assert.deepEqual(index.reactions.filter(r=>r.unsupportedConditions.length).map(r=>[r.id,r.unsupportedConditions]),[['rxn.h2o-electrolysis',['electricalCurrent']]]);
   const ex=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.explorer]);
-  assert.equal(ex.reachability.reachable,24);
-  assert.deepEqual(ex.reachability.unreachable.map(x=>[x.id,x.reason]),[['rxn.agno3-nacl','REACTANT_NOT_A_CANONICAL_SPECIES']]);
-  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{tags:10});
+  assert.equal(ex.reachability.reachable,39);
+  assert.deepEqual(ex.reachability.unreachable.map(x=>[x.id,x.reason]),[['rxn.agno3-nacl','REACTANT_NOT_A_CANONICAL_SPECIES'],['rxn.h2o-electrolysis','EXPLORER_CONDITION_UNSUPPORTED']]);
+  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{electricalCurrent:1,tags:22});
   assert.deepEqual(ex.conditionContract.explorerSupportedFields,['tags']);
-  assert.deepEqual(ex.conditionContract.unsupportedRecords,[]);
+  assert.deepEqual(ex.conditionContract.unsupportedRecords,[{id:'rxn.h2o-electrolysis',fields:['electricalCurrent']}]);
   assert.equal(ex.conditionContract.explorerUnsupportedFields.length,8);
   const gov=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.governance]);
-  assert.equal(gov.conditionGovernance.conditionAssertions,10);
-  assert.deepEqual(gov.conditionGovernance.review,{pending:10});
+  assert.equal(gov.conditionGovernance.conditionAssertions,23);
+  assert.deepEqual(gov.conditionGovernance.review,{pending:23});
   // the explorer's single matcher call states vocabulary dimensions only (every other field stays absent)
   assert.match(read('src/features/chemistry-knowledge/explorer.ts'),/conditions:\{dimensions:\{\.\.\.stated\}\},conditionPolicy:'require-record-conditions'/);
 });

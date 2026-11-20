@@ -221,8 +221,8 @@
     "learningUnitId": "lu.9.15"
   },
   "chemistry": {
-    "assertions": 127,
-    "pending": 127,
+    "assertions": 172,
+    "pending": 172,
     "wouldRemainBlocked": {
       "count": 30,
       "reason": "APPROVED_WITHOUT_SOURCE — the gate refuses an approval of an assertion that cites no source (localized names today); a source must be added before an approval can count",

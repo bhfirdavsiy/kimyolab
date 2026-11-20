@@ -1,17 +1,17 @@
 {
   "schema": "kimyolab.chemistry-kb-coverage.v1",
   "assertions": {
-    "total": 127,
+    "total": 172,
     "approved": 0,
-    "pending": 127,
+    "pending": 172,
     "stale": 0,
     "rejected": 0,
     "missingSources": 30,
     "byCategory": {
       "reaction": {
-        "total": 25,
+        "total": 41,
         "approved": 0,
-        "pending": 25,
+        "pending": 41,
         "stale": 0,
         "rejected": 0
       },
@@ -23,16 +23,16 @@
         "rejected": 0
       },
       "condition": {
-        "total": 19,
+        "total": 32,
         "approved": 0,
-        "pending": 19,
+        "pending": 32,
         "stale": 0,
         "rejected": 0
       },
       "observation": {
-        "total": 25,
+        "total": 41,
         "approved": 0,
-        "pending": 25,
+        "pending": 41,
         "stale": 0,
         "rejected": 0
       },
@@ -74,11 +74,11 @@
     }
   },
   "reactions": {
-    "total": 25,
-    "modeledReactions": 25,
+    "total": 41,
+    "modeledReactions": 41,
     "modeledNoReaction": 0,
-    "conditionDependent": 10,
-    "notReviewed": 25,
+    "conditionDependent": 22,
+    "notReviewed": 41,
     "netIonicDerivable": 5,
     "observationReviewRequired": [
       "rxn.h2-combustion",
@@ -86,7 +86,16 @@
       "rxn.naoh-hcl",
       "rxn.znoh2-hcl",
       "rxn.cl2-kbr",
-      "rxn.br2-ki"
+      "rxn.br2-ki",
+      "rxn.mg-combustion",
+      "rxn.co-combustion",
+      "rxn.na-cl2",
+      "rxn.caco3-decomposition",
+      "rxn.mgo-water",
+      "rxn.hgo-decomposition",
+      "rxn.koh-hno3",
+      "rxn.koh-hcl",
+      "rxn.malachite-decomposition"
     ]
   },
   "ionic": {
@@ -187,6 +196,6 @@
   "gate": {
     "status": "PENDING",
     "fail": 0,
-    "pending": 275
+    "pending": 345
   }
 }

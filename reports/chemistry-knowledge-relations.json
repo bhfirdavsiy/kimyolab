@@ -18,11 +18,11 @@
   },
   "counts": {
     "elementSubstance": {
-      "knowledgeIndex": 160,
-      "elementHub": 160,
+      "knowledgeIndex": 192,
+      "elementHub": 192,
       "consistent": true
     },
-    "substanceReaction": 93,
+    "substanceReaction": 148,
     "reactionLab": 21,
     "reactionTopic": 34,
     "substanceLab": {

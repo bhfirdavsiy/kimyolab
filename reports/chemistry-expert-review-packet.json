@@ -4,7 +4,7 @@
   "decision": "NOT_A_REVIEW_DECISION — every item is PENDING until a person decides",
   "howToDecide": "record approve / reject / change_required for the listed assertionId + assertionHash in content-src/chemistry-reviews.json (reviewer: a person, not an automation identity); a decision on an old hash is stale",
   "speciesIdentity": {
-    "records": 84,
+    "records": 99,
     "rule": "SpeciesRegistry: unique id and unique (formula, phase, charge, structuralVariant, allotrope); the formula parser charge equals the record charge",
     "issues": [],
     "formulaNotParseable": [
@@ -17,26 +17,26 @@
     ]
   },
   "summary": {
-    "reactions": 25,
-    "equationParsed": 25,
-    "formulasMatchRecord": 25,
-    "atomBalanced": 25,
-    "chargeBalanced": 25,
-    "balancerAgrees": 25,
-    "arrowMatchesDirection": 25,
-    "speciesResolved": 24,
+    "reactions": 41,
+    "equationParsed": 41,
+    "formulasMatchRecord": 41,
+    "atomBalanced": 41,
+    "chargeBalanced": 41,
+    "balancerAgrees": 41,
+    "arrowMatchesDirection": 41,
+    "speciesResolved": 40,
     "conditionRejected": 0,
-    "observationFlagged": 6,
+    "observationFlagged": 15,
     "sourceEligible": 0,
-    "decisionsToMake": 60,
+    "decisionsToMake": 105,
     "expertReviewed": 0,
-    "hazardSpecies": 39,
-    "hazardCodes": 45,
+    "hazardSpecies": 41,
+    "hazardCodes": 47,
     "reactionSafetyTags": 18
   },
   "acceptance": {
     "criterion": "28/28 reactions reviewed by a chemistry expert; 0 unapproved assertions shown as approved",
-    "reviewed": "0/25",
+    "reviewed": "0/41",
     "shownReviewedWithoutApproval": [],
     "status": "NOT_MET — human review outstanding (DRAFT/PENDING never counts as PASS)"
   },
@@ -2532,6 +2532,1671 @@
           "expertDecision": "PENDING"
         }
       ]
+    },
+    {
+      "id": "rxn.mg-combustion",
+      "molecularEquation": "2Mg + O2 → 2MgO",
+      "reactionType": "combustion",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          1,
+          2
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Mg": 2,
+            "O": 2
+          },
+          "products": {
+            "Mg": 2,
+            "O": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            1,
+            2
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.mg",
+            "species.o2"
+          ],
+          "products": [
+            "species.mgo"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.mg-combustion",
+          "assertionHash": "a74aa56cfbbde0270eccd0fe5a13693a1bff07ad8180088bdf77b9307eef18a1",
+          "claim": "2Mg + O2 → 2MgO",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.mg-combustion",
+          "assertionHash": "f28334305f68eb60c7ef7aa5aad7b77b7e11b43d84bf16e5a52e15b69764e3e9",
+          "claim": "rxn.mg-combustion talab qiladi: ignition",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.mg-combustion",
+          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+          "claim": "rxn.mg-combustion: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.no-o2",
+      "molecularEquation": "2NO + O2 → 2NO2",
+      "reactionType": "combination",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          1,
+          2
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "N": 2,
+            "O": 4
+          },
+          "products": {
+            "N": 2,
+            "O": 4
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            1,
+            2
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.no",
+            "species.o2"
+          ],
+          "products": [
+            "species.no2"
+          ]
+        },
+        "conditionFields": [],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.no-o2",
+          "assertionHash": "959cdf3f28066cc5a94513f38653cec2624b0e015f5c9ef279c2508adbfe3b38",
+          "claim": "2NO + O2 → 2NO2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.no-o2",
+          "assertionHash": "34a4cc3cbf17e8035cc6fe88bfef5b2747e9c1cf674b9dfa1c76bcc58e75eac3",
+          "claim": "rxn.no-o2: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.no-o2.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.co-combustion",
+      "molecularEquation": "2CO + O2 → 2CO2",
+      "reactionType": "combustion",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          1,
+          2
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "C": 2,
+            "O": 4
+          },
+          "products": {
+            "C": 2,
+            "O": 4
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            1,
+            2
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.co",
+            "species.o2"
+          ],
+          "products": [
+            "species.co2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.co-combustion",
+          "assertionHash": "f14ce583835d31f79834d32bea723cfa6f601fd5a205cbe0acb21247af74c37a",
+          "claim": "2CO + O2 → 2CO2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.co-combustion",
+          "assertionHash": "f28334305f68eb60c7ef7aa5aad7b77b7e11b43d84bf16e5a52e15b69764e3e9",
+          "claim": "rxn.co-combustion talab qiladi: ignition",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.co-combustion",
+          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+          "claim": "rxn.co-combustion: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.na-cl2",
+      "molecularEquation": "2Na + Cl2 → 2NaCl",
+      "reactionType": "combination",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          1,
+          2
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Cl": 2,
+            "Na": 2
+          },
+          "products": {
+            "Cl": 2,
+            "Na": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            1,
+            2
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.na",
+            "species.cl2"
+          ],
+          "products": [
+            "species.nacl"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.na-cl2",
+          "assertionHash": "544351b3aad418a5232b81b8936e459cd91398fca5132a7b723a6db79b0b82a3",
+          "claim": "2Na + Cl2 → 2NaCl",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.na-cl2",
+          "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+          "claim": "rxn.na-cl2 talab qiladi: heating",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.na-cl2",
+          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+          "claim": "rxn.na-cl2: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.ag2o-decomposition",
+      "molecularEquation": "2Ag2O → 4Ag + O2",
+      "reactionType": "decomposition",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          4,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Ag": 4,
+            "O": 2
+          },
+          "products": {
+            "Ag": 4,
+            "O": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            4,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.ag2o"
+          ],
+          "products": [
+            "species.ag",
+            "species.o2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.ag2o-decomposition",
+          "assertionHash": "d0f561a81ee3e9da7f45423e33f0c49d5db9b43ff65b038f07213d17b6496edd",
+          "claim": "2Ag2O → 4Ag + O2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.ag2o-decomposition",
+          "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+          "claim": "rxn.ag2o-decomposition talab qiladi: heating",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.ag2o-decomposition",
+          "assertionHash": "ba8af3d48f565d2fdac3f6115781db2d3edab2a546050ecc21b188cd2cabba8a",
+          "claim": "rxn.ag2o-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.ag2o-decomposition.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.caco3-decomposition",
+      "molecularEquation": "CaCO3 → CaO + CO2",
+      "reactionType": "decomposition",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "C": 1,
+            "Ca": 1,
+            "O": 3
+          },
+          "products": {
+            "C": 1,
+            "Ca": 1,
+            "O": 3
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.caco3"
+          ],
+          "products": [
+            "species.cao",
+            "species.co2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.caco3-decomposition",
+          "assertionHash": "7e58d643ff699f39ae881a781a8bcbcf46e1c5cdaa6172a135a1956c71ded721",
+          "claim": "CaCO3 → CaO + CO2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.caco3-decomposition",
+          "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+          "claim": "rxn.caco3-decomposition talab qiladi: heating",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.caco3-decomposition",
+          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+          "claim": "rxn.caco3-decomposition: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.mgo-water",
+      "molecularEquation": "MgO + H2O → Mg(OH)2",
+      "reactionType": "combination",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "H": 2,
+            "Mg": 1,
+            "O": 2
+          },
+          "products": {
+            "H": 2,
+            "Mg": 1,
+            "O": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.mgo",
+            "species.h2o"
+          ],
+          "products": [
+            "species.mgoh2"
+          ]
+        },
+        "conditionFields": [],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.mgo-water",
+          "assertionHash": "f4a027501f307e3b4a57d88582151d74ee704076c7d3b717f0874659ee868c1a",
+          "claim": "MgO + H2O → Mg(OH)2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.mgo-water",
+          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+          "claim": "rxn.mgo-water: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.hgo-decomposition",
+      "molecularEquation": "2HgO → 2Hg + O2",
+      "reactionType": "decomposition",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          2,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Hg": 2,
+            "O": 2
+          },
+          "products": {
+            "Hg": 2,
+            "O": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            2,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.hgo"
+          ],
+          "products": [
+            "species.hg",
+            "species.o2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.hgo-decomposition",
+          "assertionHash": "3cfcc86347011a5910eb1b1c000a377be81de1b29860900ff24700d69440697a",
+          "claim": "2HgO → 2Hg + O2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.hgo-decomposition",
+          "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+          "claim": "rxn.hgo-decomposition talab qiladi: heating",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.hgo-decomposition",
+          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+          "claim": "rxn.hgo-decomposition: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.h2o-electrolysis",
+      "molecularEquation": "2H2O → 2H2 + O2",
+      "reactionType": "decomposition",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          2,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "H": 4,
+            "O": 2
+          },
+          "products": {
+            "H": 4,
+            "O": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            2,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.h2o"
+          ],
+          "products": [
+            "species.h2",
+            "species.o2"
+          ]
+        },
+        "conditionFields": [
+          "electricalCurrent"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.h2o-electrolysis",
+          "assertionHash": "7db7c5ae6ac2550ad99b4eb2912e8218d73624ac2e2f84239f1cfc0aff602c2a",
+          "claim": "2H2O → 2H2 + O2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.h2o-electrolysis",
+          "assertionHash": "8b7a60ef37b69ae652a173d7996458f256db98d4cc09ca585f493d1f7cf4ac36",
+          "claim": "rxn.h2o-electrolysis talab qiladi: electricalCurrent=true",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.h2o-electrolysis",
+          "assertionHash": "7e5a05d37be3d2ea7b972798c733249adbb6ba7152ed0744af85da7d4c4ba6f0",
+          "claim": "rxn.h2o-electrolysis: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.h2o-electrolysis.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.fe-s",
+      "molecularEquation": "Fe + S → FeS",
+      "reactionType": "combination",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Fe": 1,
+            "S": 1
+          },
+          "products": {
+            "Fe": 1,
+            "S": 1
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.fe",
+            "species.s"
+          ],
+          "products": [
+            "species.fes"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        },
+        {
+          "id": "src.workbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.fe-s",
+          "assertionHash": "c89837cbd0ffbb47dbdea8a1403fd3dc62bc033ef2520490c54376e3d4eb22d7",
+          "claim": "Fe + S → FeS",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.fe-s",
+          "assertionHash": "03645edabb39a9e931eccc6660be8a4b31edf0239d39370bcd99d4c3a01aba83",
+          "claim": "rxn.fe-s talab qiladi: heating",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.fe-s",
+          "assertionHash": "7142c7ddd3a59c9183ef8ea7f23901f3ada3be78427df5fba726f4c8f3629ac6",
+          "claim": "rxn.fe-s: [{\"type\":\"light\",\"descriptionKey\":\"rxn.fe-s.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.hno3-caco3",
+      "molecularEquation": "2HNO3 + CaCO3 → Ca(NO3)2 + H2O + CO2",
+      "reactionType": "gas_evolution",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "C": 1,
+            "Ca": 1,
+            "H": 2,
+            "N": 2,
+            "O": 9
+          },
+          "products": {
+            "C": 1,
+            "Ca": 1,
+            "H": 2,
+            "N": 2,
+            "O": 9
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.hno3",
+            "species.caco3"
+          ],
+          "products": [
+            "species.cano32",
+            "species.h2o",
+            "species.co2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.hno3-caco3",
+          "assertionHash": "6052fe22d584a5c6b8de8855ce2e38771ed49c35729187f6c03fbe447b510fce",
+          "claim": "2HNO3 + CaCO3 → Ca(NO3)2 + H2O + CO2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.hno3-caco3",
+          "assertionHash": "0b7a9e661a54cbbe13ae0183f3a2c7b5aef4cd7f965cd23c09fe2a17263eceae",
+          "claim": "rxn.hno3-caco3 talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.hno3-caco3",
+          "assertionHash": "a46958c98a35b3af2776f15bd50bf50116029e68da01747ef0781ad0b1e42627",
+          "claim": "rxn.hno3-caco3: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.hno3-caco3.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.koh-hno3",
+      "molecularEquation": "KOH + HNO3 → KNO3 + H2O",
+      "reactionType": "neutralization",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "H": 2,
+            "K": 1,
+            "N": 1,
+            "O": 4
+          },
+          "products": {
+            "H": 2,
+            "K": 1,
+            "N": 1,
+            "O": 4
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.koh",
+            "species.hno3"
+          ],
+          "products": [
+            "species.kno3",
+            "species.h2o"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.koh-hno3",
+          "assertionHash": "1b16bb8ba6236e84ed469c5373eb7ca11c00de3bfd5ddf5dbe311ec92478c869",
+          "claim": "KOH + HNO3 → KNO3 + H2O",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.koh-hno3",
+          "assertionHash": "0b7a9e661a54cbbe13ae0183f3a2c7b5aef4cd7f965cd23c09fe2a17263eceae",
+          "claim": "rxn.koh-hno3 talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.koh-hno3",
+          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+          "claim": "rxn.koh-hno3: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.koh-hcl",
+      "molecularEquation": "KOH + HCl → KCl + H2O",
+      "reactionType": "neutralization",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Cl": 1,
+            "H": 2,
+            "K": 1,
+            "O": 1
+          },
+          "products": {
+            "Cl": 1,
+            "H": 2,
+            "K": 1,
+            "O": 1
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.koh",
+            "species.hcl"
+          ],
+          "products": [
+            "species.kcl",
+            "species.h2o"
+          ]
+        },
+        "conditionFields": [],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.workbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.koh-hcl",
+          "assertionHash": "03285d5750eb2ced2b50e0cf3def5691e95f6d68d36dbecf4ab1ef477b164bdd",
+          "claim": "KOH + HCl → KCl + H2O",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.koh-hcl",
+          "assertionHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
+          "claim": "rxn.koh-hcl: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.mg-hcl",
+      "molecularEquation": "Mg + 2HCl → MgCl2 + H2",
+      "reactionType": "single_displacement",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Cl": 2,
+            "H": 2,
+            "Mg": 1
+          },
+          "products": {
+            "Cl": 2,
+            "H": 2,
+            "Mg": 1
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.mg",
+            "species.hcl"
+          ],
+          "products": [
+            "species.mgcl2",
+            "species.h2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        },
+        {
+          "id": "src.workbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.mg-hcl",
+          "assertionHash": "f55f4bf3ba7b26a67f95f8d2343421b44957871d70281f28faeb50a8d6f44bce",
+          "claim": "Mg + 2HCl → MgCl2 + H2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.mg-hcl",
+          "assertionHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
+          "claim": "rxn.mg-hcl talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.mg-hcl",
+          "assertionHash": "d19cfcd532a6aa3680c8ec863d652818fa1bb5a735db8e0b28f22f799ba703be",
+          "claim": "rxn.mg-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.mg-hcl.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.fe-hcl",
+      "molecularEquation": "Fe + 2HCl → FeCl2 + H2",
+      "reactionType": "single_displacement",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Cl": 2,
+            "Fe": 1,
+            "H": 2
+          },
+          "products": {
+            "Cl": 2,
+            "Fe": 1,
+            "H": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.fe",
+            "species.hcl"
+          ],
+          "products": [
+            "species.fecl2",
+            "species.h2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.textbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        },
+        {
+          "id": "src.workbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.fe-hcl",
+          "assertionHash": "429e539e3ae8e5aa0c21a00d5398831c79f6e316c8865ab8b3668aa686d887c6",
+          "claim": "Fe + 2HCl → FeCl2 + H2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.fe-hcl",
+          "assertionHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
+          "claim": "rxn.fe-hcl talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.fe-hcl",
+          "assertionHash": "84e85f3adcec434f676647fe7bf461ffe0bd6a759ee0e2614f00893cf393c428",
+          "claim": "rxn.fe-hcl: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.fe-hcl.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.malachite-decomposition",
+      "molecularEquation": "Cu2(OH)2CO3 → 2CuO + H2O + CO2",
+      "reactionType": "decomposition",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "C": 1,
+            "Cu": 2,
+            "H": 2,
+            "O": 5
+          },
+          "products": {
+            "C": 1,
+            "Cu": 2,
+            "H": 2,
+            "O": 5
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            2,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.malachite"
+          ],
+          "products": [
+            "species.cuo",
+            "species.h2o",
+            "species.co2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_MISSING"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.workbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.malachite-decomposition",
+          "assertionHash": "491af5c82b533944f4c80a4911e1aebd21e5da85e63124f4db6e00a5b2ef71cd",
+          "claim": "Cu2(OH)2CO3 → 2CuO + H2O + CO2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.malachite-decomposition",
+          "assertionHash": "839e7e5b4d485187fe97c91b5ab717acce73f7e9f7ef9bb289125682925a746e",
+          "claim": "rxn.malachite-decomposition talab qiladi: heating",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.malachite-decomposition",
+          "assertionHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
+          "claim": "rxn.malachite-decomposition: []",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_MISSING"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
     }
   ],
   "naclDecision": {
@@ -2729,7 +4394,7 @@
         "formula": "Ca(OH)2",
         "phase": "aq",
         "hazards": [
-          "irritant"
+          "corrosive"
         ],
         "sources": [
           {
@@ -2963,7 +4628,7 @@
         "formula": "ZnCl2",
         "phase": "aq",
         "hazards": [
-          "irritant"
+          "corrosive"
         ],
         "sources": [
           {
@@ -3094,7 +4759,7 @@
         "formula": "I2",
         "phase": "s",
         "hazards": [
-          "irritant"
+          "toxic"
         ],
         "sources": [
           {
@@ -3278,7 +4943,7 @@
         "formula": "NaHSO4",
         "phase": "s",
         "hazards": [
-          "irritant"
+          "corrosive"
         ],
         "sources": [
           {
@@ -3572,6 +5237,58 @@
           {
             "id": "src.beta1.migration",
             "category": "INTERNAL_PROPOSAL",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
+        "id": "species.hg",
+        "formula": "Hg",
+        "phase": "l",
+        "hazards": [
+          "toxic"
+        ],
+        "sources": [
+          {
+            "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
+        "id": "species.koh",
+        "formula": "KOH",
+        "phase": "aq",
+        "hazards": [
+          "corrosive"
+        ],
+        "sources": [
+          {
+            "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
             "classification": "PROPOSED",
             "canonicalAuthoringEligible": false,
             "bibliographyMissing": [

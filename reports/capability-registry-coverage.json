@@ -394,8 +394,9 @@
   ],
   "authorities": {
     "ReactionMatcher": {
-      "records": 25,
+      "records": 41,
       "reactionIds": [
+        "rxn.ag2o-decomposition",
         "rxn.agno3-nabr",
         "rxn.agno3-nacl",
         "rxn.agno3-nai",
@@ -403,19 +404,34 @@
         "rxn.br2-ki",
         "rxn.c-combustion",
         "rxn.c-combustion-limited",
+        "rxn.caco3-decomposition",
         "rxn.caco3-hcl",
         "rxn.cao-water",
         "rxn.cl2-kbr",
+        "rxn.co-combustion",
         "rxn.co2-water",
         "rxn.cuo-hcl",
         "rxn.fe-combustion",
+        "rxn.fe-hcl",
+        "rxn.fe-s",
         "rxn.h2-combustion",
         "rxn.h2-cuo",
+        "rxn.h2o-electrolysis",
+        "rxn.hgo-decomposition",
+        "rxn.hno3-caco3",
+        "rxn.koh-hcl",
+        "rxn.koh-hno3",
+        "rxn.malachite-decomposition",
+        "rxn.mg-combustion",
         "rxn.mg-h2so4",
+        "rxn.mg-hcl",
+        "rxn.mgo-water",
+        "rxn.na-cl2",
         "rxn.nacl-h2so4",
         "rxn.naoh-hcl",
         "rxn.nh3-hcl",
         "rxn.nh4cl-caoh2",
+        "rxn.no-o2",
         "rxn.s-combustion",
         "rxn.zn-h2so4",
         "rxn.zn-hcl",
@@ -423,6 +439,8 @@
         "rxn.znoh2-hcl"
       ],
       "formulas": [
+        "Ag",
+        "Ag2O",
         "AgBr",
         "AgCl",
         "AgI",
@@ -431,6 +449,7 @@
         "BaSO4",
         "Br2",
         "C",
+        "Ca(NO3)2",
         "Ca(OH)2",
         "CaCl2",
         "CaCO3",
@@ -439,21 +458,33 @@
         "CO",
         "CO2",
         "Cu",
+        "Cu2(OH)2CO3",
         "CuCl2",
         "CuO",
         "Fe",
         "Fe3O4",
+        "FeCl2",
+        "FeS",
         "H2",
         "H2CO3",
         "H2O",
         "H2SO4",
         "HCl",
+        "Hg",
+        "HgO",
+        "HNO3",
         "I2",
         "KBr",
         "KCl",
         "KI",
+        "KNO3",
+        "KOH",
         "Mg",
+        "Mg(OH)2",
+        "MgCl2",
+        "MgO",
         "MgSO4",
+        "Na",
         "NaBr",
         "NaCl",
         "NaHSO4",
@@ -462,6 +493,8 @@
         "NaOH",
         "NH3",
         "NH4Cl",
+        "NO",
+        "NO2",
         "O2",
         "S",
         "SO2",
@@ -471,6 +504,15 @@
         "ZnSO4"
       ],
       "reactantSets": [
+        {
+          "reactionId": "rxn.ag2o-decomposition",
+          "reactants": [
+            "Ag2O"
+          ],
+          "conditionTags": [
+            "heating"
+          ]
+        },
         {
           "reactionId": "rxn.agno3-nabr",
           "reactants": [
@@ -534,6 +576,15 @@
           ]
         },
         {
+          "reactionId": "rxn.caco3-decomposition",
+          "reactants": [
+            "CaCO3"
+          ],
+          "conditionTags": [
+            "heating"
+          ]
+        },
+        {
           "reactionId": "rxn.caco3-hcl",
           "reactants": [
             "CaCO3",
@@ -556,6 +607,16 @@
             "KBr"
           ],
           "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.co-combustion",
+          "reactants": [
+            "CO",
+            "O2"
+          ],
+          "conditionTags": [
+            "ignition"
+          ]
         },
         {
           "reactionId": "rxn.co2-water",
@@ -584,6 +645,26 @@
           ]
         },
         {
+          "reactionId": "rxn.fe-hcl",
+          "reactants": [
+            "Fe",
+            "HCl"
+          ],
+          "conditionTags": [
+            "dilute acid"
+          ]
+        },
+        {
+          "reactionId": "rxn.fe-s",
+          "reactants": [
+            "Fe",
+            "S"
+          ],
+          "conditionTags": [
+            "heating"
+          ]
+        },
+        {
           "reactionId": "rxn.h2-combustion",
           "reactants": [
             "H2",
@@ -604,6 +685,69 @@
           ]
         },
         {
+          "reactionId": "rxn.h2o-electrolysis",
+          "reactants": [
+            "H2O"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.hgo-decomposition",
+          "reactants": [
+            "HgO"
+          ],
+          "conditionTags": [
+            "heating"
+          ]
+        },
+        {
+          "reactionId": "rxn.hno3-caco3",
+          "reactants": [
+            "CaCO3",
+            "HNO3"
+          ],
+          "conditionTags": [
+            "dilute acid"
+          ]
+        },
+        {
+          "reactionId": "rxn.koh-hcl",
+          "reactants": [
+            "HCl",
+            "KOH"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.koh-hno3",
+          "reactants": [
+            "HNO3",
+            "KOH"
+          ],
+          "conditionTags": [
+            "dilute acid"
+          ]
+        },
+        {
+          "reactionId": "rxn.malachite-decomposition",
+          "reactants": [
+            "Cu2(OH)2CO3"
+          ],
+          "conditionTags": [
+            "heating"
+          ]
+        },
+        {
+          "reactionId": "rxn.mg-combustion",
+          "reactants": [
+            "Mg",
+            "O2"
+          ],
+          "conditionTags": [
+            "ignition"
+          ]
+        },
+        {
           "reactionId": "rxn.mg-h2so4",
           "reactants": [
             "H2SO4",
@@ -611,6 +755,34 @@
           ],
           "conditionTags": [
             "dilute acid"
+          ]
+        },
+        {
+          "reactionId": "rxn.mg-hcl",
+          "reactants": [
+            "HCl",
+            "Mg"
+          ],
+          "conditionTags": [
+            "dilute acid"
+          ]
+        },
+        {
+          "reactionId": "rxn.mgo-water",
+          "reactants": [
+            "H2O",
+            "MgO"
+          ],
+          "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.na-cl2",
+          "reactants": [
+            "Cl2",
+            "Na"
+          ],
+          "conditionTags": [
+            "heating"
           ]
         },
         {
@@ -649,6 +821,14 @@
           "conditionTags": [
             "gentle heating"
           ]
+        },
+        {
+          "reactionId": "rxn.no-o2",
+          "reactants": [
+            "NO",
+            "O2"
+          ],
+          "conditionTags": []
         },
         {
           "reactionId": "rxn.s-combustion",
@@ -704,6 +884,7 @@
       "modelObservationKinds": [
         "color-change",
         "gas",
+        "light",
         "no-visible-change",
         "precipitate",
         "temperature-change"
@@ -1603,7 +1784,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 6 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.naoh-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
@@ -1621,7 +1802,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "HCl is part of 6 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.naoh-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
@@ -1646,7 +1827,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 6 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.naoh-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
@@ -3302,7 +3483,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 6 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.naoh-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
@@ -3311,7 +3492,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 6 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.naoh-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,

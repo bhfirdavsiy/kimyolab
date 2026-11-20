@@ -121,7 +121,9 @@ test('source queue: repository intake is empty; no source was declared authorita
   assert.deepEqual(sourceReviewQueue(root),[]);
   const reg=json('content-src/source-registry.json');
   assert.equal(reg.sources.filter(s=>s.classification==='HUMAN_ACCEPTED').length,0,'P2.4 accepts no source itself');
-  assert.equal(reg.sources.length,5,'registry unchanged by P2.4');
+  // TT 4.2 expert review (2026-11-20): the textbook and workbook behind the owner-added reactions were registered as PROPOSED (not accepted, no licence or effective date) in a pull request the owner reviews (SOURCE_POLICY: a new source is registered by a person in a reviewed pull request)
+  assert.equal(reg.sources.length,7,'registry unchanged by P2.4; +2 PROPOSED textbook sources (2026-11-20)');
+  assert.deepEqual(reg.sources.slice(5).map(s=>[s.id,s.category,s.classification]),[['src.textbook.kimyo7-2026','TEXTBOOK','PROPOSED'],['src.workbook.kimyo7-2026','TEXTBOOK','PROPOSED']]);
   const q=json('review-packets/source-intake/queue.json');
   assert.equal(q.counts.entries,0);
 });
@@ -278,7 +280,7 @@ test('theory authoring status: current, facts only, 122 units not started, no pr
   assert.deepEqual(s.totals,{units:122,notStarted:122,draft:0,readyForReview:0,chemistryReviewed:0,didacticReviewed:0,approved:0,changesRequested:0,missingSource:0,staleReview:0});
   assert.deepEqual([s.canonicalEntries,s.workingDrafts],[0,0]);
   // P2.4 closeout (A4): source readiness is reported as four separate facts; nothing is eligible before a human acts
-  assert.deepEqual([s.sources.registeredSources,s.sources.categoryCompatibleSources,s.sources.humanAcceptedSources,s.sources.canonicalTheoryEligibleSources],[5,1,0,0]);
+  assert.deepEqual([s.sources.registeredSources,s.sources.categoryCompatibleSources,s.sources.humanAcceptedSources,s.sources.canonicalTheoryEligibleSources],[7,3,0,0]); // TT 4.2 expert review (2026-11-20): the textbook and workbook behind the owner-added reactions were registered as PROPOSED (not accepted, no licence or effective date) in a pull request the owner reviews (SOURCE_POLICY: a new source is registered by a person in a reviewed pull request): registered 5 → 7, category-compatible 1 → 3, still none human-accepted or eligible
   assert.deepEqual(s.sources.eligibleSourceIds,[]);
   const {semantics:_b,...blocked}=s.blocked;
   assert.deepEqual(blocked,{unitsNotYetInAuthoring:122,unitsInAuthoring:0,canonicalApplyImpossibleForAllUnits:true,inAuthoringBySources:0,inAuthoringByAuthoring:0,inAuthoringByChemistryReview:0,inAuthoringByDidacticReview:0},'0 in-authoring source blockers only because 122 units have not entered authoring');

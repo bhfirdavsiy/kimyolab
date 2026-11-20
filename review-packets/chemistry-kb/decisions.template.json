@@ -84,6 +84,15 @@
       "comment": null
     },
     {
+      "assertionId": "condition:rxn.ag2o-decomposition",
+      "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "condition:rxn.c-combustion",
       "assertionHash": "a02d049dce99ed68136479da35a79b0bb8b066933b0cce11f897b99b87a72689",
       "decision": null,
@@ -102,8 +111,44 @@
       "comment": null
     },
     {
+      "assertionId": "condition:rxn.caco3-decomposition",
+      "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.co-combustion",
+      "assertionHash": "f28334305f68eb60c7ef7aa5aad7b77b7e11b43d84bf16e5a52e15b69764e3e9",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "condition:rxn.fe-combustion",
       "assertionHash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.fe-hcl",
+      "assertionHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.fe-s",
+      "assertionHash": "03645edabb39a9e931eccc6660be8a4b31edf0239d39370bcd99d4c3a01aba83",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -129,8 +174,80 @@
       "comment": null
     },
     {
+      "assertionId": "condition:rxn.h2o-electrolysis",
+      "assertionHash": "8b7a60ef37b69ae652a173d7996458f256db98d4cc09ca585f493d1f7cf4ac36",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.hgo-decomposition",
+      "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.hno3-caco3",
+      "assertionHash": "0b7a9e661a54cbbe13ae0183f3a2c7b5aef4cd7f965cd23c09fe2a17263eceae",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.koh-hno3",
+      "assertionHash": "0b7a9e661a54cbbe13ae0183f3a2c7b5aef4cd7f965cd23c09fe2a17263eceae",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.malachite-decomposition",
+      "assertionHash": "839e7e5b4d485187fe97c91b5ab717acce73f7e9f7ef9bb289125682925a746e",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.mg-combustion",
+      "assertionHash": "f28334305f68eb60c7ef7aa5aad7b77b7e11b43d84bf16e5a52e15b69764e3e9",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "condition:rxn.mg-h2so4",
       "assertionHash": "ae3245daa6464cc20ba8b55363c276764c312d6e26518276aef94980579d0282",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.mg-hcl",
+      "assertionHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "condition:rxn.na-cl2",
+      "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -606,6 +723,15 @@
       "comment": null
     },
     {
+      "assertionId": "observation:rxn.ag2o-decomposition",
+      "assertionHash": "ba8af3d48f565d2fdac3f6115781db2d3edab2a546050ecc21b188cd2cabba8a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "observation:rxn.agno3-nabr",
       "assertionHash": "864ea03debfdf69e8a0edebabae7aaa3ecf32b322a8a2388649180b3f6b57d91",
       "decision": null,
@@ -669,6 +795,15 @@
       "comment": null
     },
     {
+      "assertionId": "observation:rxn.caco3-decomposition",
+      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "observation:rxn.caco3-hcl",
       "assertionHash": "7abb8ee6f3e52c4471f78928a9af21465b0cdf65301b987eb591b77dc21fc97c",
       "decision": null,
@@ -689,6 +824,15 @@
     {
       "assertionId": "observation:rxn.cl2-kbr",
       "assertionHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.co-combustion",
+      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -723,6 +867,24 @@
       "comment": null
     },
     {
+      "assertionId": "observation:rxn.fe-hcl",
+      "assertionHash": "84e85f3adcec434f676647fe7bf461ffe0bd6a759ee0e2614f00893cf393c428",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.fe-s",
+      "assertionHash": "7142c7ddd3a59c9183ef8ea7f23901f3ada3be78427df5fba726f4c8f3629ac6",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "observation:rxn.h2-combustion",
       "assertionHash": "6111b2260db19b4db1292ece2b0f867f69872d28647901231859b2718b71417b",
       "decision": null,
@@ -741,8 +903,98 @@
       "comment": null
     },
     {
+      "assertionId": "observation:rxn.h2o-electrolysis",
+      "assertionHash": "7e5a05d37be3d2ea7b972798c733249adbb6ba7152ed0744af85da7d4c4ba6f0",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.hgo-decomposition",
+      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.hno3-caco3",
+      "assertionHash": "a46958c98a35b3af2776f15bd50bf50116029e68da01747ef0781ad0b1e42627",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.koh-hcl",
+      "assertionHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.koh-hno3",
+      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.malachite-decomposition",
+      "assertionHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.mg-combustion",
+      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "observation:rxn.mg-h2so4",
       "assertionHash": "1e996b31833c3305ea52ac91aeccee145fa7c612465ef8d29f0d24809da66b93",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.mg-hcl",
+      "assertionHash": "d19cfcd532a6aa3680c8ec863d652818fa1bb5a735db8e0b28f22f799ba703be",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.mgo-water",
+      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.na-cl2",
+      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -779,6 +1031,15 @@
     {
       "assertionId": "observation:rxn.nh4cl-caoh2",
       "assertionHash": "1ffa40c60fa4fba65b72f649e0923fa8eda6f49e3c1ce9949c2d4cc7279fb97e",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.no-o2",
+      "assertionHash": "34a4cc3cbf17e8035cc6fe88bfef5b2747e9c1cf674b9dfa1c76bcc58e75eac3",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -824,6 +1085,15 @@
     {
       "assertionId": "observation:rxn.znoh2-hcl",
       "assertionHash": "28ce4fd9020c7018132361c19cd18ad800426f588560f1d73df47d60370f84d9",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.ag2o-decomposition",
+      "assertionHash": "d0f561a81ee3e9da7f45423e33f0c49d5db9b43ff65b038f07213d17b6496edd",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -894,6 +1164,15 @@
       "comment": null
     },
     {
+      "assertionId": "reaction:rxn.caco3-decomposition",
+      "assertionHash": "7e58d643ff699f39ae881a781a8bcbcf46e1c5cdaa6172a135a1956c71ded721",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "reaction:rxn.caco3-hcl",
       "assertionHash": "670e374c4f38d690b2a76c3a727b5fb138b42f2d613d4910ab69b41193053694",
       "decision": null,
@@ -914,6 +1193,15 @@
     {
       "assertionId": "reaction:rxn.cl2-kbr",
       "assertionHash": "925606d40bfb2bff930f7d6f25ffed20c432c79758d10ac3469d64a54b705a4c",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.co-combustion",
+      "assertionHash": "f14ce583835d31f79834d32bea723cfa6f601fd5a205cbe0acb21247af74c37a",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -948,6 +1236,24 @@
       "comment": null
     },
     {
+      "assertionId": "reaction:rxn.fe-hcl",
+      "assertionHash": "429e539e3ae8e5aa0c21a00d5398831c79f6e316c8865ab8b3668aa686d887c6",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.fe-s",
+      "assertionHash": "c89837cbd0ffbb47dbdea8a1403fd3dc62bc033ef2520490c54376e3d4eb22d7",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "reaction:rxn.h2-combustion",
       "assertionHash": "bb6fcddaa95681ec17d28887a9562d54a80d6e1e7cd19fe9478af1e3dabbcd70",
       "decision": null,
@@ -966,8 +1272,98 @@
       "comment": null
     },
     {
+      "assertionId": "reaction:rxn.h2o-electrolysis",
+      "assertionHash": "7db7c5ae6ac2550ad99b4eb2912e8218d73624ac2e2f84239f1cfc0aff602c2a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.hgo-decomposition",
+      "assertionHash": "3cfcc86347011a5910eb1b1c000a377be81de1b29860900ff24700d69440697a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.hno3-caco3",
+      "assertionHash": "6052fe22d584a5c6b8de8855ce2e38771ed49c35729187f6c03fbe447b510fce",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.koh-hcl",
+      "assertionHash": "03285d5750eb2ced2b50e0cf3def5691e95f6d68d36dbecf4ab1ef477b164bdd",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.koh-hno3",
+      "assertionHash": "1b16bb8ba6236e84ed469c5373eb7ca11c00de3bfd5ddf5dbe311ec92478c869",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.malachite-decomposition",
+      "assertionHash": "491af5c82b533944f4c80a4911e1aebd21e5da85e63124f4db6e00a5b2ef71cd",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.mg-combustion",
+      "assertionHash": "a74aa56cfbbde0270eccd0fe5a13693a1bff07ad8180088bdf77b9307eef18a1",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "reaction:rxn.mg-h2so4",
       "assertionHash": "5820da22b5a3622e76f61f4e0f3ac3b44b41bda55b446371529509347d6c89a3",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.mg-hcl",
+      "assertionHash": "f55f4bf3ba7b26a67f95f8d2343421b44957871d70281f28faeb50a8d6f44bce",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.mgo-water",
+      "assertionHash": "f4a027501f307e3b4a57d88582151d74ee704076c7d3b717f0874659ee868c1a",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.na-cl2",
+      "assertionHash": "544351b3aad418a5232b81b8936e459cd91398fca5132a7b723a6db79b0b82a3",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -1004,6 +1400,15 @@
     {
       "assertionId": "reaction:rxn.nh4cl-caoh2",
       "assertionHash": "dbb96203805c49e8ac1a1bd42a164dd1ed41519210b7ee4af9677dbb4f75bb4c",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "reaction:rxn.no-o2",
+      "assertionHash": "959cdf3f28066cc5a94513f38653cec2624b0e015f5c9ef279c2508adbfe3b38",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",

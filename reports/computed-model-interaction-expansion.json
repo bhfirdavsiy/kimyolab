@@ -251,13 +251,13 @@
       "learnerModuleBytes": 956436,
       "rendererModules": 13,
       "rendererBytes": 71591,
-      "standaloneBytes": 6251768
+      "standaloneBytes": 6303998
     },
     "delta": {
       "learnerModules": 20,
       "learnerModuleBytes": 290663,
       "rendererBytes": 19849,
-      "standaloneBytes": 605455
+      "standaloneBytes": 657685
     },
     "dependencies": "none added (DOM + CSS only; no canvas/WebGL/chart library)"
   },
@@ -297,8 +297,8 @@
   },
   "newChemistryRecords": 0,
   "chemistryRecordCounts": {
-    "reactions": 25,
-    "species": 84,
+    "reactions": 41,
+    "species": 99,
     "equilibrium": 2,
     "manganeseRedox": 3,
     "kinetics": 3,

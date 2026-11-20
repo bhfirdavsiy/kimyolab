@@ -45,13 +45,58 @@ Import qilingandan keyin ham reaksiya o‘quvchiga “tasdiqlangan” deb ko‘r
 | ZnSO4 | irritant | “ko‘zni jiddiy shikastlovchi” | — | **ochiq**: bunday belgi dasturda yo‘q |
 | NH4Cl | irritant | atamani o‘zgartirish; GHS07 (undov belgisi) | — | **ochiq**: yangi belgi nomi yozilmagan |
 
-Hozircha `content-src/chemistry/species.json` o‘zgartirilmagan. Xavf da’volari uchun kb-review kategoriyasi yo‘q; “aniq” qatorlar loyiha egasi roziligi bilan alohida o‘zgarish sifatida kiritiladi.
+“Aniq” qatorlar loyiha egasi roziligi bilan kiritildi (pastda, 1-band). Xavf da’volari uchun kb-review kategoriyasi hali yo‘q.
 
-2-bosqichda ekspert besh moddada “ta’sirlovchi” belgisini qoldirdi. Demak 2026-11-04 dagi “ta’sirlovchi atamasini o‘zgartirish” izohi belgining o‘ziga emas, so‘ziga taalluqli bo‘lishi mumkin. O‘quvchi ekranida bu belgi “ta’sirlantiruvchi”, “corrosive” esa “yemiruvchi” deb ko‘rinadi (`content-src/locales/uz-latn/learner-interaction.json`). Ekspert ikkala bosqichda ham “ta’sirlovchi” va “o‘yuvchi” so‘zlarini ishlatgan; ekrandagi so‘zlarni shunga moslash — loyiha egasi qarori.
+2-bosqichda ekspert besh moddada “ta’sirlovchi” belgisini qoldirdi. Demak 2026-11-04 dagi “ta’sirlovchi atamasini o‘zgartirish” izohi belgining o‘ziga emas, so‘ziga taalluqli bo‘lishi mumkin. O‘quvchi ekranida bu belgi “ta’sirlantiruvchi”, “corrosive” esa “yemiruvchi” deb ko‘rinadi (`content-src/locales/uz-latn/learner-interaction.json`). Ekspert ikkala bosqichda ham “ta’sirlovchi” va “o‘yuvchi” so‘zlarini ishlatgan; loyiha egasi ekrandagi so‘zlarni shunga moslashga rozi bo‘ldi (pastda, 2-band).
 
 ## Darslikda bor, dasturda yo‘q
 
-16 ta reaksiyaga “qo‘shish kerak” javobi berilgan; “Sulfat kislota + malakit; nitrat kislota + natriy karbonat” (daftar, 51–52-betlar) ga javob yo‘q. Ekspert ikki joyda “Malaxit” deb yozgan (sahifadagi “malakit” yozuviga tuzatish). Yangi reaksiya yozuvlari hali qo‘shilmagan: har biri tenglama, shart va kuzatuv bilan yoziladi va ekspertga alohida tekshirishga yuboriladi.
+16 ta reaksiyaga “qo‘shish kerak” javobi berilgan; “Sulfat kislota + malakit; nitrat kislota + natriy karbonat” (daftar, 51–52-betlar) ga javob yo‘q. Ekspert ikki joyda “Malaxit” deb yozgan (sahifadagi “malakit” yozuviga tuzatish). 16 tasi tasdiqlanmagan yozuv sifatida qo‘shildi (pastda, 3-band); ekspert ularni alohida tekshiradi.
+
+## Loyiha egasi qarori bilan kiritilgan o‘zgarishlar (2026-11-20)
+
+Loyiha egasi uchta taklifga “ha” dedi. Quyidagilar kiritildi; hech biri tasdiqlangan deb ko‘rsatilmaydi (review **PENDING**).
+
+### 1. Xavf belgilari (`content-src/chemistry/species.json`)
+
+Faqat ekspert aniq ko‘rsatgan 4 ta: Ca(OH)2, ZnCl2, NaHSO4 → `corrosive`; I2 → `toxic` (oldin hammasi `irritant`). Sirka, ZnSO4, NH4Cl o‘zgarmadi (ochiq). NaHSO4 uchun “ko‘z uchun xavfli” izohini yozadigan maydon dasturda yo‘q.
+
+### 2. Ekrandagi so‘zlar (`content-src/locales/uz-latn/learner-interaction.json`)
+
+`yemiruvchi` → `o‘yuvchi`, `ta’sirlantiruvchi` → `ta’sirlovchi` (modda belgisi va reaksiya xavfsizlik yozuvlarida). Reaksiya turi “parchalanish” uchun yangi nom qo‘shildi.
+
+### 3. Darslikdagi reaksiyalar (`content-src/chemistry/reactions.json`, `species.json`)
+
+16 ta yozuv va 15 ta yangi modda qo‘shildi (25 → 41 reaksiya, 84 → 99 modda). Darslik va mashq daftari `content-src/source-registry.json` ga **PROPOSED** manba sifatida yozildi (inson qabul qilmagan; litsenziya va amal qilish sanasi yo‘q) — SOURCE_POLICY bo‘yicha yangi manbani PR’ni ko‘rib chiqqan inson kiritadi, bu PR o‘sha ko‘rib chiqish.
+
+Darslikda faqat **so‘z tenglamasi** berilgan. Formulali tenglama va koeffitsientlarni agent yozdi; har biri mashinada tekshirildi (atomlar teng, kanonik balancer bilan mos). Darslikda yozilmagan narsa **kuzatuv sifatida qo‘shilmadi**: kuzatuv yo‘q joyda dastur “kuzatuv yo‘q” (OBSERVATION_MISSING) deb ko‘rsatadi.
+
+| Yozuv | Tenglama | Darslikda | Agent qo‘shgan (ekspert tekshirsin) |
+|---|---|---|---|
+| `rxn.mg-combustion` | 2Mg + O2 → 2MgO | darslik 46: so‘z tenglamasi | shart “yondirish”; kuzatuv yo‘q |
+| `rxn.no-o2` | 2NO + O2 → 2NO2 | darslik 47: rangsiz gazlardan qo‘ng‘ir bug‘ | — |
+| `rxn.co-combustion` | 2CO + O2 → 2CO2 | darslik 47: so‘z tenglamasi | shart “yondirish”; kuzatuv yo‘q |
+| `rxn.na-cl2` | 2Na + Cl2 → 2NaCl | darslik 45: natriy + xlor → natriy xlorid | shart “qizdirish”; kuzatuv yo‘q |
+| `rxn.ag2o-decomposition` | 2Ag2O → 4Ag + O2 | darslik 45: qizdirilganda kumush va kislorod (rangsiz gaz) | — |
+| `rxn.caco3-decomposition` | CaCO3 → CaO + CO2 | darslik 50: qizdirilganda | kuzatuv yo‘q |
+| `rxn.mgo-water` | MgO + H2O → Mg(OH)2 | darslik 50: so‘z tenglamasi | kuzatuv yo‘q |
+| `rxn.hgo-decomposition` | 2HgO → 2Hg + O2 | darslik 50: so‘z tenglamasi | shart “qizdirish”; kuzatuv yo‘q |
+| `rxn.h2o-electrolysis` | 2H2O → 2H2 + O2 | darslik 28: elektr toki bilan vodorod va kislorod | — (izlagichda “elektr toki” sharti yo‘q: yozuv u yerdan ochilmaydi) |
+| `rxn.fe-s` | Fe + S → FeS | darslik 46, 99; daftar 34–35: qizdirilganda, aralashma porlaydi | — |
+| `rxn.hno3-caco3` | 2HNO3 + CaCO3 → Ca(NO3)2 + H2O + CO2 | darslik 79: suyultirilgan kislota, tuz + suv + CO2 | — |
+| `rxn.koh-hno3` | KOH + HNO3 → KNO3 + H2O | darslik 82: suyultirilgan nitrat kislota | kuzatuv yo‘q |
+| `rxn.koh-hcl` | KOH + HCl → KCl + H2O | daftar 56: test savoli | kuzatuv yo‘q |
+| `rxn.mg-hcl` | Mg + 2HCl → MgCl2 + H2 | daftar 49–50; darslik 79: metall + kislota → tuz + vodorod | tuz formulasi (MgCl2) |
+| `rxn.fe-hcl` | Fe + 2HCl → FeCl2 + H2 | daftar 49–50; darslik 79 | tuz formulasi (**FeCl2**, temir(II)) |
+| `rxn.malachite-decomposition` | Cu2(OH)2CO3 → 2CuO + H2O + CO2 | daftar 33: malaxit qizdiriladi, gaz ohakli suvdan o‘tkaziladi | **mahsulotlar** (daftarda yozilmagan); kuzatuv yo‘q |
+
+Yangi moddalardan faqat ikkitasiga darslikdagi xavf belgisi qo‘yildi: Hg — zaharli (darslik 10-bet, 1.3-jadval), KOH — o‘yuvchi (82-bet). Qolganlariga (masalan, Na, NO2, HgO) belgi qo‘yilmadi — ekspert belgilaydi.
+
+**Qo‘shilmadi:**
+- “Mis + suyultirilgan xlorid kislota” (“reaksiya bormaydi” yozuvi). TT 4.2.6 bo‘yicha bunday da’vo o‘quvchiga faqat ko‘rib chiqilgandan keyin ko‘rsatiladi. Reaksiya izlagichida shu tekshiruv bor, 7.10-tajriba (laboratoriya) yo‘lida esa yo‘q: yozuv qo‘shilsa, tajriba tasdiqlanmagan “reaksiya bormaydi” natijasini ko‘rsatib yuborardi. Avval laboratoriya yo‘liga ham shu tekshiruv qo‘shilishi kerak.
+- “Sulfat kislota + malaxit; nitrat kislota + natriy karbonat” — ekspert javob bermagan.
+
+**Testlar va himoya.** “P2.5 dan beri kimyo yozuvi qo‘shilmagan” himoyasi (`COMPUTED_MODEL_INVARIANT`) olib tashlanmadi. U endi `OWNER_DECIDED_RECORD_CHANGES` ro‘yxatini hisobga oladi (`scripts/lib/computed-model-interaction.ts`): ro‘yxatdan tashqari har qanday qo‘shilgan yoki yo‘qolgan yozuv uni hali ham yiqitadi. Eski testlardagi sonlar izoh bilan yangilandi.
 
 ## Ekspert javobi (so‘zma-so‘z)
 

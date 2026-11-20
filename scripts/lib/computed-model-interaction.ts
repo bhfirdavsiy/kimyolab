@@ -27,6 +27,30 @@ export const P25_BASELINE=Object.freeze({
   bundle:{learnerModules:158,learnerModuleBytes:665773,rendererModules:11,rendererBytes:51742,standaloneBytes:5646313},
 });
 
+/** Record changes the PROJECT OWNER decided after P2.5 (each with its review document). The P2.5 baseline is history and
+ *  is not rewritten; the invariant "the computed-model work added no chemistry" is measured against baseline − removed
+ *  + added, so any record outside these lists still fails it (COMPUTED_MODEL_INVARIANT_FAILED). */
+export const OWNER_DECIDED_RECORD_CHANGES=Object.freeze({
+  reactions:{
+    // TT 4.2 expert review 2026-11-04 (docs/reviews/tt-4.2-expert-review-2026-11-04.md): unused records removed
+    removed:['rxn.na2s-hcl','rxn.cuso4-na2s','rxn.p-combustion'],
+    // TT 4.2 expert review 2026-11-20 (docs/reviews/tt-4.2-expert-review-2026-11-20.md): "add from the textbook",
+    // written as UNREVIEWED records (review pending) from the 2026 grade-7 textbook and workbook
+    added:['rxn.mg-combustion','rxn.no-o2','rxn.co-combustion','rxn.na-cl2','rxn.ag2o-decomposition','rxn.caco3-decomposition','rxn.mgo-water',
+      'rxn.hgo-decomposition','rxn.h2o-electrolysis','rxn.fe-s','rxn.hno3-caco3','rxn.koh-hno3','rxn.koh-hcl','rxn.mg-hcl','rxn.fe-hcl',
+      'rxn.malachite-decomposition'],
+  },
+  species:{removed:[] as string[],
+    added:['species.mgo','species.no','species.no2','species.na','species.ag2o','species.ag','species.mgoh2','species.hgo','species.hg','species.fes',
+      'species.cano32','species.koh','species.mgcl2','species.fecl2','species.malachite']},
+});
+/** The record counts the owner's decisions lead to (baseline − removed + added). */
+export function expectedChemistryRecordCounts():Record<string,number>{
+  const out:Record<string,number>={...P25_BASELINE.chemistryRecords};
+  for(const [k,c] of Object.entries(OWNER_DECIDED_RECORD_CHANGES)) out[k]=(out[k]??0)-c.removed.length+c.added.length;
+  return out;
+}
+
 type Json=any;
 const read=(root:string,rel:string)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
 const exists=(root:string,rel:string)=>fs.existsSync(path.join(root,rel));
@@ -226,7 +250,12 @@ export function buildComputedModelExpansion(root:string,audit=buildComputedModel
   const decisions=['release-decisions','pilot-signoffs','chemistry-reviews','assessment-reviews','chemistry-candidate-reviews'].reduce((n,f)=>n+(read(root,`content-src/${f}.json`).records?.length??0),0);
   const reasonCodes:Record<string,number>={};
   for(const c of audit.candidates) for(const r of c.reasons){ const k=r.split(':')[0]!; reasonCodes[k]=(reasonCodes[k]??0)+1; }
-  const recordsAdded=Object.entries(d.counts).reduce((n,[k,v])=>n+Math.max(0,(v as number)-((P25_BASELINE.chemistryRecords as any)[k]??0)),0);
+  const expected=expectedChemistryRecordCounts();
+  // a listed change that is not in the content (an added id missing, a removed id present) also breaks the invariant
+  const idsOf=(f:string)=>{ const x=read(root,`content-src/chemistry/${f}`); return new Set<string>((Array.isArray(x)?x:x.records??x.species??[]).map((r:any)=>r.id)); };
+  const present={reactions:idsOf('reactions.json'),species:idsOf('species.json')} as Record<string,Set<string>>;
+  const listMismatch=Object.entries(OWNER_DECIDED_RECORD_CHANGES).reduce((n,[k,c])=>n+c.added.filter(id=>!present[k]!.has(id)).length+c.removed.filter(id=>present[k]!.has(id)).length,0);
+  const recordsAdded=listMismatch+Object.entries(d.counts).reduce((n,[k,v])=>n+Math.max(0,(v as number)-(expected[k]??0)),0);
   const catalog=read(root,'content-src/locales/uz-latn/learner-interaction.json');
   return {
     schema:'kimyolab.computed-model-interaction-expansion.v1',

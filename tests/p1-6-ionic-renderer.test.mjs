@@ -12,6 +12,7 @@ import {IonicEngine} from '../src/domain/chemistry/ionic-engine.ts';
 import {SpeciesRegistry} from '../src/domain/chemistry/species-registry.ts';
 import {compareNetIonic,parseIonicEquation} from '../src/domain/chemistry/ionic-equation.ts';
 import {evaluateIonicMixing,resolveShelf} from '../src/domain/chemistry/ionic-mixing.ts';
+import {OWNER_DECIDED_RECORD_CHANGES} from '../scripts/lib/computed-model-interaction.ts';
 import {validateEvidence} from '../src/runtime/evidence/types.ts';
 import {toIonicPrecipitationRendererModel,IONIC_RENDERER_MODEL_SCHEMA} from '../src/renderers/ionic-precipitation/renderer-model.ts';
 import {ionicIntent,ionicPrecipitationRenderer} from '../src/renderers/ionic-precipitation/renderer.ts';
@@ -50,7 +51,10 @@ const expectedOf=(id)=>domain().ionic.netIonicEquation(id).equation;
 test('domain audit: KB counted from content; authorities are ReactionMatcher / IonicEngine / species / solubility',()=>{
   const report=read(IONIC_REPORT);
   assert.equal(REACTIONS.length,read('reports/chemistry-validation.json').reactionRecords,'count from content, not hardcoded');
-  for(const r of REACTIONS){ assert.ok(r.reactants.length&&r.products.length&&r.observations.length&&r.sourceRefs.length&&r.molecularEquation,r.id); }
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); where the textbook states no observation the record has none
+  // (nothing invented): the knowledge index shows OBSERVATION_MISSING for it. Only those owner-added records may lack one.
+  const OWNER_ADDED=new Set(OWNER_DECIDED_RECORD_CHANGES.reactions.added);
+  for(const r of REACTIONS){ assert.ok(r.reactants.length&&r.products.length&&(r.observations.length||OWNER_ADDED.has(r.id))&&r.sourceRefs.length&&r.molecularEquation,r.id); }
   // every shelf reagent is a real species AND a solution (dissociation rule) — the IonicEngine can reason about it
   const shelf=resolveShelf(domain(),CONFIG.reagentShelf,TARGET);
   assert.deepEqual(shelf.map(r=>r.speciesId),CONFIG.reagentShelf);

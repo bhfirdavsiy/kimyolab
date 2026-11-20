@@ -9,16 +9,25 @@
     "total": 0
   },
   "chemistry": {
-    "total": 127,
-    "pending": 127,
+    "total": 172,
+    "pending": 172,
     "approved": 0,
     "rejected": 0,
     "changeRequired": 0,
     "stale": 0,
     "flagged": [
       "observation:rxn.br2-ki",
+      "observation:rxn.caco3-decomposition",
       "observation:rxn.cl2-kbr",
+      "observation:rxn.co-combustion",
       "observation:rxn.h2-combustion",
+      "observation:rxn.hgo-decomposition",
+      "observation:rxn.koh-hcl",
+      "observation:rxn.koh-hno3",
+      "observation:rxn.malachite-decomposition",
+      "observation:rxn.mg-combustion",
+      "observation:rxn.mgo-water",
+      "observation:rxn.na-cl2",
       "observation:rxn.nacl-h2so4",
       "observation:rxn.naoh-hcl",
       "observation:rxn.znoh2-hcl"
@@ -26,12 +35,21 @@
     "priorityQueue": {
       "A": {
         "label": "A — kimyoviy anomaliyalar (kuzatuv flaglari)",
-        "total": 6,
-        "pending": 6,
+        "total": 15,
+        "pending": 15,
         "ids": [
           "observation:rxn.br2-ki",
+          "observation:rxn.caco3-decomposition",
           "observation:rxn.cl2-kbr",
+          "observation:rxn.co-combustion",
           "observation:rxn.h2-combustion",
+          "observation:rxn.hgo-decomposition",
+          "observation:rxn.koh-hcl",
+          "observation:rxn.koh-hno3",
+          "observation:rxn.malachite-decomposition",
+          "observation:rxn.mg-combustion",
+          "observation:rxn.mgo-water",
+          "observation:rxn.na-cl2",
           "observation:rxn.nacl-h2so4",
           "observation:rxn.naoh-hcl",
           "observation:rxn.znoh2-hcl"
@@ -39,8 +57,8 @@
       },
       "B": {
         "label": "B — asosiy modellar (indikator, sharoit lug‘ati, gidroliz, ion reaksiya maqsadlari)",
-        "total": 27,
-        "pending": 27,
+        "total": 40,
+        "pending": 40,
         "ids": [
           "condition-context:solution-mixing",
           "condition-term:concentrated acid",
@@ -51,12 +69,25 @@
           "condition-term:oxygen-excess",
           "condition-term:oxygen-limited",
           "condition-term:strong heating",
+          "condition:rxn.ag2o-decomposition",
           "condition:rxn.c-combustion",
           "condition:rxn.c-combustion-limited",
+          "condition:rxn.caco3-decomposition",
+          "condition:rxn.co-combustion",
           "condition:rxn.fe-combustion",
+          "condition:rxn.fe-hcl",
+          "condition:rxn.fe-s",
           "condition:rxn.h2-combustion",
           "condition:rxn.h2-cuo",
+          "condition:rxn.h2o-electrolysis",
+          "condition:rxn.hgo-decomposition",
+          "condition:rxn.hno3-caco3",
+          "condition:rxn.koh-hno3",
+          "condition:rxn.malachite-decomposition",
+          "condition:rxn.mg-combustion",
           "condition:rxn.mg-h2so4",
+          "condition:rxn.mg-hcl",
+          "condition:rxn.na-cl2",
           "condition:rxn.nacl-h2so4",
           "condition:rxn.nh4cl-caoh2",
           "condition:rxn.s-combustion",
@@ -118,8 +149,8 @@
       },
       "E": {
         "label": "E — qolgan assertion’lar",
-        "total": 63,
-        "pending": 63
+        "total": 86,
+        "pending": 86
       }
     }
   },
