@@ -84,6 +84,7 @@
     "test:phase12": "node --experimental-strip-types --test --test-concurrency=1 tests/phase12-*.test.mjs",
     "stable:finalize": "node --experimental-strip-types scripts/stable-finalize.ts",
     "signoff:templates": "node --experimental-strip-types scripts/generate-signoff-templates.ts",
+    "scorm:build": "node --experimental-strip-types scripts/build-scorm.ts",
     "standalone:build": "npm run preview:build && node --experimental-strip-types scripts/build-standalone.ts",
     "standalone:smoke": "npm run standalone:build && node scripts/standalone-browser-smoke.mjs",
     "external-labs:validate": "node --experimental-strip-types scripts/validate-external-labs.ts",

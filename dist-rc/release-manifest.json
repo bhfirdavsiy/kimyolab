@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-23T06:24:01.385Z",
+  "createdAt": "2026-11-23T07:04:11.199Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,8 +11,8 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "3740c436a9beeae4b839d1639675f88d1edd70caa04341a6a156a0875d51779d",
-      "size": 16241
+      "checksum": "cc53a2b09ecd65f284143f684881fad96a455f8ef89a0d58f5db96083f7a0a1e",
+      "size": 18078
     },
     {
       "path": "app-preview/app/content-client.js",
@@ -37,6 +37,12 @@
       "sourcePath": "public/app-preview/app/routes.js",
       "checksum": "26da833420de03180030427b41af2cdd9598c196e191bb67318d6aa42e015862",
       "size": 3192
+    },
+    {
+      "path": "app-preview/app/scorm12.js",
+      "sourcePath": "public/app-preview/app/scorm12.js",
+      "checksum": "6a22d5b1296ba8773a7642517a772652d9f59c15b74d877c2aa233a2102a3b58",
+      "size": 7224
     },
     {
       "path": "app-preview/domain/assessment/evaluator.js",
@@ -449,8 +455,8 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "de11585fbc15ea628c7c954500f300aa3275735809fa05ab3592f25a25519fbb",
-      "size": 26072
+      "checksum": "58a1c95c877f9f4eaf92bc757bbc059692117299e4e3d9db628ca7ebdbf66cd1",
+      "size": 27681
     },
     {
       "path": "app-preview/features/home/copy.js",
@@ -1073,8 +1079,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "6ac5908a283650ff7cb1234f7c03723517e3bc912dd4f3723a892ab7d2f97d50",
-      "size": 41846
+      "checksum": "8ba770a53f25ed7e17d96c11fcd1c8c3207f8ec3d169a6225c13ea7beae76a80",
+      "size": 41994
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1343,8 +1349,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "2ef058ca9ee4f6af445e29f70b3a1796ec7c74f6a26cf28dd2aa9b2003b52090",
-      "size": 46270
+      "checksum": "c6735e2d25e3800ed8e5d50c00efd4ef321bba22e184a8ac3432603e8500ed6e",
+      "size": 46782
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1355,7 +1361,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "9cb4affc41c54364b9327967cba8b38497e8382a044abacc3786ddecc00b32f4",
+      "checksum": "d872c0cb7fce7f51e43a5a17e5c2e854c17ebe540c1abae2d7bb92c70e544e56",
       "size": 8343
     },
     {
@@ -1397,7 +1403,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "bd84da27abdc7f352300a7b4462ae1a202f7f64c781944eed2c33d63fcd3d19a",
+      "checksum": "0bea1508744d15d891198d3c5981975b5a0e9d7db0561b687ab1d92ac9aa3595",
       "size": 158
     },
     {

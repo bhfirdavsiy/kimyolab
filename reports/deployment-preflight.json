@@ -34,8 +34,8 @@
       "id": "artifact-checksum",
       "pass": true,
       "detail": {
-        "files": 234,
-        "sha256": "b54d933b36183650335eb9f22edaa35a2295ac64a07f377a226c7da1851d85f2"
+        "files": 235,
+        "sha256": "799fd5ff0bbba2aeb3725420fd461dbf4b0c14b54dcab5463d150e962bbcb77d"
       }
     },
     {
@@ -47,7 +47,7 @@
       "pass": true,
       "detail": {
         "contentVersion": "2026.09.1",
-        "contentRevision": "d4dbea28ad9fe255435dd27c8ef990facf83b7085ea24634d36afa3fefcca6b1",
+        "contentRevision": "02e6cee87a04812aa485cc42e8721e2783b39425958dd62b1110c3fd2cf6258e",
         "comparedWithPrevious": false
       }
     },
@@ -103,7 +103,7 @@
       "id": "reproducible-build",
       "pass": true,
       "detail": {
-        "sha256": "b54d933b36183650335eb9f22edaa35a2295ac64a07f377a226c7da1851d85f2"
+        "sha256": "799fd5ff0bbba2aeb3725420fd461dbf4b0c14b54dcab5463d150e962bbcb77d"
       }
     },
     {

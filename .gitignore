@@ -10,3 +10,4 @@ node_modules/
 /dist-deploy/
 /reports/ci-environment.observed.json
 /dist-studio/
+/dist-scorm/

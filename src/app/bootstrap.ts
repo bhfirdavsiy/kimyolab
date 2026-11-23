@@ -19,6 +19,7 @@ import {renderCurriculum} from '../features/curriculum/render.ts';
 import {renderExternalLab} from '../features/labs/external-render.ts';
 import {renderDynamicLab,renderDynamicLabUnavailable} from '../features/dynamic-lab/render.ts';
 import {isFeatureEnabled} from './feature-flags.ts';
+import {findScorm12Api,scormPackageConfig,Scorm12Session} from './scorm12.ts';
 import {renderPeriodicTable} from '../features/periodic/render.ts';
 import {elementSearchEntries} from '../features/periodic/model.ts';
 import {createLocalizer} from '../features/localization/element-names.ts';
@@ -56,6 +57,12 @@ for(const image of document.querySelectorAll<HTMLImageElement>('img[data-kl-asse
 
 // one learner sentence for "the activity could not be loaded" (classic practice page and dynamic lab)
 const ACTIVITY_LOAD_ERROR='Faoliyatni yuklab bo‘lmadi.';
+// SCORM 1.2 package (scripts/build-scorm.ts): the page is ONE lab, delivered as one SCO. The route is locked to that
+// lab, the site navigation is hidden, and the lab's progress goes to the LMS through scorm12.ts (never a score).
+const scorm=scormPackageConfig(globalThis);
+const scormHref=scorm?`/dynamic-lab/${scorm.activityId}`:null;
+let scormSession:Scorm12Session|undefined;
+if(scorm) document.body.dataset.klScorm=scorm.standard;
 let activePractice:PracticeAttemptSession|undefined;
 let activeAssessment:AssessmentSessionState|undefined;
 
@@ -64,6 +71,9 @@ async function renderCurrent(){
   if(activePractice){const previous=activePractice;activePractice=undefined;void progressService.leavePracticeSession(previous).catch(()=>undefined);}
   if(activeAssessment){progressService.leaveAssessment(activeAssessment);activeAssessment=undefined;}
   const active=currentLocation();
+  if(scormHref&&active.pathname!==scormHref){ navigateInternal(scormHref); return; }
+  // the packaged lab is rendered once per page; a bounced navigation must not wipe the learner's work
+  if(scormHref&&scormSession) return;
   const route=parseAppRoute(active.pathname);
   if(route.name==='home'){renderHome(main);return;}
   if(route.name==='curriculum'){renderLoading(main);try{renderCurriculum(main,await client.loadCurriculum());}catch(error){renderError(main,contentErrorMessage(error,'Mavzularni yuklab bo‘lmadi.'));}return;}
@@ -91,10 +101,23 @@ async function renderCurrent(){
     renderLoading(main);
     try{
       const page=await client.loadPractice(route.practiceActivityId);
-      if(!isFeatureEnabled('guidedDynamicLabV1',active.searchParams)){ renderDynamicLabUnavailable(main,page,'flag-off'); return; }
+      // a SCORM package is built for exactly one lab: building it is the decision to show that lab (like a flag)
+      const packaged=scorm?.activityId===route.practiceActivityId;
+      if(!packaged&&!isFeatureEnabled('guidedDynamicLabV1',active.searchParams)){ renderDynamicLabUnavailable(main,page,'flag-off'); return; }
       const profile=await client.loadTopicLabProfile(route.practiceActivityId);
       if(!profile){ renderDynamicLabUnavailable(main,page,'no-profile'); return; }
-      renderDynamicLab(main,page,profile);
+      if(!packaged){ renderDynamicLab(main,page,profile); return; }
+      if(!scormSession){
+        scormSession=new Scorm12Session(findScorm12Api(globalThis as any),{profileId:profile.profileId,activityVersion:profile.activityVersion,configVersion:profile.configVersion});
+        const session=scormSession;
+        const suspended=session.start();
+        const end=()=>session.finish();
+        globalThis.addEventListener('pagehide',end); globalThis.addEventListener('beforeunload',end);
+        const noticeKey=session.connection==='connected'?'ui.dlab-scorm-saved':session.connection==='failed'?'ui.dlab-scorm-failed':'ui.dlab-scorm-no-lms';
+        const lab=renderDynamicLab(main,page,profile,{mode:'scorm',noticeKey,onChange:(p)=>session.save({actions:[...p.accepted],complete:p.complete})});
+        if(suspended?.actions.length) lab.replay(suspended.actions as any);
+        main.dataset.scormConnection=session.connection;
+      }
     }
     catch(error){renderError(main,contentErrorMessage(error,ACTIVITY_LOAD_ERROR));}
     return;

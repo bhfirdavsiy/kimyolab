@@ -27,14 +27,27 @@ export function renderDynamicLabUnavailable(root            ,page               
   root.append(shell);
 }
 
-                                                                                                             
+                                                                                                            
+                                                                                                                                           
+                                               
+/** How the lab is embedded. `trial` (default): nothing is persisted. `scorm`: the page runs as one SCORM 1.2 SCO — the
+ *  host persists the accepted actions and the completed status in the LMS (never a score); there is no link to the
+ *  classic practice route, because that route keeps its own browser-local attempt outside the LMS. */
+                                    
+                        
+                                                                         
+                    
+                                                                                                                
+                                                                     
+ 
 
-export function renderDynamicLab(root            ,page                         ,profile                )                 {
+export function renderDynamicLab(root            ,page                         ,profile                ,options                  ={})                 {
   if(profile.activityId!==page.id) throw new Error('DYNAMIC_LAB_PROFILE_MISMATCH');
   const localize         =createLocalizer(page.localization);
   const t        =createLabeler(localize);
   const runtime=createLabRuntime(createLabDomain(page.chemistry       ));
   let state=createLabState(profile);
+  const accepted            =[];
   let selected               =null;
   let pending               =null;
   let level              =profile.guidance.defaultLevel;
@@ -65,7 +78,8 @@ export function renderDynamicLab(root            ,page                         ,
   clear(root);
   const head=el('header',{className:'kl-unit-hero'}); const hi=el('div',{className:'kl-shell'});
   const title=el('h1',{text:page.title,attrs:{tabindex:'-1'}});
-  hi.append(link(t.ui('ui.dlab-open-classic'),`/practice/${page.id}`,'kl-back-link'),el('p',{className:'kl-kicker',text:t.ui('ui.dlab-kicker')}),title,el('p',{className:'kl-notice',text:t.ui('ui.dlab-not-saved')}));
+  if(options.mode!=='scorm') hi.append(link(t.ui('ui.dlab-open-classic'),`/practice/${page.id}`,'kl-back-link'));
+  hi.append(el('p',{className:'kl-kicker',text:t.ui('ui.dlab-kicker')}),title,el('p',{className:'kl-notice',text:t.ui(options.noticeKey??'ui.dlab-not-saved'),attrs:{'data-dlab-notice':options.mode??'trial'}}));
   head.append(hi);
   const shell=el('div',{className:'kl-shell kl-practice-workspace kl-dlab',attrs:{'data-dynamic-lab':profile.profileId,'data-order-mode':profile.procedure.mode,'data-completion-scope':profile.completionScope.kind}});
 
@@ -257,7 +271,7 @@ export function renderDynamicLab(root            ,page                         ,
     result.dataset.status=r.status;
     result.dataset.code=r.error?.code??r.unsupported?.code??r.guidance.code;
     state=r.nextState;
-    if(r.status==='accepted') stage=r.observations.length?'observe':'action';
+    if(r.status==='accepted'){ stage=r.observations.length?'observe':'action'; accepted.push(a); options.onChange?.({accepted:[...accepted],complete:state.complete}); }
     draw();
     result.focus();
     return r;
@@ -341,7 +355,13 @@ export function renderDynamicLab(root            ,page                         ,
     drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
   }
 
-  reset.addEventListener('click',()=>{ state=runtime.reset(profile); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });
+  reset.addEventListener('click',()=>{ state=runtime.reset(profile); accepted.length=0; options.onChange?.({accepted:[],complete:state.complete}); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });
   draw();
-  return {state:()=>state,apply:(a)=>run(a),reset:()=>reset.click()};
+  const replay=(actions                     )=>{
+    let n=0;
+    for(const a of actions){ const r=runtime.applyLabAction(state,a,profile); if(r.status!=='accepted') break; state=r.nextState; accepted.push(a); n++; }
+    if(n){ stage='observe'; draw(); result.textContent=t.ui('ui.dlab-resumed',{count:n}); result.dataset.status='resumed'; result.dataset.code='RESUMED'; }
+    return n;
+  };
+  return {state:()=>state,apply:(a)=>run(a),reset:()=>reset.click(),replay};
 }
