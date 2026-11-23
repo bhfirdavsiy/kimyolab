@@ -4,7 +4,7 @@
   "target": {
     "target": "dist-deploy/kimyolab/ via the bundled Node server",
     "mount": "/kimyolab/",
-    "artifactSha256": "e82e2f7890d6c4cfdd3fec59c166ab57a7ba211bbb3417d9a7f6c4d269b07e37",
+    "artifactSha256": "b54d933b36183650335eb9f22edaa35a2295ac64a07f377a226c7da1851d85f2",
     "config": {
       "basePath": "/kimyolab/",
       "portalHomeUrl": null,
