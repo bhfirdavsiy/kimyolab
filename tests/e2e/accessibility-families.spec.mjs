@@ -100,9 +100,16 @@ test('case: visible labels for every field; empty decision answered by the local
   expect((await focusFacts(page)).inWorkspace).toBe(true);
 });
 
-test('reduced motion: an experiment stage animates normally and stops under prefers-reduced-motion: reduce', async ({page}) => {
-  await open(page, '/practice/practice.experiment.10.1');
-  await page.evaluate(() => document.querySelector('.kl-experiment-stage').classList.add('is-active'));
+// owner review 2026-11-23: the classic experiment stage no longer animates (its keyword-driven bubbles/flame were removed);
+// the motion now lives in the dynamic lab's bench picture, so the check runs there: bubbles after a modeled gas
+test('reduced motion: the lab bench animates normally and stops under prefers-reduced-motion: reduce', async ({page}) => {
+  await open(page, '/dynamic-lab/practice.experiment.7.10');
+  for (const [sub, tube] of [['mg', 'tube-1'], ['h2so4-dilute', 'tube-1']]) {
+    await page.locator(`.kl-dlab [data-object="substance:${sub}"]`).click();
+    await page.locator('.kl-dlab .kl-dlab__action-list [data-action-family=ADD_SUBSTANCE]').click();
+    await page.locator('#dlab-param-container').selectOption(tube);
+    await page.locator('.kl-dlab .kl-dlab__params button[type=submit]').click();
+  }
   await page.waitForTimeout(100);
   expect((await motion(page)).running).toBeGreaterThan(0);          // the check is real: motion exists by default
   await page.emulateMedia({reducedMotion: 'reduce'}); await page.waitForTimeout(100);

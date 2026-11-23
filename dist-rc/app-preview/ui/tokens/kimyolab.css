@@ -258,3 +258,18 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
 @keyframes kl-scene-flicker{from{transform:scaleY(.9)}to{transform:scaleY(1.08)}}
 @media (prefers-reduced-motion:reduce){.kl-scene__bubble,.kl-scene__haze,.kl-scene__flame{animation:none}}
 .kl-dlab-offer{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-bottom:1rem}
+
+/* classic experiment page (owner review 2026-11-23): the stage shows the instruction's apparatus, not a generic beaker */
+.kl-experiment-stage .kl-experiment-vessel--apparatus{position:static;transform:none;width:auto;height:auto;border:0;border-radius:0;background:none;overflow:visible;margin:1rem 0 7.5rem}
+.kl-apparatus-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:.8rem}
+.kl-apparatus{margin:0;display:grid;justify-items:center;gap:.45rem;padding:.8rem .5rem;background:#fff;border:1px solid #d7e4f2;border-radius:16px;box-shadow:0 6px 16px rgba(2,52,128,.05)}
+.kl-apparatus svg{width:56px;height:56px}
+.kl-apparatus figcaption{font-size:.82rem;line-height:1.25;text-align:center;color:#24405f;font-weight:600}
+.kl-apparatus.is-text-only{align-content:center;min-height:96px;background:#f6f9fd;border-style:dashed}
+.kl-experiment-stage{min-height:auto}
+.kl-experiment-step strong{font-weight:600;font-size:.95rem;line-height:1.4;display:block;margin-bottom:.55rem}
+.kl-experiment-step.is-done strong{color:#3d6b52}
+.kl-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.kl-apparatus-block+.kl-apparatus-block{margin-top:1rem}
+.kl-apparatus-heading{margin:0 0 .5rem;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4a6584}
+.kl-apparatus[data-apparatus=bottle] svg{width:44px;height:44px}

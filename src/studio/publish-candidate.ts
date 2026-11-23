@@ -107,7 +107,8 @@ export function buildPublishCandidate(d:StudioDraft,extra:{pdf?:Uint8Array;labDe
 export const serializeCandidate=(c:PublishCandidate)=>`${canonicalJson(c)}\n`;
 
 /** Repository context for a lab candidate: the capability registry and the topic's canonical lab profile. */
-export interface LabCheckContext { registry:CapabilityRegistry; profileFor:(learningUnitId:string|null)=>TopicLabProfile|null }
+/** profileFor: the topic's profile; with several profiled labs in a topic, the one the draft was started from */
+export interface LabCheckContext { registry:CapabilityRegistry; profileFor:(learningUnitId:string|null,activityId?:string|null)=>TopicLabProfile|null }
 
 const same=(a:unknown,b:unknown)=>canonicalJson(a)===canonicalJson(b);
 
@@ -158,7 +159,7 @@ function verifyCandidate(raw:any,lab?:LabCheckContext):string[]{
     if((raw.files??[]).length) out.push('FILE_COUNT');
     if(!lab) out.push('LAB_REANALYSIS_REQUIRED');
     else{
-      const canonical=lab.profileFor(d.target?.learningUnitId??null);
+      const canonical=lab.profileFor(d.target?.learningUnitId??null,(d.provenance as any)?.canonicalActivityId??null);
       const findings=labFindings(d.payload.instruction,d.target,lab.registry,canonical);
       if(d.validation.status!==overallStatus(findings)||!same(d.validation.findings,findings)) out.push('VALIDATION_RESULT_MISMATCH');
       if(overallStatus(findings)==='MISSING_INFORMATION') out.push('VALIDATION_INCOMPLETE');

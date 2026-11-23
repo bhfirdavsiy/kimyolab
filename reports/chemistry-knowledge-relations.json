@@ -26,11 +26,11 @@
     "reactionLab": 23,
     "reactionTopic": 38,
     "substanceLab": {
-      "total": 75,
-      "viaShelf": 19,
+      "total": 77,
+      "viaShelf": 30,
       "viaReaction": 65
     },
-    "substanceTopic": 119,
+    "substanceTopic": 120,
     "primary": 0
   },
   "unresolvedParticipants": [

@@ -508,7 +508,7 @@ export function createLabRuntime(domain          ){
           // container's actual conditions (no reaction is decided here)
           const species=sub.speciesId?domain.species.byId(sub.speciesId)       :null;
           const phase=species?.phase??null;
-          if(!c .contents.some(e=>e.substanceId===subId)) c .contents.push({substanceId:subId,speciesId:sub.speciesId,phase,form:phase?FORM_BY_PHASE[phase]??'solid':(sub.declaredForm?.form??'solid'),amount,source:sub.source});
+          if(!c .contents.some(e=>e.substanceId===subId)) c .contents.push({substanceId:subId,speciesId:sub.speciesId,phase,form:sub.declaredForm?.form??(phase?FORM_BY_PHASE[phase]??'solid':'solid'),amount,source:sub.source});
           contact=c ;
         }else if(sub.role==='sample'){
           c .contents.push({substanceId:subId,speciesId:sub.speciesId,phase:null,form:'solid-sample',amount,source:sub.source});

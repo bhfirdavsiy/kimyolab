@@ -17,7 +17,7 @@
     "topics": 14
   },
   "formulaDerived": 331,
-  "explicit": 157,
+  "explicit": 158,
   "authoredReviewedShown": 0,
   "authoredClaims": {
     "total": 0,
@@ -26,7 +26,7 @@
     "contract": "targetType ∈ SUBSTANCE | REACTION | TOPIC | LAB, targetId exists in that canonical registry, registry source ids; reviewed on the exact hash (chemistry role: substance / reaction; didactic role: topic / lab)"
   },
   "byKindAndProvenance": {
-    "labs:PARTICIPATES:EXPLICIT_MAPPING": 69,
+    "labs:PARTICIPATES:EXPLICIT_MAPPING": 70,
     "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 139,
     "substances:PARTICIPATES:DERIVED_FROM_FORMULA": 192,
     "topics:PARTICIPATES:EXPLICIT_MAPPING": 88
@@ -59,6 +59,7 @@
         "practice.experiment.8.1",
         "practice.experiment.8.14",
         "practice.experiment.8.6",
+        "practice.experiment.8.8",
         "practice.experiment.9.16",
         "practice.experiment.9.4"
       ],

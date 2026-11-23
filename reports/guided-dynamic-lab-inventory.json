@@ -38,8 +38,10 @@
       "practice.experiment.7.10",
       "practice.experiment.7.11",
       "practice.experiment.7.2",
+      "practice.experiment.7.9",
       "practice.experiment.8.1",
-      "practice.experiment.8.14"
+      "practice.experiment.8.14",
+      "practice.experiment.8.8"
     ]
   },
   "experiments": [
@@ -4168,8 +4170,8 @@
         }
       ],
       "dynamicLab": {
-        "profiled": false,
-        "profileId": null
+        "profiled": true,
+        "profileId": "lab-profile.7.9.acid-properties"
       },
       "gaps": [
         "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
@@ -6439,8 +6441,8 @@
         }
       ],
       "dynamicLab": {
-        "profiled": false,
-        "profileId": null
+        "profiled": true,
+        "profileId": "lab-profile.8.8.halide-tests"
       },
       "gaps": [
         "APPARATUS_NOT_DECLARED",

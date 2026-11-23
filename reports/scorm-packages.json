@@ -2,7 +2,7 @@
   "schema": "kimyolab.scorm-packages.v1",
   "standard": "SCORM 1.2",
   "contentVersion": "2026.09.1",
-  "standaloneSha256": "25096513f6f75f943e2aff7c18763a5c39d79b7215a88a47cdfa50a428199974",
+  "standaloneSha256": "ed81b4467383a09b16699ea7f6482091795c1e710f5629f67939bab73168dc44",
   "granularity": "one package (one SCO) per guided dynamic lab profile",
   "runtime": {
     "apiDiscovery": "window.API in this window, its parents (max 7) and the opener chain (SCORM 1.2 RTE)",
@@ -44,10 +44,21 @@
       "title": "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.2-scorm12.zip",
-      "sizeBytes": 3124933,
-      "sha256": "38a519482e30efe1fb73c209ddaf5601ccf1f14399c875adc4c21dcf870880e5",
-      "indexSha256": "919d7c7a6bec88b5709c4ceb3b5cf6a730fefd4b15387cf2e592bf7863b757a1",
+      "sizeBytes": 3131544,
+      "sha256": "693da068387496a51e0c75533db78946cb914b8a39d13076f34b42c6787207dd",
+      "indexSha256": "7e18e1328f04fd6125dd9e03790bddd83df8aebecce73d33e1ccec2fb95a50b1",
       "manifestSha256": "0fa82190a5f60a687e0c8b122f397b52dd9ca34276cc7992cb34ae3fa6309908"
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "profileId": "lab-profile.7.9.acid-properties",
+      "title": "Kislotalarning olinishi va xossalari",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-7.9-scorm12.zip",
+      "sizeBytes": 3131496,
+      "sha256": "bab8d8866e09a6881270e66737d5f3dbc1e6a24fb5843cb8bc1c03f1ec57fb41",
+      "indexSha256": "0ef1cc328ab5b645074c79564c31ba315e4f36ee2c2182ba067938792c75063a",
+      "manifestSha256": "49180d1c03b31f38826a7ddd80e3ef45bad9d8541fe6b5ae311443c71555f60e"
     },
     {
       "activityId": "practice.experiment.7.10",
@@ -55,9 +66,9 @@
       "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.10-scorm12.zip",
-      "sizeBytes": 3124903,
-      "sha256": "d2b2d52dda09ca9335121ee02cabef92a5dbbdbf0aeca1443d050d8c537351ad",
-      "indexSha256": "e521496afcbb965c96bdc642955b294225dc715ffa1bc4677f530913b72436db",
+      "sizeBytes": 3131521,
+      "sha256": "d3d0c5d09dc1a52bcf032e08df0ff7c2ab231dfc17dc52abf453015077eeedd4",
+      "indexSha256": "14c357b774262875485622752021974408e18a5d9283def5cd2fb566d95c59d1",
       "manifestSha256": "9198f4376ba11ba9a54805b018926d5de4fbcb92338c0e3efc929c1389051bb5"
     },
     {
@@ -66,9 +77,9 @@
       "title": "Suvning oksidlar bilan o‘zaro ta’siri",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.11-scorm12.zip",
-      "sizeBytes": 3124895,
-      "sha256": "f6c1f31a2de8c6ba1df7c981591ce9231710f01f8c00091f1cf7ed6937a9fdab",
-      "indexSha256": "ef2f54b10aa1935bc6d9ba2e76a9615c8be651864994eee2ab6e44114c215fb9",
+      "sizeBytes": 3131515,
+      "sha256": "40ed059b52c594c0769027c7df607d8bf547e20d53b58466d976a9ec77a88813",
+      "indexSha256": "82f5223ad9b22d2cba59e0c746459e829138a6ed8e251cdd6129377002e92ee4",
       "manifestSha256": "66e6770690d2a2961ffe607f61ad6630025644357541743a09638b1976ea336f"
     },
     {
@@ -77,10 +88,21 @@
       "title": "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-8.1-scorm12.zip",
-      "sizeBytes": 3124939,
-      "sha256": "415365f89e5c30c61451cacefd8b45de1678b2acd645e185deb3f9e4b1b01df7",
-      "indexSha256": "f31e5a491cb244508b204c569aacee8368ac42254f51af71c8d2db6d1f32566a",
+      "sizeBytes": 3131551,
+      "sha256": "18dda9c3fda7e547ec7bbd3753427f67eb3faf82b1b243cab92cb6c4cd383bde",
+      "indexSha256": "3311b72b6c48fc2d194efc25ae3753cf91a8de215d1460f0cef6a283f1194198",
       "manifestSha256": "bea4ee762182de4083007bf867c1ffa04c1fa453ce6c6f07c5f95eaba82f82cc"
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "profileId": "lab-profile.8.8.halide-tests",
+      "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-8.8-scorm12.zip",
+      "sizeBytes": 3131520,
+      "sha256": "31020d40fc2af8aa6b36be8ea1133f37d588e1c378ae75822024b597e00bcde2",
+      "indexSha256": "dbb948158889b6300b8a8846453f9495bc3f90d68abec5fc6ac4d2febf2d3c7b",
+      "manifestSha256": "19dcebfdad4039a789c2ae23712cd48a29708e320fbec2e8e08e06ec019babae"
     },
     {
       "activityId": "practice.experiment.8.14",
@@ -88,9 +110,9 @@
       "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-8.14-scorm12.zip",
-      "sizeBytes": 3124931,
-      "sha256": "c9707a1f0d5436d57067c0af9cfcd0c270a71b3e7739bbc9572a7b33c0f43f98",
-      "indexSha256": "0b18a7900269af6ead6fb3b118b52fbbbcca3b09362faba3914264f4e39a2063",
+      "sizeBytes": 3131543,
+      "sha256": "040a03f6effcc1e2b03426a463ea4bd78fbf764737b9f893a4fcc4e939bc9cef",
+      "indexSha256": "836e6b919032d9734048be8e1d63755fe7f72a7dd08fb2a5e55bb786cc532250",
       "manifestSha256": "3c4c7df30be836b0f5e4410cb16a26bf60bbd5bdc55368b021a7e255da9a3976"
     },
     {
@@ -99,9 +121,9 @@
       "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-11.2-scorm12.zip",
-      "sizeBytes": 3124904,
-      "sha256": "b83e1ac9fb8726348e2e486ad751116a6bbd1ab918e919e7abb20683ae2c19bb",
-      "indexSha256": "5cf4ad727716d7f81eb380ea2bdf6e0ea4c833d89487cbbbd1a95b7b9fd62914",
+      "sizeBytes": 3131518,
+      "sha256": "ec3b71127a770adc608a81bbc52a160c8fc0e5042c3e7ea1a08068f822477a96",
+      "indexSha256": "8f3bf6da31d2e78c23b7cd8995c3b042a374d7f5ed187d9a5c9a58d2b0781302",
       "manifestSha256": "7700c8bb80887250a3a7c2f80ab08d323d27f2692c3f3a4e2f05100322786954"
     }
   ]

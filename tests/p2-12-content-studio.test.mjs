@@ -374,7 +374,8 @@ test('P2.12 closeout — lab candidate: re-analysed from the repository by studi
   const instruction=instructionFromLegacy(src.goal,src.legacy);
   let d=createDraft('LAB_INSTRUCTION',{kind:'LAB_INSTRUCTION',instruction},src.learningUnitId);
   d={...d,provenance:{...d.provenance,basis:'CANONICAL_INSTRUCTION',canonicalActivityId:src.practiceActivityId}};
-  const canonical=ctx.profileFor(src.learningUnitId); assert.ok(canonical);
+  // step 4 (2026-11-23): lu.7.15 has two profiled labs (7.9, 7.10); the profile is the one the draft was started from
+  const canonical=ctx.profileFor(src.learningUnitId,src.practiceActivityId); assert.ok(canonical); assert.equal(canonical.activityId,'practice.experiment.7.10');
   d=markPreviewed(withValidation(d,labFindings(instruction,d.target,ctx.registry,canonical)),{kind:'LAB_PREVIEW_SHOWN'});
   const c=buildPublishCandidate(d,{labDerived:labDerived(instruction,ctx.registry,canonical)}).candidate;
   assert.ok(c);

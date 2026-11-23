@@ -97,8 +97,10 @@ function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerS
   const inside=s('g',{'clip-path':`url(#${clipId})`});
   g.append(inside);
   if(c){
-    const liquids=c.contents.filter(e=>e.form==='solution'||e.form==='liquid'||e.phase==='aq'||e.phase==='l');
-    const solids=c.contents.filter(e=>!liquids.includes(e));
+    // what the learner added; a reaction product (source ReactionMatcher:…) is drawn by its observation (precipitate, gas)
+    const added=c.contents.filter(e=>!String(e.source).startsWith('ReactionMatcher:'));
+    const liquids=added.filter(e=>e.form==='solution'||e.form==='liquid'||e.phase==='aq'||e.phase==='l');
+    const solids=added.filter(e=>!liquids.includes(e));
     const obs=state.observations.filter(o=>o.container===c.id);
     // liquid band
     if(liquids.length){

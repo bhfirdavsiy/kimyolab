@@ -2443,6 +2443,1056 @@
           "detail": "legacyContent.safety is empty."
         }
       ]
+    },
+    {
+      "schema": "kimyolab.topic-lab-profile.v1",
+      "profileId": "lab-profile.7.9.acid-properties",
+      "activityId": "practice.experiment.7.9",
+      "activityVersion": "2026.09.1",
+      "learningUnitIds": [
+        "lu.7.15",
+        "lu.7.20"
+      ],
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0",
+      "chemistryTruth": false,
+      "instruction": {
+        "source": "legacyContent",
+        "title": "Kislotalarning olinishi va xossalari",
+        "goal": "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+        "equipmentText": "Probirkalar, shtativ, gaz o‘tkazgich nay, tomizgich.",
+        "materialsText": "NaCl, H2SO4, HCl eritmasi, indikatorlar, CuO, NaOH, fenolftalein, CaCO3 yoki bo‘r.",
+        "safetyText": "",
+        "steps": [
+          {
+            "index": 0,
+            "text": "NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling. Gazni suvga yuttirib xlorid kislota hosil qiling.",
+            "operations": [
+              {
+                "verb": "oling",
+                "family": "PREPARE_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "qiling",
+                "family": "PREPARE_SUBSTANCE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "text": "Suv va HCl eritmalariga indikator tomizib ranglarni taqqoslang.",
+            "operations": [
+              {
+                "verb": "taqqoslang",
+                "family": "COMPARE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "text": "CuO namunasi ustiga taxminan 1 ml HCl qo‘shing, qora rangli oksidning erishini kuzating va tenglamani yozing.",
+            "operations": [
+              {
+                "verb": "qo‘shing",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yozing",
+                "family": "RECORD",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "text": "NaOH eritmasiga fenolftalein tomizing, so‘ng HCl ni tomchilab qo‘shing. Eritma rangsizlanishini kuzating va neytrallanish tenglamasini yozing.",
+            "operations": [
+              {
+                "verb": "tomizing",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "qo‘shing",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yozing",
+                "family": "RECORD",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "text": "HCl eritmasiga CaCO3 yoki bo‘r qo‘shing. CO2 ajralishini kuzating va tenglamani yozing.",
+            "operations": [
+              {
+                "verb": "qo‘shing",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yozing",
+                "family": "RECORD",
+                "status": "MAPPED"
+              }
+            ]
+          }
+        ],
+        "sourceRefs": [
+          {
+            "id": "src.legacy.7.9",
+            "title": "7-sinf darsligi, 122–123-betlar"
+          }
+        ],
+        "groundedSteps": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      "apparatus": [
+        {
+          "id": "tube-1",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-1",
+          "source": "legacyContent.equipment (\"Probirkalar\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-2",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-2",
+          "source": "legacyContent.equipment (\"Probirkalar\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-3",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-3",
+          "source": "legacyContent.equipment (\"Probirkalar\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-4",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-4",
+          "source": "legacyContent.equipment (\"Probirkalar\")",
+          "isContainer": true
+        }
+      ],
+      "substances": [
+        {
+          "speciesId": "species.nacl",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "nacl",
+          "labelKey": "ui.dlab-sub-nacl",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"NaCl\") + legacyContent.steps[0]"
+        },
+        {
+          "speciesId": "species.h2so4",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "h2so4",
+          "labelKey": "ui.dlab-sub-h2so4",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"H2SO4\") + legacyContent.steps[0] (the concentration is not stated)"
+        },
+        {
+          "speciesId": "species.hcl",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "hcl-solution",
+          "labelKey": "ui.dlab-sub-hcl-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"HCl eritmasi\") + legacyContent.steps[2–4]",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.materials (\"HCl eritmasi\")"
+          }
+        },
+        {
+          "speciesId": "species.cuo",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "cuo",
+          "labelKey": "ui.dlab-sub-cuo",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"CuO\") + legacyContent.steps[2]"
+        },
+        {
+          "speciesId": "species.naoh",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "naoh-solution",
+          "labelKey": "ui.dlab-sub-naoh-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"NaOH\") + legacyContent.steps[3] (\"NaOH eritmasiga …\")",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.steps[3] (\"NaOH eritmasiga …\")"
+          }
+        },
+        {
+          "speciesId": "species.caco3",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "caco3",
+          "labelKey": "ui.dlab-sub-caco3",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"CaCO3 yoki bo‘r\") + legacyContent.steps[4]"
+        }
+      ],
+      "initialState": {
+        "setUp": [
+          "tube-1",
+          "tube-2",
+          "tube-3",
+          "tube-4"
+        ],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "ADD_SUBSTANCE",
+        "HEAT"
+      ],
+      "familyApparatus": {},
+      "limits": {
+        "quantities": [],
+        "electrodes": [],
+        "heating": {
+          "level": "gently-heated",
+          "source": "legacyContent.steps[0] (\"ehtiyotkor qizdirib\")"
+        }
+      },
+      "procedure": {
+        "mode": "FLEXIBLE",
+        "steps": [
+          {
+            "id": "add-nacl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "nacl"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "trial": "nacl-h2so4",
+            "dependencies": []
+          },
+          {
+            "id": "add-h2so4",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "h2so4"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "trial": "nacl-h2so4",
+            "dependencies": []
+          },
+          {
+            "id": "heat-nacl-h2so4",
+            "family": "HEAT",
+            "match": {},
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0] (\"ehtiyotkor qizdirib\")",
+            "trial": "nacl-h2so4",
+            "dependencies": []
+          },
+          {
+            "id": "add-cuo",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "cuo"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "cuo-hcl",
+            "dependencies": []
+          },
+          {
+            "id": "add-hcl-cuo",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-solution"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "cuo-hcl",
+            "dependencies": []
+          },
+          {
+            "id": "add-naoh",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "naoh-solution"
+            },
+            "required": true,
+            "instructionStep": 3,
+            "source": "legacyContent.steps[3]",
+            "trial": "naoh-hcl",
+            "dependencies": []
+          },
+          {
+            "id": "add-hcl-naoh",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-solution"
+            },
+            "required": true,
+            "instructionStep": 3,
+            "source": "legacyContent.steps[3]",
+            "trial": "naoh-hcl",
+            "dependencies": []
+          },
+          {
+            "id": "add-caco3",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "caco3"
+            },
+            "required": true,
+            "instructionStep": 4,
+            "source": "legacyContent.steps[4]",
+            "trial": "caco3-hcl",
+            "dependencies": []
+          },
+          {
+            "id": "add-hcl-caco3",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-solution"
+            },
+            "required": true,
+            "instructionStep": 4,
+            "source": "legacyContent.steps[4]",
+            "trial": "caco3-hcl",
+            "dependencies": []
+          }
+        ],
+        "humanDecision": null,
+        "orderSource": "No order is declared between the trials: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). Each trial is independent; only state preconditions apply.",
+        "scope": "INSTRUCTION_TRIALS",
+        "trials": [
+          {
+            "id": "nacl-h2so4",
+            "instructionSteps": [
+              0
+            ],
+            "substances": [
+              "nacl",
+              "h2so4"
+            ],
+            "families": [
+              "ADD_SUBSTANCE",
+              "HEAT"
+            ],
+            "source": "legacyContent.steps[0] (\"NaCl ga H2SO4 ta’sir ettirib va ehtiyotkor qizdirib HCl gazini oling\")",
+            "reactionIds": [
+              "rxn.nacl-h2so4"
+            ]
+          },
+          {
+            "id": "cuo-hcl",
+            "instructionSteps": [
+              2
+            ],
+            "substances": [
+              "cuo",
+              "hcl-solution"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[2]",
+            "reactionIds": [
+              "rxn.cuo-hcl"
+            ]
+          },
+          {
+            "id": "naoh-hcl",
+            "instructionSteps": [
+              3
+            ],
+            "substances": [
+              "naoh-solution",
+              "hcl-solution"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[3] (the phenolphthalein is not offered: no indicator handler)",
+            "reactionIds": [
+              "rxn.naoh-hcl"
+            ]
+          },
+          {
+            "id": "caco3-hcl",
+            "instructionSteps": [
+              4
+            ],
+            "substances": [
+              "caco3",
+              "hcl-solution"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[4]",
+            "reactionIds": [
+              "rxn.caco3-hcl"
+            ]
+          }
+        ]
+      },
+      "observationTargets": [
+        {
+          "id": "reaction",
+          "labelKey": "ui.dlab-target-reaction",
+          "producedBy": "ReactionMatcher",
+          "source": "chemistry/reactions.json (record observations)",
+          "kind": "reaction-observation",
+          "kindSource": "the matched reaction record's observations"
+        }
+      ],
+      "completionGoal": {
+        "kind": "reactions",
+        "reactionIds": [
+          "rxn.cuo-hcl",
+          "rxn.naoh-hcl",
+          "rxn.caco3-hcl"
+        ],
+        "gasCollected": false
+      },
+      "completionScope": {
+        "kind": "PARTIAL_INSTRUCTION",
+        "uncovered": [
+          {
+            "instructionStep": 0,
+            "verb": "oling",
+            "family": "PREPARE_SUBSTANCE",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 0,
+            "verb": "qiling",
+            "family": "PREPARE_SUBSTANCE",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 1,
+            "verb": "taqqoslang",
+            "family": "COMPARE",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 2,
+            "verb": "yozing",
+            "family": "RECORD",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 3,
+            "verb": "yozing",
+            "family": "RECORD",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 4,
+            "verb": "yozing",
+            "family": "RECORD",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          }
+        ]
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1,
+        "revealsFinalAnswer": false
+      },
+      "safety": {
+        "virtualOnly": true,
+        "notes": [],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "reaction-matcher",
+        "reactionIds": [
+          "rxn.nacl-h2so4",
+          "rxn.cuo-hcl",
+          "rxn.naoh-hcl",
+          "rxn.caco3-hcl"
+        ],
+        "source": "config(guided-labs).scenario.steps[].reactionIds"
+      },
+      "gaps": [
+        {
+          "code": "CONDITION_NOT_STATED_NACL_H2SO4",
+          "detail": "Step 1: the record rxn.nacl-h2so4 requires concentrated acid and gentle heating. The instruction states the heating (\"ehtiyotkor qizdirib\") but not the acid concentration, so nothing is assumed: the trial ends with the condition unmet and is not part of the completion goal until a source states it."
+        },
+        {
+          "code": "GAS_ABSORPTION_NOT_MODELED",
+          "detail": "Step 1 \"Gazni suvga yuttirib xlorid kislota hosil qiling\": absorbing HCl gas in water has no model; it is not offered."
+        },
+        {
+          "code": "INDICATOR_NOT_MODELED_IN_LAB",
+          "detail": "Steps 2 and 4 use indicators (school.hcl-water.indicator is step-bound, review pending; phenolphthalein has no handler); the colour change of step 4 is the record's own observation only."
+        },
+        {
+          "code": "OBSERVATION_REVIEW_FLAG_CUO_HCL",
+          "detail": "Step 3 says the black oxide dissolves; the record rxn.cuo-hcl states no-visible-change (flagged for chemistry review). The lab shows the record, not the instruction text."
+        },
+        {
+          "code": "RECORD_CHECKER_MISSING",
+          "detail": "\"tenglamani yozing\" (steps 3–5) is a learner response with no checker; it is not offered."
+        },
+        {
+          "code": "SAFETY_TEXT_EMPTY",
+          "detail": "legacyContent.safety is empty."
+        }
+      ]
+    },
+    {
+      "schema": "kimyolab.topic-lab-profile.v1",
+      "profileId": "lab-profile.8.8.halide-tests",
+      "activityId": "practice.experiment.8.8",
+      "activityVersion": "2026.09.1",
+      "learningUnitIds": [
+        "lu.8.16"
+      ],
+      "configSource": "guided-labs",
+      "configVersion": "1.0.0",
+      "chemistryTruth": false,
+      "instruction": {
+        "source": "legacyContent",
+        "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+        "goal": "Daftarga reagentlar jadvalini ko‘chiring.",
+        "equipmentText": "",
+        "materialsText": "HCl, NaCl, NaBr, NaI, AgNO3, kraxmal kleysteri, yodning spirtdagi eritmasi, kartoshka va non.",
+        "safetyText": "",
+        "steps": [
+          {
+            "index": 0,
+            "text": "Daftarga reagentlar jadvalini ko‘chiring.",
+            "operations": [
+              {
+                "verb": "ko‘chiring",
+                "family": "TRANSFER",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "text": "To‘rtta probirkaga mos ravishda HCl, NaCl, NaBr va NaI eritmalaridan 1–2 ml quying.",
+            "operations": [
+              {
+                "verb": "quying",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "text": "Har biriga 3–4 tomchi AgNO3 eritmasi qo‘shing.",
+            "operations": [
+              {
+                "verb": "qo‘shing",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "text": "Cho‘kmalar rangini kuzating, tenglamalarni yozing va jadvalni to‘ldiring.",
+            "operations": [
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "yozing",
+                "family": "RECORD",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "to‘ldiring",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "text": "Kraxmal kleysteriga 1 tomchi yod eritmasi qo‘shib rang o‘zgarishini kuzating.",
+            "operations": [
+              {
+                "verb": "kuzating",
+                "family": "OBSERVE",
+                "status": "MAPPED"
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "text": "Kartoshka va non bo‘laklariga yod eritmasidan tomizing va natijani izohlang.",
+            "operations": [
+              {
+                "verb": "tomizing",
+                "family": "ADD_SUBSTANCE",
+                "status": "MAPPED"
+              },
+              {
+                "verb": "izohlang",
+                "family": "EXPLAIN",
+                "status": "MAPPED"
+              }
+            ]
+          }
+        ],
+        "sourceRefs": [
+          {
+            "id": "src.legacy.8.8",
+            "title": "8-sinf darsligi, 201-bet"
+          }
+        ],
+        "groundedSteps": [
+          1,
+          2,
+          3
+        ]
+      },
+      "apparatus": [
+        {
+          "id": "tube-1",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-1",
+          "source": "legacyContent.steps[1] (\"To‘rtta probirkaga … quying\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-2",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-2",
+          "source": "legacyContent.steps[1] (\"To‘rtta probirkaga … quying\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-3",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-3",
+          "source": "legacyContent.steps[1] (\"To‘rtta probirkaga … quying\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-4",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-4",
+          "source": "legacyContent.steps[1] (\"To‘rtta probirkaga … quying\")",
+          "isContainer": true
+        }
+      ],
+      "substances": [
+        {
+          "speciesId": "species.hcl",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "hcl-solution",
+          "labelKey": "ui.dlab-sub-hcl-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"HCl\") + legacyContent.steps[1]",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.steps[1] (\"… eritmalaridan 1–2 ml quying\")"
+          }
+        },
+        {
+          "speciesId": "species.nacl",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "nacl-solution",
+          "labelKey": "ui.dlab-sub-nacl-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"NaCl\") + legacyContent.steps[1]",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.steps[1] (\"… eritmalaridan 1–2 ml quying\")"
+          }
+        },
+        {
+          "speciesId": "species.nabr",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "nabr-solution",
+          "labelKey": "ui.dlab-sub-nabr-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"NaBr\") + legacyContent.steps[1]",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.steps[1] (\"… eritmalaridan 1–2 ml quying\")"
+          }
+        },
+        {
+          "speciesId": "species.nai",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "nai-solution",
+          "labelKey": "ui.dlab-sub-nai-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"NaI\") + legacyContent.steps[1]",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.steps[1] (\"… eritmalaridan 1–2 ml quying\")"
+          }
+        },
+        {
+          "speciesId": "species.agno3",
+          "soluteSpeciesId": null,
+          "undeclaredParts": [],
+          "id": "agno3-solution",
+          "labelKey": "ui.dlab-sub-agno3-solution",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"AgNO3\") + legacyContent.steps[2]",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.steps[2] (\"… AgNO3 eritmasi qo‘shing\")"
+          }
+        }
+      ],
+      "initialState": {
+        "setUp": [
+          "tube-1",
+          "tube-2",
+          "tube-3",
+          "tube-4"
+        ],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "ADD_SUBSTANCE"
+      ],
+      "familyApparatus": {},
+      "limits": {
+        "quantities": [],
+        "electrodes": []
+      },
+      "procedure": {
+        "mode": "FLEXIBLE",
+        "steps": [
+          {
+            "id": "add-hcl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-solution"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "trial": "hcl-agno3",
+            "dependencies": []
+          },
+          {
+            "id": "add-agno3-hcl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "agno3-solution"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "hcl-agno3",
+            "dependencies": []
+          },
+          {
+            "id": "add-nacl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "nacl-solution"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "trial": "nacl-agno3",
+            "dependencies": []
+          },
+          {
+            "id": "add-agno3-nacl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "agno3-solution"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "nacl-agno3",
+            "dependencies": []
+          },
+          {
+            "id": "add-nabr",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "nabr-solution"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "trial": "nabr-agno3",
+            "dependencies": []
+          },
+          {
+            "id": "add-agno3-nabr",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "agno3-solution"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "nabr-agno3",
+            "dependencies": []
+          },
+          {
+            "id": "add-nai",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "nai-solution"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "trial": "nai-agno3",
+            "dependencies": []
+          },
+          {
+            "id": "add-agno3-nai",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "agno3-solution"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "nai-agno3",
+            "dependencies": []
+          }
+        ],
+        "humanDecision": null,
+        "orderSource": "No order is declared between the four tubes: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). Each tube is its own trial; only state preconditions apply.",
+        "scope": "INSTRUCTION_TRIALS",
+        "trials": [
+          {
+            "id": "hcl-agno3",
+            "instructionSteps": [
+              1,
+              2,
+              3
+            ],
+            "substances": [
+              "hcl-solution",
+              "agno3-solution"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[1–3] (one tube per halide solution, then AgNO3; the precipitates' colours are observed)",
+            "reactionIds": []
+          },
+          {
+            "id": "nacl-agno3",
+            "instructionSteps": [
+              1,
+              2,
+              3
+            ],
+            "substances": [
+              "nacl-solution",
+              "agno3-solution"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[1–3] (one tube per halide solution, then AgNO3; the precipitates' colours are observed)",
+            "reactionIds": [
+              "rxn.agno3-nacl"
+            ]
+          },
+          {
+            "id": "nabr-agno3",
+            "instructionSteps": [
+              1,
+              2,
+              3
+            ],
+            "substances": [
+              "nabr-solution",
+              "agno3-solution"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[1–3] (one tube per halide solution, then AgNO3; the precipitates' colours are observed)",
+            "reactionIds": [
+              "rxn.agno3-nabr"
+            ]
+          },
+          {
+            "id": "nai-agno3",
+            "instructionSteps": [
+              1,
+              2,
+              3
+            ],
+            "substances": [
+              "nai-solution",
+              "agno3-solution"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[1–3] (one tube per halide solution, then AgNO3; the precipitates' colours are observed)",
+            "reactionIds": [
+              "rxn.agno3-nai"
+            ]
+          }
+        ]
+      },
+      "observationTargets": [
+        {
+          "id": "reaction",
+          "labelKey": "ui.dlab-target-reaction",
+          "producedBy": "ReactionMatcher",
+          "source": "chemistry/reactions.json (record observations)",
+          "kind": "reaction-observation",
+          "kindSource": "the matched reaction record's observations"
+        }
+      ],
+      "completionGoal": {
+        "kind": "reactions",
+        "reactionIds": [
+          "rxn.agno3-nacl",
+          "rxn.agno3-nabr",
+          "rxn.agno3-nai"
+        ],
+        "gasCollected": false
+      },
+      "completionScope": {
+        "kind": "PARTIAL_INSTRUCTION",
+        "uncovered": [
+          {
+            "instructionStep": 0,
+            "verb": "ko‘chiring",
+            "family": "TRANSFER",
+            "reason": "NOT_OFFERED"
+          },
+          {
+            "instructionStep": 3,
+            "verb": "yozing",
+            "family": "RECORD",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          },
+          {
+            "instructionStep": 4,
+            "verb": "kuzating",
+            "family": "OBSERVE",
+            "reason": "OBSERVATION_NOT_PRODUCED"
+          },
+          {
+            "instructionStep": 5,
+            "verb": "tomizing",
+            "family": "ADD_SUBSTANCE",
+            "reason": "NOT_OFFERED_FOR_THIS_TRIAL"
+          },
+          {
+            "instructionStep": 5,
+            "verb": "izohlang",
+            "family": "EXPLAIN",
+            "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+          }
+        ]
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1,
+        "revealsFinalAnswer": false
+      },
+      "safety": {
+        "virtualOnly": true,
+        "notes": [],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "reaction-matcher",
+        "reactionIds": [
+          "rxn.agno3-nacl",
+          "rxn.agno3-nabr",
+          "rxn.agno3-nai"
+        ],
+        "source": "config(guided-labs).scenario.steps[].reactionIds"
+      },
+      "gaps": [
+        {
+          "code": "HCL_AGNO3_NO_RECORD",
+          "detail": "Step 3 adds AgNO3 to the HCl tube too; there is no reaction record for HCl + AgNO3, so that tube shows no outcome (not modeled, never \"no reaction\")."
+        },
+        {
+          "code": "RECORD_CHECKER_MISSING",
+          "detail": "Steps 1 and 4 (copy the table, write the equations, fill the table) are learner responses with no checker; they are not offered."
+        },
+        {
+          "code": "SCHOOL_MODEL_STEP_BOUND",
+          "detail": "Steps 5–6 (starch + iodine, potato and bread) are covered only by the step-bound school models school.starch-iodine and school.food-starch-iodine (review pending); they are not offered."
+        },
+        {
+          "code": "QUANTITY_NOT_ENFORCED",
+          "detail": "\"1–2 ml\" and \"3–4 tomchi\" are not modeled as quantities."
+        },
+        {
+          "code": "SAFETY_TEXT_EMPTY",
+          "detail": "legacyContent.safety is empty."
+        }
+      ]
     }
   ]
 }

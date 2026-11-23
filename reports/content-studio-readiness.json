@@ -445,8 +445,8 @@
   "localization": {
     "locale": "uz-Latn",
     "catalog": "content-src/studio/content-studio.uz-latn.json",
-    "labels": 137,
-    "usedKeys": 119,
+    "labels": 138,
+    "usedKeys": 120,
     "dynamicKeyFamilies": [
       "studio.blocker",
       "studio.severity",
@@ -459,9 +459,9 @@
   "bundleImpact": {
     "studio": {
       "modules": 73,
-      "moduleBytes": 531190,
+      "moduleBytes": 532360,
       "studioOnlyModules": 9,
-      "studioOnlyBytes": 90484,
+      "studioOnlyBytes": 91431,
       "sharedLearnerModules": 64
     },
     "learner": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.12\"]"

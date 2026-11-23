@@ -241,7 +241,7 @@ test('reports: generator-equal; readiness P2.11; no migration; human decisions o
   for(const k of ['learnerModules','learnerModuleBytes','standaloneBytes']) assert.equal(b.phases['P2.10'][k]+b.phases['P2.11'][k]+(b.phases['P2.12']?.[k]??0)+(b.phases['P2.13']?.[k]??0)+(b.phases['P2.14']?.[k]??0),b.delta[k],k);
   const cov=json(LAB_REPORTS.coverage);
   // Step 4 of the owner's sequence (2026-11-23): 7.11 (water + oxides) was profiled as a guided dynamic lab: the current tree has 6 profiled (P2.11 itself added 7.10 and 8.14 to the P2.10 three)
-  assert.equal(cov.p211.before.summary.PROFILED,3); assert.equal(cov.p211.after.summary.PROFILED,6);
+  assert.equal(cov.p211.before.summary.PROFILED,3); assert.equal(cov.p211.after.summary.PROFILED,8); // Step 4 (b) of the owner's sequence (2026-11-23): 7.9 (acid properties) and 8.8 (halide tests) were profiled as guided dynamic labs
 });
 
 // ------------------------------------------------------------------ P2.11 closeout

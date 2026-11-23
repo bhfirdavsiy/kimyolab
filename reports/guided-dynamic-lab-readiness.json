@@ -430,6 +430,234 @@
         "RECORD_CHECKER_MISSING",
         "SAFETY_TEXT_EMPTY"
       ]
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "profileId": "lab-profile.7.9.acid-properties",
+      "chemistryAuthority": "reaction-matcher",
+      "observationGrounding": {
+        "reaction": "MODEL_BASED"
+      },
+      "orderMode": "FLEXIBLE",
+      "scope": "INSTRUCTION_TRIALS",
+      "trials": [
+        {
+          "id": "nacl-h2so4",
+          "instructionSteps": [
+            0
+          ],
+          "substances": [
+            "nacl",
+            "h2so4"
+          ],
+          "families": [
+            "ADD_SUBSTANCE",
+            "HEAT"
+          ]
+        },
+        {
+          "id": "cuo-hcl",
+          "instructionSteps": [
+            2
+          ],
+          "substances": [
+            "cuo",
+            "hcl-solution"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "naoh-hcl",
+          "instructionSteps": [
+            3
+          ],
+          "substances": [
+            "naoh-solution",
+            "hcl-solution"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "caco3-hcl",
+          "instructionSteps": [
+            4
+          ],
+          "substances": [
+            "caco3",
+            "hcl-solution"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        }
+      ],
+      "completion": "reactions",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 0,
+          "verb": "oling",
+          "family": "PREPARE_SUBSTANCE",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 0,
+          "verb": "qiling",
+          "family": "PREPARE_SUBSTANCE",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 1,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 2,
+          "verb": "yozing",
+          "family": "RECORD",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "yozing",
+          "family": "RECORD",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "yozing",
+          "family": "RECORD",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "CONDITION_NOT_STATED_NACL_H2SO4",
+        "GAS_ABSORPTION_NOT_MODELED",
+        "INDICATOR_NOT_MODELED_IN_LAB",
+        "OBSERVATION_REVIEW_FLAG_CUO_HCL",
+        "RECORD_CHECKER_MISSING",
+        "SAFETY_TEXT_EMPTY"
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "profileId": "lab-profile.8.8.halide-tests",
+      "chemistryAuthority": "reaction-matcher",
+      "observationGrounding": {
+        "reaction": "MODEL_BASED"
+      },
+      "orderMode": "FLEXIBLE",
+      "scope": "INSTRUCTION_TRIALS",
+      "trials": [
+        {
+          "id": "hcl-agno3",
+          "instructionSteps": [
+            1,
+            2,
+            3
+          ],
+          "substances": [
+            "hcl-solution",
+            "agno3-solution"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "nacl-agno3",
+          "instructionSteps": [
+            1,
+            2,
+            3
+          ],
+          "substances": [
+            "nacl-solution",
+            "agno3-solution"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "nabr-agno3",
+          "instructionSteps": [
+            1,
+            2,
+            3
+          ],
+          "substances": [
+            "nabr-solution",
+            "agno3-solution"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "nai-agno3",
+          "instructionSteps": [
+            1,
+            2,
+            3
+          ],
+          "substances": [
+            "nai-solution",
+            "agno3-solution"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        }
+      ],
+      "completion": "reactions",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 0,
+          "verb": "ko‘chiring",
+          "family": "TRANSFER",
+          "reason": "NOT_OFFERED"
+        },
+        {
+          "instructionStep": 3,
+          "verb": "yozing",
+          "family": "RECORD",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "reason": "OBSERVATION_NOT_PRODUCED"
+        },
+        {
+          "instructionStep": 5,
+          "verb": "tomizing",
+          "family": "ADD_SUBSTANCE",
+          "reason": "NOT_OFFERED_FOR_THIS_TRIAL"
+        },
+        {
+          "instructionStep": 5,
+          "verb": "izohlang",
+          "family": "EXPLAIN",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "HCL_AGNO3_NO_RECORD",
+        "RECORD_CHECKER_MISSING",
+        "SCHOOL_MODEL_STEP_BOUND",
+        "QUANTITY_NOT_ENFORCED",
+        "SAFETY_TEXT_EMPTY"
+      ]
     }
   ],
   "sliceJustification": {
@@ -447,9 +675,9 @@
     "unmappedOperations": 0,
     "families": 31,
     "familiesWithHandler": 15,
-    "profiled": 6,
+    "profiled": 8,
     "profileCandidates": 1,
-    "blocked": 50,
+    "blocked": 48,
     "migrationEquivalent": 0
   },
   "humanDecisions": [
@@ -602,14 +830,14 @@
       "standaloneBytes": 5704269
     },
     "after": {
-      "learnerModules": 180,
-      "learnerModuleBytes": 986445,
-      "standaloneBytes": 6388393
+      "learnerModules": 181,
+      "learnerModuleBytes": 995045,
+      "standaloneBytes": 6437108
     },
     "delta": {
-      "learnerModules": 18,
-      "learnerModuleBytes": 272441,
-      "standaloneBytes": 684124
+      "learnerModules": 19,
+      "learnerModuleBytes": 281041,
+      "standaloneBytes": 732839
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -634,9 +862,9 @@
         "standaloneBytes": 175322
       },
       "P2.14": {
-        "learnerModules": 6,
-        "learnerModuleBytes": 90480,
-        "standaloneBytes": 286456
+        "learnerModules": 7,
+        "learnerModuleBytes": 99080,
+        "standaloneBytes": 335171
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file"

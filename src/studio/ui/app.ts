@@ -42,7 +42,10 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
   let previewMode:'desktop'|'mobile'='desktop';
   let canonical:{page:StudentPracticePageModel;profile:TopicLabProfile|null}|null=null;
   const unit=()=>data.units.find(u=>u.id===luId)??null;
-  const labSource=()=>data.labSources.find(x=>x.learningUnitId===luId)??null;
+  // a topic can have several labs (each with its own lab view): the author's choice, else the first
+  let labChoice:string|null=null;
+  const labSources=()=>data.labSources.filter(x=>x.learningUnitId===luId);
+  const labSource=()=>labSources().find(x=>x.practiceActivityId===labChoice)??labSources()[0]??null;
 
   clear(root);
   const shell=el('main',{className:'kl-shell kl-studio',attrs:{'data-content-studio':''}});
@@ -187,6 +190,12 @@ export function renderContentStudio(root:HTMLElement,data:StudioData,content:Stu
       if(!stepsFromText(steps.value).length){ fail(a,[steps]); return; }
       void ensureCanonical().then(()=>go(2));
     });
+    if(labSources().length>1){
+      const pick=el('select',{attrs:{id:'studio-lab-choice','data-studio-lab-choice':''}});
+      for(const x of labSources()){ const o=el('option',{text:x.title??x.practiceActivityId,attrs:{value:x.practiceActivityId}}); if(x.practiceActivityId===src?.practiceActivityId) o.selected=true; pick.append(o); }
+      pick.addEventListener('change',()=>{ labChoice=pick.value; canonical=null; draw(); });
+      form.append(field('studio-lab-choice',s('studio.lab.choose'),pick));
+    }
     if(src){
       const b=el('button',{className:'kl-button kl-button--secondary',text:s('studio.lab.start-from-existing'),attrs:{type:'button','data-studio-start-existing':''}});
       b.addEventListener('click',()=>{ const i=instructionFromLegacy(src.goal,src.legacy); goal.value=i.goal; eq.value=i.equipment; ma.value=i.materials; sa.value=i.safety; steps.value=i.steps.join('\n'); draft={...draft!,provenance:{...draft!.provenance,basis:'CANONICAL_INSTRUCTION',canonicalActivityId:src.practiceActivityId}}; info.textContent=s('studio.lab.started-from-existing'); steps.focus(); });

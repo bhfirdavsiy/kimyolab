@@ -35,8 +35,8 @@ export interface ProfileSubstance {
   source:ProfileSource;
   /** parts of a sample the instruction does not identify (e.g. the impurity of contaminated salt) */
   undeclaredParts:Array<{id:string;description:string;source:ProfileSource;insoluble:boolean|null}>;
-  /** a sample without a species (e.g. carbonated mineral water): its physical form as the instruction states it, with
-   *  the source; without it the runtime keeps its default (solid sample). Never a chemistry claim. */
+  /** the physical form the instruction states (a solution it pours, a sample without a species), with the source: it
+   *  sets how the content is held and drawn; the registry phase the authority evaluates is unchanged. Never chemistry. */
   declaredForm?:{form:'liquid'|'solid';source:ProfileSource};
   /** the solute part of a sample that the chemistry authority can evaluate (dissolution) */
   soluteSpeciesId:string|null;

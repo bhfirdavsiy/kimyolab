@@ -320,5 +320,7 @@ test('closeout 10–13: the repository state fabricates nothing; identity, e-con
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): formula-derived links 251 → 328; Hg now has a substance (19 → 20)
   // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + HCl and Fe + HCl steps: iron now appears in a lab (labs 16 → 17, explicit links 154 → 157)
   // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): Cu, H and Cl each gain one formula-derived link (328 → 331)
-  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[331,157,20,17]);
+  // Step 4 (b) of the owner's sequence (2026-11-23): 8.8 (halide tests) became a profiled lab, so one more explicit
+  // element ↔ lab link (157 → 158)
+  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[331,158,20,17]);
 });
