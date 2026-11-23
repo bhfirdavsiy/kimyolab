@@ -120,14 +120,22 @@ export function applySourceIntake(root:string,entry:any):{applied:boolean;issues
   if(g.state!=='APPROVED') issues.push(`NOT_APPROVED:${g.state}`);
   const registryRaw=readJson(root,'content-src/source-registry.json');
   const others=readSourceIntake(root).map(i=>i.entry).filter(e=>e.sourceId!==entry?.sourceId);
-  for(const d of detectSourceDuplicates([entry,...others],registryRaw.sources).get(entry?.sourceId)??[]) if(!d.with.startsWith('intake:')||d.code!=='DUPLICATE_ID') issues.push(`${d.code}:${d.with}`);
+  // A PROPOSED registry record with the same id AND the same category is the source this intake governs: a human-approved
+  // intake UPGRADES it in place (same id, so every sourceRef keeps working). A HUMAN_ACCEPTED record, or a PROPOSED one of
+  // another category, stays a duplicate. Nothing else changes: approval, schema, automation refusal all still apply.
+  const existing=registryRaw.sources.find((s:any)=>s.id===entry?.sourceId);
+  const upgrade=Boolean(existing&&existing.classification==='PROPOSED'&&existing.category===entry?.category);
+  for(const d of detectSourceDuplicates([entry,...others],registryRaw.sources).get(entry?.sourceId)??[]){
+    if(upgrade&&d.with===`registry:${entry.sourceId}`) continue;
+    if(!d.with.startsWith('intake:')||d.code!=='DUPLICATE_ID') issues.push(`${d.code}:${d.with}`);
+  }
   if(issues.length) return {applied:false,issues:[...new Set(issues)]};
   const {schema:_schema,status,reviews,submittedBy,sourceId,...metadata}=entry;
   const record={id:sourceId,category:entry.category,title:entry.title,classification:'HUMAN_ACCEPTED',
-    evidence:`source intake ${SOURCE_INTAKE_DIR}/${sourceId}.json; category accepted by ${g.decision!.reviewerId} on ${g.decision!.reviewedAt}`,
+    evidence:`source intake ${SOURCE_INTAKE_DIR}/${sourceId}.json; category accepted by ${g.decision!.reviewerId} on ${g.decision!.reviewedAt}${upgrade?`; replaces the PROPOSED record (${existing.evidence??'no evidence'})`:''}`,
     ...Object.fromEntries(Object.entries(metadata).filter(([k])=>!['category','title'].includes(k))),
     submittedBy,acceptedBy:g.decision!.reviewerId,acceptedAt:g.decision!.reviewedAt,reviewedHash:g.currentHash};
-  const next={...registryRaw,sources:[...registryRaw.sources,record]};
+  const next={...registryRaw,sources:upgrade?registryRaw.sources.map((s:any)=>s.id===sourceId?record:s):[...registryRaw.sources,record]};
   if(parseSourceRegistry(next).issues.length) return {applied:false,issues:parseSourceRegistry(next).issues};
   fs.writeFileSync(path.join(root,'content-src/source-registry.json'),formatSourceRegistry(next),'utf8');
   return {applied:true,issues:[]};

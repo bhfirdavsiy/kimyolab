@@ -117,6 +117,30 @@ test('source apply: only an APPROVED, duplicate-free entry joins the registry, w
   assert.equal(applySourceIntake(t,ok).applied,false,'applying twice is a duplicate');
 });
 
+test('source apply: a human-approved intake upgrades a PROPOSED record of the same id and category in place (2026-11-23)',()=>{
+  // The 2026 grade-7 textbook was registered as PROPOSED first (2026-11-20) so the reactions citing it pass the KB gate; the
+  // governed intake must be able to accept it without changing its id. Only PROPOSED + same category upgrades.
+  const t=sandbox();
+  const before=json('content-src/source-registry.json',t);
+  const id='src.textbook.kimyo7-2026';
+  assert.deepEqual(before.sources.filter(s=>s.id===id).map(s=>[s.category,s.classification]),[['TEXTBOOK','PROPOSED']]);
+  const e=intake({sourceId:id});
+  assert.equal(applySourceIntake(t,e).applied,false,'not reviewed → not applied');
+  assert.equal(applySourceIntake(t,{...e,reviews:[sourceReview(e,'claude')]}).applied,false,'machine approval → not applied');
+  const ok={...e,reviews:[sourceReview(e,'fixture.source-reviewer')]};
+  assert.deepEqual(applySourceIntake(t,ok),{applied:true,issues:[]});
+  const reg=json('content-src/source-registry.json',t);
+  assert.equal(reg.sources.length,before.sources.length,'replaced, not appended');
+  assert.equal(reg.sources.findIndex(s=>s.id===id),before.sources.findIndex(s=>s.id===id),'same position');
+  const rec=reg.sources.find(s=>s.id===id);
+  assert.deepEqual([rec.classification,rec.acceptedBy,rec.reviewedHash],['HUMAN_ACCEPTED','fixture.source-reviewer',sourceEntryHash(e)]);
+  assert.match(rec.evidence,/replaces the PROPOSED record/);
+  assert.ok(applySourceIntake(t,ok).issues.some(i=>i.startsWith('DUPLICATE_ID')),'a HUMAN_ACCEPTED record is never replaced');
+  // a PROPOSED record of another category stays a duplicate
+  const other=intake({sourceId:'src.curriculum.9.06'});
+  assert.ok(applySourceIntake(t,{...other,reviews:[sourceReview(other,'fixture.source-reviewer')]}).issues.some(i=>i.startsWith('DUPLICATE_ID')));
+});
+
 test('source queue: repository intake is empty; no source was declared authoritative by a machine',()=>{
   assert.deepEqual(sourceReviewQueue(root),[]);
   const reg=json('content-src/source-registry.json');

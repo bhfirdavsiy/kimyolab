@@ -50,6 +50,7 @@ A new textbook, standard or reference is registered through intake, not by editi
 2. Tooling validates the metadata, computes the document hash and detects duplicates (same id, same document hash, same title + authority + edition + year). It never declares a source authoritative.
 3. A human reviewer who is not the submitter records a decision (`approved` / `changes-requested` / `rejected`) on the entry's **current hash** and names the category they accept. Approval counts only if the accepted category equals the claimed one. Any metadata edit makes the decision stale. Automation identities cannot decide.
 4. A person runs `npm run source:apply -- <intake.json>`. It is refused in CI and agent environments, and it refuses anything not APPROVED or duplicated. The registry record carries `classification: HUMAN_ACCEPTED`, `submittedBy`, `acceptedBy`, `acceptedAt` and the reviewed hash.
+   If the registry already holds a **PROPOSED** record with the same id and the same category (a source first registered as a proposal in a reviewed pull request), the approved intake replaces that record in place, keeping its id so every `sourceRef` keeps working. A HUMAN_ACCEPTED record, or a PROPOSED one of another category, is still a duplicate.
 
 The five existing entries keep `classification: PROPOSED`. Reclassifying them is still a reviewed human change.
 
