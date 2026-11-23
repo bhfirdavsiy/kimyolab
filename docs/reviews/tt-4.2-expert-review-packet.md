@@ -21,12 +21,12 @@
 | Strelka ↔ direction | 41/41 |
 | Species aniqlangan (formula + faza) | 40/41 |
 | Noma’lum condition maydoni (REJECT) | 0 |
-| Kuzatuv bayroqlari | 15 |
+| Kuzatuv bayroqlari | 12 |
 | Yaroqli manba | 0/41 |
 | Species identity buzilishi | 0 (99 ta yozuv) |
 | Formula o‘rnida nom (parser qo‘llamaydi) | 6: `species.etanol`, `species.kraxmal`, `species.saxaroza`, `species.sirka`, `species.moy`, `species.indikator` |
 
-Qaror kutayotgan da’volar: **105** (reaction / condition / observation).
+Qaror kutayotgan da’volar: **104** (reaction / condition / observation).
 
 ## Reaksiyalar
 
@@ -60,11 +60,11 @@ Qaror kutayotgan da’volar: **105** (reaction / condition / observation).
 | 26 | `rxn.mg-combustion` | 2Mg + O2 → 2MgO | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 27 | `rxn.no-o2` | 2NO + O2 → 2NO2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`observation` pending |
 | 28 | `rxn.co-combustion` | 2CO + O2 → 2CO2 | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`condition` pending<br>`observation` pending |
-| 29 | `rxn.na-cl2` | 2Na + Cl2 → 2NaCl | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 29 | `rxn.na-cl2` | 2Na + Cl2 → 2NaCl | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`observation` pending |
 | 30 | `rxn.ag2o-decomposition` | 2Ag2O → 4Ag + O2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
-| 31 | `rxn.caco3-decomposition` | CaCO3 → CaO + CO2 | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`condition` pending<br>`observation` pending |
-| 32 | `rxn.mgo-water` | MgO + H2O → Mg(OH)2 | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`observation` pending |
-| 33 | `rxn.hgo-decomposition` | 2HgO → 2Hg + O2 | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 31 | `rxn.caco3-decomposition` | CaCO3 → CaO + CO2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 32 | `rxn.mgo-water` | MgO + H2O → Mg(OH)2 | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_PRODUCT_MISMATCH | `reaction` pending<br>`observation` pending |
+| 33 | `rxn.hgo-decomposition` | 2HgO → 2Hg + O2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 34 | `rxn.h2o-electrolysis` | 2H2O → 2H2 + O2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 35 | `rxn.fe-s` | Fe + S → FeS | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 36 | `rxn.hno3-caco3` | 2HNO3 + CaCO3 → Ca(NO3)2 + H2O + CO2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
@@ -72,7 +72,7 @@ Qaror kutayotgan da’volar: **105** (reaction / condition / observation).
 | 38 | `rxn.koh-hcl` | KOH + HCl → KCl + H2O | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`observation` pending |
 | 39 | `rxn.mg-hcl` | Mg + 2HCl → MgCl2 + H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 40 | `rxn.fe-hcl` | Fe + 2HCl → FeCl2 + H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
-| 41 | `rxn.malachite-decomposition` | Cu2(OH)2CO3 → 2CuO + H2O + CO2 | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_MISSING | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 41 | `rxn.malachite-decomposition` | Cu2(OH)2CO3 → 2CuO + H2O + CO2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 
 Har bir da’voning `assertionId` va `assertionHash` qiymatlari: `reports/chemistry-expert-review-packet.json` → `reactions[].decisions[]`.
 
@@ -88,7 +88,7 @@ Agent tanlamaydi (variantlar tartibi tavsiya emas). Qaror: **PENDING**.
 
 ## Xavf da’volari (safety review)
 
-41 ta species 47 ta xavf kodini da’vo qiladi; reaksiyalarda 18 ta safety tegi bor. Manba: INTERNAL_PROPOSAL (yaroqsiz). Xavf uchun kb-review kategoriyasi hali yo‘q — review yo‘lini inson belgilashi kerak.
+46 ta species 62 ta xavf kodini da’vo qiladi; reaksiyalarda 18 ta safety tegi bor. Manba: INTERNAL_PROPOSAL (yaroqsiz). Xavf uchun kb-review kategoriyasi hali yo‘q — review yo‘lini inson belgilashi kerak.
 
 | Species | Faza | Xavf kodlari | Qaror |
 |---|---|---|---|
@@ -115,9 +115,8 @@ Agent tanlamaydi (variantlar tartibi tavsiya emas). Qaror: **PENDING**.
 | `species.i2` (I2) | s | toxic | PENDING |
 | `species.cl2` (Cl2) | g | toxic, oxidizer | PENDING |
 | `species.etanol` (etanol) | l | flammable | PENDING |
-| `species.sirka` (sirka) | aq | irritant | PENDING |
+| `species.sirka` (sirka) | aq | flammable, corrosive, irritant | PENDING |
 | `species.so2` (SO2) | g | toxic, irritant | PENDING |
-| `species.znso4` (ZnSO4) | aq | irritant | PENDING |
 | `species.cucl2` (CuCl2) | aq | irritant | PENDING |
 | `species.nahso4` (NaHSO4) | s | corrosive | PENDING |
 | `species.bacl2` (BaCl2) | aq | toxic | PENDING |
@@ -131,5 +130,11 @@ Agent tanlamaydi (variantlar tartibi tavsiya emas). Qaror: **PENDING**.
 | `species.so3` (SO3) | g | corrosive | PENDING |
 | `species.h2s` (H2S) | g | toxic, flammable | PENDING |
 | `species.co` (CO) | g | toxic | PENDING |
+| `species.no` (NO) | g | toxic, irritant, oxidizer | PENDING |
+| `species.no2` (NO2) | g | toxic, corrosive, oxidizer | PENDING |
+| `species.na` (Na) | s | flammable, corrosive | PENDING |
+| `species.ag2o` (Ag2O) | s | irritant, oxidizer | PENDING |
+| `species.hgo` (HgO) | s | toxic, irritant | PENDING |
 | `species.hg` (Hg) | l | toxic | PENDING |
 | `species.koh` (KOH) | aq | corrosive | PENDING |
+| `species.malachite` (Cu2(OH)2CO3) | s | toxic, irritant | PENDING |

@@ -26,12 +26,12 @@
     "arrowMatchesDirection": 41,
     "speciesResolved": 40,
     "conditionRejected": 0,
-    "observationFlagged": 15,
+    "observationFlagged": 12,
     "sourceEligible": 0,
-    "decisionsToMake": 105,
+    "decisionsToMake": 104,
     "expertReviewed": 0,
-    "hazardSpecies": 41,
-    "hazardCodes": 47,
+    "hazardSpecies": 46,
+    "hazardCodes": 62,
     "reactionSafetyTags": 18
   },
   "acceptance": {
@@ -2871,9 +2871,7 @@
             "species.nacl"
           ]
         },
-        "conditionFields": [
-          "tags"
-        ],
+        "conditionFields": [],
         "conditionUnknownFields": [],
         "conditionVerdict": "CONTRACT_OK",
         "observationFlags": [
@@ -2904,14 +2902,6 @@
           "assertionId": "reaction:rxn.na-cl2",
           "assertionHash": "544351b3aad418a5232b81b8936e459cd91398fca5132a7b723a6db79b0b82a3",
           "claim": "2Na + Cl2 → 2NaCl",
-          "currentReview": "pending",
-          "flags": [],
-          "expertDecision": "PENDING"
-        },
-        {
-          "assertionId": "condition:rxn.na-cl2",
-          "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
-          "claim": "rxn.na-cl2 talab qiladi: heating",
           "currentReview": "pending",
           "flags": [],
           "expertDecision": "PENDING"
@@ -3078,10 +3068,7 @@
         ],
         "conditionUnknownFields": [],
         "conditionVerdict": "CONTRACT_OK",
-        "observationFlags": [
-          "CHEMISTRY_REVIEW_REQUIRED",
-          "OBSERVATION_MISSING"
-        ]
+        "observationFlags": []
       },
       "safetyTags": [],
       "sources": [
@@ -3120,13 +3107,10 @@
         },
         {
           "assertionId": "observation:rxn.caco3-decomposition",
-          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
-          "claim": "rxn.caco3-decomposition: []",
+          "assertionHash": "95f86fa36f8c61c8e4866b2198dd6044b0211ed2f443562c9282b7a863298962",
+          "claim": "rxn.caco3-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.caco3-decomposition.observation\"}]",
           "currentReview": "pending",
-          "flags": [
-            "CHEMISTRY_REVIEW_REQUIRED",
-            "OBSERVATION_MISSING"
-          ],
+          "flags": [],
           "expertDecision": "PENDING"
         }
       ]
@@ -3183,7 +3167,7 @@
         "conditionVerdict": "CONTRACT_OK",
         "observationFlags": [
           "CHEMISTRY_REVIEW_REQUIRED",
-          "OBSERVATION_MISSING"
+          "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
         ]
       },
       "safetyTags": [],
@@ -3215,12 +3199,12 @@
         },
         {
           "assertionId": "observation:rxn.mgo-water",
-          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
-          "claim": "rxn.mgo-water: []",
+          "assertionHash": "d0fd0b0d6af5e9d1c378cabc1facc22146c3f11a70a7ce8f5cd431b445ac1389",
+          "claim": "rxn.mgo-water: [{\"type\":\"precipitate\",\"color\":\"white\"},{\"type\":\"temperature-change\",\"direction\":\"up\"}]",
           "currentReview": "pending",
           "flags": [
             "CHEMISTRY_REVIEW_REQUIRED",
-            "OBSERVATION_MISSING"
+            "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
           ],
           "expertDecision": "PENDING"
         }
@@ -3276,10 +3260,7 @@
         ],
         "conditionUnknownFields": [],
         "conditionVerdict": "CONTRACT_OK",
-        "observationFlags": [
-          "CHEMISTRY_REVIEW_REQUIRED",
-          "OBSERVATION_MISSING"
-        ]
+        "observationFlags": []
       },
       "safetyTags": [],
       "sources": [
@@ -3318,13 +3299,10 @@
         },
         {
           "assertionId": "observation:rxn.hgo-decomposition",
-          "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
-          "claim": "rxn.hgo-decomposition: []",
+          "assertionHash": "b31d25964d76f5b3304af0ab0f511d346bd6bd64c53fbebb0849a232d979cfea",
+          "claim": "rxn.hgo-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.hgo-decomposition.observation\"}]",
           "currentReview": "pending",
-          "flags": [
-            "CHEMISTRY_REVIEW_REQUIRED",
-            "OBSERVATION_MISSING"
-          ],
+          "flags": [],
           "expertDecision": "PENDING"
         }
       ]
@@ -4145,10 +4123,7 @@
         ],
         "conditionUnknownFields": [],
         "conditionVerdict": "CONTRACT_OK",
-        "observationFlags": [
-          "CHEMISTRY_REVIEW_REQUIRED",
-          "OBSERVATION_MISSING"
-        ]
+        "observationFlags": []
       },
       "safetyTags": [],
       "sources": [
@@ -4187,13 +4162,10 @@
         },
         {
           "assertionId": "observation:rxn.malachite-decomposition",
-          "assertionHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
-          "claim": "rxn.malachite-decomposition: []",
+          "assertionHash": "73a363655247288b91174bf6122853faf57a38142687a1d6093d4911d1848666",
+          "claim": "rxn.malachite-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.malachite-decomposition.observation\"}]",
           "currentReview": "pending",
-          "flags": [
-            "CHEMISTRY_REVIEW_REQUIRED",
-            "OBSERVATION_MISSING"
-          ],
+          "flags": [],
           "expertDecision": "PENDING"
         }
       ]
@@ -4838,6 +4810,8 @@
         "formula": "sirka",
         "phase": "aq",
         "hazards": [
+          "flammable",
+          "corrosive",
           "irritant"
         ],
         "sources": [
@@ -4865,32 +4839,6 @@
         "phase": "g",
         "hazards": [
           "toxic",
-          "irritant"
-        ],
-        "sources": [
-          {
-            "id": "src.beta1.migration",
-            "category": "INTERNAL_PROPOSAL",
-            "classification": "PROPOSED",
-            "canonicalAuthoringEligible": false,
-            "bibliographyMissing": [
-              "authority",
-              "edition",
-              "authors",
-              "isbnOrUrl",
-              "license",
-              "effectiveDate"
-            ]
-          }
-        ],
-        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
-        "expertDecision": "PENDING"
-      },
-      {
-        "id": "species.znso4",
-        "formula": "ZnSO4",
-        "phase": "aq",
-        "hazards": [
           "irritant"
         ],
         "sources": [
@@ -5253,6 +5201,143 @@
         "expertDecision": "PENDING"
       },
       {
+        "id": "species.no",
+        "formula": "NO",
+        "phase": "g",
+        "hazards": [
+          "toxic",
+          "irritant",
+          "oxidizer"
+        ],
+        "sources": [
+          {
+            "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
+        "id": "species.no2",
+        "formula": "NO2",
+        "phase": "g",
+        "hazards": [
+          "toxic",
+          "corrosive",
+          "oxidizer"
+        ],
+        "sources": [
+          {
+            "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
+        "id": "species.na",
+        "formula": "Na",
+        "phase": "s",
+        "hazards": [
+          "flammable",
+          "corrosive"
+        ],
+        "sources": [
+          {
+            "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
+        "id": "species.ag2o",
+        "formula": "Ag2O",
+        "phase": "s",
+        "hazards": [
+          "irritant",
+          "oxidizer"
+        ],
+        "sources": [
+          {
+            "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
+        "id": "species.hgo",
+        "formula": "HgO",
+        "phase": "s",
+        "hazards": [
+          "toxic",
+          "irritant"
+        ],
+        "sources": [
+          {
+            "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
         "id": "species.hg",
         "formula": "Hg",
         "phase": "l",
@@ -5288,6 +5373,33 @@
         "sources": [
           {
             "id": "src.textbook.kimyo7-2026",
+            "category": "TEXTBOOK",
+            "classification": "PROPOSED",
+            "canonicalAuthoringEligible": false,
+            "bibliographyMissing": [
+              "authority",
+              "edition",
+              "authors",
+              "isbnOrUrl",
+              "license",
+              "effectiveDate"
+            ]
+          }
+        ],
+        "reviewPath": "NONE — hazards are not a kb-review assertion category yet",
+        "expertDecision": "PENDING"
+      },
+      {
+        "id": "species.malachite",
+        "formula": "Cu2(OH)2CO3",
+        "phase": "s",
+        "hazards": [
+          "toxic",
+          "irritant"
+        ],
+        "sources": [
+          {
+            "id": "src.workbook.kimyo7-2026",
             "category": "TEXTBOOK",
             "classification": "PROPOSED",
             "canonicalAuthoringEligible": false,

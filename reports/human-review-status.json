@@ -9,22 +9,19 @@
     "total": 0
   },
   "chemistry": {
-    "total": 172,
-    "pending": 172,
+    "total": 171,
+    "pending": 171,
     "approved": 0,
     "rejected": 0,
     "changeRequired": 0,
     "stale": 0,
     "flagged": [
       "observation:rxn.br2-ki",
-      "observation:rxn.caco3-decomposition",
       "observation:rxn.cl2-kbr",
       "observation:rxn.co-combustion",
       "observation:rxn.h2-combustion",
-      "observation:rxn.hgo-decomposition",
       "observation:rxn.koh-hcl",
       "observation:rxn.koh-hno3",
-      "observation:rxn.malachite-decomposition",
       "observation:rxn.mg-combustion",
       "observation:rxn.mgo-water",
       "observation:rxn.na-cl2",
@@ -35,18 +32,15 @@
     "priorityQueue": {
       "A": {
         "label": "A — kimyoviy anomaliyalar (kuzatuv flaglari)",
-        "total": 15,
-        "pending": 15,
+        "total": 12,
+        "pending": 12,
         "ids": [
           "observation:rxn.br2-ki",
-          "observation:rxn.caco3-decomposition",
           "observation:rxn.cl2-kbr",
           "observation:rxn.co-combustion",
           "observation:rxn.h2-combustion",
-          "observation:rxn.hgo-decomposition",
           "observation:rxn.koh-hcl",
           "observation:rxn.koh-hno3",
-          "observation:rxn.malachite-decomposition",
           "observation:rxn.mg-combustion",
           "observation:rxn.mgo-water",
           "observation:rxn.na-cl2",
@@ -57,8 +51,8 @@
       },
       "B": {
         "label": "B — asosiy modellar (indikator, sharoit lug‘ati, gidroliz, ion reaksiya maqsadlari)",
-        "total": 40,
-        "pending": 40,
+        "total": 39,
+        "pending": 39,
         "ids": [
           "condition-context:solution-mixing",
           "condition-term:concentrated acid",
@@ -87,7 +81,6 @@
           "condition:rxn.mg-combustion",
           "condition:rxn.mg-h2so4",
           "condition:rxn.mg-hcl",
-          "condition:rxn.na-cl2",
           "condition:rxn.nacl-h2so4",
           "condition:rxn.nh4cl-caoh2",
           "condition:rxn.s-combustion",
@@ -149,8 +142,8 @@
       },
       "E": {
         "label": "E — qolgan assertion’lar",
-        "total": 86,
-        "pending": 86
+        "total": 89,
+        "pending": 89
       }
     }
   },

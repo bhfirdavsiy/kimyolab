@@ -497,13 +497,14 @@ test('closeout 12: the 28 canonical records use only tag conditions and stay rea
   const ex=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.explorer]);
   assert.equal(ex.reachability.reachable,39);
   assert.deepEqual(ex.reachability.unreachable.map(x=>[x.id,x.reason]),[['rxn.agno3-nacl','REACTANT_NOT_A_CANONICAL_SPECIES'],['rxn.h2o-electrolysis','EXPLORER_CONDITION_UNSUPPORTED']]);
-  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{electricalCurrent:1,tags:22});
+  // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated (tag-condition records 22 → 21, condition claims 23 → 22)
+  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{electricalCurrent:1,tags:21});
   assert.deepEqual(ex.conditionContract.explorerSupportedFields,['tags']);
   assert.deepEqual(ex.conditionContract.unsupportedRecords,[{id:'rxn.h2o-electrolysis',fields:['electricalCurrent']}]);
   assert.equal(ex.conditionContract.explorerUnsupportedFields.length,8);
   const gov=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.governance]);
-  assert.equal(gov.conditionGovernance.conditionAssertions,23);
-  assert.deepEqual(gov.conditionGovernance.review,{pending:23});
+  assert.equal(gov.conditionGovernance.conditionAssertions,22);
+  assert.deepEqual(gov.conditionGovernance.review,{pending:22});
   // the explorer's single matcher call states vocabulary dimensions only (every other field stays absent)
   assert.match(read('src/features/chemistry-knowledge/explorer.ts'),/conditions:\{dimensions:\{\.\.\.stated\}\},conditionPolicy:'require-record-conditions'/);
 });

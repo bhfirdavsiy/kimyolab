@@ -576,28 +576,6 @@
       "comment": null
     },
     {
-      "id": "condition:rxn.na-cl2",
-      "category": "condition",
-      "claim": "rxn.na-cl2 talab qiladi: heating",
-      "data": {
-        "tags": [
-          "heating"
-        ],
-        "dimensions": {
-          "temperature": "heated"
-        }
-      },
-      "sourceRefs": [
-        "src.textbook.kimyo7-2026"
-      ],
-      "affectedActivities": [],
-      "reviewStatus": "pending",
-      "currentHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
-      "flags": [],
-      "reviewDecision": null,
-      "comment": null
-    },
-    {
       "id": "condition:rxn.nacl-h2so4",
       "category": "condition",
       "claim": "rxn.nacl-h2so4 talab qiladi: concentrated acid, gentle heating",
@@ -1967,20 +1945,22 @@
     {
       "id": "observation:rxn.caco3-decomposition",
       "category": "observation",
-      "claim": "rxn.caco3-decomposition: []",
+      "claim": "rxn.caco3-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.caco3-decomposition.observation\"}]",
       "data": {
-        "observations": []
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.caco3-decomposition.observation"
+          }
+        ]
       },
       "sourceRefs": [
         "src.textbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
-      "flags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ],
+      "currentHash": "95f86fa36f8c61c8e4866b2198dd6044b0211ed2f443562c9282b7a863298962",
+      "flags": [],
       "reviewDecision": null,
       "comment": null
     },
@@ -2264,20 +2244,22 @@
     {
       "id": "observation:rxn.hgo-decomposition",
       "category": "observation",
-      "claim": "rxn.hgo-decomposition: []",
+      "claim": "rxn.hgo-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.hgo-decomposition.observation\"}]",
       "data": {
-        "observations": []
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.hgo-decomposition.observation"
+          }
+        ]
       },
       "sourceRefs": [
         "src.textbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
-      "flags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ],
+      "currentHash": "b31d25964d76f5b3304af0ab0f511d346bd6bd64c53fbebb0849a232d979cfea",
+      "flags": [],
       "reviewDecision": null,
       "comment": null
     },
@@ -2346,20 +2328,22 @@
     {
       "id": "observation:rxn.malachite-decomposition",
       "category": "observation",
-      "claim": "rxn.malachite-decomposition: []",
+      "claim": "rxn.malachite-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.malachite-decomposition.observation\"}]",
       "data": {
-        "observations": []
+        "observations": [
+          {
+            "type": "gas",
+            "descriptionKey": "rxn.malachite-decomposition.observation"
+          }
+        ]
       },
       "sourceRefs": [
         "src.workbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
-      "flags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ],
+      "currentHash": "73a363655247288b91174bf6122853faf57a38142687a1d6093d4911d1848666",
+      "flags": [],
       "reviewDecision": null,
       "comment": null
     },
@@ -2433,19 +2417,28 @@
     {
       "id": "observation:rxn.mgo-water",
       "category": "observation",
-      "claim": "rxn.mgo-water: []",
+      "claim": "rxn.mgo-water: [{\"type\":\"precipitate\",\"color\":\"white\"},{\"type\":\"temperature-change\",\"direction\":\"up\"}]",
       "data": {
-        "observations": []
+        "observations": [
+          {
+            "type": "precipitate",
+            "color": "white"
+          },
+          {
+            "type": "temperature-change",
+            "direction": "up"
+          }
+        ]
       },
       "sourceRefs": [
         "src.textbook.kimyo7-2026"
       ],
       "affectedActivities": [],
       "reviewStatus": "pending",
-      "currentHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "currentHash": "d0fd0b0d6af5e9d1c378cabc1facc22146c3f11a70a7ce8f5cd431b445ac1389",
       "flags": [
         "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
       ],
       "reviewDecision": null,
       "comment": null

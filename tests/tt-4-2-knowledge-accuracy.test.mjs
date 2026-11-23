@@ -99,13 +99,14 @@ test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewe
     assert.equal(r.machineChecks.conditionVerdict,'CONTRACT_OK',r.id);
   }
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): 23 records now state a condition
-  assert.equal(p.summary.decisionsToMake,41+23+41,'41 reaction + 23 condition + 41 observation claims');
+  // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated: 22 records now state a condition
+  assert.equal(p.summary.decisionsToMake,41+22+41,'41 reaction + 22 condition + 41 observation claims');
   assert.deepEqual(p.acceptance.shownReviewedWithoutApproval,[]);
   assert.match(p.acceptance.status,/^NOT_MET/,'PENDING never counts as PASS');
   assert.equal(p.naclDecision.machineRecommendation,null); assert.equal(p.naclDecision.expertDecision,'PENDING'); assert.equal(p.naclDecision.options.length,3);
   assert.deepEqual(p.naclDecision.finding.map(f=>f.reason),['PHASE_NOT_IN_REGISTRY']);
   const hazardous=json('content-src/chemistry/species.json').filter(s=>(s.hazards??[]).length);
-  assert.equal(p.hazards.species.length,hazardous.length); assert.equal(p.hazards.species.length,41); // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); of the new species only Hg (textbook p. 10: toxic) and KOH (p. 82: corrosive) carry a hazard the textbook states (39 → 41)
+  assert.equal(p.hazards.species.length,hazardous.length); assert.equal(p.hazards.species.length,46); // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert set hazards for NO, NO2, Na, Ag2O, HgO and malachite and removed ZnSO4's (41 → 46)
   assert.ok(p.hazards.species.every(h=>h.expertDecision==='PENDING'&&h.sources.every(s=>!s.canonicalAuthoringEligible)));
 });
 

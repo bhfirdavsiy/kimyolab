@@ -983,7 +983,7 @@
         "composition": "DERIVED",
         "molarMass": "GAP",
         "dissociation": "GAP",
-        "hazards": "SOURCE_PENDING",
+        "hazards": "GAP",
         "properties": "GAP"
       }
     },
@@ -1667,7 +1667,7 @@
         "composition": "DERIVED",
         "molarMass": "GAP",
         "dissociation": "GAP",
-        "hazards": "GAP",
+        "hazards": "SOURCE_PENDING",
         "properties": "GAP"
       }
     },
@@ -1685,7 +1685,7 @@
         "composition": "DERIVED",
         "molarMass": "GAP",
         "dissociation": "GAP",
-        "hazards": "GAP",
+        "hazards": "SOURCE_PENDING",
         "properties": "GAP"
       }
     },
@@ -1703,7 +1703,7 @@
         "composition": "DERIVED",
         "molarMass": "GAP",
         "dissociation": "GAP",
-        "hazards": "GAP",
+        "hazards": "SOURCE_PENDING",
         "properties": "GAP"
       }
     },
@@ -1721,7 +1721,7 @@
         "composition": "DERIVED",
         "molarMass": "GAP",
         "dissociation": "GAP",
-        "hazards": "GAP",
+        "hazards": "SOURCE_PENDING",
         "properties": "GAP"
       }
     },
@@ -1775,7 +1775,7 @@
         "composition": "DERIVED",
         "molarMass": "GAP",
         "dissociation": "GAP",
-        "hazards": "GAP",
+        "hazards": "SOURCE_PENDING",
         "properties": "GAP"
       }
     },
@@ -1901,7 +1901,7 @@
         "composition": "DERIVED",
         "molarMass": "GAP",
         "dissociation": "GAP",
-        "hazards": "GAP",
+        "hazards": "SOURCE_PENDING",
         "properties": "GAP"
       }
     }

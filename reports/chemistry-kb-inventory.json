@@ -9,14 +9,14 @@
     },
     "hydrolysisSalts": 4,
     "electrolysisRecords": 1,
-    "conditionedReactions": 22,
+    "conditionedReactions": 21,
     "explicitNoReactionRecords": 0,
-    "assertions": 172,
+    "assertions": 171,
     "reviewed": 0,
-    "pending": 172,
+    "pending": 171,
     "rejected": 0,
     "stale": 0,
-    "sourceBacked": 142,
+    "sourceBacked": 141,
     "missingSource": 30
   },
   "reactions": [
@@ -1045,12 +1045,8 @@
       ],
       "reactionType": "combination",
       "conditions": {
-        "tags": [
-          "heating"
-        ],
-        "dimensions": {
-          "temperature": "heated"
-        }
+        "tags": [],
+        "dimensions": {}
       },
       "observation": [],
       "netIonicDerivable": false,
@@ -1123,7 +1119,12 @@
           "temperature": "heated"
         }
       },
-      "observation": [],
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.caco3-decomposition.observation"
+        }
+      ],
       "netIonicDerivable": false,
       "netIonicUnsupported": [
         "CaCO3",
@@ -1135,10 +1136,7 @@
       ],
       "reviewStatus": "pending",
       "usedByActivities": [],
-      "observationFlags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ]
+      "observationFlags": []
     },
     {
       "reactionId": "rxn.mgo-water",
@@ -1154,7 +1152,16 @@
         "tags": [],
         "dimensions": {}
       },
-      "observation": [],
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "white"
+        },
+        {
+          "type": "temperature-change",
+          "direction": "up"
+        }
+      ],
       "netIonicDerivable": false,
       "netIonicUnsupported": [
         "MgO",
@@ -1167,7 +1174,7 @@
       "usedByActivities": [],
       "observationFlags": [
         "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
       ]
     },
     {
@@ -1188,7 +1195,12 @@
           "temperature": "heated"
         }
       },
-      "observation": [],
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.hgo-decomposition.observation"
+        }
+      ],
       "netIonicDerivable": false,
       "netIonicUnsupported": [
         "HgO",
@@ -1200,10 +1212,7 @@
       ],
       "reviewStatus": "pending",
       "usedByActivities": [],
-      "observationFlags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ]
+      "observationFlags": []
     },
     {
       "reactionId": "rxn.h2o-electrolysis",
@@ -1479,7 +1488,12 @@
           "temperature": "heated"
         }
       },
-      "observation": [],
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.malachite-decomposition.observation"
+        }
+      ],
       "netIonicDerivable": false,
       "netIonicUnsupported": [
         "Cu2(OH)2CO3",
@@ -1491,10 +1505,7 @@
       ],
       "reviewStatus": "pending",
       "usedByActivities": [],
-      "observationFlags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ]
+      "observationFlags": []
     }
   ],
   "speciesIdentity": {
@@ -1507,14 +1518,11 @@
     "fail": [],
     "pending": [
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.br2-ki",
-      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.caco3-decomposition",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.cl2-kbr",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.co-combustion",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.h2-combustion",
-      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.hgo-decomposition",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.koh-hcl",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.koh-hno3",
-      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.malachite-decomposition",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.mg-combustion",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.mgo-water",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.na-cl2",
@@ -1586,7 +1594,6 @@
       "REVIEW_PENDING:condition:rxn.mg-combustion",
       "REVIEW_PENDING:condition:rxn.mg-h2so4",
       "REVIEW_PENDING:condition:rxn.mg-hcl",
-      "REVIEW_PENDING:condition:rxn.na-cl2",
       "REVIEW_PENDING:condition:rxn.nacl-h2so4",
       "REVIEW_PENDING:condition:rxn.nh4cl-caoh2",
       "REVIEW_PENDING:condition:rxn.s-combustion",

@@ -1,9 +1,9 @@
 {
   "schema": "kimyolab.chemistry-kb-coverage.v1",
   "assertions": {
-    "total": 172,
+    "total": 171,
     "approved": 0,
-    "pending": 172,
+    "pending": 171,
     "stale": 0,
     "rejected": 0,
     "missingSources": 30,
@@ -23,9 +23,9 @@
         "rejected": 0
       },
       "condition": {
-        "total": 32,
+        "total": 31,
         "approved": 0,
-        "pending": 32,
+        "pending": 31,
         "stale": 0,
         "rejected": 0
       },
@@ -77,7 +77,7 @@
     "total": 41,
     "modeledReactions": 41,
     "modeledNoReaction": 0,
-    "conditionDependent": 22,
+    "conditionDependent": 21,
     "notReviewed": 41,
     "netIonicDerivable": 5,
     "observationReviewRequired": [
@@ -90,12 +90,9 @@
       "rxn.mg-combustion",
       "rxn.co-combustion",
       "rxn.na-cl2",
-      "rxn.caco3-decomposition",
       "rxn.mgo-water",
-      "rxn.hgo-decomposition",
       "rxn.koh-hno3",
-      "rxn.koh-hcl",
-      "rxn.malachite-decomposition"
+      "rxn.koh-hcl"
     ]
   },
   "ionic": {
@@ -196,6 +193,6 @@
   "gate": {
     "status": "PENDING",
     "fail": 0,
-    "pending": 345
+    "pending": 341
   }
 }

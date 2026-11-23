@@ -19,17 +19,14 @@
       "kind": "review-chemistry",
       "priority": "A",
       "role": "chemistry",
-      "count": 15,
+      "count": 12,
       "targetIds": [
         "observation:rxn.br2-ki",
-        "observation:rxn.caco3-decomposition",
         "observation:rxn.cl2-kbr",
         "observation:rxn.co-combustion",
         "observation:rxn.h2-combustion",
-        "observation:rxn.hgo-decomposition",
         "observation:rxn.koh-hcl",
         "observation:rxn.koh-hno3",
-        "observation:rxn.malachite-decomposition",
         "observation:rxn.mg-combustion",
         "observation:rxn.mgo-water",
         "observation:rxn.na-cl2",
@@ -38,16 +35,16 @@
         "observation:rxn.znoh2-hcl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 6/15 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 6/12 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 15 pending assertion(s) in queue A (workbench → Kimyo KB, filter “A”)."
+      "nextHumanAction": "Chemistry reviewer: review 12 pending assertion(s) in queue A (workbench → Kimyo KB, filter “A”)."
     },
     {
       "rank": 2,
       "kind": "review-chemistry",
       "priority": "B",
       "role": "chemistry",
-      "count": 40,
+      "count": 39,
       "targetIds": [
         "condition-context:solution-mixing",
         "condition-term:concentrated acid",
@@ -76,7 +73,6 @@
         "condition:rxn.mg-combustion",
         "condition:rxn.mg-h2so4",
         "condition:rxn.mg-hcl",
-        "condition:rxn.na-cl2",
         "condition:rxn.nacl-h2so4",
         "condition:rxn.nh4cl-caoh2",
         "condition:rxn.s-combustion",
@@ -91,9 +87,9 @@
         "reaction:rxn.agno3-nacl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 20/40 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 20/39 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 40 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
+      "nextHumanAction": "Chemistry reviewer: review 39 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
     },
     {
       "rank": 3,
@@ -157,7 +153,7 @@
       "kind": "review-chemistry",
       "priority": "E",
       "role": "chemistry",
-      "count": 86,
+      "count": 89,
       "targetIds": [
         "dissociation:AgNO3",
         "dissociation:BaCl2",
@@ -186,6 +182,7 @@
         "observation:rxn.bacl2-h2so4",
         "observation:rxn.c-combustion",
         "observation:rxn.c-combustion-limited",
+        "observation:rxn.caco3-decomposition",
         "observation:rxn.caco3-hcl",
         "observation:rxn.cao-water",
         "observation:rxn.co2-water",
@@ -195,7 +192,9 @@
         "observation:rxn.fe-s",
         "observation:rxn.h2-cuo",
         "observation:rxn.h2o-electrolysis",
+        "observation:rxn.hgo-decomposition",
         "observation:rxn.hno3-caco3",
+        "observation:rxn.malachite-decomposition",
         "observation:rxn.mg-h2so4",
         "observation:rxn.mg-hcl",
         "observation:rxn.nh3-hcl",
@@ -247,9 +246,9 @@
         "reaction:rxn.znoh2-hcl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 63/86 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 63/89 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 86 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
+      "nextHumanAction": "Chemistry reviewer: review 89 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
     },
     {
       "rank": 6,

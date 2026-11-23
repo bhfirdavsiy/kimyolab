@@ -56,9 +56,9 @@
     ],
     "fieldsPresentInRecords": {
       "electricalCurrent": 1,
-      "tags": 22
+      "tags": 21
     },
-    "recordsWithAnyRequirement": 23,
+    "recordsWithAnyRequirement": 22,
     "explorerSupportedFields": [
       "tags"
     ],
@@ -89,11 +89,11 @@
     "modeledReaction": 34,
     "modeledNoReaction": 0,
     "notModeled": 4817,
-    "conditionDependent": 17,
+    "conditionDependent": 16,
     "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
   },
   "conditionDependence": {
-    "recordsWithRequirements": 22,
+    "recordsWithRequirements": 21,
     "reagentSetsWithSeveralRecords": [
       {
         "set": "C + O2",
@@ -113,8 +113,8 @@
     "rule": "shown only when IonicEngine.support(reactionId) is supported:true; never a fallback"
   },
   "observations": {
-    "GAP:OBSERVATION_MISSING": 9,
-    "GAP:OBSERVATION_REVIEW_REQUIRED": 6,
-    "MODEL": 26
+    "GAP:OBSERVATION_MISSING": 5,
+    "GAP:OBSERVATION_REVIEW_REQUIRED": 7,
+    "MODEL": 29
   }
 }

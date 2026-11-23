@@ -4,8 +4,8 @@
 
 ## Holat
 
-- Assertion’lar: **172** — approved: 0, pending: 172, stale: 0, rejected: 0, change_required: 0
-- Gate: **PENDING** (FAIL: 0, PENDING: 345)
+- Assertion’lar: **171** — approved: 0, pending: 171, stale: 0, rejected: 0, change_required: 0
+- Gate: **PENDING** (FAIL: 0, PENDING: 341)
 - Har assertion’ning hash’i o‘zgarsa, eski qaror **stale** bo‘ladi va hisobga olinmaydi.
 
 ## Kategoriyalar
@@ -14,8 +14,8 @@
 |---|---|---|
 | reaction | 41 | 0 |
 | no-reaction | 0 | 0 |
-| condition | 32 | 0 |
-| observation | 41 | 15 |
+| condition | 31 | 0 |
+| observation | 41 | 12 |
 | solubility | 20 | 0 |
 | hydrolysis | 4 | 0 |
 | indicator | 3 | 0 |
@@ -25,16 +25,13 @@
 ## Alohida e’tibor (CHEMISTRY_REVIEW_REQUIRED)
 
 - `observation:rxn.br2-ki` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
-- `observation:rxn.caco3-decomposition` — OBSERVATION_MISSING
 - `observation:rxn.cl2-kbr` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
 - `observation:rxn.co-combustion` — OBSERVATION_MISSING
 - `observation:rxn.h2-combustion` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
-- `observation:rxn.hgo-decomposition` — OBSERVATION_MISSING
 - `observation:rxn.koh-hcl` — OBSERVATION_MISSING
 - `observation:rxn.koh-hno3` — OBSERVATION_MISSING
-- `observation:rxn.malachite-decomposition` — OBSERVATION_MISSING
 - `observation:rxn.mg-combustion` — OBSERVATION_MISSING
-- `observation:rxn.mgo-water` — OBSERVATION_MISSING
+- `observation:rxn.mgo-water` — OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid
 - `observation:rxn.na-cl2` — OBSERVATION_MISSING
 - `observation:rxn.nacl-h2so4` — OBSERVATION_PRODUCT_MISMATCH: gas observed but no product is a gas
 - `observation:rxn.naoh-hcl` — OBSERVATION_NONSPECIFIC: colour change without a stated colour

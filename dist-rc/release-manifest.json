@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-20T11:18:17.127Z",
+  "createdAt": "2026-11-23T05:18:18.131Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -1247,8 +1247,8 @@
     {
       "path": "content/2026.09.1/chemistry/reactions.json",
       "sourcePath": "public/content/2026.09.1/chemistry/reactions.json",
-      "checksum": "f627b1ad6fc384087eae420ba46f18f3c498187e34077440a807e3180081da26",
-      "size": 34241
+      "checksum": "f8a29aecc6e05c6de9775d9f4020bcc987affdd33e5e84d2a938013bab460025",
+      "size": 34678
     },
     {
       "path": "content/2026.09.1/chemistry/school-lab-models.json",
@@ -1265,8 +1265,8 @@
     {
       "path": "content/2026.09.1/chemistry/species.json",
       "sourcePath": "public/content/2026.09.1/chemistry/species.json",
-      "checksum": "dc6e388578a447ee7b81d26336713de2f715d7333f2442a073173a9f775bad15",
-      "size": 40594
+      "checksum": "50cc5dd7464590cbb368cbbdbfbce600ad4880e1cbf4cbb12d3aae496c8a5c17",
+      "size": 40877
     },
     {
       "path": "content/2026.09.1/concepts.json",
@@ -1289,8 +1289,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "5cf10b7ad396023409a9b96ed3735f79396f2a00326c119a1ddb807591f277b4",
-      "size": 81922
+      "checksum": "3b250adf4bb0ed58410860e7a0d5c6f8bbbe5d40121059126fb27148e0955bc1",
+      "size": 82176
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1355,7 +1355,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "6fb1b3a6a24581f5989f9ca27402d07e81512513fe60e5368f038f8343bcac67",
+      "checksum": "a10db67d64ff0357f15b60b18ed3ab0dff04772d2e31b1cd57f61e0833be91e1",
       "size": 8343
     },
     {
@@ -1397,7 +1397,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "26192cbb889aff8f77e25528e7f6dacfc3758c14b49704f53558ec9e19eef0ba",
+      "checksum": "9bad7cf72a64feeefdfc69dd6f50660cdbb00ce1a6d5714658173be8d1fc87a9",
       "size": 158
     },
     {

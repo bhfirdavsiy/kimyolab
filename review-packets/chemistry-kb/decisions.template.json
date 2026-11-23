@@ -246,15 +246,6 @@
       "comment": null
     },
     {
-      "assertionId": "condition:rxn.na-cl2",
-      "assertionHash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
-      "decision": null,
-      "reviewerId": null,
-      "reviewerRole": "chemistry",
-      "reviewedAt": null,
-      "comment": null
-    },
-    {
       "assertionId": "condition:rxn.nacl-h2so4",
       "assertionHash": "e6da9fcc8a66f9d7b667203206375a8d213e18797a9ab8276211a9ce9bca249c",
       "decision": null,
@@ -796,7 +787,7 @@
     },
     {
       "assertionId": "observation:rxn.caco3-decomposition",
-      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "assertionHash": "95f86fa36f8c61c8e4866b2198dd6044b0211ed2f443562c9282b7a863298962",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -913,7 +904,7 @@
     },
     {
       "assertionId": "observation:rxn.hgo-decomposition",
-      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "assertionHash": "b31d25964d76f5b3304af0ab0f511d346bd6bd64c53fbebb0849a232d979cfea",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -949,7 +940,7 @@
     },
     {
       "assertionId": "observation:rxn.malachite-decomposition",
-      "assertionHash": "cb073be32e25f39dbf498fa78929f461dcceca07a3ee9d1e6bf94bf99cc0c5a4",
+      "assertionHash": "73a363655247288b91174bf6122853faf57a38142687a1d6093d4911d1848666",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",
@@ -985,7 +976,7 @@
     },
     {
       "assertionId": "observation:rxn.mgo-water",
-      "assertionHash": "5686f9688f672c5a70347984cbf7a91fd77b94d756f72dced1ef74c52145a39a",
+      "assertionHash": "d0fd0b0d6af5e9d1c378cabc1facc22146c3f11a70a7ce8f5cd431b445ac1389",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",

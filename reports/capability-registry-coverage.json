@@ -781,9 +781,7 @@
             "Cl2",
             "Na"
           ],
-          "conditionTags": [
-            "heating"
-          ]
+          "conditionTags": []
         },
         {
           "reactionId": "rxn.nacl-h2so4",

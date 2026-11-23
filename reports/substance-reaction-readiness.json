@@ -40,7 +40,7 @@
       "modeledReaction": 34,
       "modeledNoReaction": 0,
       "notModeled": 4817,
-      "conditionDependent": 17,
+      "conditionDependent": 16,
       "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
     },
     "ionicEquationSupported": 5,
@@ -86,12 +86,12 @@
     "chemistry": "browser-local: the ReactionMatcher runs in the page over the pack records; no server lookup",
     "knowledgeIndex": {
       "packFile": "knowledge/chemistry-knowledge.json",
-      "bytes": 81922
+      "bytes": 82176
     },
     "bundle": {
       "learnerModules": 4,
       "learnerModuleBytes": 60471,
-      "standaloneBytes": 202061
+      "standaloneBytes": 203167
     },
     "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.14\"]"
   },

@@ -72,7 +72,8 @@ test('priority queue: A = the flagged observations, B foundational, C golden sli
   const m=buildWorkbenchModel(root);
   const ids=(p)=>m.chemistry.filter(a=>a.priority===p).map(a=>a.id).sort();
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); the 9 of them without a textbook observation are flagged OBSERVATION_MISSING and join queue A
-  assert.deepEqual(ids('A'),['rxn.br2-ki','rxn.caco3-decomposition','rxn.cl2-kbr','rxn.co-combustion','rxn.h2-combustion','rxn.hgo-decomposition','rxn.koh-hcl','rxn.koh-hno3','rxn.malachite-decomposition','rxn.mg-combustion','rxn.mgo-water','rxn.na-cl2','rxn.nacl-h2so4','rxn.naoh-hcl','rxn.znoh2-hcl'].map(r=>`observation:${r}`));
+  // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated: three of them are no longer flagged; MgO + H2O stays in A (a white precipitate the solubility rules cannot confirm, flagged for the expert)
+  assert.deepEqual(ids('A'),['rxn.br2-ki','rxn.cl2-kbr','rxn.co-combustion','rxn.h2-combustion','rxn.koh-hcl','rxn.koh-hno3','rxn.mg-combustion','rxn.mgo-water','rxn.na-cl2','rxn.nacl-h2so4','rxn.naoh-hcl','rxn.znoh2-hcl'].map(r=>`observation:${r}`));
   const B=ids('B');
   for(const id of ['indicator:litmus:acidic','indicator:litmus:basic','indicator:litmus:neutral','hydrolysis:AlCl3','hydrolysis:Na2CO3','hydrolysis:NaCl','hydrolysis:NH4Cl','condition-context:solution-mixing','reaction:rxn.agno3-nacl']) assert.ok(B.includes(id),id);
   assert.ok(B.some(id=>id.startsWith('condition-term:')));
@@ -269,7 +270,8 @@ test('workbench page: offline (CSP, no network), DOM-safe rendering, accessible 
   const {authoring:_a,release:_r,...p18}=report.workbench.surfaces;
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99) (127 → 172 review items).
-  assert.deepEqual(p18,{chemistry:172,candidates:18,assessment:5,pilot:4});
+  // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated (one condition claim fewer: 172 → 171).
+  assert.deepEqual(p18,{chemistry:171,candidates:18,assessment:5,pilot:4});
   assert.equal(report.approveAllAvailable,false);
 });
 
@@ -291,7 +293,7 @@ test('review reports are deterministic, derived from registers, and report 0 hum
   assert.deepEqual(read(REVIEW_REPORTS.goldenSlice),goldenSliceDependencies(m,root));
   const s=read(REVIEW_REPORTS.status);
   assert.equal(s.humanDecisionsImported.total,0,'0 human decisions imported — nothing fabricated');
-  assert.deepEqual([s.chemistry.total,s.chemistry.pending,s.chemistry.approved,s.chemistry.rejected,s.chemistry.stale],[172,172,0,0,0]); // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99) (127 → 172). // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
+  assert.deepEqual([s.chemistry.total,s.chemistry.pending,s.chemistry.approved,s.chemistry.rejected,s.chemistry.stale],[171,171,0,0,0]); // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated (172 → 171). // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99) (127 → 172). // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
   assert.deepEqual([s.assessment.total,s.assessment.chemistryApproved,s.assessment.didacticApproved,s.assessment.fullyApproved],[5,0,0,0]);
   assert.deepEqual([s.pilot.pendingSignoff,s.pilot.signedOff],[4,0]);
   assert.equal(s.globalStrictEnforcement,false);

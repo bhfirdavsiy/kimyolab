@@ -12,7 +12,7 @@
     "source": {
       "SOURCE_NOT_ELIGIBLE": 41
     },
-    "observationFlagged": 15
+    "observationFlagged": 12
   },
   "sourceRefsAudit": {
     "speciesFormat": "object {id,type,title}",
@@ -44,21 +44,21 @@
     "source": {
       "SOURCE_NOT_ELIGIBLE": 99
     },
-    "hazardsClaimed": 41,
+    "hazardsClaimed": 46,
     "propertiesClaimed": 0,
     "reviewedHazards": 0,
     "reviewedProperties": 0
   },
   "conditionGovernance": {
     "rule": "the condition assertion hashes EVERY canonical condition field the record requires (not only tags); changing medium, solvent, catalysts, light, current, temperature, pressure or concentration makes a decision on the old hash stale. A reaction counts as reviewed only when its condition claim is approved too",
-    "recordsWithRequirements": 23,
-    "conditionAssertions": 23,
+    "recordsWithRequirements": 22,
+    "conditionAssertions": 22,
     "fieldsCovered": {
       "electricalCurrent": 1,
-      "tags": 22
+      "tags": 21
     },
     "review": {
-      "pending": 23
+      "pending": 22
     }
   },
   "reactions": [
@@ -489,14 +489,7 @@
         "CHEMISTRY_REVIEW_REQUIRED",
         "OBSERVATION_MISSING"
       ],
-      "condition": {
-        "assertionId": "condition:rxn.na-cl2",
-        "hash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
-        "review": "pending",
-        "fields": [
-          "tags"
-        ]
-      },
+      "condition": null,
       "unsupportedConditions": []
     },
     {
@@ -524,10 +517,7 @@
       "review": "pending",
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
-      "observationFlags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ],
+      "observationFlags": [],
       "condition": {
         "assertionId": "condition:rxn.caco3-decomposition",
         "hash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
@@ -547,7 +537,7 @@
       "reviewed": false,
       "observationFlags": [
         "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
       ],
       "condition": null,
       "unsupportedConditions": []
@@ -559,10 +549,7 @@
       "review": "pending",
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
-      "observationFlags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ],
+      "observationFlags": [],
       "condition": {
         "assertionId": "condition:rxn.hgo-decomposition",
         "hash": "005bd8d0540ad3a27bb153feeccab51c7d0c2d8de3b310f8d0755ba1ca56b7ba",
@@ -707,10 +694,7 @@
       "review": "pending",
       "source": "SOURCE_NOT_ELIGIBLE",
       "reviewed": false,
-      "observationFlags": [
-        "CHEMISTRY_REVIEW_REQUIRED",
-        "OBSERVATION_MISSING"
-      ],
+      "observationFlags": [],
       "condition": {
         "assertionId": "condition:rxn.malachite-decomposition",
         "hash": "839e7e5b4d485187fe97c91b5ab717acce73f7e9f7ef9bb289125682925a746e",

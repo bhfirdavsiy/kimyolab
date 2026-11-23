@@ -1193,11 +1193,7 @@
         "formula": "NaCl"
       }
     ],
-    "conditions": {
-      "tags": [
-        "heating"
-      ]
-    },
+    "conditions": {},
     "direction": "forward",
     "reactionType": "combination",
     "molecularEquation": "2Na + Cl2 → 2NaCl",
@@ -1282,7 +1278,12 @@
     "direction": "forward",
     "reactionType": "decomposition",
     "molecularEquation": "CaCO3 → CaO + CO2",
-    "observations": [],
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.caco3-decomposition.observation"
+      }
+    ],
     "safety": [],
     "curriculumRefs": [],
     "sourceRefs": [
@@ -1316,7 +1317,16 @@
     "direction": "forward",
     "reactionType": "combination",
     "molecularEquation": "MgO + H2O → Mg(OH)2",
-    "observations": [],
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "white"
+      },
+      {
+        "type": "temperature-change",
+        "direction": "up"
+      }
+    ],
     "safety": [],
     "curriculumRefs": [],
     "sourceRefs": [
@@ -1354,7 +1364,12 @@
     "direction": "forward",
     "reactionType": "decomposition",
     "molecularEquation": "2HgO → 2Hg + O2",
-    "observations": [],
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.hgo-decomposition.observation"
+      }
+    ],
     "safety": [],
     "curriculumRefs": [],
     "sourceRefs": [
@@ -1722,7 +1737,12 @@
     "direction": "forward",
     "reactionType": "decomposition",
     "molecularEquation": "Cu2(OH)2CO3 → 2CuO + H2O + CO2",
-    "observations": [],
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.malachite-decomposition.observation"
+      }
+    ],
     "safety": [],
     "curriculumRefs": [],
     "sourceRefs": [

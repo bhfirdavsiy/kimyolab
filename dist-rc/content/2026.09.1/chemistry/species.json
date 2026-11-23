@@ -753,6 +753,8 @@
     "charge": 0,
     "oxidationStates": [],
     "hazards": [
+      "flammable",
+      "corrosive",
       "irritant"
     ],
     "properties": {},
@@ -859,9 +861,7 @@
     "phase": "aq",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [
-      "irritant"
-    ],
+    "hazards": [],
     "properties": {},
     "sourceRefs": [
       {
@@ -1538,7 +1538,11 @@
     "phase": "g",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [],
+    "hazards": [
+      "toxic",
+      "irritant",
+      "oxidizer"
+    ],
     "properties": {},
     "sourceRefs": [
       {
@@ -1558,7 +1562,11 @@
     "phase": "g",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [],
+    "hazards": [
+      "toxic",
+      "corrosive",
+      "oxidizer"
+    ],
     "properties": {},
     "sourceRefs": [
       {
@@ -1578,7 +1586,10 @@
     "phase": "s",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [],
+    "hazards": [
+      "flammable",
+      "corrosive"
+    ],
     "properties": {},
     "sourceRefs": [
       {
@@ -1598,7 +1609,10 @@
     "phase": "s",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [],
+    "hazards": [
+      "irritant",
+      "oxidizer"
+    ],
     "properties": {},
     "sourceRefs": [
       {
@@ -1658,7 +1672,10 @@
     "phase": "s",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [],
+    "hazards": [
+      "toxic",
+      "irritant"
+    ],
     "properties": {},
     "sourceRefs": [
       {
@@ -1802,7 +1819,10 @@
     "phase": "s",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [],
+    "hazards": [
+      "toxic",
+      "irritant"
+    ],
     "properties": {},
     "sourceRefs": [
       {

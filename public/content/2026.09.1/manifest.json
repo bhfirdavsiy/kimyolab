@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "5e32ccd42f492fc699f8012d7a833e4f99ea5a76abde7cd8288ead7f56e647d7",
+  "checksum": "10bf625d5bf3566e21e3f205874ad0dada44d2c1bf5baa68c8a8f6d9735e1066",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -140,8 +140,8 @@
     },
     {
       "path": "chemistry/reactions.json",
-      "checksum": "f627b1ad6fc384087eae420ba46f18f3c498187e34077440a807e3180081da26",
-      "size": 34241
+      "checksum": "f8a29aecc6e05c6de9775d9f4020bcc987affdd33e5e84d2a938013bab460025",
+      "size": 34678
     },
     {
       "path": "chemistry/school-lab-models.json",
@@ -155,8 +155,8 @@
     },
     {
       "path": "chemistry/species.json",
-      "checksum": "dc6e388578a447ee7b81d26336713de2f715d7333f2442a073173a9f775bad15",
-      "size": 40594
+      "checksum": "50cc5dd7464590cbb368cbbdbfbce600ad4880e1cbf4cbb12d3aae496c8a5c17",
+      "size": 40877
     },
     {
       "path": "concepts.json",
@@ -175,8 +175,8 @@
     },
     {
       "path": "knowledge/chemistry-knowledge.json",
-      "checksum": "5cf10b7ad396023409a9b96ed3735f79396f2a00326c119a1ddb807591f277b4",
-      "size": 81922
+      "checksum": "3b250adf4bb0ed58410860e7a0d5c6f8bbbe5d40121059126fb27148e0955bc1",
+      "size": 82176
     },
     {
       "path": "learning-cycle.json",
