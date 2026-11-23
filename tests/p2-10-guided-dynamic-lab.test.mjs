@@ -163,9 +163,11 @@ test('guidance 1–4: more help per level, the instruction’s next action only 
 });
 
 test('feature flag guidedDynamicLabV1: off by default, only an explicit ?ff= enables it; route parsing',()=>{
-  assert.equal(FEATURE_FLAGS.guidedDynamicLabV1.default,false);
-  assert.equal(isFeatureEnabled('guidedDynamicLabV1',new URLSearchParams('')),false);
-  assert.equal(isFeatureEnabled('guidedDynamicLabV1',new URLSearchParams('ff=other')),false);
+  // owner decision 2026-11-23 ("rejang ma'qul"): the guided dynamic lab is ON by default (was: off unless ?ff=); the
+  // route still checks the flag, so it can be switched off again in one place
+  assert.equal(FEATURE_FLAGS.guidedDynamicLabV1.default,true);
+  assert.equal(isFeatureEnabled('guidedDynamicLabV1',new URLSearchParams('')),true);
+  assert.equal(isFeatureEnabled('guidedDynamicLabV1',new URLSearchParams('ff=other')),true);
   assert.equal(isFeatureEnabled('guidedDynamicLabV1',new URLSearchParams('ff=a,guidedDynamicLabV1')),true);
   assert.deepEqual(parseAppRoute('/dynamic-lab/practice.experiment.8.1'),{name:'dynamic-lab',practiceActivityId:'practice.experiment.8.1'});
   assert.equal(parseAppRoute('/dynamic-lab/practice.simulation.7.02.planned').name,'not-found');
@@ -201,7 +203,8 @@ test('reports equal the generator; equivalence keeps every old runtime (none is 
   const readiness=JSON.parse(outputs[LAB_REPORTS.readiness]);
   assert.equal(readiness.decision,'NOT_A_RELEASE_OR_PILOT_DECISION');
   assert.ok(readiness.humanDecisions.every(h=>h.selected===null));
-  assert.equal(readiness.featureFlag.default,false);
+  // owner decision 2026-11-23 ("rejang ma'qul"): the guided dynamic lab is on by default (was false); still not a release decision
+  assert.equal(readiness.featureFlag.default,true);
 });
 
 // ------------------------------------------------------------------ P2.10 closeout

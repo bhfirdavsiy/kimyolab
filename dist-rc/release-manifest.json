@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-23T13:13:17.313Z",
+  "createdAt": "2026-11-23T14:34:25.050Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,8 +11,8 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "cc53a2b09ecd65f284143f684881fad96a455f8ef89a0d58f5db96083f7a0a1e",
-      "size": 18078
+      "checksum": "3a98e2145d93cbe158c4a94bed195c85d56aab4b395e238fc7f6d4323cf3135f",
+      "size": 18888
     },
     {
       "path": "app-preview/app/content-client.js",
@@ -23,8 +23,8 @@
     {
       "path": "app-preview/app/feature-flags.js",
       "sourcePath": "public/app-preview/app/feature-flags.js",
-      "checksum": "597bc2dc20ba42064662249faf8485dd9ddb413340ab7aea8b8fd6653027a19d",
-      "size": 2323
+      "checksum": "53dd872a20b9c5a3789d392c98fe3fa80ff87b3b27e303144dd15e621db43891",
+      "size": 2443
     },
     {
       "path": "app-preview/app/host.js",
@@ -329,14 +329,14 @@
     {
       "path": "app-preview/domain/lab/lab-runtime.js",
       "sourcePath": "public/app-preview/domain/lab/lab-runtime.js",
-      "checksum": "814e1b02b5fe3e6d3e05147807ab7ea9ac44ce213cd97c404950d3c10917f9ab",
-      "size": 56521
+      "checksum": "9491e4efe1c168569fca67d7b260dbaf79a7d394685344868713a6d90e57ade6",
+      "size": 56547
     },
     {
       "path": "app-preview/domain/lab/topic-lab-profile.js",
       "sourcePath": "public/app-preview/domain/lab/topic-lab-profile.js",
-      "checksum": "2b36cbd016a86ce72eae9c2fbd975fbb36b0b096808b75d3675399fbc185c62d",
-      "size": 27701
+      "checksum": "786ffbba8f974e47735b9f46b2172c4bc8aaedf1c8806fc73e920e007ebd7a85",
+      "size": 28182
     },
     {
       "path": "app-preview/domain/mastery/mastery.js",
@@ -455,8 +455,14 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "58a1c95c877f9f4eaf92bc757bbc059692117299e4e3d9db628ca7ebdbf66cd1",
-      "size": 27681
+      "checksum": "b8069376a9418dfe57bb831341c966109e27f14cd31f80596371436a5a45f82d",
+      "size": 28586
+    },
+    {
+      "path": "app-preview/features/dynamic-lab/scene.js",
+      "sourcePath": "public/app-preview/features/dynamic-lab/scene.js",
+      "checksum": "f9f3203af837320608277684e64f52baf76626024781b4486ca7075d42b404ae",
+      "size": 11966
     },
     {
       "path": "app-preview/features/home/copy.js",
@@ -1079,8 +1085,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "a4b55f406e82e4900615ed7fa10ac1d3049b43190753b6c92e57c90d18a356c7",
-      "size": 42412
+      "checksum": "8c2f4ae1844f3974af4513e870fb00b35b7584e7a08c4276fe3996d59d08fa8c",
+      "size": 45027
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1349,8 +1355,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "8b55bda0305e91be878807da4a5fde75e5b2300d43f2b6341d1e04fbc36d61a0",
-      "size": 46916
+      "checksum": "1c2c4f2cacd41b1bdbdc6b23e51295372d5bd7d8e039b2b90035398daf55913e",
+      "size": 47134
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1361,7 +1367,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "3f91a905cf5f2970711f38834e0fdc76ab26132dbb4944aad3a9f4b6368a5cf5",
+      "checksum": "a9e9ab249e5d3f47ca6de7e685070bae7ecc270ada1d0f346d28362dd5481654",
       "size": 8345
     },
     {
@@ -1397,13 +1403,13 @@
     {
       "path": "content/2026.09.1/topic-lab-profiles.json",
       "sourcePath": "public/content/2026.09.1/topic-lab-profiles.json",
-      "checksum": "9bc8a579a6171f9444133cb61794575894251b12512b8ec9d9462dc147496c52",
-      "size": 78067
+      "checksum": "11f1b4e395f52aee071c6ff0a5e00c2f3d0288099ae1b6b6673af495c012e7ce",
+      "size": 78234
     },
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "2e96da4c2d13e9e13825551db5a4a9ac8ffd65349405563b3023dc2abaae79e2",
+      "checksum": "91cf27e21520aa96cd84e7a10cd6f5a8955c4d74089faeab9c6289a46eb4a61d",
       "size": 158
     },
     {

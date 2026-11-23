@@ -9,14 +9,14 @@
     "requiredServerMount": "/kimyolab/",
     "entryDocument": "/kimyolab/index.html",
     "spaFallback": "every /kimyolab/* path that is not a file → /kimyolab/index.html (see docs/DEPLOY.md §5)",
-    "fileCount": 235,
-    "totalBytes": 5080320,
-    "sha256": "a83176be5ee5d054dc6c81aadfe948750ccd0b1ca7d675b536e1f18fd8f1e689",
+    "fileCount": 236,
+    "totalBytes": 5097628,
+    "sha256": "522507f2e9b22bccd38199f72e08519d5dcad705fc0873d822457f04ea43d25a",
     "content": {
       "activeVersion": "2026.09.1",
       "contentVersion": "2026.09.1",
-      "contentRevision": "a0f42a785ab797672f288b88df573173d52638faa228d59c40bb685f3a24b1cd",
-      "manifestChecksum": "a0f42a785ab797672f288b88df573173d52638faa228d59c40bb685f3a24b1cd"
+      "contentRevision": "b89ae59ca9ec84cf0070a60e8fd0837933c47145fd5e411ba9dd7d1733bd8aca",
+      "manifestChecksum": "b89ae59ca9ec84cf0070a60e8fd0837933c47145fd5e411ba9dd7d1733bd8aca"
     },
     "config": {
       "basePath": "/kimyolab/",
@@ -34,8 +34,8 @@
     "buildCommand": "npm run standalone:build",
     "path": "dist-standalone/KimyoLab_standalone.html",
     "alias": "dist-standalone/index.html",
-    "bytes": 6370770,
-    "sha256": "50d5aefdcc49cee3bf292bea3646ceb638c5c4e4f9d99a2679c00abe1055ee98",
+    "bytes": 6388393,
+    "sha256": "25096513f6f75f943e2aff7c18763a5c39d79b7215a88a47cdfa50a428199974",
     "delivery": "one HTML file; opens from disk (hash routes, embedded content pack with the same integrity checks); external laboratories that need the network stay network-dependent and say so"
   },
   "learnerBundle": {
@@ -48,10 +48,10 @@
       "source": "P2.7 close (reports/accessibility-gap-summary.json#performance.after)"
     },
     "after": {
-      "learnerModules": 179,
-      "learnerModuleBytes": 972137,
-      "standaloneBytes": 6370770,
-      "cssBytes": 42412
+      "learnerModules": 180,
+      "learnerModuleBytes": 986445,
+      "standaloneBytes": 6388393,
+      "cssBytes": 45027
     },
     "note": "deployment tooling is operator-side (scripts/, never copied into the artefact by the builder)"
   }

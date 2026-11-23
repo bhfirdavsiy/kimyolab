@@ -5,7 +5,7 @@
   "semantics": "What exists, what is proven and what is still a human decision. The agent does not decide chemistry truth, release or pilot sign-off.",
   "featureFlag": {
     "name": "guidedDynamicLabV1",
-    "default": false,
+    "default": true,
     "enable": "?ff=guidedDynamicLabV1",
     "route": "/dynamic-lab/<activityId>",
     "oldRuntime": "unchanged and still the canonical route (/practice/<activityId>)"
@@ -602,14 +602,14 @@
       "standaloneBytes": 5704269
     },
     "after": {
-      "learnerModules": 179,
-      "learnerModuleBytes": 972137,
-      "standaloneBytes": 6370770
+      "learnerModules": 180,
+      "learnerModuleBytes": 986445,
+      "standaloneBytes": 6388393
     },
     "delta": {
-      "learnerModules": 17,
-      "learnerModuleBytes": 258133,
-      "standaloneBytes": 666501
+      "learnerModules": 18,
+      "learnerModuleBytes": 272441,
+      "standaloneBytes": 684124
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -634,9 +634,9 @@
         "standaloneBytes": 175322
       },
       "P2.14": {
-        "learnerModules": 5,
-        "learnerModuleBytes": 76172,
-        "standaloneBytes": 268833
+        "learnerModules": 6,
+        "learnerModuleBytes": 90480,
+        "standaloneBytes": 286456
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file"

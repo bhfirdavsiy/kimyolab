@@ -15,6 +15,7 @@ import {LAB_ACTION_FAMILIES,type LabActionFamily} from '../../domain/lab/action-
 import {availableActions,createLabRuntime,createLabState,type ActionOption,type LabAction,type LabActionResult,type LabObservation,type LabState} from '../../domain/lab/lab-runtime.ts';
 import type {GuidanceLevel,TopicLabProfile} from '../../domain/lab/topic-lab-profile.ts';
 import {createLabDomain} from '../../domain/lab/lab-domain.ts';
+import {renderLabScene} from './scene.ts';
 
 type ObjectRef={kind:'apparatus'|'substance'|'target';id:string};
 
@@ -110,6 +111,12 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
   const paramsBox=el('div',{className:'kl-dlab__params'});
   const result=el('p',{className:'kl-feedback kl-dlab__result',attrs:{role:'status','aria-live':'polite','aria-atomic':'true',tabindex:'-1'}});
   const reset=el('button',{className:'kl-button kl-button--secondary',text:t.ui('ui.dlab-reset'),attrs:{type:'button','data-dlab-reset':''}});
+  // the bench: a picture of the state (decoration — the same facts are in the text state and the observations)
+  const scene=el('div',{className:'kl-scene',attrs:{'data-dlab-scene':''}});
+  const speciesList:any[]=Array.isArray((page.chemistry as any)?.species)?(page.chemistry as any).species:((page.chemistry as any)?.species?.species??[]);
+  const formulaBySpecies=new Map<string,string>(speciesList.map((x:any)=>[x.id,x.formula]));
+  const formulaOf=(substanceId:string)=>{ const sub=profile.substances.find(x=>x.id===substanceId); const sp=sub?.speciesId??sub?.soluteSpeciesId??null; return sp?formulaBySpecies.get(sp)??null:null; };
+  const drawScene=()=>renderLabScene(scene,{profile,state,formulaOf,labelOf:apparatusName,onSelect:(id)=>{ objectsBox.querySelector<HTMLButtonElement>(`[data-object="apparatus:${id}"]`)?.click(); }});
   action.append(objectsBox,actionsBox,paramsBox,result,reset);
 
   // Kuzatish: the observations (text, never colour alone) and the state
@@ -131,7 +138,7 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
   const guidanceOut=el('div',{className:'kl-dlab__guidance-text',attrs:{'aria-live':'polite'}});
   why.append(sources,guidanceFs,guidanceOut);
 
-  shell.append(flow,goal,action,observe,why);
+  shell.append(flow,scene,goal,action,observe,why);
   root.append(head,shell);
 
   function categoryText(o:ActionOption){
@@ -352,7 +359,7 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
   function draw(){
     for(const [id,a] of flowLinks){ if(id===stage) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); }
     shell.dataset.complete=String(state.complete);
-    drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
+    drawScene(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
   }
 
   reset.addEventListener('click',()=>{ state=runtime.reset(profile); accepted.length=0; options.onChange?.({accepted:[],complete:state.complete}); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });

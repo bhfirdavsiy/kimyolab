@@ -35,6 +35,9 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                        
                                                                                                      
                                                                                                     
+                                                                                                                      
+                                                                                                      
+                                                             
                                                                                             
                               
                                                                                                                       
@@ -211,6 +214,7 @@ export function topicLabProfileProblems(raw        )         {
     for(const r of p.completionGoal.reactionIds) if(!bound.includes(r)) out.push(`COMPLETION_REACTION_NOT_BOUND:${r}`);
   }
   if(p.limits?.heating&&(!['heated','gently-heated','strongly-heated'].includes(p.limits.heating.level)||!text(p.limits.heating.source))) out.push('HEATING_LIMIT');
+  for(const s of p.substances??[]) if(s.declaredForm!==undefined&&(!['liquid','solid'].includes(s.declaredForm?.form          )||!text(s.declaredForm?.source))) out.push(`SUBSTANCE_FORM:${s.id}`);
   for(const s of p.substances??[]) for(const d of s.declaredConditions??[]) if(!text(d.dimension)||!text(d.value)||!text(d.source)) out.push(`SUBSTANCE_CONDITION:${s.id}`);
   if(p.completionGoal?.kind==='observations') for(const t of p.completionGoal.targets) if(!(p.observationTargets??[]).some(o=>o.id===t)) out.push(`COMPLETION_TARGET_UNKNOWN:${t}`);
   const c=p.chemistry                              ;

@@ -31,6 +31,7 @@ const write=(rel:string,data:unknown)=>fs.writeFileSync(path.join(root,rel),`${J
 /** Literals in learner/server code that look like a host or a deployment path, and why each allowed one is allowed. */
 const ALLOWED_HOST_LITERALS:Record<string,string>={
   'kimyolab.invalid':'reserved .invalid parse base for new URL() — never fetched',
+  'www.w3.org':'the SVG XML namespace identifier for document.createElementNS (dynamic-lab scene) — a name, never fetched',
   'nbapi.nobook.com':'external-lab partner API default (server-side, optional, overridable by NOBOOK_AUTH_URL)',
   'nobook.com':'external-lab provider allow-list (url-policy): the only origins an external lab may frame',
   'chemai.in':'external-lab provider allow-list (url-policy)',

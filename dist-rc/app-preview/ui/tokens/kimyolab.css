@@ -229,3 +229,32 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
 
 /* home: the periodic-table card's element tile */
 .kl-feature-element{display:grid;place-items:center;width:52px;height:52px;border-radius:10px;background:#fff;border:2px solid var(--kl-primary);line-height:1;position:relative}.kl-feature-element b{font-size:1.45rem;color:var(--kl-primary)}.kl-feature-element small{position:absolute;top:4px;left:6px;font-size:.62rem;color:var(--kl-muted,#5b6b84);font-weight:700}
+
+/* guided dynamic lab: the bench picture (scene.ts). Decoration only; motion stops under reduced motion. */
+.kl-scene{grid-column:1/-1;background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border:1px solid var(--kl-line-blue,#d6e4f5);border-radius:20px;padding:16px 8px 4px;overflow-x:auto}
+.kl-scene__svg{display:block;width:100%;min-width:300px;max-height:320px;height:auto;margin-inline:auto}
+.kl-scene__bench{fill:#c9d6e6}.kl-scene__hit{fill:transparent;pointer-events:all}
+.kl-scene__glass{fill:none;stroke:#7d93ad;stroke-width:2.4;stroke-linejoin:round}
+.kl-scene__vessel{transition:opacity .2s}.kl-scene__vessel.is-idle{opacity:.45}
+.kl-scene__vessel[cursor=pointer]:hover .kl-scene__glass{stroke:var(--kl-primary,#0b5bd3);stroke-width:3}
+.kl-scene__liquid{opacity:.85}.kl-scene__meniscus{fill:#ffffff;opacity:.55}
+.kl-scene__solid--0{fill:#8a929c}.kl-scene__solid--1{fill:#6f7782}.kl-scene__solid--2{fill:#a4abb4}
+.kl-scene__precipitate{stroke:#7f8fa3;stroke-width:1.2}.kl-scene__turbid{opacity:.45}.kl-scene__grain{stroke:#6f8096;stroke-width:.8}
+.kl-scene__bubble{fill:#ffffff;stroke:#6fa8dc;stroke-width:1;animation:kl-scene-rise 1.6s ease-in infinite}
+.kl-scene__bubble--1{animation-delay:.5s}.kl-scene__bubble--2{animation-delay:1s}
+.kl-scene__gas{fill:#cfe6ff;opacity:.75}
+.kl-scene__gas-label{font:700 13px/1 system-ui,sans-serif;fill:#0b4aa8}
+.kl-scene__formula{font:700 11.5px/1 system-ui,sans-serif;fill:#0d2547;paint-order:stroke;stroke:#ffffffcc;stroke-width:3px}
+.kl-scene__label{font:600 11.5px/1 system-ui,sans-serif;fill:#38506e}
+.kl-scene__haze{fill:none;stroke:#f08a24;stroke-width:2;stroke-linecap:round;opacity:.8;animation:kl-scene-haze 1.8s ease-in-out infinite}
+.kl-scene__stopper{fill:#9b6b43}
+.kl-scene__deposit{fill:#b5651d}
+.kl-scene__electrode{fill:#55606e}.kl-scene__wire{fill:none;stroke:#55606e;stroke-width:2}.kl-scene__wire.is-on{stroke:#e0a100}
+.kl-scene__lamp{fill:#7a8899}
+.kl-scene__flame{fill:#ffb12b;stroke:#ff7a00;stroke-width:1.2;transform-box:fill-box;transform-origin:50% 100%;animation:kl-scene-flicker .9s ease-in-out infinite alternate}
+.kl-scene__flame--strongly-heated{fill:#ff8f1f}
+@keyframes kl-scene-rise{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(-70px);opacity:0}}
+@keyframes kl-scene-haze{0%,100%{opacity:.2}50%{opacity:.85}}
+@keyframes kl-scene-flicker{from{transform:scaleY(.9)}to{transform:scaleY(1.08)}}
+@media (prefers-reduced-motion:reduce){.kl-scene__bubble,.kl-scene__haze,.kl-scene__flame{animation:none}}
+.kl-dlab-offer{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-bottom:1rem}

@@ -1245,6 +1245,10 @@
           "speciesId": null,
           "labelKey": "ui.dlab-sub-carbonated-water",
           "role": "sample",
+          "declaredForm": {
+            "form": "liquid",
+            "source": "legacyContent.steps[1] (\"gazli mineral suv quying\": poured, a liquid)"
+          },
           "source": "legacyContent.materials (\"mineral suv yoki CO2 li suv\") + legacyContent.steps[1] (\"gazli mineral suv quying\")"
         },
         {

@@ -26,10 +26,11 @@ async function addTo(page, substance, container) {
 async function on(page, ref, family) { await object(page, ref); await action(page, family); }
 
 for (const name of ['portal', 'standalone']) {
-  test(`${name}: flag off → notice and the classic route; the classic practice page is unchanged`, async ({page}) => {
+  // owner decision 2026-11-23 ("rejang ma'qul"): the dynamic lab is ON by default (was: "flag off → notice"). Without any
+  // ?ff= the lab opens; its link still leads to the classic practice page, which keeps its own renderer
+  test(`${name}: on by default → the lab opens without ?ff; the classic practice page stays reachable`, async ({page}) => {
     await hosts[name].open(page, '/dynamic-lab/practice.experiment.8.1');
-    await expect(page.locator('.kl-practice-workspace .kl-notice[role=status]')).toContainText('yoqilmagan');
-    await expect(page.locator(LAB)).toHaveCount(0);
+    await expect(page.locator(LAB)).toHaveCount(1);
     await page.getByRole('link', {name: 'Odatdagi amaliy mashg‘ulotni ochish'}).click();
     await expect(page.locator('.kl-practice-workspace [data-renderer^="ionic-precipitation"]')).toBeVisible();
   });

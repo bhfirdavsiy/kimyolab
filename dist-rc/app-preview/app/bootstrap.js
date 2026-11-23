@@ -27,6 +27,7 @@ import {knowledgeDomain,reactionExplorerHref,reactionSearchEntries,substanceHref
 import {renderSubstancePassport} from '../features/chemistry-knowledge/passport.js';
 import {renderReactionExplorer} from '../features/chemistry-knowledge/explorer-render.js';
 import {createLabeler} from '../features/practice/form-question.js';
+import {el,link} from '../ui/components/dom.js';
 
 const mainElement=document.getElementById('app-main');
 if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
@@ -92,7 +93,10 @@ async function renderCurrent(){
       const attemptSession=progressService.beginPracticeSession(page,practiceEngine);activePractice=attemptSession;
       let persistError        ;
       // P1.4 strangler seam: a rendererRequirement → RendererRegistry; otherwise the legacy practice renderer.
-      renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result(),retry:()=>{void renderCurrent();}},rendererRegistry,async()=>{if(persistError)throw persistError;});}
+      renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result(),retry:()=>{void renderCurrent();}},rendererRegistry,async()=>{if(persistError)throw persistError;});
+      // owner decision 2026-11-23: where a guided dynamic lab exists for this experiment, the classic page offers it
+      if(page.type==='experiment'&&isFeatureEnabled('guidedDynamicLabV1',active.searchParams)){ void client.loadTopicLabProfile(page.id).then(profile=>{ if(!profile||currentLocation().pathname!==active.pathname) return; const t=createLabeler(createLocalizer(page.localization       )); const card=el('p',{className:'kl-notice kl-dlab-offer',attrs:{'data-dlab-offer':''}}); card.append(document.createTextNode(`${t.ui('ui.dlab-offer')} `),link(t.ui('ui.dlab-offer-open'),`/dynamic-lab/${encodeURIComponent(page.id)}`,'kl-button kl-button--primary')); main.querySelector('.kl-practice-workspace')?.prepend(card); }).catch(()=>undefined); }
+    }
     catch(error){renderError(main,contentErrorMessage(error,ACTIVITY_LOAD_ERROR));}
     return;
   }

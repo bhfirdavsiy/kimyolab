@@ -35,6 +35,9 @@ export interface ProfileSubstance {
   source:ProfileSource;
   /** parts of a sample the instruction does not identify (e.g. the impurity of contaminated salt) */
   undeclaredParts:Array<{id:string;description:string;source:ProfileSource;insoluble:boolean|null}>;
+  /** a sample without a species (e.g. carbonated mineral water): its physical form as the instruction states it, with
+   *  the source; without it the runtime keeps its default (solid sample). Never a chemistry claim. */
+  declaredForm?:{form:'liquid'|'solid';source:ProfileSource};
   /** the solute part of a sample that the chemistry authority can evaluate (dissolution) */
   soluteSpeciesId:string|null;
   /** P2.11: conditions the INSTRUCTION states for this substance (e.g. "suyultirilgan" → acid-concentration: dilute),
@@ -211,6 +214,7 @@ export function topicLabProfileProblems(raw:unknown):string[]{
     for(const r of p.completionGoal.reactionIds) if(!bound.includes(r)) out.push(`COMPLETION_REACTION_NOT_BOUND:${r}`);
   }
   if(p.limits?.heating&&(!['heated','gently-heated','strongly-heated'].includes(p.limits.heating.level)||!text(p.limits.heating.source))) out.push('HEATING_LIMIT');
+  for(const s of p.substances??[]) if(s.declaredForm!==undefined&&(!['liquid','solid'].includes(s.declaredForm?.form as string)||!text(s.declaredForm?.source))) out.push(`SUBSTANCE_FORM:${s.id}`);
   for(const s of p.substances??[]) for(const d of s.declaredConditions??[]) if(!text(d.dimension)||!text(d.value)||!text(d.source)) out.push(`SUBSTANCE_CONDITION:${s.id}`);
   if(p.completionGoal?.kind==='observations') for(const t of p.completionGoal.targets) if(!(p.observationTargets??[]).some(o=>o.id===t)) out.push(`COMPLETION_TARGET_UNKNOWN:${t}`);
   const c=p.chemistry as ChemistryBinding|undefined;
