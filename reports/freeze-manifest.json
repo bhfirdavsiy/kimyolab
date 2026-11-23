@@ -26,7 +26,7 @@
     },
     "tests": {
       "fileCount": 215,
-      "sha256": "fecc8130af94f7af6c46a45ac0898b4a6c8f775cb340611ed2e56f4b7e8559d2"
+      "sha256": "66151ebcc193c64d86076ac5953b860d2f7423cdfac0959dc3d8369a5d24cdae"
     }
   },
   "generated": {
@@ -82,7 +82,7 @@
     },
     {
       "file": "reports/activity-routing.json",
-      "sha256": "cc0902b350702460cb016e3000584794792d79d2b7083041e0b1c9cc9b47954b"
+      "sha256": "ed698217b4b87e9d114eee858a11063ad3866074d6d24400fc87432de761391a"
     },
     {
       "file": "reports/approval-pipeline.json",
@@ -102,7 +102,7 @@
     },
     {
       "file": "reports/beta1-readiness.json",
-      "sha256": "1a5456a7801697adcd0cd250f0757942a47f51844c75f18049094cbd86d7d16c"
+      "sha256": "6abcdb19ae048358bade364f37f6c85636641503cf5570eadb3151bd788df57f"
     },
     {
       "file": "reports/beta2-capability-summary.json",
@@ -110,11 +110,11 @@
     },
     {
       "file": "reports/beta2-readiness.json",
-      "sha256": "7bb6f517dbb2073520e1a640852d6d744c4f382d8eedcd3380c255e63b33af2a"
+      "sha256": "58aa6ca5392bf74fb26fb59f741ee2d8d82a400c312a8404c13cdef09faa6681"
     },
     {
       "file": "reports/beta3-readiness.json",
-      "sha256": "749594bf1ffe80e1a415f79abb0cbd615eb6c7ee11dafd69dc8ee48fa49128b6"
+      "sha256": "49d4bbe9c4c64b0d2feec73d969179e8d8ea2f648a862e3fd39475eec91db0f2"
     },
     {
       "file": "reports/brand-integration.json",
@@ -182,7 +182,7 @@
     },
     {
       "file": "reports/content-validation.json",
-      "sha256": "3276a9c7e1c6ee4d749f56b00cbd862966e7f06fea07297c50e0a0eb30f3ea7a"
+      "sha256": "cd78961492db7c3fc65820ea3540089836a670f5772b612f19236cfdf7e7800b"
     },
     {
       "file": "reports/deployment-artifacts.json",
@@ -230,7 +230,7 @@
     },
     {
       "file": "reports/external-provider-readiness.json",
-      "sha256": "f0539e7f45e23a5b6571c26afcab5e79a661fac2595e134a690955ae1cd6eeab"
+      "sha256": "8f5c8f1f289ee5e54f76a91245ed2413f73cff3dbff3ba48f0f65d68718a28b9"
     },
     {
       "file": "reports/feedback-semantics-expansion.json",
@@ -343,7 +343,7 @@
     },
     {
       "file": "reports/mapping-validation.json",
-      "sha256": "20eee65a86d7856753367a25f7f4fe64ed8ddb03f486129f972acb85b95ed6ca"
+      "sha256": "db47129b9d0d3701448455519a958541114076a862d6cd651f1dc86281d021af"
     },
     {
       "file": "reports/mastery-ux-coverage.json",
@@ -411,7 +411,7 @@
     },
     {
       "file": "reports/rc-preflight.json",
-      "sha256": "a0e66191aab8df402b0b02df53693a4661c69094f3b6e5853697dd6e941c2f6c"
+      "sha256": "2cef2805129bd93db1e06d321c3cee1d74b4ecc556c6adcce446b919498a0406"
     },
     {
       "file": "reports/rc-traceability.json",
@@ -487,7 +487,7 @@
     },
     {
       "file": "reports/reviewer-workspace.json",
-      "sha256": "8521020c34c7732ee4edd478c7f157633fdacca16a5e0bd5fa4b20f680f8d44a"
+      "sha256": "483f468a2aa197c80e07cc1e81d4dc3b622b08cffa92732466edc182f22eee88"
     },
     {
       "file": "reports/stable-preflight.json",
@@ -499,11 +499,11 @@
     },
     {
       "file": "reports/standalone-browser-smoke.json",
-      "sha256": "79cb4c69bfc2fbdea71a8f7134590adb8aaff6e62127bbebb6caeddc5d53b4e0"
+      "sha256": "3ae067ad5e09f52254f90737a48703fc0995fd22d576a117fa2057c4f20b4436"
     },
     {
       "file": "reports/standalone-build.json",
-      "sha256": "c470aca98c3ce70d87fe6d2d3614d8562b2e2d772b7d8777ed01e03c0c31deec"
+      "sha256": "585f4a5de23e874caff2f2ded34cdb979ca99d371a3fd5187e4724af2ddc3769"
     },
     {
       "file": "reports/standalone-mobile-smoke.json",
@@ -551,7 +551,7 @@
     },
     {
       "file": "reports/xlsx-import-snapshot.json",
-      "sha256": "3d0842d3cf935f66536c082a961faf49c7c7975d1afe996cee36fd22bcb3338e"
+      "sha256": "5ddc7f5b2ea88331284cdf9fb163f15de4bf0137f1ba14646a19527af239827f"
     }
   ]
 }

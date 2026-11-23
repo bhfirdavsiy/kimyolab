@@ -1,5 +1,27 @@
 {
-  "generatedAt": "2026-11-23T05:18:19.914Z",
-  "status": "fail",
-  "reason": "Error: CDP_PAGE_TARGET_NOT_FOUND\n    at file:///home/user/kimyolab/scripts/standalone-browser-smoke.mjs:39:86\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+  "generatedAt": "2026-11-23T05:34:00.189Z",
+  "status": "pass",
+  "browser": "chrome",
+  "method": "CDP Page.setDocumentContent; no localhost/file URL dependency",
+  "checks": {
+    "standaloneEntry": true,
+    "homeRendered": true,
+    "ctaClicked": true,
+    "curriculumRoute": true,
+    "unitClicked": true,
+    "hashRouting": true,
+    "learningUnitGuideRendered": true,
+    "guideToPracticeLinked": true,
+    "reinforcementLinked": true,
+    "labRouteOpened": true,
+    "labCatalogRendered": true,
+    "nativeLabRouteClicked": true,
+    "nativeLabWorkspaceRendered": true,
+    "nativeLabStepExecuted": true,
+    "reactionGroundedGuidedStep": true,
+    "externalRouteClicked": true,
+    "externalDetailRendered": true,
+    "exceptions": true
+  },
+  "exceptionCount": 0
 }
