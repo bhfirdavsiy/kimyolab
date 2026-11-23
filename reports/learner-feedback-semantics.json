@@ -1341,7 +1341,7 @@
     {
       "activityId": "practice.simulation.9.07.planned",
       "activityType": "simulation",
-      "title": "Uglerod guruhi trendi va materiallar case’i",
+      "title": "Uglerod guruhi trendi va materiallar amaliy vaziyati",
       "configSource": "content-src/activity-configs/beta2-safe.json",
       "configVersion": "1.0.0",
       "p27Observation": "ENGINE_GIVES_NO_VERDICT_FOR_NON_TARGET_STATE",
@@ -1383,7 +1383,7 @@
         "question": "Should any non-target state of this activity be announced as INCORRECT? If yes, which values (per field, with the source that makes them incorrect)?",
         "unlocks": "a declared incorrect-state list in the config → the engine can emit INCORRECT evidence; config version 2.0.0 and new evidence ids (scoring context changes)"
       },
-      "goal": "Uglerod guruhi trendi va materiallar case’i",
+      "goal": "Uglerod guruhi trendi va materiallar amaliy vaziyati",
       "technicalFixesApplied": [
         "feedback-taxonomy",
         "valid-intermediate"

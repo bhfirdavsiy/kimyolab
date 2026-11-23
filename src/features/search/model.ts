@@ -7,7 +7,7 @@ function normalize(value:string){return value.toLocaleLowerCase('uz-Latn').norma
 export function searchStudentContent(query:string,index:SearchIndexEntry[],limit=20):SearchResult[]{
   const q=normalize(query); if(!q) return [];
   const terms=q.split(/\s+/).filter(Boolean);
-  return index.map(entry=>{const hay=normalize(`${entry.title} ${entry.description} ${entry.searchText}`);const hits=terms.reduce((n,t)=>n+(hay.includes(t)?1:0),0);const titleBoost=terms.reduce((n,t)=>n+(normalize(entry.title).includes(t)?2:0),0);const exact=(entry.exact??[]).map(normalize);const exactBoost=terms.reduce((n,t)=>n+(exact.includes(t)?10:0),0);
+  return index.map(entry=>{const hay=normalize(`${entry.title} ${entry.description} ${entry.searchText}`);const hits=terms.reduce((n,t)=>n+(hay.includes(t)?1:0),0);const titleBoost=terms.reduce((n,t)=>n+(normalize(entry.title).includes(t)?2:0),0);const exact=(entry.exact??[]).map(normalize);/* the exact bonus needs the WHOLE query ("kumush nitrat" must not rank the element Kumush above the substance) */const exactBoost=exact.includes(q)?10:0;
       // an element / substance / reaction entry (P2.13, P2.14) scores by its exact terms (symbol, number, formula) or by
       // its localized name, never by its description text
       const score=entry.kind==='element'||entry.kind==='substance'||entry.kind==='reaction'?exactBoost+(normalize(entry.searchText)&&terms.some(t=>normalize(entry.searchText).includes(t))?titleBoost+1:0):hits+titleBoost;

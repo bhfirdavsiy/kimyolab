@@ -514,7 +514,7 @@
         "practice.trainer.9.05.planned"
       ],
       "facts": {
-        "chemistryAssertionsPending": 174,
+        "chemistryAssertionsPending": 272,
         "assessmentItemsPending": 5,
         "activitiesContentPending": 146,
         "releaseDecisionsMissing": 146,
@@ -1125,8 +1125,8 @@
       ],
       "affectedActivities": [],
       "facts": {
-        "assertionsWithoutAcceptableSource": 120,
-        "addSourceTasks": 120,
+        "assertionsWithoutAcceptableSource": 218,
+        "addSourceTasks": 218,
         "note": "PROVENANCE DEBT — sources to register and cite; the learning content exists"
       },
       "dependencies": [

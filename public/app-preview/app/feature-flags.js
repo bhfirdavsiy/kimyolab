@@ -6,7 +6,8 @@ export const FEATURE_FLAGS={
    *  gates the Studio's own entry page. It is not authentication: the Studio is an internal tool for a local machine. */
   contentStudioV1:{default:false,enable:'?ff=contentStudioV1',description:'Content Studio MVP (separate build: npm run studio:build / studio:serve); not part of the learner deployment.'},
   /** P2.13: the periodic table and Element Hub at /periodic and /periodic/<symbol>; elements join the learner search. */
-  periodicTableV1:{default:false,enable:'?ff=periodicTableV1',description:'Periodic table + Element Hub at /periodic (element profile deep link /periodic/<symbol>); with the flag off the route does not exist.'},
+  // owner decision 2026-11-23: the periodic table (Mendeleyev jadvali) is on for every learner and linked from the header
+  periodicTableV1:{default:true,enable:'?ff=periodicTableV1',description:'Periodic table + Element Hub at /periodic (element profile deep link /periodic/<symbol>); with the flag off the route does not exist.'},
   /** P2.14: the Substance Passport at /substance/<key> (canonical species identity); substances join the learner search. */
   substancePassportV1:{default:false,enable:'?ff=substancePassportV1',description:'Substance Passport at /substance/<key> (key = canonical species id without the species. namespace); with the flag off the route does not exist.'},
   /** P2.14: the Reaction Explorer at /reactions (the existing ReactionMatcher, browser-local); reactions join the learner search. */

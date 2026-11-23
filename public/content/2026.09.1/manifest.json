@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "ac78482995b1a9e0621e0b611756f1bbdc6145685fca474fe46670c9318dca2d",
+  "checksum": "a0f42a785ab797672f288b88df573173d52638faa228d59c40bb685f3a24b1cd",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -170,8 +170,8 @@
     },
     {
       "path": "external-lab-bindings.json",
-      "checksum": "2b2bdf8ca78de14ebf48a6ccdf9439d3f9c26efeba28dc2b3cd6567aafab70da",
-      "size": 5291
+      "checksum": "4dddd74c31d8c8e945fbd070d6425740dc4ad55135df19a2c461d50233d12083",
+      "size": 5322
     },
     {
       "path": "knowledge/chemistry-knowledge.json",
@@ -185,8 +185,8 @@
     },
     {
       "path": "learning-units/grade-10.json",
-      "checksum": "0556079fcdabca7f0e5e5b6b7ab2935faf26c42b731e45176b0208d25f256a84",
-      "size": 16951
+      "checksum": "964b9716b36e594a2c98dfa23a2bf70df85a191fb0fc24966dfcc7695c39e06f",
+      "size": 16971
     },
     {
       "path": "learning-units/grade-11.json",
@@ -195,23 +195,23 @@
     },
     {
       "path": "learning-units/grade-7.json",
-      "checksum": "896255d88adc3d8df0e7cff4dd6e6b262b2e82d61628ad6065329292e3bf239d",
-      "size": 14621
+      "checksum": "74564ed101ceecf4a129265bc71ec63d763792f6386eb1f261528d0f7b7869d7",
+      "size": 14641
     },
     {
       "path": "learning-units/grade-8.json",
-      "checksum": "114bb43f37a92a0e5b525f564a973157f9a7b45192564b7982600a7ecc51d5ba",
-      "size": 15544
+      "checksum": "af3e0ec5c696aab531d024d95b47d19cd696184d1516aca54afa9e99a539053c",
+      "size": 15554
     },
     {
       "path": "learning-units/grade-9.json",
-      "checksum": "a3f6707da4a0216f086886e97f54c32343e6a9776fa669ffdd39241d763382db",
-      "size": 16898
+      "checksum": "9bdc3b03d32fc98553236277a5d622a42136a8ec2127d3c949ec15beef1039f2",
+      "size": 16938
     },
     {
       "path": "locales/uz-latn/chemistry-elements.json",
-      "checksum": "f3f3e25646aa3e3b2d3163db93d1da0a32e2728fcf18de08e37cb68ce2321cdb",
-      "size": 793
+      "checksum": "8a702feeffa27c54350e8be6f7798c60a811e4224c9e50f795dfdd3134947734",
+      "size": 2836
     },
     {
       "path": "locales/uz-latn/chemistry-species.json",
@@ -225,8 +225,8 @@
     },
     {
       "path": "locales/uz-latn/name-provenance.json",
-      "checksum": "724dd064c9c229750e19d26bf9c7bc4490fb8ede30cef727f88156edc28f6fc0",
-      "size": 6785
+      "checksum": "e87b0e7f62dbaf8dbe9362ddc2c8f8940e0c3e33b93b682f8a7532b11b04f26a",
+      "size": 26855
     },
     {
       "path": "mapping-links.json",
@@ -240,13 +240,13 @@
     },
     {
       "path": "practice-activities.json",
-      "checksum": "629c9a4d25dc31904a4a3236fde0afba1e72740d8e493a1ba30fbb7fe2f1031a",
-      "size": 311342
+      "checksum": "f3e7cef097913a312d07e76ed9c093b22d6b84e63181ec52e9281516762334fb",
+      "size": 311484
     },
     {
       "path": "theory-activities.json",
-      "checksum": "ed96e578f9414524c812c2cb64773124821f2c8e621cd5ad9daacfd8cd91f398",
-      "size": 193632
+      "checksum": "f73f9480bbc010bae1674445985c1df2dba8965d52221e7dd58cdd403fcc491f",
+      "size": 193722
     },
     {
       "path": "theory-structured.json",

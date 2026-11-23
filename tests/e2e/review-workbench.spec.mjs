@@ -32,7 +32,8 @@ test('workbench: offline, keyboard-operable tabs, hostile packet text stays text
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); review items 127 → 172.
   // TT 4.2 expert review (2026-11-23): rxn.na-cl2 lost its heating condition at the expert's request (one condition claim fewer: 172 → 171).
   // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl, an UNREVIEWED explicit no-reaction record, adds 3 review items (no-reaction, condition, observation; 171 → 174).
-  await expect(page.locator('#wbChemList article')).toHaveCount(174);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible): the missing Uzbek element names were added as PENDING display translations (98 more review items: 174 → 272)
+  await expect(page.locator('#wbChemList article')).toHaveCount(272);
   // decisions are disabled until a person with the right role is named
   await expect(page.locator('#wbChemList article').first().locator('input[type=radio]').first()).toBeDisabled();
   await page.fill('#wbReviewerId','claude');await page.locator('#wbReviewerId').press('Tab');

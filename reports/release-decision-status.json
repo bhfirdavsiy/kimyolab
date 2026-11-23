@@ -183,7 +183,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "9db3ff8b0a44aa566ec8099db03f7ba016fb371e8599d41540dae053872e90db"
+      "basisHash": "f53f736e06dad04a2a187282d9af38d8b9f29dde2279db427abca81780910cd7"
     },
     {
       "activityId": "practice.case.7.14",
@@ -207,7 +207,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "448b7e30321dcb32aed463b4f35a9dad30b50d734ad008b4194296101d5093e1"
+      "basisHash": "e1897ec9c4059da54629026526b2131590d6340b444d05d4cfb4970a165ba5bd"
     },
     {
       "activityId": "practice.case.9.14.planned",
@@ -231,7 +231,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "131a7b184fd8e935349a762d98d0952499c3fcf3f99751975c1cac9b75955993"
+      "basisHash": "06caf7d5955a0d43513a99d44f3ab899adcafe23a102c420de125865c4f89a55"
     },
     {
       "activityId": "practice.case.9.26.planned",
@@ -239,7 +239,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "e90f94291d2645538b7fb4be8a092d041b1396c16a60211f41914ffbda1762bb"
+      "basisHash": "f14f622df6bab0feb451dc0acd76ea83aa21e71e7602c0fadde47c160dfb8368"
     },
     {
       "activityId": "practice.experiment.10.1",
@@ -759,7 +759,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "2a4bdd165b6a449aceb5419378543641c466779c65b3e93d4dfe030e47971741"
+      "basisHash": "c510610c4f05d29435e21a900a1c4b19494c89e452f29c4b55e4973b13176b17"
     },
     {
       "activityId": "practice.simulation.10.17.monohydric-alcohols",
@@ -895,7 +895,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "22f5fbeb37ed95dfdf506bf0a0619ec406c633133cf11865ef95d670acd54c57"
+      "basisHash": "8f16c9e11a179cda12fe0140bf644f69ffc20d3a195050b4f63ec2fc6d853e8e"
     },
     {
       "activityId": "practice.simulation.11.20.planned",
@@ -1071,7 +1071,7 @@
       "content": "REVIEW_PENDING",
       "eligibility": "NOT_ELIGIBLE",
       "releaseState": "DECISION_MISSING",
-      "basisHash": "9d91e7928bbf4fe4760c980503418e5381375a65ac7a90c50280fd9534b7835c"
+      "basisHash": "5913cc5e8d47405339f348a3a5f2c163940388a7742730967f2904bfbe355312"
     },
     {
       "activityId": "practice.simulation.9.08.planned",

@@ -77,17 +77,21 @@ test('layout: the rule places cells only; display row is never a period; period/
 
 test('names: never invented, never copied from legacy; a missing name is the symbol',()=>{
   const names=json('content-src/locales/uz-latn/chemistry-elements.json');
-  assert.equal(Object.keys(names.names).length,20); assert.equal(names.reviewStatus,'pending');
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names)
+  assert.equal(Object.keys(names.names).length,118); assert.equal(names.reviewStatus,'pending');
   // the hub carries no names at all; the page reads the locale catalog, the search entry falls back to the symbol
   assert.ok(hub.elements.every(e=>!('name' in e)&&!('names' in e)));
   const entries=elementSearchEntries(hub,s=>names.names[s]??null,{kicker:'Element',description:z=>`Z ${z}`},'');
   assert.equal(entries.find(e=>e.href==='/periodic/Na').title,'Natriy (Na)');
-  assert.equal(entries.find(e=>e.href==='/periodic/Fe').title,'Fe');
-  assert.equal(entries.find(e=>e.href==='/periodic/Fe').searchText,'');
+  // a missing name is still the symbol (checked with a catalog without Fe, now that Fe has a pending name)
+  assert.equal(entries.find(e=>e.href==='/periodic/Fe').title,'Temir (Fe)');
+  assert.equal(elementSearchEntries(hub,s=>s==='Fe'?null:names.names[s]??null,{kicker:'Element',description:z=>`Z ${z}`},'').find(e=>e.href==='/periodic/Fe').title,'Fe');
   // legacy names are audited (20 match the catalog, 98 have no catalog source) and none was copied
   const p=legacyParity(root).summary.name;
   // P2.13 closeout: the locale catalog is pending review, so a matching legacy name is UNREVIEWED_MATCH, not canonical
-  assert.deepEqual([p.CANONICAL_MATCH,p.UNREVIEWED_MATCH,p.SOURCE_REQUIRED,p.CONFLICT],[0,20,98,0]);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names). They were written from the Uzbek school terminology, not copied: 113 equal the legacy page, 5 differ in spelling
+  // (As Margimush/Mishyak, Y, Lu, Hs, Nh) and are listed for the expert to decide
+  assert.deepEqual([p.CANONICAL_MATCH,p.UNREVIEWED_MATCH,p.SOURCE_REQUIRED,p.CONFLICT],[0,113,0,5]);
 });
 
 test('electron configuration: computed only inside the engine range; known gaps and beyond are unavailable',()=>{
@@ -144,8 +148,10 @@ test('route, deep link and feature flag: /periodic and /periodic/<symbol>; off b
   assert.deepEqual(parseAppRoute('/periodic/Xx'),{name:'periodic',symbol:'Xx'});      // the page shows a notice
   assert.equal(parseAppRoute('/periodic/na').name,'not-found');
   assert.equal(parseAppRoute('/periodic/Na/x').name,'not-found');
-  assert.equal(FEATURE_FLAGS.periodicTableV1.default,false);
-  assert.equal(isFeatureEnabled('periodicTableV1',new URLSearchParams('')),false);
+  // owner decision 2026-11-23 ("Mendeleyev jadvali … ko'rinadigan joyga chiqar"): the flag is ON by default and the
+  // header links /periodic; the flag check in the route stays, so it can be switched off again in one place
+  assert.equal(FEATURE_FLAGS.periodicTableV1.default,true);
+  assert.equal(isFeatureEnabled('periodicTableV1',new URLSearchParams('')),true);
   assert.equal(isFeatureEnabled('periodicTableV1',new URLSearchParams('ff=periodicTableV1')),true);
   const boot=read('src/app/bootstrap.ts');
   const block=boot.slice(boot.indexOf("route.name==='periodic'"),boot.indexOf('renderNotFound(main);\n}'));
@@ -183,7 +189,8 @@ test('filters and search: derived from the hub; elements match by Z, symbol and 
   assert.equal(searchStudentContent('Na',index)[0].href,'/periodic/Na?ff=periodicTableV1');
   assert.equal(searchStudentContent('kislorod',index)[0].href,'/periodic/O?ff=periodicTableV1');
   assert.equal(searchStudentContent('26',index)[0].href,'/periodic/Fe?ff=periodicTableV1');
-  assert.equal(searchStudentContent('Fe',index)[0].title,'Fe');
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names)
+  assert.equal(searchStudentContent('Fe',index)[0].title,'Temir (Fe)');
   // a word that is not an element name never brings element results
   assert.ok(!searchStudentContent('alanga',index).some(r=>r.kind==='element'));
 });
@@ -204,7 +211,8 @@ test('reports: generator-equal; coverage dimensions separate; statuses from the 
   assert.deepEqual(Object.keys(out).sort(),Object.values(PERIODIC_REPORTS).sort());
   const r=JSON.parse(out[PERIODIC_REPORTS.readiness]);
   assert.equal(r.identity.elements,118); assert.equal(r.coverage.canonicalIdentity,118);
-  assert.equal(r.coverage.localizedNames,20); assert.equal(r.coverage.reviewedLocalizedNames,0); assert.equal(r.coverage.effectiveHumanReviewedMetadata,0); assert.equal(r.coverage.humanReviewedAuthoredRelations,0);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names)
+  assert.equal(r.coverage.localizedNames,118); assert.equal(r.coverage.reviewedLocalizedNames,0); assert.equal(r.coverage.effectiveHumanReviewedMetadata,0); assert.equal(r.coverage.humanReviewedAuthoredRelations,0);
   assert.ok(!('percent' in r.coverage)&&!JSON.stringify(r.coverage).includes('%'),'no merged percentage');
   assert.deepEqual([r.formalMetrics.learningProduct,r.formalMetrics.overall],[12.189,47.313]);
   const parity=JSON.parse(out[PERIODIC_REPORTS.parity]);

@@ -16,9 +16,11 @@ function validationText(model:LearningHubModel,key:'quizUnanswered'|'reflectionI
 
 export type LearningCycleStage='guide'|'practice'|'quiz';
 
+/** the activity type shown to the learner in Uzbek (the content keeps the technical type id) */
+const PRACTICE_TYPE_LABEL:Record<string,string>={experiment:'Tajriba',simulation:'Simulyatsiya',trainer:'Mashq',calculation:'Hisoblash',case:'Amaliy vaziyat'};
 function practiceCard(practice:StudentPracticeModel,learningUnitId:string,primary=false){
   const article=el('article',{className:`kl-practice-card${primary?' kl-practice-card--primary':''}`});
-  article.append(el('span',{className:'kl-practice-card__type',text:practice.type}),el('h3',{text:practice.title}),el('p',{text:practice.goal}));
+  article.append(el('span',{className:'kl-practice-card__type',text:PRACTICE_TYPE_LABEL[practice.type]??practice.type,attrs:{'data-practice-type':practice.type}}),el('h3',{text:practice.title}),el('p',{text:practice.goal}));
   // P1.2 (C4): an activity the readiness gate refuses is shown with a learner-facing reason, never a launch link.
   if(practice.launchable) article.append(link('Faoliyatni boshlash',`/practice/${encodeURIComponent(practice.id)}?lu=${encodeURIComponent(learningUnitId)}`,'kl-text-link'));
   else{article.classList.add('is-unavailable');article.setAttribute('aria-disabled','true');article.append(el('p',{className:'kl-muted kl-practice-card__unavailable',text:practice.unavailableMessage??'Bu faoliyat hozircha mavjud emas.'}));}

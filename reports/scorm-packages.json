@@ -2,7 +2,7 @@
   "schema": "kimyolab.scorm-packages.v1",
   "standard": "SCORM 1.2",
   "contentVersion": "2026.09.1",
-  "standaloneSha256": "a7c93070dd2addeb1e63a2ff9d297bcf1070750d16c7af6821d65da199bea2b5",
+  "standaloneSha256": "50d5aefdcc49cee3bf292bea3646ceb638c5c4e4f9d99a2679c00abe1055ee98",
   "granularity": "one package (one SCO) per guided dynamic lab profile",
   "runtime": {
     "apiDiscovery": "window.API in this window, its parents (max 7) and the opener chain (SCORM 1.2 RTE)",
@@ -44,9 +44,9 @@
       "title": "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.2-scorm12.zip",
-      "sizeBytes": 3115189,
-      "sha256": "696a917ce8eb2bcec2524addd3372e43a96144ab1fd08a7bbc4a43c803cb0475",
-      "indexSha256": "c44264b3040d8b4062e1122bd8cb77ef5d090c0fc4621343358323ef60f6a534",
+      "sizeBytes": 3118686,
+      "sha256": "43bba5c844d707a5c1dc184f21b206f44d988905339a21ede7ca983f72119e1c",
+      "indexSha256": "47c88ee6481d23d955c5ee2963ed390d980a98494b97eda10b79e91b321d808b",
       "manifestSha256": "0fa82190a5f60a687e0c8b122f397b52dd9ca34276cc7992cb34ae3fa6309908"
     },
     {
@@ -55,9 +55,9 @@
       "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.10-scorm12.zip",
-      "sizeBytes": 3115167,
-      "sha256": "3f0fc591997c3a094cbb4bfd82b5d58b44bbf0154a8fea6a1616298dc3fc52d2",
-      "indexSha256": "2e4eba5039ce0fff002acd8b4b1c779d4eb5a77d2e06a25a8acd3e4dba787345",
+      "sizeBytes": 3118647,
+      "sha256": "bc6385a148ea2e056cb0613df86591b412ca3921e6f320b8270d53e2950d7909",
+      "indexSha256": "153b87d29cdbb5c7144360b7efaf3b6d5ed17cce107685c317ea7da460408fb4",
       "manifestSha256": "9198f4376ba11ba9a54805b018926d5de4fbcb92338c0e3efc929c1389051bb5"
     },
     {
@@ -66,9 +66,9 @@
       "title": "Suvning oksidlar bilan o‘zaro ta’siri",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.11-scorm12.zip",
-      "sizeBytes": 3115160,
-      "sha256": "72a79ace5b75dabfc24c27152c826844f1ef131429ae9b89d2637695f1fe4318",
-      "indexSha256": "7d5d28600b35ca0cbcb923557d5642a79098fe1cf3aed6a4a6f6ddac787e129f",
+      "sizeBytes": 3118640,
+      "sha256": "3f029c48ef49c08104de998dc50606d9da07e79ad9804a1175084b42176c8743",
+      "indexSha256": "f6f261833fc8c456882fa3e5bc27d6ca1bb7720b32ca5b27605f8a7ec47c5d87",
       "manifestSha256": "66e6770690d2a2961ffe607f61ad6630025644357541743a09638b1976ea336f"
     },
     {
@@ -77,9 +77,9 @@
       "title": "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-8.1-scorm12.zip",
-      "sizeBytes": 3115193,
-      "sha256": "1b22a5ce129ae1a7f297ff8aeaefa458aaefd33b1a21059fa1e9f2fcca67aef9",
-      "indexSha256": "16a9d45590a2e3d31683e57e1bed4252976cc3a59af24da6c1e634415250aabb",
+      "sizeBytes": 3118692,
+      "sha256": "18de4ff6a350e0ed25e470695490b1dddec8d41c200121bc8aca0df130a157d7",
+      "indexSha256": "6faa0d29d6d37880b4a8a32d166d68e13dec2bd12792a676982fe59f6940af6d",
       "manifestSha256": "bea4ee762182de4083007bf867c1ffa04c1fa453ce6c6f07c5f95eaba82f82cc"
     },
     {
@@ -88,9 +88,9 @@
       "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-8.14-scorm12.zip",
-      "sizeBytes": 3115185,
-      "sha256": "6ab283016d0f9a904ffa64967eeda87dae494ac59e6ed121e0e3458de4a77781",
-      "indexSha256": "345896cae2150c357bd18f0b915e80ed02a6ef99217a667384ed90e5d448e2c9",
+      "sizeBytes": 3118684,
+      "sha256": "42a261eb353b1a405175153cc7f1c38ae271761bed1c1b7d5e70de4c04a90fce",
+      "indexSha256": "216ce01493c88b3fc8327a13a4d5a5cccd446d50d30fdab899539de386e0fea7",
       "manifestSha256": "3c4c7df30be836b0f5e4410cb16a26bf60bbd5bdc55368b021a7e255da9a3976"
     },
     {
@@ -99,9 +99,9 @@
       "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-11.2-scorm12.zip",
-      "sizeBytes": 3115167,
-      "sha256": "ce8a78902cd920d28c53ffba60cae20760b2c720b599ea54fcdd6a4711e932a4",
-      "indexSha256": "1ac6944d266b59a1db28399680924f84c49e90d7514aa92c1ec2e9d15325b074",
+      "sizeBytes": 3118659,
+      "sha256": "31a890f6dd2c1aa46ba7a64d42a6f0ec08f1745f7b4d7267d93b3040051a5f33",
+      "indexSha256": "97848df59b90aebc367c591b879fa8d2cef8d6a83ad9efeb8384e3a31b753e2f",
       "manifestSha256": "7700c8bb80887250a3a7c2f80ab08d323d27f2692c3f3a4e2f05100322786954"
     }
   ]

@@ -1,5 +1,5 @@
 // P2.13 — the periodic table and Element Hub in real Chromium on BOTH hosts (portal /kimyolab/ and the standalone file).
-//   flag off      → /periodic does not exist (the learner app is unchanged), search has no element entries
+//   default (owner decision 2026-11-23) → on: header link, /periodic and element search without any ?ff=
 //   table         → 118 cells from the canonical identity, f-block rows drawn apart with their period unchanged
 //   deep link     → /periodic/Na opens the profile directly and survives a refresh; an unknown symbol is a notice
 //   profile       → proven values only; gaps say so in plain Uzbek; no invented name or electron configuration
@@ -18,13 +18,16 @@ test.beforeAll(async () => { hosts = await startHosts(); });
 test.afterAll(async () => { await hosts?.close(); });
 
 for (const name of ['portal', 'standalone']) {
-  test(`${name}: flag off → no periodic route and no element in search`, async ({page}) => {
+  // owner decision 2026-11-23: the periodic table is ON by default (was: "flag off → no periodic route and no element in
+  // search"). Without any ?ff= the header link "Mendeleyev jadvali" opens it and the search finds elements.
+  test(`${name}: on by default → header link opens the table; elements in search`, async ({page}) => {
+    await hosts[name].open(page, '/');
+    await page.getByRole('link', {name: 'Mendeleyev jadvali'}).first().click();
+    await expect(page.locator(`${PAGE} [data-periodic-table] a[data-symbol]`)).toHaveCount(118);
     await hosts[name].open(page, '/periodic/Na');
-    await expect(page.locator('h1')).toHaveText('Sahifa topilmadi');
-    await expect(page.locator(PAGE)).toHaveCount(0);
+    await expect(page.locator(PAGE)).toHaveCount(1);
     await hosts[name].open(page, '/search?q=Na');
-    await expect(page.locator('.kl-search-results')).toBeVisible();
-    await expect(page.locator('.kl-search-card .kl-kicker', {hasText: 'Element'})).toHaveCount(0);
+    await expect(page.locator('.kl-search-card .kl-kicker', {hasText: 'Element'}).first()).toBeVisible();
   });
 
   test(`${name}: 118 canonical cells; deep link opens the profile and survives a refresh`, async ({page}) => {
@@ -35,8 +38,8 @@ for (const name of ['portal', 'standalone']) {
     expect(await cells.first().getAttribute('data-symbol')).toBe('H');
     expect(await cells.last().getAttribute('data-symbol')).toBe('Og');
     await expect(page.locator(`${PAGE} [data-symbol=Na]`)).toHaveAttribute('aria-label', 'Natriy, belgisi Na, atom raqami 11');
-    // a symbol without a localized name is announced by symbol and number, never with a made-up name
-    await expect(page.locator(`${PAGE} [data-symbol=Fe]`)).toHaveAttribute('aria-label', 'Belgisi Fe, atom raqami 26');
+    // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names): Fe is announced with its (pending) name
+    await expect(page.locator(`${PAGE} [data-symbol=Fe]`)).toHaveAttribute('aria-label', 'Temir, belgisi Fe, atom raqami 26');
     await page.locator(`${PAGE} [data-symbol=Na]`).click();
     const profile = page.locator('[data-element-profile=Na]');
     await expect(profile).toBeVisible();
@@ -61,7 +64,8 @@ for (const name of ['portal', 'standalone']) {
     await expect(la.locator('[data-field=period]')).toHaveText(MISSING);
     await expect(la.locator('[data-field=group]')).toHaveText(MISSING);
     await expect(la.locator('[data-field=config]')).toContainText('faqat atom raqami 1–36');
-    await expect(la.locator('[data-field=name]')).toContainText('O‘zbekcha nomi hali kiritilmagan');
+    // owner decision 2026-11-23 (Mendeleyev jadvali visible): the missing Uzbek element names were added as PENDING display translations: La now has a name (the missing-name fallback is covered by the unit tests)
+    await expect(la.locator('[data-field=name]')).toContainText('Lantan');
     await hosts[name].open(page, `/periodic/Cr${FLAG}`);
     await expect(page.locator('[data-element-profile=Cr] [data-field=config]')).toContainText('mutaxassis tekshiruvini kutmoqda');
     await hosts[name].open(page, `/periodic/Xx${FLAG}`);
@@ -70,7 +74,7 @@ for (const name of ['portal', 'standalone']) {
   });
 
   test(`${name}: search by atomic number, symbol and name → the element profile`, async ({page}) => {
-    for (const [q, title] of [['11', 'Natriy (Na)'], ['Na', 'Natriy (Na)'], ['kislorod', 'Kislorod (O)'], ['26', 'Fe']]) {
+    for (const [q, title] of [['11', 'Natriy (Na)'], ['Na', 'Natriy (Na)'], ['kislorod', 'Kislorod (O)'], ['26', 'Temir (Fe)']]) { // owner decision 2026-11-23 (Mendeleyev jadvali visible): the missing Uzbek element names were added as PENDING display translations
       await hosts[name].open(page, `/search${FLAG}&q=${encodeURIComponent(q)}`);
       await expect(page.locator('.kl-search-card').first().locator('h2')).toHaveText(title);
     }

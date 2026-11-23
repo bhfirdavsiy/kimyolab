@@ -4,8 +4,8 @@
 
 ## Holat
 
-- Assertion’lar: **174** — approved: 0, pending: 174, stale: 0, rejected: 0, change_required: 0
-- Gate: **PENDING** (FAIL: 0, PENDING: 343)
+- Assertion’lar: **272** — approved: 0, pending: 272, stale: 0, rejected: 0, change_required: 0
+- Gate: **PENDING** (FAIL: 0, PENDING: 539)
 - Har assertion’ning hash’i o‘zgarsa, eski qaror **stale** bo‘ladi va hisobga olinmaydi.
 
 ## Kategoriyalar
@@ -19,7 +19,7 @@
 | solubility | 20 | 0 |
 | hydrolysis | 4 | 0 |
 | indicator | 3 | 0 |
-| species-name | 30 | 0 |
+| species-name | 128 | 0 |
 | electrolysis | 1 | 0 |
 
 ## Alohida e’tibor (CHEMISTRY_REVIEW_REQUIRED)

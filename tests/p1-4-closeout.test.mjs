@@ -46,7 +46,9 @@ test('periodic table holds identity only (Z + symbol); localized names live in r
   assert.equal(JSON.parse(read(LOCALE_FILE)).reviewStatus,'pending','terminology is not approved by tooling');
   for(const symbol of Object.keys(catalog.names)) assert.ok(ELEMENT_SYMBOLS.includes(symbol),symbol);
   assert.deepEqual(['C','Na','O'].map(elementNameMapper(catalog)),['Uglerod','Natriy','Kislorod']);
-  assert.equal(elementNameMapper(catalog)('Fe'),'Fe','no localized name → the international symbol is shown');
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names; 98 more review items): Fe now has a name, so the fallback is checked on a catalog without it
+  assert.equal(elementNameMapper(catalog)('Fe'),'Temir');
+  assert.equal(elementNameMapper({...catalog,names:Object.fromEntries(Object.entries(catalog.names).filter(([s])=>s!=='Fe'))})('Fe'),'Fe','no localized name → the international symbol is shown');
   assert.equal(elementNameMapper(undefined)('C'),'C');
   // the locale file is validated fail-closed: unknown symbols / empty names are rejected
   for(const bad of [{...JSON.parse(read(LOCALE_FILE)),names:{Xx:'Nomalum'}},{...JSON.parse(read(LOCALE_FILE)),names:{C:''}},{...JSON.parse(read(LOCALE_FILE)),schema:'x'},null])
@@ -59,7 +61,8 @@ test('the formula parser depends on symbol validity only — never on element na
   assert.match(src,/ELEMENT_SYMBOL_SET/);
   const names=parseElementNameCatalog(JSON.parse(read(LOCALE_FILE))).names;
   // elements with and without a localized name parse alike; a non-symbol fails whatever the names say
-  assert.ok(!('Fe' in names)&&!('Og' in names));
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names; 98 more review items): every symbol now has a name; parsing still never reads them
+  assert.ok(('Fe' in names)&&('Og' in names));
   assert.equal(parseFormula('Fe2(SO4)3').normalized,'Fe2(SO4)3');
   assert.equal(parseFormula('Og').normalized,'Og');
   assert.equal(parseFormula('NaCl').normalized,'NaCl');

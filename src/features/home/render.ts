@@ -10,10 +10,12 @@ const HOME_ICON_PATHS:Record<HomeIconKey,string>={
 };
 // P2.2: resolved through the host (base path over HTTP, embedded data URL in the standalone artifact)
 function homeAsset(key:HomeIconKey){ return assetUrl(HOME_ICON_PATHS[key]); }
-function featureCard(icon:HomeIconKey,title:string,body:string,href:string,cta:string){
+function featureCard(icon:HomeIconKey|'periodic',title:string,body:string,href:string,cta:string){
   const card=link('',href,'kl-feature-card');
-  const iconWrap=el('span',{className:'kl-feature-icon'});
-  iconWrap.append(el('img',{className:'kl-feature-icon__image',attrs:{src:homeAsset(icon),alt:'',width:'96',height:'96',loading:'lazy',decoding:'async'}}));
+  const iconWrap=el('span',{className:'kl-feature-icon',attrs:{'aria-hidden':'true'}});
+  // the periodic table has no raster icon: a small element tile (decoration; the title names the card)
+  if(icon==='periodic'){ const tile=el('span',{className:'kl-feature-element'}); tile.append(el('small',{text:'26'}),el('b',{text:'Fe'})); iconWrap.append(tile); }
+  else iconWrap.append(el('img',{className:'kl-feature-icon__image',attrs:{src:homeAsset(icon),alt:'',width:'96',height:'96',loading:'lazy',decoding:'async'}}));
   card.append(iconWrap,el('h2',{text:title}),el('p',{text:body}),el('span',{className:'kl-arrow',text:`${cta} →`}));
   return card;
 }
@@ -58,6 +60,7 @@ export function renderHome(root:HTMLElement){
   features.append(
     featureCard('topic','Mavzu studiyasi','7–11-sinf mavzularini sinf va bob bo‘yicha toping.','/curriculum','Mavzularni ochish'),
     featureCard('lab','Virtual laboratoriya','Virtual tajribalarni tanlang, jarayonlarni bosqichma-bosqich bajaring va natijalarni kuzating.','/labs','Tajriba boshlash'),
+    featureCard('periodic','Mendeleyev jadvali','118 ta kimyoviy element — guruh, davr, elektron konfiguratsiya, tegishli moddalar.','/periodic','Jadvalni ochish'),
     featureCard('results','Natijalarim','Bajargan mashq va tajribalaringiz, baholash natijalari va o‘sishingizni kuzating.','/progress','Natijalarni ko‘rish')
   ); ecosystem.append(features);
 

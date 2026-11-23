@@ -459,7 +459,7 @@
   "bundleImpact": {
     "studio": {
       "modules": 72,
-      "moduleBytes": 517397,
+      "moduleBytes": 517692,
       "studioOnlyModules": 9,
       "studioOnlyBytes": 90484,
       "sharedLearnerModules": 63

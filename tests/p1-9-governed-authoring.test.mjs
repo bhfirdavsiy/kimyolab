@@ -143,7 +143,8 @@ test('source policy: registered categories; INTERNAL_PROPOSAL never counts; APPR
 
 test('names: display translation with its own provenance; add-source through a human-applied draft makes the name approvable',()=>{
   const prov=read('content-src/locales/uz-latn/name-provenance.json');
-  assert.equal(prov.entries.length,30);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names): 30 → 128 provenance entries
+  assert.equal(prov.entries.length,128);
   assert.ok(prov.entries.every(e=>['nameKey','locale','displayName','sourceRef','reviewStatus'].every(k=>k in e)&&e.sourceRef===null&&e.reviewStatus==='pending'));
   const t=sandbox();
   // a person registers a glossary (in a reviewed PR) — then the author cites it through the add-source task
@@ -267,7 +268,8 @@ test('reports are deterministic; the action queue shows every blocker and one ne
   assert.deepEqual(read(GOVERNANCE_REPORTS.goldenGraph),goldenSliceGraph(m,tasks,entries,root));
   const a=read(GOVERNANCE_REPORTS.authoring);
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived add-source authoring tasks drop by 7 (130/127 → 123/120).
-  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[123,120,3]);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names): each new name is an open add-source task (123 → 221, 120 → 218)
+  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[221,218,3]);
   assert.equal(a.canonicalContentMutated,false);
   const q=read(GOVERNANCE_REPORTS.actions);
   assert.ok(q.items.every(i=>typeof i.nextHumanAction==='string'&&i.nextHumanAction.length>10&&Array.isArray(i.blockedBy)&&i.role));

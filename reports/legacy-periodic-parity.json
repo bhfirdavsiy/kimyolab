@@ -31,10 +31,10 @@
     "name": {
       "CANONICAL_MATCH": 0,
       "REVIEWED_MATCH": 0,
-      "UNREVIEWED_MATCH": 20,
+      "UNREVIEWED_MATCH": 113,
       "DISPLAY_ONLY": 0,
-      "SOURCE_REQUIRED": 98,
-      "CONFLICT": 0,
+      "SOURCE_REQUIRED": 0,
+      "CONFLICT": 5,
       "NOT_USED": 0
     },
     "period": {
@@ -91,19 +91,84 @@
     },
     "againstUnreviewedCatalog": {
       "field": "name",
-      "matches": 20,
-      "conflicts": 0
+      "matches": 113,
+      "conflicts": 5
     },
     "displayOnly": 56,
     "notAssessable": {
-      "fields": 336,
+      "fields": 238,
       "mass": 118,
       "category": 118,
-      "name": 98,
+      "name": 0,
       "fBlockGroup": 2
     }
   },
-  "conflictRows": [],
+  "conflictRows": [
+    {
+      "z": 33,
+      "symbol": "As",
+      "identity": "CANONICAL_MATCH",
+      "name": "CONFLICT",
+      "period": "UNREVIEWED_MATCH",
+      "group": "UNREVIEWED_MATCH",
+      "mass": "SOURCE_REQUIRED",
+      "category": "SOURCE_REQUIRED",
+      "legacyName": "Mishyak",
+      "localeName": "Margimush"
+    },
+    {
+      "z": 39,
+      "symbol": "Y",
+      "identity": "CANONICAL_MATCH",
+      "name": "CONFLICT",
+      "period": "UNREVIEWED_MATCH",
+      "group": "UNREVIEWED_MATCH",
+      "mass": "SOURCE_REQUIRED",
+      "category": "SOURCE_REQUIRED",
+      "legacyName": "Itriy",
+      "localeName": "Ittriy"
+    },
+    {
+      "z": 71,
+      "symbol": "Lu",
+      "identity": "CANONICAL_MATCH",
+      "name": "CONFLICT",
+      "period": "DISPLAY_ONLY",
+      "group": "DISPLAY_ONLY",
+      "mass": "SOURCE_REQUIRED",
+      "category": "SOURCE_REQUIRED",
+      "legacyPeriod": 8,
+      "layoutRow": 6,
+      "legacyGroup": 17,
+      "layoutColumn": null,
+      "legacyName": "Lutetsiy",
+      "localeName": "Lyutetsiy"
+    },
+    {
+      "z": 108,
+      "symbol": "Hs",
+      "identity": "CANONICAL_MATCH",
+      "name": "CONFLICT",
+      "period": "UNREVIEWED_MATCH",
+      "group": "UNREVIEWED_MATCH",
+      "mass": "SOURCE_REQUIRED",
+      "category": "SOURCE_REQUIRED",
+      "legacyName": "Hassiy",
+      "localeName": "Xassiy"
+    },
+    {
+      "z": 113,
+      "symbol": "Nh",
+      "identity": "CANONICAL_MATCH",
+      "name": "CONFLICT",
+      "period": "UNREVIEWED_MATCH",
+      "group": "UNREVIEWED_MATCH",
+      "mass": "SOURCE_REQUIRED",
+      "category": "SOURCE_REQUIRED",
+      "legacyName": "Nihoniy",
+      "localeName": "Nixoniy"
+    }
+  ],
   "displayOnly": [
     {
       "z": 58,
@@ -324,7 +389,7 @@
     {
       "feature": "names",
       "v19": "118 names in data/elements.json",
-      "v20": "locale catalog (20/118, review pending); otherwise the symbol"
+      "v20": "locale catalog (118/118, review pending); otherwise the symbol"
     },
     {
       "feature": "electron configuration",
@@ -356,7 +421,7 @@
     "periodGroupRule": "SOURCE_REQUIRED",
     "mass": 118,
     "category": 118,
-    "names": 98,
+    "names": 0,
     "fBlockGroup": 2
   }
 }
