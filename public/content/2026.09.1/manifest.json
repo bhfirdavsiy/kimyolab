@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "d4dbea28ad9fe255435dd27c8ef990facf83b7085ea24634d36afa3fefcca6b1",
+  "checksum": "815a463667896be60b3b99962a50954b1d2b714b3c508eb56aa428f3a955bb64",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -140,8 +140,8 @@
     },
     {
       "path": "chemistry/reactions.json",
-      "checksum": "f8a29aecc6e05c6de9775d9f4020bcc987affdd33e5e84d2a938013bab460025",
-      "size": 34678
+      "checksum": "20dba53434577b3d06ff64adb4f502e9d642c61d1445faa9f7158fae5365d671",
+      "size": 35493
     },
     {
       "path": "chemistry/school-lab-models.json",
@@ -175,8 +175,8 @@
     },
     {
       "path": "knowledge/chemistry-knowledge.json",
-      "checksum": "4c532bc0075af9b173a665607709bafab22bc3520641668c7751e3eccf969a61",
-      "size": 83080
+      "checksum": "dea69f532a34d54d819986e40278b88faebc69867e768f6f10d9040ad35aeb5b",
+      "size": 83527
     },
     {
       "path": "learning-cycle.json",
@@ -220,8 +220,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "24888b1e568861fd2be223c4b329666db8a998b4acb83ce1b8bab0804819d048",
-      "size": 46083
+      "checksum": "2ef058ca9ee4f6af445e29f70b3a1796ec7c74f6a26cf28dd2aa9b2003b52090",
+      "size": 46270
     },
     {
       "path": "locales/uz-latn/name-provenance.json",
@@ -235,8 +235,8 @@
     },
     {
       "path": "periodic/element-hub.json",
-      "checksum": "f1539b7674baad9d5102e61354c2671f38e2660e03fca9fd14236e2936e0e91c",
-      "size": 127363
+      "checksum": "68ae98529c8186543a20f51f3a8a5ff688a7ccf724ef82866dd832e3dd52e1c0",
+      "size": 127688
     },
     {
       "path": "practice-activities.json",
@@ -255,8 +255,8 @@
     },
     {
       "path": "topic-lab-profiles.json",
-      "checksum": "5f2d6c8bf80d27057ecdaa83932927b142b7d6916374e0170fb161d7a5c7db48",
-      "size": 66410
+      "checksum": "71ff3143060852c730c80f296959e5cc264ff043d2a4657ac3f34b789c855420",
+      "size": 66435
     }
   ]
 }

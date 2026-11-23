@@ -5,7 +5,7 @@
 ## Qabul mezoni
 
 - Mezon: 28/28 reactions reviewed by a chemistry expert; 0 unapproved assertions shown as approved
-- Ekspert ko‘rib chiqqan: **0/41**
+- Ekspert ko‘rib chiqqan: **0/42**
 - Holat: **NOT_MET — human review outstanding (DRAFT/PENDING never counts as PASS)**
 - Tasdiqsiz “reviewed” ko‘rsatilganlar: 0
 
@@ -13,20 +13,20 @@
 
 | Tekshiruv | Natija |
 |---|---|
-| Tenglama o‘qildi | 41/41 |
-| Formulalar yozuvga mos | 41/41 |
-| Atomlar saqlangan | 41/41 |
-| Zaryad saqlangan | 41/41 |
-| Kanonik balancer bilan mos koeffitsientlar | 41/41 |
-| Strelka ↔ direction | 41/41 |
-| Species aniqlangan (formula + faza) | 40/41 |
+| Tenglama o‘qildi | 41/42 |
+| Formulalar yozuvga mos | 41/42 |
+| Atomlar saqlangan | 41/42 |
+| Zaryad saqlangan | 41/42 |
+| Kanonik balancer bilan mos koeffitsientlar | 41/42 |
+| Strelka ↔ direction | 41/42 |
+| Species aniqlangan (formula + faza) | 41/42 |
 | Noma’lum condition maydoni (REJECT) | 0 |
 | Kuzatuv bayroqlari | 12 |
-| Yaroqli manba | 0/41 |
+| Yaroqli manba | 0/42 |
 | Species identity buzilishi | 0 (99 ta yozuv) |
 | Formula o‘rnida nom (parser qo‘llamaydi) | 6: `species.etanol`, `species.kraxmal`, `species.saxaroza`, `species.sirka`, `species.moy`, `species.indikator` |
 
-Qaror kutayotgan da’volar: **104** (reaction / condition / observation).
+Qaror kutayotgan da’volar: **107** (reaction / condition / observation).
 
 ## Reaksiyalar
 
@@ -73,6 +73,7 @@ Qaror kutayotgan da’volar: **104** (reaction / condition / observation).
 | 39 | `rxn.mg-hcl` | Mg + 2HCl → MgCl2 + H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 40 | `rxn.fe-hcl` | Fe + 2HCl → FeCl2 + H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 41 | `rxn.malachite-decomposition` | Cu2(OH)2CO3 → 2CuO + H2O + CO2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 42 | `rxn.cu-hcl` | Cu + HCl → reaksiya bormaydi | NO_REACTION_RECORD | — | — | RESOLVED | — | `no-reaction` pending<br>`condition` pending<br>`observation` pending |
 
 Har bir da’voning `assertionId` va `assertionHash` qiymatlari: `reports/chemistry-expert-review-packet.json` → `reactions[].decisions[]`.
 

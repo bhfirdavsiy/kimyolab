@@ -37,6 +37,8 @@ export interface StudentPracticePageModel {
     species?:any[];
     /** P1.7: structured meaning of reaction condition tags (content, reviewed) */
     conditionVocabulary?:any;
+    /** TT 4.2.6: ids of REVIEWED reaction records; a no-reaction record is shown only when it is listed (absent → none) */
+    reviewedReactionIds?:string[];
   };
 }
 
@@ -61,6 +63,8 @@ export function buildPracticePageModel(input:{
   equilibrium?:any;
   species?:any[];
   conditionVocabulary?:any;
+  /** TT 4.2.6: ids of REVIEWED reaction records (from the knowledge index) */
+  reviewedReactionIds?:string[];
   elementNames?:ElementNameCatalog;
   speciesNames?:SpeciesNameCatalog;
   interaction?:InteractionCatalog;
@@ -100,6 +104,7 @@ export function buildPracticePageModel(input:{
       equilibrium:input.equilibrium===undefined?undefined:structuredClone(input.equilibrium),
       species:input.species===undefined?undefined:structuredClone(input.species),
       conditionVocabulary:input.conditionVocabulary===undefined?undefined:structuredClone(input.conditionVocabulary),
+      ...(input.reviewedReactionIds?{reviewedReactionIds:[...input.reviewedReactionIds]}:{}),
     },
   };
 }

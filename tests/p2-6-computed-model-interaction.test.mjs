@@ -265,7 +265,8 @@ test('no chemistry truth invented: record counts unchanged since P2.5; new text 
   // species (2026-11-20). The P2.5 baseline is history and is not rewritten; the invariant is still "the computed-model work
   // added nothing": the counts equal baseline − removed + added, exactly as OWNER_DECIDED_RECORD_CHANGES lists them.
   assert.deepEqual(expansion.chemistryRecordCounts,expectedChemistryRecordCounts());
-  assert.deepEqual([expansion.chemistryRecordCounts.reactions,expansion.chemistryRecordCounts.species],[41,99]);
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); it is listed in OWNER_DECIDED_RECORD_CHANGES
+  assert.deepEqual([expansion.chemistryRecordCounts.reactions,expansion.chemistryRecordCounts.species],[42,99]);
   const {reactions:_r,species:_s,...nowRest}=expansion.chemistryRecordCounts, {reactions:_br,species:_bs,...baseRest}=P25_BASELINE.chemistryRecords;
   assert.deepEqual(nowRest,baseRest);
   assert.equal(json('content-src/chemistry/equilibrium.json').records.length,2);

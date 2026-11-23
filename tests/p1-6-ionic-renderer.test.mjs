@@ -54,7 +54,8 @@ test('domain audit: KB counted from content; authorities are ReactionMatcher / I
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); where the textbook states no observation the record has none
   // (nothing invented): the knowledge index shows OBSERVATION_MISSING for it. Only those owner-added records may lack one.
   const OWNER_ADDED=new Set(OWNER_DECIDED_RECORD_CHANGES.reactions.added);
-  for(const r of REACTIONS){ assert.ok(r.reactants.length&&r.products.length&&(r.observations.length||OWNER_ADDED.has(r.id))&&r.sourceRefs.length&&r.molecularEquation,r.id); }
+  // TT 4.2.6 (2026-11-23): rxn.cu-hcl is a no-reaction record ("these do not react"): by definition it has no products
+  for(const r of REACTIONS){ assert.ok(r.reactants.length&&(r.products.length||r.reactionType===NO_REACTION_TYPE)&&(r.observations.length||OWNER_ADDED.has(r.id))&&r.sourceRefs.length&&r.molecularEquation,r.id); }
   // every shelf reagent is a real species AND a solution (dissociation rule) — the IonicEngine can reason about it
   const shelf=resolveShelf(domain(),CONFIG.reagentShelf,TARGET);
   assert.deepEqual(shelf.map(r=>r.speciesId),CONFIG.reagentShelf);
@@ -67,8 +68,12 @@ test('domain audit: KB counted from content; authorities are ReactionMatcher / I
 
 test('matcher: modeled reaction, explicit modeled no-reaction and not-modeled are three different results',()=>{
   const noReaction={id:'rxn.test.nacl-nano3',reactants:[{formula:'NaCl'},{formula:'NaNO3'}],products:[],conditions:{tags:[]},direction:'forward',reactionType:NO_REACTION_TYPE,molecularEquation:'NaCl + NaNO3 → (no reaction)',observations:[{type:'no-visible-change'}],safety:[],curriculumRefs:[],sourceRefs:[{id:'src.test',type:'internal',title:'fixture'}],version:'1.0.0'};
-  const d=domain([...REACTIONS,noReaction]);
+  // TT 4.2.6 (2026-11-23): a no-reaction record is shown only when it is REVIEWED; this test's fixture is marked reviewed,
+  // and the unreviewed case fails closed (NO_REACTION_NOT_REVIEWED)
+  const d={...domain([...REACTIONS,noReaction]),reviewedReactionIds:new Set([noReaction.id])};
   const shelf=CONFIG.reagentShelf;
+  const unreviewed=evaluateIonicMixing(domain([...REACTIONS,noReaction]),{shelf,targetReactionId:TARGET,actions:pair('species.nacl','species.nano3')});
+  assert.deepEqual([unreviewed.current.outcome,unreviewed.current.coverageCode,unreviewed.current.reactionId],['not-modeled','NO_REACTION_NOT_REVIEWED',null]);
   const s=(actions)=>evaluateIonicMixing(d,{shelf,targetReactionId:TARGET,actions});
   assert.equal(s(pair('species.agno3','species.nacl')).current.outcome,'reaction');
   assert.deepEqual([s(pair('species.nacl','species.nano3')).current.outcome,s(pair('species.nacl','species.nano3')).current.reactionId],['no-reaction','rxn.test.nacl-nano3']);

@@ -113,7 +113,8 @@ test('candidate accept_for_authoring → DRAFT with PROPOSED fields; never canon
     assert.equal(out.applied,false); assert.match(out.issues.join(),/CANDIDATE_DRAFT_NOT_APPLICABLE/);
   }
   assert.equal(digest(t,['content-src/chemistry/reactions.json']),before,'no reaction / no-reaction record added');
-  assert.deepEqual(buildKbReports(t).inventory.counts.explicitNoReactionRecords,0);
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); the candidate flow still adds none: the count equals the repository's
+  assert.deepEqual(buildKbReports(t).inventory.counts.explicitNoReactionRecords,JSON.parse(fs.readFileSync(path.join(root,'content-src/chemistry/reactions.json'),'utf8')).filter(r=>r.reactionType==='no-reaction').length);
 });
 
 // ------------------------------------------------------------------ source provenance (never weakened)

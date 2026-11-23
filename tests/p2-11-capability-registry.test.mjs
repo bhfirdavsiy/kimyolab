@@ -112,10 +112,11 @@ test('7.10: ReactionMatcher under the actual conditions; gas collected from its 
   const c=rt.applyLabAction(two.state,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),p);
   assert.equal(c.observations[0].kind,'gas-collected'); assert.equal(c.observations[0].grounding,'PROCEDURE');
   assert.equal(rt.applyLabAction(c.nextState,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),p).error.detail,'NO_GAS_IN_SOURCE');
-  // Cu + dilute HCl: no record → no observation, no product. (Closeout: heating this trial is not in the instruction's
+  // Cu + dilute HCl: no reviewed record → no observation, no product. (Closeout: heating this trial is not in the instruction's
   // scope, so it is rejected before chemistry — see the instruction-scope test.)
+  // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50); the lab shows a no-reaction record only when it is reviewed, so the pair still fails closed (NO_REACTION_NOT_REVIEWED / NO_REACTION_REVIEW_GAP_CU_HCL)
   const cu=run(p,[add('cu','tube-3'),add('hcl-dilute','tube-3')]);
-  assert.equal(cu.results[1].status,'unsupported'); assert.equal(cu.results[1].unsupported.detail,'REACTION_NOT_MODELED');
+  assert.equal(cu.results[1].status,'unsupported'); assert.equal(cu.results[1].unsupported.detail,'NO_REACTION_NOT_REVIEWED');
   assert.equal(cu.state.observations.filter(o=>o.container==='tube-3').length,0);
   assert.equal(cu.state.containers['tube-3'].gases.length,0);
   // completion: every bound reaction observed and a modeled gas collected
@@ -343,7 +344,8 @@ test('closeout completion: partial instruction is never shown as the whole lab; 
 test('closeout decisions: Cu + HCl is a model/source gap (fail closed), 8.14 a source conflict review; no new choices',()=>{
   const r=json(LAB_REPORTS.readiness);
   assert.ok(!r.humanDecisions.some(d=>/Cu \+ dilute HCl|oq tutun/.test(d.question)),'neither is a human choice');
-  assert.deepEqual(r.sourceGaps.map(g=>[g.activityId,g.code,g.behaviour]),[['practice.experiment.7.10','MODEL_SOURCE_GAP_CU_HCL','FAIL_CLOSED']]);
+  // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50); the lab shows a no-reaction record only when it is reviewed, so the pair still fails closed (NO_REACTION_NOT_REVIEWED / NO_REACTION_REVIEW_GAP_CU_HCL)
+  assert.deepEqual(r.sourceGaps.map(g=>[g.activityId,g.code,g.behaviour]),[['practice.experiment.7.10','NO_REACTION_REVIEW_GAP_CU_HCL','FAIL_CLOSED']]);
   assert.deepEqual(r.sourceConflictReviews.map(c=>[c.activityId,c.status,c.resolution]),[['practice.experiment.8.14','SOURCE_CONFLICT_REVIEW_REQUIRED',null]]);
   // the six order decisions stay open; nothing preselected anywhere
   const order=r.humanDecisions.filter(d=>d.question.startsWith('experiment step order'));
@@ -364,7 +366,8 @@ test('final consistency: P2.11 generated summaries describe the closeout semanti
   assert.doesNotMatch(j.contactReactionGas,/even when heated/i);
   assert.match(j.contactReactionGas,/only the trial combinations the instruction permits/);
   assert.match(j.contactReactionGas,/rejected before chemistry evaluation \(ACTION_NOT_IN_INSTRUCTION_SCOPE\)/);
-  assert.match(j.contactReactionGas,/MODEL_SOURCE_GAP_CU_HCL/);
+  // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50); the lab shows a no-reaction record only when it is reviewed, so the pair still fails closed (NO_REACTION_NOT_REVIEWED / NO_REACTION_REVIEW_GAP_CU_HCL)
+  assert.match(j.contactReactionGas,/NO_REACTION_REVIEW_GAP_CU_HCL/);
   // 8.14: a source conflict review, never a human decision
   assert.doesNotMatch(j.heatingGate,/is a recorded human decision/);
   assert.match(j.heatingGate,/SOURCE_CONFLICT_REVIEW_REQUIRED/);
@@ -374,3 +377,23 @@ test('final consistency: P2.11 generated summaries describe the closeout semanti
   for(const t of texts){ assert.doesNotMatch(t,/whatever the learner puts together/i); assert.doesNotMatch(t,/fails closed,? even when heated/i); assert.doesNotMatch(t,/nh3-hcl[^.\n]*(?<!not )\b(is|as) (a |the )?(recorded )?human decision/i); }
 });
 
+
+test('TT 4.2.6 lab gate: a no-reaction record is shown only when it is REVIEWED (fail closed otherwise), in both lab paths',()=>{
+  // reaction-matcher path (7.10, Cu + dilute HCl, the record rxn.cu-hcl)
+  const p=P['7.10'], acts=[add('cu','tube-3'),add('hcl-dilute','tube-3')];
+  const play=(runtime)=>{ let s=createLabState(p), last; for(const a of acts){ last=runtime.applyLabAction(s,a,p); s=last.nextState; } return {last,s}; };
+  const closed=play(createLabRuntime(createLabDomain({...chemistry})));
+  assert.equal(closed.last.unsupported.detail,'NO_REACTION_NOT_REVIEWED'); assert.equal(closed.s.observations.length,0);
+  const reviewed=play(createLabRuntime(createLabDomain({...chemistry,reviewedReactionIds:['rxn.cu-hcl']})));
+  assert.equal(reviewed.last.status,'accepted');
+  assert.deepEqual(reviewed.s.observations.map(o=>[o.kind,o.source]),[['no-reaction','chemistry/reactions.json#rxn.cu-hcl']]);
+  // the learner text for the closed case exists and does not say "does not react"
+  const labels=json('content-src/locales/uz-latn/learner-interaction.json').labels;
+  assert.ok(labels['ui.dlab-reason-NO_REACTION_NOT_REVIEWED']&&/tasdiqlamagan/.test(labels['ui.dlab-reason-NO_REACTION_NOT_REVIEWED']));
+  // ionic-mixing path: the same rule (a fixture no-reaction record for a shelf pair)
+  const fixture={id:'rxn.fixture.no-reaction-ionic',reactants:[{formula:'AgNO3'},{formula:'NaNO3'}],products:[],conditions:{},direction:'forward',reactionType:'no-reaction',molecularEquation:'AgNO3 + NaNO3 → (fixture)',observations:[{type:'no-visible-change'}],safety:[],curriculumRefs:[],sourceRefs:[{id:'src.beta1.migration',type:'internal',title:'fixture'}],version:'1.0.0'};
+  const d0=createLabDomain({...chemistry,reactions:[...chemistry.reactions,fixture]}), d1=createLabDomain({...chemistry,reactions:[...chemistry.reactions,fixture],reviewedReactionIds:[fixture.id]});
+  const mix=(d)=>{ const m=d.matcher.match({reactants:[{formula:'AgNO3',phase:'aq'},{formula:'NaNO3',phase:'aq'}],conditions:d.ionic.mixingConditions??{},conditionPolicy:'require-record-conditions'}); return m.modeled; };
+  assert.equal(mix(d0),true,'the record matches');
+  assert.equal(d0.reviewedReactionIds.has(fixture.id),false); assert.equal(d1.ionic.reviewedReactionIds.has(fixture.id),true);
+});

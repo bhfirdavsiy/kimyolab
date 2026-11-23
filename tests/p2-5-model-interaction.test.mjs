@@ -120,7 +120,8 @@ test('routes unchanged: no candidate was re-routed, the only reaction-mixing she
   assert.equal(ref['practice.experiment.8.1'].rendererRequirement.capability,'ionic-precipitation');
   // TT 4.2 expert review (2026-11-04): three records no lab uses were removed (28 → 25); no record was added
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); P2.5's own work still added none
-  assert.equal(d.reactions.length,41,'reaction records: only owner-decided changes');
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions)
+  assert.equal(d.reactions.length,42,'reaction records: only owner-decided changes');
   const rules=json('content-src/chemistry/solubility.json').dissociation.map(x=>x.formula);
   for(const f of ['NaBr','NaI','KBr','KI']) assert.ok(!rules.includes(f),`no dissociation rule was added for ${f} to unlock a candidate`);
 });

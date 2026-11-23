@@ -347,7 +347,7 @@ export function buildKbReports(root:string){
   const matcher=ReactionMatcher.from(kb.reactions,{vocabulary});
   const reactionRows=kb.reactions.map(r=>{
     const support=engine.support(r.id);
-    return {reactionId:r.id,reactants:r.reactants.map((x:any)=>x.formula),products:r.products.map((x:any)=>x.formula),reactionType:r.reactionType,conditions:{tags:r.conditions?.tags??[],dimensions:dimensionsOf(r.conditions?.tags??[],vocabulary).dimensions},observation:r.observations,netIonicDerivable:support.supported,netIonicUnsupported:support.supported?[]:support.unsupported,sourceRefs:refIds(r.sourceRefs),reviewStatus:reviewStateOf(assertions.find(a=>a.id===`reaction:${r.id}`)!,reg.records).state,usedByActivities:usage.reactions(r.id),observationFlags:assertions.find(a=>a.id===`observation:${r.id}`)!.flags};
+    return {reactionId:r.id,reactants:r.reactants.map((x:any)=>x.formula),products:r.products.map((x:any)=>x.formula),reactionType:r.reactionType,conditions:{tags:r.conditions?.tags??[],dimensions:dimensionsOf(r.conditions?.tags??[],vocabulary).dimensions},observation:r.observations,netIonicDerivable:support.supported,netIonicUnsupported:support.supported?[]:support.unsupported,sourceRefs:refIds(r.sourceRefs),reviewStatus:reviewStateOf(assertions.find(a=>a.id===(isNoReaction(r)?`no-reaction:${r.id}`:`reaction:${r.id}`))!,reg.records).state,usedByActivities:usage.reactions(r.id),observationFlags:assertions.find(a=>a.id===`observation:${r.id}`)!.flags};
   });
   const inventory={
     schema:'kimyolab.chemistry-kb-inventory.v1',

@@ -288,6 +288,28 @@
       "comment": null
     },
     {
+      "id": "condition:rxn.cu-hcl",
+      "category": "condition",
+      "claim": "rxn.cu-hcl talab qiladi: dilute acid",
+      "data": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "9ed424f165aaed822179b9ab8bb7ebbc436ae11c249adab7cf932adfcd57542d",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "condition:rxn.fe-combustion",
       "category": "condition",
       "claim": "rxn.fe-combustion talab qiladi: strong heating",
@@ -1756,6 +1778,35 @@
       "comment": null
     },
     {
+      "id": "no-reaction:rxn.cu-hcl",
+      "category": "no-reaction",
+      "claim": "Cu + HCl: reaksiya bormaydi",
+      "data": {
+        "reactants": [
+          {
+            "formula": "Cu"
+          },
+          {
+            "formula": "HCl"
+          }
+        ],
+        "conditions": {
+          "tags": [
+            "dilute acid"
+          ]
+        }
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "58618ed8db1918fc02364c279b225f7d8ffc147c11c016a1538fc811f912d64f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
       "id": "observation:rxn.ag2o-decomposition",
       "category": "observation",
       "claim": "rxn.ag2o-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.ag2o-decomposition.observation\"}]",
@@ -2083,6 +2134,27 @@
       ],
       "reviewStatus": "pending",
       "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "flags": [],
+      "reviewDecision": null,
+      "comment": null
+    },
+    {
+      "id": "observation:rxn.cu-hcl",
+      "category": "observation",
+      "claim": "rxn.cu-hcl: [{\"type\":\"no-visible-change\"}]",
+      "data": {
+        "observations": [
+          {
+            "type": "no-visible-change"
+          }
+        ]
+      },
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "affectedActivities": [],
+      "reviewStatus": "pending",
+      "currentHash": "33f1c23b4d8ff9a4489d0c2fa4b0d6ed183c542dbdde88186e50cbc694601b91",
       "flags": [],
       "reviewDecision": null,
       "comment": null

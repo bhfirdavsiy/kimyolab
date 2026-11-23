@@ -7,7 +7,9 @@ import {ElectrolysisModel} from '../chemistry/electrolysis-model.js';
 import {parseConditionVocabulary} from '../chemistry/condition-vocabulary.js';
                                                 
 
-                                                                                                                                                    
+                                                                                                                                                   
+                                                                                                                    
+                                          
 
 export function createLabDomain(data                 )          {
   const species=SpeciesRegistry.from((Array.isArray(data.species)?data.species:(data.species       )?.species)       );
@@ -15,9 +17,10 @@ export function createLabDomain(data                 )          {
   const matcher=ReactionMatcher.from(data.reactions       ,vocabulary?{vocabulary}:{});
   const ionicEngine=IonicEngine.from({reactions:data.reactions       ,rules:data.solutionRules       });
   const mixing=vocabulary?.contexts['solution-mixing'];
+  const reviewedReactionIds                    =new Set(Array.isArray(data.reviewedReactionIds)?data.reviewedReactionIds:[]);
   return {
-    species,ionicEngine,matcher,
-    ionic:{species,matcher,ionic:ionicEngine,...(mixing?{mixingConditions:{dimensions:{...mixing.dimensions}}}:{})},
+    species,ionicEngine,matcher,reviewedReactionIds,
+    ionic:{species,matcher,ionic:ionicEngine,reviewedReactionIds,...(mixing?{mixingConditions:{dimensions:{...mixing.dimensions}}}:{})},
     ...(data.electrolysis?{electrolysis:ElectrolysisModel.from(data.electrolysis)}:{}),
   };
 }

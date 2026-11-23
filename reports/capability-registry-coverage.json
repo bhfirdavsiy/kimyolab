@@ -394,7 +394,7 @@
   ],
   "authorities": {
     "ReactionMatcher": {
-      "records": 41,
+      "records": 42,
       "reactionIds": [
         "rxn.ag2o-decomposition",
         "rxn.agno3-nabr",
@@ -410,6 +410,7 @@
         "rxn.cl2-kbr",
         "rxn.co-combustion",
         "rxn.co2-water",
+        "rxn.cu-hcl",
         "rxn.cuo-hcl",
         "rxn.fe-combustion",
         "rxn.fe-hcl",
@@ -625,6 +626,17 @@
             "H2O"
           ],
           "conditionTags": []
+        },
+        {
+          "reactionId": "rxn.cu-hcl",
+          "reactants": [
+            "Cu",
+            "HCl"
+          ],
+          "conditionTags": [
+            "dilute acid"
+          ],
+          "noReaction": true
         },
         {
           "reactionId": "rxn.cuo-hcl",
@@ -1782,7 +1794,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 10 record(s) (rxn.caco3-hcl, rxn.cu-hcl, rxn.cuo-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
@@ -1800,7 +1812,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher",
-          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 10 record(s) (rxn.caco3-hcl, rxn.cu-hcl, rxn.cuo-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,
@@ -1825,7 +1837,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 10 record(s) (rxn.caco3-hcl, rxn.cu-hcl, rxn.cuo-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 2,
@@ -1843,7 +1855,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 10 record(s) (rxn.caco3-hcl, rxn.cu-hcl, rxn.cuo-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 3,
@@ -1861,7 +1873,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 10 record(s) (rxn.caco3-hcl, rxn.cu-hcl, rxn.cuo-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 4,
@@ -3517,7 +3529,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 10 record(s) (rxn.caco3-hcl, rxn.cu-hcl, rxn.cuo-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 0,
@@ -3526,7 +3538,7 @@
           "status": "AUTHORITY_AT_RUNTIME",
           "basis": "PART_OF_RECORD",
           "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
-          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+          "reason": "HCl is part of 10 record(s) (rxn.caco3-hcl, rxn.cu-hcl, rxn.cuo-hcl, …); the other reagent comes from the runtime state"
         },
         {
           "step": 1,

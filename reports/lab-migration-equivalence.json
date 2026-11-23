@@ -309,7 +309,7 @@
       "newOnly": {
         "replayDeterministic": true,
         "unsupportedOutcomes": [
-          "REACTION_NOT_MODELED"
+          "NO_REACTION_NOT_REVIEWED"
         ]
       },
       "migrationStatus": "NOT_MIGRATION_EQUIVALENT",

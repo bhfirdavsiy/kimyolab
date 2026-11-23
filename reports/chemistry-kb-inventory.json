@@ -2,21 +2,21 @@
   "schema": "kimyolab.chemistry-kb-inventory.v1",
   "counts": {
     "species": 99,
-    "reactions": 41,
+    "reactions": 42,
     "solubilityRecords": {
       "dissociation": 12,
       "insoluble": 8
     },
     "hydrolysisSalts": 4,
     "electrolysisRecords": 1,
-    "conditionedReactions": 21,
-    "explicitNoReactionRecords": 0,
-    "assertions": 171,
+    "conditionedReactions": 22,
+    "explicitNoReactionRecords": 1,
+    "assertions": 174,
     "reviewed": 0,
-    "pending": 171,
+    "pending": 174,
     "rejected": 0,
     "stale": 0,
-    "sourceBacked": 141,
+    "sourceBacked": 144,
     "missingSource": 30
   },
   "reactions": [
@@ -1510,6 +1510,38 @@
       "reviewStatus": "pending",
       "usedByActivities": [],
       "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.cu-hcl",
+      "reactants": [
+        "Cu",
+        "HCl"
+      ],
+      "products": [],
+      "reactionType": "no-reaction",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "NO_REACTION"
+      ],
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
     }
   ],
   "speciesIdentity": {
@@ -1570,7 +1602,6 @@
       "NET_IONIC_UNSUPPORTED:rxn.s-combustion:S,O2,SO2",
       "NET_IONIC_UNSUPPORTED:rxn.zn-h2so4:Zn,ZnSO4,H2",
       "NET_IONIC_UNSUPPORTED:rxn.zn-hcl:Zn,H2",
-      "NO_REACTION_RECORDS_MISSING",
       "REVIEW_PENDING:condition-context:solution-mixing",
       "REVIEW_PENDING:condition-term:concentrated acid",
       "REVIEW_PENDING:condition-term:dilute acid",
@@ -1585,6 +1616,7 @@
       "REVIEW_PENDING:condition:rxn.c-combustion-limited",
       "REVIEW_PENDING:condition:rxn.caco3-decomposition",
       "REVIEW_PENDING:condition:rxn.co-combustion",
+      "REVIEW_PENDING:condition:rxn.cu-hcl",
       "REVIEW_PENDING:condition:rxn.fe-combustion",
       "REVIEW_PENDING:condition:rxn.fe-hcl",
       "REVIEW_PENDING:condition:rxn.fe-s",
@@ -1650,6 +1682,7 @@
       "REVIEW_PENDING:insoluble:CuS",
       "REVIEW_PENDING:insoluble:Zn(OH)2",
       "REVIEW_PENDING:insoluble:ZnS",
+      "REVIEW_PENDING:no-reaction:rxn.cu-hcl",
       "REVIEW_PENDING:observation:rxn.ag2o-decomposition",
       "REVIEW_PENDING:observation:rxn.agno3-nabr",
       "REVIEW_PENDING:observation:rxn.agno3-nacl",
@@ -1664,6 +1697,7 @@
       "REVIEW_PENDING:observation:rxn.cl2-kbr",
       "REVIEW_PENDING:observation:rxn.co-combustion",
       "REVIEW_PENDING:observation:rxn.co2-water",
+      "REVIEW_PENDING:observation:rxn.cu-hcl",
       "REVIEW_PENDING:observation:rxn.cuo-hcl",
       "REVIEW_PENDING:observation:rxn.fe-combustion",
       "REVIEW_PENDING:observation:rxn.fe-hcl",

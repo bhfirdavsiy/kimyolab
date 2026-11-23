@@ -37,6 +37,8 @@ const atomsOf=(terms:Term[])=>{ const out:Record<string,number>={}; let charge=0
 const sameMultiset=(a:string[],b:string[])=>[...a].sort().join('|')===[...b].sort().join('|');
 
 export function reactionChecks(r:any){
+  // TT 4.2.6: an explicit no-reaction record has no products and no equation to balance; the expert decides the claim itself
+  if(r.reactionType==='no-reaction') return {equationParse:'NO_REACTION_RECORD' as const};
   const parsed=parseMolecularEquation(r.molecularEquation);
   if(!parsed) return {equationParse:'EQUATION_NOT_PARSEABLE' as const};
   const formulasMatchRecord=sameMultiset(parsed.reactants.map(t=>t.formula),r.reactants.map((x:any)=>x.formula))&&sameMultiset(parsed.products.map(t=>t.formula),r.products.map((x:any)=>x.formula));
@@ -109,7 +111,7 @@ export function expertPacket(root=ROOT){
     speciesIdentity:{records:g.species.length,rule:'SpeciesRegistry: unique id and unique (formula, phase, charge, structuralVariant, allotrope); the formula parser charge equals the record charge',issues:identityIssues,
       // a "formula" that is a name (e.g. a mixture or a trivial name) is UNSUPPORTED by the parser — a known gap, not an identity violation
       formulaNotParseable},
-    summary:{reactions:reactions.length,
+    summary:{reactions:reactions.length,noReactionRecords:count(r=>r.machineChecks.equationParse==='NO_REACTION_RECORD'),
       equationParsed:count(r=>r.machineChecks.equationParse==='PARSED'),formulasMatchRecord:count(r=>r.machineChecks.formulasMatchRecord===true),
       atomBalanced:count(r=>r.machineChecks.atomBalance==='BALANCED'),chargeBalanced:count(r=>r.machineChecks.chargeBalance==='BALANCED'),
       balancerAgrees:count(r=>r.machineChecks.balancer?.status==='AGREES'),arrowMatchesDirection:count(r=>r.machineChecks.arrowMatchesDirection===true),

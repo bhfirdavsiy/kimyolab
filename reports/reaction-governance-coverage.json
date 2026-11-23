@@ -4,13 +4,13 @@
   "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
   "semantics": "A reaction record in the model is not a human approval. Review state comes from the chemistry decision register (kb-review: current hash, human reviewer, stale on edit); a source counts only when registered, acceptable for chemistry and human-accepted.",
   "totals": {
-    "canonicalModelRecords": 41,
+    "canonicalModelRecords": 42,
     "effectiveHumanReviewed": 0,
-    "reviewPending": 41,
+    "reviewPending": 42,
     "stale": 0,
     "approvedButSourceNotEligible": 0,
     "source": {
-      "SOURCE_NOT_ELIGIBLE": 41
+      "SOURCE_NOT_ELIGIBLE": 42
     },
     "observationFlagged": 12
   },
@@ -51,14 +51,14 @@
   },
   "conditionGovernance": {
     "rule": "the condition assertion hashes EVERY canonical condition field the record requires (not only tags); changing medium, solvent, catalysts, light, current, temperature, pressure or concentration makes a decision on the old hash stale. A reaction counts as reviewed only when its condition claim is approved too",
-    "recordsWithRequirements": 22,
-    "conditionAssertions": 22,
+    "recordsWithRequirements": 23,
+    "conditionAssertions": 23,
     "fieldsCovered": {
       "electricalCurrent": 1,
-      "tags": 21
+      "tags": 22
     },
     "review": {
-      "pending": 22
+      "pending": 23
     }
   },
   "reactions": [
@@ -698,6 +698,24 @@
       "condition": {
         "assertionId": "condition:rxn.malachite-decomposition",
         "hash": "839e7e5b4d485187fe97c91b5ab717acce73f7e9f7ef9bb289125682925a746e",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
+    },
+    {
+      "id": "rxn.cu-hcl",
+      "assertionId": "no-reaction:rxn.cu-hcl",
+      "hash": "58618ed8db1918fc02364c279b225f7d8ffc147c11c016a1538fc811f912d64f",
+      "review": "pending",
+      "source": "SOURCE_NOT_ELIGIBLE",
+      "reviewed": false,
+      "observationFlags": [],
+      "condition": {
+        "assertionId": "condition:rxn.cu-hcl",
+        "hash": "9ed424f165aaed822179b9ab8bb7ebbc436ae11c249adab7cf932adfcd57542d",
         "review": "pending",
         "fields": [
           "tags"

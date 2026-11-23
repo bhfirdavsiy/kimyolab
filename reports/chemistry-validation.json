@@ -1,6 +1,6 @@
 {
   "speciesRecords": 99,
-  "reactionRecords": 41,
+  "reactionRecords": 42,
   "dissociationRules": 12,
   "formulaErrors": 0,
   "reactionBalanceErrors": 0,
@@ -25,7 +25,7 @@
   "expertApprovalValid": false,
   "expertApprovalReason": "APPROVAL_PENDING",
   "expertReviewVersion": "1.0.0-rc.1",
-  "expertReviewHash": "d0c50eb402d8e0e6d81201b39dfb9d20d5a411e04ff8f15d3af406404545afec",
+  "expertReviewHash": "744cade2d96a875dfac3bce634c5bc71d810760d6e934f2bb532b51d90091c6e",
   "expertReviewSurfaceSchema": "kimyolab.chemistry-review-surface.v2",
   "expertReviewSurfaceFileCount": 28
 }

@@ -22644,7 +22644,7 @@
     {
       "module": "ionic-engine",
       "file": "src/domain/chemistry/ionic-engine.ts",
-      "modelRecords": 41,
+      "modelRecords": 42,
       "usedByActivities": 3,
       "usedByLearningUnits": 4,
       "browserExposed": true,
@@ -22658,7 +22658,7 @@
     {
       "module": "ionic-mixing",
       "file": "src/domain/chemistry/ionic-mixing.ts",
-      "modelRecords": 41,
+      "modelRecords": 42,
       "usedByActivities": 1,
       "usedByLearningUnits": 2,
       "browserExposed": true,
@@ -22748,7 +22748,7 @@
     {
       "module": "reaction-matcher",
       "file": "src/domain/chemistry/reaction-matcher.ts",
-      "modelRecords": 41,
+      "modelRecords": 42,
       "usedByActivities": 11,
       "usedByLearningUnits": 11,
       "browserExposed": true,
@@ -23126,7 +23126,7 @@
       {
         "module": "ionic-engine",
         "existingDomainModel": true,
-        "modelRecords": 41,
+        "modelRecords": 42,
         "realLearnerChoicePossible": true,
         "currentUiExposesModel": false,
         "currentBrowserLimitation": "FORM",
@@ -23226,7 +23226,7 @@
       {
         "module": "reaction-matcher",
         "existingDomainModel": true,
-        "modelRecords": 41,
+        "modelRecords": 42,
         "realLearnerChoicePossible": true,
         "currentUiExposesModel": false,
         "currentBrowserLimitation": "SCRIPTED",

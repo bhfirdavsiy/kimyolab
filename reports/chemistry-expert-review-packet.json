@@ -17,18 +17,19 @@
     ]
   },
   "summary": {
-    "reactions": 41,
+    "reactions": 42,
+    "noReactionRecords": 1,
     "equationParsed": 41,
     "formulasMatchRecord": 41,
     "atomBalanced": 41,
     "chargeBalanced": 41,
     "balancerAgrees": 41,
     "arrowMatchesDirection": 41,
-    "speciesResolved": 40,
+    "speciesResolved": 41,
     "conditionRejected": 0,
     "observationFlagged": 12,
     "sourceEligible": 0,
-    "decisionsToMake": 104,
+    "decisionsToMake": 107,
     "expertReviewed": 0,
     "hazardSpecies": 46,
     "hazardCodes": 62,
@@ -36,7 +37,7 @@
   },
   "acceptance": {
     "criterion": "28/28 reactions reviewed by a chemistry expert; 0 unapproved assertions shown as approved",
-    "reviewed": "0/41",
+    "reviewed": "0/42",
     "shownReviewedWithoutApproval": [],
     "status": "NOT_MET — human review outstanding (DRAFT/PENDING never counts as PASS)"
   },
@@ -4164,6 +4165,74 @@
           "assertionId": "observation:rxn.malachite-decomposition",
           "assertionHash": "73a363655247288b91174bf6122853faf57a38142687a1d6093d4911d1848666",
           "claim": "rxn.malachite-decomposition: [{\"type\":\"gas\",\"descriptionKey\":\"rxn.malachite-decomposition.observation\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.cu-hcl",
+      "molecularEquation": "Cu + HCl → reaksiya bormaydi",
+      "reactionType": "no-reaction",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "NO_REACTION_RECORD",
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.cu",
+            "species.hcl"
+          ],
+          "products": []
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.workbook.kimyo7-2026",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "no-reaction:rxn.cu-hcl",
+          "assertionHash": "58618ed8db1918fc02364c279b225f7d8ffc147c11c016a1538fc811f912d64f",
+          "claim": "Cu + HCl: reaksiya bormaydi",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.cu-hcl",
+          "assertionHash": "9ed424f165aaed822179b9ab8bb7ebbc436ae11c249adab7cf932adfcd57542d",
+          "claim": "rxn.cu-hcl talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.cu-hcl",
+          "assertionHash": "33f1c23b4d8ff9a4489d0c2fa4b0d6ed183c542dbdde88186e50cbc694601b91",
+          "claim": "rxn.cu-hcl: [{\"type\":\"no-visible-change\"}]",
           "currentReview": "pending",
           "flags": [],
           "expertDecision": "PENDING"

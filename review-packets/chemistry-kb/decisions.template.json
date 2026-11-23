@@ -129,6 +129,15 @@
       "comment": null
     },
     {
+      "assertionId": "condition:rxn.cu-hcl",
+      "assertionHash": "9ed424f165aaed822179b9ab8bb7ebbc436ae11c249adab7cf932adfcd57542d",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "condition:rxn.fe-combustion",
       "assertionHash": "08c406ac7d59ab7f910c1dc326a0f26b185d2f98677101c0e31b98d9d4433cbe",
       "decision": null,
@@ -714,6 +723,15 @@
       "comment": null
     },
     {
+      "assertionId": "no-reaction:rxn.cu-hcl",
+      "assertionHash": "58618ed8db1918fc02364c279b225f7d8ffc147c11c016a1538fc811f912d64f",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
       "assertionId": "observation:rxn.ag2o-decomposition",
       "assertionHash": "ba8af3d48f565d2fdac3f6115781db2d3edab2a546050ecc21b188cd2cabba8a",
       "decision": null,
@@ -833,6 +851,15 @@
     {
       "assertionId": "observation:rxn.co2-water",
       "assertionHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
+      "decision": null,
+      "reviewerId": null,
+      "reviewerRole": "chemistry",
+      "reviewedAt": null,
+      "comment": null
+    },
+    {
+      "assertionId": "observation:rxn.cu-hcl",
+      "assertionHash": "33f1c23b4d8ff9a4489d0c2fa4b0d6ed183c542dbdde88186e50cbc694601b91",
       "decision": null,
       "reviewerId": null,
       "reviewerRole": "chemistry",

@@ -88,8 +88,9 @@ test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewe
   const p=expertPacket(root);
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); every one is balanced and agrees with the canonical balancer
-  assert.equal(p.reactions.length,41);
-  assert.equal(p.summary.atomBalanced,41); assert.equal(p.summary.balancerAgrees,41); assert.equal(p.summary.speciesResolved,40);
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42); it has no equation to balance (NO_REACTION_RECORD) and carries 3 claims (no-reaction, condition, observation)
+  assert.equal(p.reactions.length,42); assert.equal(p.summary.noReactionRecords,1);
+  assert.equal(p.summary.atomBalanced,41); assert.equal(p.summary.balancerAgrees,41); assert.equal(p.summary.speciesResolved,41);
   assert.deepEqual(p.speciesIdentity.issues,[],'SpeciesRegistry identity invariants hold');
   assert.doesNotThrow(()=>SpeciesRegistry.from(json('content-src/chemistry/species.json')));
   for(const r of p.reactions){
@@ -100,7 +101,8 @@ test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewe
   }
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): 23 records now state a condition
   // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated: 22 records now state a condition
-  assert.equal(p.summary.decisionsToMake,41+22+41,'41 reaction + 22 condition + 41 observation claims');
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42); it has no equation to balance (NO_REACTION_RECORD) and carries 3 claims (no-reaction, condition, observation)
+  assert.equal(p.summary.decisionsToMake,42+23+42,'42 reaction / no-reaction + 23 condition + 42 observation claims');
   assert.deepEqual(p.acceptance.shownReviewedWithoutApproval,[]);
   assert.match(p.acceptance.status,/^NOT_MET/,'PENDING never counts as PASS');
   assert.equal(p.naclDecision.machineRecommendation,null); assert.equal(p.naclDecision.expertDecision,'PENDING'); assert.equal(p.naclDecision.options.length,3);

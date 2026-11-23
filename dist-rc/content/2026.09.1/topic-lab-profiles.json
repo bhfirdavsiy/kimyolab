@@ -1707,8 +1707,8 @@
           "detail": "\"gugurt alangasi bilan tekshiring\": the flame test needs the oxygen of the air, which no source declares, and ignition is not a lab action here. It is not offered."
         },
         {
-          "code": "MODEL_SOURCE_GAP_CU_HCL",
-          "detail": "Step 3 (Cu + dilute HCl): no ReactionMatcher record covers this pair, so the lab shows no outcome (UNSUPPORTED_CHEMISTRY, fail closed). The step-bound school model school.cu-hcl.no-reaction is not a reaction record and is not consumed. This is a missing model/source, not a choice: it stays fail-closed until a reviewed source exists."
+          "code": "NO_REACTION_REVIEW_GAP_CU_HCL",
+          "detail": "Step 3 (Cu + dilute HCl): the no-reaction record rxn.cu-hcl (workbook, practical work 5.2, p. 50) is not reviewed yet. A no-reaction claim is shown only for a reviewed record (TT 4.2.6), so the lab shows no outcome (NO_REACTION_NOT_REVIEWED, fail closed) until a chemist reviews it. The step-bound school model school.cu-hcl.no-reaction is not consumed."
         },
         {
           "code": "RECORD_CHECKER_MISSING",

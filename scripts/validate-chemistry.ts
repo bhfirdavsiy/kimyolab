@@ -28,6 +28,9 @@ const formulas=new Set(species.map((s:any)=>s.formula));
 for(const r of reactions){
   if(!r.sourceRefs?.length)sourceErrors++;
   for(const x of [...r.reactants,...r.products]) if(!formulas.has(x.formula)) referenceErrors++;
+  // A no-reaction record (P1.6: reactionType 'no-reaction', no products) states that the reactants do NOT react: it
+  // has no equation to balance. It must have no products; anything else is still balanced.
+  if(r.reactionType==='no-reaction'){ if(r.products?.length) reactionBalanceErrors++; continue; }
   try{balanceSpecies(r.reactants.map((x:any)=>x.formula),r.products.map((x:any)=>x.formula))}catch{reactionBalanceErrors++}
 }
 for(const d of solution.dissociation||[]){

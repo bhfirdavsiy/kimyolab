@@ -59,10 +59,11 @@ for (const name of ['portal', 'standalone']) {
     await expect(result(page)).not.toContainText('maqsadiga erishildi');
     await expect(page.locator(`${LAB} .kl-dlab__scope`)).toContainText('faqat bir qismini');
     await expect(page.locator(`${LAB} .kl-dlab__observations li[data-observation-kind=gas-collected]`)).toHaveAttribute('data-grounding', 'PROCEDURE');
-    // Cu + dilute HCl: no reaction record → no observation is invented, also after heating
+    // Cu + dilute HCl: no reviewed reaction record → no observation is invented, also after heating
     await addTo(page, 'cu', 'tube-3'); await addTo(page, 'hcl-dilute', 'tube-3');
     await expect(result(page)).toHaveAttribute('data-status', 'unsupported');
-    await expect(result(page)).toContainText('reaksiya yozuvi yo‘q');
+    // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has a no-reaction record (rxn.cu-hcl) that is not reviewed yet: the lab says so and shows nothing
+    await expect(result(page)).toContainText('hali tasdiqlamagan');
     // closeout: the Cu trial states no heating — HEAT is refused by the instruction scope, before any chemistry
     await object(page, 'apparatus:tube-3');
     await expect(list(page).locator('[data-action-family=HEAT]')).toHaveAttribute('data-category', 'unavailable');

@@ -9,8 +9,8 @@
     "total": 0
   },
   "chemistry": {
-    "total": 171,
-    "pending": 171,
+    "total": 174,
+    "pending": 174,
     "approved": 0,
     "rejected": 0,
     "changeRequired": 0,
@@ -51,8 +51,8 @@
       },
       "B": {
         "label": "B — asosiy modellar (indikator, sharoit lug‘ati, gidroliz, ion reaksiya maqsadlari)",
-        "total": 39,
-        "pending": 39,
+        "total": 40,
+        "pending": 40,
         "ids": [
           "condition-context:solution-mixing",
           "condition-term:concentrated acid",
@@ -68,6 +68,7 @@
           "condition:rxn.c-combustion-limited",
           "condition:rxn.caco3-decomposition",
           "condition:rxn.co-combustion",
+          "condition:rxn.cu-hcl",
           "condition:rxn.fe-combustion",
           "condition:rxn.fe-hcl",
           "condition:rxn.fe-s",
@@ -142,8 +143,8 @@
       },
       "E": {
         "label": "E — qolgan assertion’lar",
-        "total": 89,
-        "pending": 89
+        "total": 91,
+        "pending": 91
       }
     }
   },

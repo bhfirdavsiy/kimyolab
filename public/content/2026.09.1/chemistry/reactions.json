@@ -1756,5 +1756,43 @@
       }
     ],
     "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cu-hcl",
+    "reactants": [
+      {
+        "formula": "Cu"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "no-reaction",
+    "molecularEquation": "Cu + HCl → reaksiya bormaydi",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "50"
+      }
+    ],
+    "version": "1.0.0"
   }
 ]

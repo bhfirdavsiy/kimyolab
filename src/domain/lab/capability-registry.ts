@@ -52,7 +52,7 @@ export interface CapabilityRegistry {
   version:typeof CAPABILITY_REGISTRY_VERSION;
   actions:ActionCapability[];
   authorities:{
-    ReactionMatcher:{records:number;reactionIds:string[];formulas:string[];reactantSets:Array<{reactionId:string;reactants:string[];conditionTags:string[]}>;conditionDimensions:string[];modelObservationKinds:string[]};
+    ReactionMatcher:{records:number;reactionIds:string[];formulas:string[];reactantSets:Array<{reactionId:string;reactants:string[];conditionTags:string[];noReaction?:true}>;conditionDimensions:string[];modelObservationKinds:string[]};
     IonicEngine:{dissociationFormulas:string[];insolubleFormulas:string[]};
     ElectrolysisModel:{queries:Array<{electrolyte:string;phase:string;electrode:string}>;modelObservationKinds:string[]};
     SchoolLabModel:{models:string[];scope:'STEP_BOUND_ONLY'};
@@ -85,7 +85,7 @@ export function buildCapabilityRegistry(data:RegistryData):CapabilityRegistry{
   return {
     schema:CAPABILITY_REGISTRY_SCHEMA,version:CAPABILITY_REGISTRY_VERSION,actions,
     authorities:{
-      ReactionMatcher:{records:reactions.length,reactionIds:uniq(reactions.map((r:any)=>r.id)),formulas:rmFormulas,reactantSets:reactions.map((r:any)=>({reactionId:r.id,reactants:uniq(r.reactants.map((x:any)=>x.formula)),conditionTags:[...(r.conditions?.tags??[])]})).sort((a:any,b:any)=>a.reactionId.localeCompare(b.reactionId,'en')),conditionDimensions:dims,modelObservationKinds:uniq(reactions.flatMap((r:any)=>(r.observations??[]).map((o:any)=>o.type)))},
+      ReactionMatcher:{records:reactions.length,reactionIds:uniq(reactions.map((r:any)=>r.id)),formulas:rmFormulas,reactantSets:reactions.map((r:any)=>({reactionId:r.id,reactants:uniq(r.reactants.map((x:any)=>x.formula)),conditionTags:[...(r.conditions?.tags??[])],...(r.reactionType==='no-reaction'?{noReaction:true as const}:{})})).sort((a:any,b:any)=>a.reactionId.localeCompare(b.reactionId,'en')),conditionDimensions:dims,modelObservationKinds:uniq(reactions.flatMap((r:any)=>(r.observations??[]).map((o:any)=>o.type)))},
       IonicEngine:{dissociationFormulas:ionicFormulas,insolubleFormulas:insoluble},
       ElectrolysisModel:{queries:electro.map((r:any)=>({electrolyte:r.electrolyte,phase:r.phase,electrode:r.electrode})),modelObservationKinds:electro.length?['deposit','gas']:[]},
       SchoolLabModel:{models:uniq(school.map((m:any)=>m.id)),scope:'STEP_BOUND_ONLY'},
@@ -139,7 +139,11 @@ export function resolveOperation(registry:CapabilityRegistry,op:Pick<Instruction
   let atRuntime:string|null=null; let basis:'PART_OF_RECORD'|'FORMULA_KNOWN_ONLY'='FORMULA_KNOWN_ONLY';
   for(const auth of chem){
     if(auth==='ReactionMatcher'){
-      const exact=sets.filter(r=>r.reactants.join('+')===key);
+      // TT 4.2.6: a no-reaction record is shown by the runtime only when it is REVIEWED (review state is not static), so it
+      // never makes an operation SUPPORTED here: it stays AUTHORITY_REQUIRED with the reason named
+      const exactAll=sets.filter(r=>r.reactants.join('+')===key), exact=exactAll.filter(r=>!r.noReaction);
+      const unreviewedNoReaction=exactAll.filter(r=>r.noReaction).map(r=>r.reactionId);
+      if(!exact.length&&unreviewedNoReaction.length) return {status:'AUTHORITY_REQUIRED',family:op.family,authority:null,reason:`no-reaction record ${unreviewedNoReaction.join(', ')} is shown only once reviewed (TT 4.2.6); until then ${formulas.join(' + ')} fails closed`};
       if(exact.length) return {status:'SUPPORTED',family:op.family,authority:auth,reason:`record ${exact.map(h=>h.reactionId).join(', ')}${exact.some(h=>h.conditionTags.length)?` (requires: ${uniq(exact.flatMap(h=>h.conditionTags)).join(', ')})`:''}`};
       const partial=sets.filter(r=>formulas.every(f=>r.reactants.includes(f)));
       if(partial.length&&!atRuntime) basis='PART_OF_RECORD';

@@ -245,6 +245,13 @@
           "existingRecordsWithThisSpecies": [
             "rxn.fe-hcl"
           ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
+          ]
         }
       ]
     },
@@ -495,6 +502,13 @@
           "speciesId": "species.fe",
           "existingRecordsWithThisSpecies": [
             "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
           ]
         }
       ]
@@ -803,6 +817,13 @@
           "speciesId": "species.fe",
           "existingRecordsWithThisSpecies": [
             "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
           ]
         }
       ],
@@ -1972,6 +1993,13 @@
           "speciesId": "species.fe",
           "existingRecordsWithThisSpecies": [
             "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
           ]
         }
       ],

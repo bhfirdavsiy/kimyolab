@@ -44,7 +44,7 @@
       "kind": "review-chemistry",
       "priority": "B",
       "role": "chemistry",
-      "count": 39,
+      "count": 40,
       "targetIds": [
         "condition-context:solution-mixing",
         "condition-term:concentrated acid",
@@ -60,6 +60,7 @@
         "condition:rxn.c-combustion-limited",
         "condition:rxn.caco3-decomposition",
         "condition:rxn.co-combustion",
+        "condition:rxn.cu-hcl",
         "condition:rxn.fe-combustion",
         "condition:rxn.fe-hcl",
         "condition:rxn.fe-s",
@@ -87,9 +88,9 @@
         "reaction:rxn.agno3-nacl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 20/39 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 20/40 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 39 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
+      "nextHumanAction": "Chemistry reviewer: review 40 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
     },
     {
       "rank": 3,
@@ -153,7 +154,7 @@
       "kind": "review-chemistry",
       "priority": "E",
       "role": "chemistry",
-      "count": 89,
+      "count": 91,
       "targetIds": [
         "dissociation:AgNO3",
         "dissociation:BaCl2",
@@ -175,6 +176,7 @@
         "insoluble:CuS",
         "insoluble:Zn(OH)2",
         "insoluble:ZnS",
+        "no-reaction:rxn.cu-hcl",
         "observation:rxn.ag2o-decomposition",
         "observation:rxn.agno3-nabr",
         "observation:rxn.agno3-nacl",
@@ -186,6 +188,7 @@
         "observation:rxn.caco3-hcl",
         "observation:rxn.cao-water",
         "observation:rxn.co2-water",
+        "observation:rxn.cu-hcl",
         "observation:rxn.cuo-hcl",
         "observation:rxn.fe-combustion",
         "observation:rxn.fe-hcl",
@@ -246,9 +249,9 @@
         "reaction:rxn.znoh2-hcl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 63/89 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 63/91 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 89 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
+      "nextHumanAction": "Chemistry reviewer: review 91 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
     },
     {
       "rank": 6,

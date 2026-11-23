@@ -4,8 +4,8 @@
 
 ## Holat
 
-- Assertion’lar: **171** — approved: 0, pending: 171, stale: 0, rejected: 0, change_required: 0
-- Gate: **PENDING** (FAIL: 0, PENDING: 341)
+- Assertion’lar: **174** — approved: 0, pending: 174, stale: 0, rejected: 0, change_required: 0
+- Gate: **PENDING** (FAIL: 0, PENDING: 343)
 - Har assertion’ning hash’i o‘zgarsa, eski qaror **stale** bo‘ladi va hisobga olinmaydi.
 
 ## Kategoriyalar
@@ -13,9 +13,9 @@
 | Kategoriya | Soni | Review talab (flag) |
 |---|---|---|
 | reaction | 41 | 0 |
-| no-reaction | 0 | 0 |
-| condition | 31 | 0 |
-| observation | 41 | 12 |
+| no-reaction | 1 | 0 |
+| condition | 32 | 0 |
+| observation | 42 | 12 |
 | solubility | 20 | 0 |
 | hydrolysis | 4 | 0 |
 | indicator | 3 | 0 |

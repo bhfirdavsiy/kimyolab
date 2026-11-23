@@ -7,7 +7,9 @@ import {ElectrolysisModel} from '../chemistry/electrolysis-model.ts';
 import {parseConditionVocabulary} from '../chemistry/condition-vocabulary.ts';
 import type {LabDomain} from './lab-runtime.ts';
 
-export interface LabChemistryData { reactions:unknown; solutionRules:unknown; species:unknown; electrolysis?:unknown; conditionVocabulary?:unknown }
+export interface LabChemistryData { reactions:unknown; solutionRules:unknown; species:unknown; electrolysis?:unknown; conditionVocabulary?:unknown;
+  /** TT 4.2.6: ids of REVIEWED reaction records (the knowledge index REVIEWED flag); absent → none (fail closed) */
+  reviewedReactionIds?:readonly string[] }
 
 export function createLabDomain(data:LabChemistryData):LabDomain{
   const species=SpeciesRegistry.from((Array.isArray(data.species)?data.species:(data.species as any)?.species) as any);
@@ -15,9 +17,10 @@ export function createLabDomain(data:LabChemistryData):LabDomain{
   const matcher=ReactionMatcher.from(data.reactions as any,vocabulary?{vocabulary}:{});
   const ionicEngine=IonicEngine.from({reactions:data.reactions as any,rules:data.solutionRules as any});
   const mixing=vocabulary?.contexts['solution-mixing'];
+  const reviewedReactionIds:ReadonlySet<string>=new Set(Array.isArray(data.reviewedReactionIds)?data.reviewedReactionIds:[]);
   return {
-    species,ionicEngine,matcher,
-    ionic:{species,matcher,ionic:ionicEngine,...(mixing?{mixingConditions:{dimensions:{...mixing.dimensions}}}:{})},
+    species,ionicEngine,matcher,reviewedReactionIds,
+    ionic:{species,matcher,ionic:ionicEngine,reviewedReactionIds,...(mixing?{mixingConditions:{dimensions:{...mixing.dimensions}}}:{})},
     ...(data.electrolysis?{electrolysis:ElectrolysisModel.from(data.electrolysis)}:{}),
   };
 }

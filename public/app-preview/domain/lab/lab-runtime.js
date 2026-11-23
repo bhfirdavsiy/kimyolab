@@ -20,7 +20,7 @@ import {evaluateIonicMixing,                                                    
                                                               
                                                                       
                                                        
-import {classifyMatch,                    } from '../chemistry/reaction-matcher.js';
+import {classifyMatch,                                             } from '../chemistry/reaction-matcher.js';
 import {familyDefinition,LAB_ACTION_FAMILIES,                    } from './action-catalog.js';
                                                                                                                         
 
@@ -126,6 +126,9 @@ export function observationGrounding(o                                  )       
                                   
                                                                         
                            
+                                                                                                                          
+                                                                                                         
+                                           
  
 
 /** P2.11 — what each implemented handler IS and which authorities it may consult. The capability registry reads this
@@ -423,7 +426,10 @@ function reactInContainer(c               ,profile                ,domain       
     const pair=`${reagents[i]}+${reagents[j]}`;
     const prior=c.reactions.find(r=>r.pair===pair);
     if(prior&&(prior.outcome!=='not-modeled'||prior.conditions===condKey)) continue;
-    const m=domain.matcher.match({reactants:[{formula:reagents[i] },{formula:reagents[j] }],conditions:{dimensions:{...dims}},conditionPolicy:'require-record-conditions'});
+    const matched=domain.matcher.match({reactants:[{formula:reagents[i] },{formula:reagents[j] }],conditions:{dimensions:{...dims}},conditionPolicy:'require-record-conditions'});
+    // TT 4.2.6: an unreviewed no-reaction record is never shown as "no reaction" — it stays unsupported (fail closed)
+    const m                                                                    =matched.modeled&&classifyMatch(matched)==='MODELED_NO_REACTION'&&!(domain.reviewedReactionIds??new Set()).has(matched.reaction.id)
+      ?{modeled:false,code:'NO_REACTION_NOT_REVIEWED'}:matched;
     const entry=m.modeled
       ?{pair,outcome:(classifyMatch(m)==='MODELED_NO_REACTION'?'no-reaction':'reaction')                            ,reactionId:m.reaction.id,code:null,conditions:condKey}
       :{pair,outcome:'not-modeled'         ,reactionId:null,code:m.code,conditions:condKey};

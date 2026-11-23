@@ -31,22 +31,22 @@
     "dissociationModeled": 12,
     "reviewedProperties": 0,
     "reviewedHazards": 0,
-    "reactionRecords": 41,
-    "explorerReachable": 39,
+    "reactionRecords": 42,
+    "explorerReachable": 40,
     "explorerConditionUnsupported": 1,
-    "explicitNoReactionRecords": 0,
+    "explicitNoReactionRecords": 1,
     "pairs": {
       "total": 4851,
       "modeledReaction": 34,
-      "modeledNoReaction": 0,
-      "notModeled": 4817,
+      "modeledNoReaction": 1,
+      "notModeled": 4816,
       "conditionDependent": 16,
       "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
     },
     "ionicEquationSupported": 5,
     "humanReviewedReactions": 0,
     "sourceGaps": {
-      "SOURCE_NOT_ELIGIBLE": 41
+      "SOURCE_NOT_ELIGIBLE": 42
     },
     "topicLabBacklinks": {
       "substancesWithLabs": 40,
@@ -86,12 +86,12 @@
     "chemistry": "browser-local: the ReactionMatcher runs in the page over the pack records; no server lookup",
     "knowledgeIndex": {
       "packFile": "knowledge/chemistry-knowledge.json",
-      "bytes": 83080
+      "bytes": 83527
     },
     "bundle": {
       "learnerModules": 4,
-      "learnerModuleBytes": 60471,
-      "standaloneBytes": 211411
+      "learnerModuleBytes": 64304,
+      "standaloneBytes": 216600
     },
     "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.14\"]"
   },

@@ -21,7 +21,7 @@
     },
     "reactions": {
       "file": "content-src/chemistry/reactions.json",
-      "records": 41,
+      "records": 42,
       "runtime": "ReactionMatcher (src/domain/chemistry/reaction-matcher.ts), policy require-record-conditions"
     },
     "ionicEngine": {
@@ -102,7 +102,7 @@
     }
   },
   "reactions": {
-    "total": 41,
+    "total": 42,
     "byType": {
       "acid_base": 2,
       "combination": 6,
@@ -111,15 +111,16 @@
       "equilibrium": 1,
       "gas_evolution": 4,
       "neutralization": 3,
+      "no-reaction": 1,
       "precipitation": 5,
       "redox": 4,
       "single_displacement": 5
     },
-    "explicitNoReaction": 0,
+    "explicitNoReaction": 1,
     "sourceRefIds": {
       "src.beta1.migration": 25,
       "src.textbook.kimyo7-2026": 14,
-      "src.workbook.kimyo7-2026": 5
+      "src.workbook.kimyo7-2026": 6
     }
   },
   "perSpecies": [

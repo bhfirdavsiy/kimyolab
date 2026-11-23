@@ -220,8 +220,15 @@ export class ContentClient {
     const units=await this.packJson(version,`learning-units/grade-${gradeMatch[1]}.json`);
     const unit=units.find((x:any)=>x.id===mapping.learningUnitId);
     if(!unit) throw new ContentLoadError('LEARNING_UNIT_NOT_FOUND',{resource:mapping.learningUnitId});
+    // TT 4.2.6: which reaction records are REVIEWED (the knowledge index flag). The lab shows a no-reaction record only
+    // when it is reviewed; without the index (older packs) the set is empty, so every such record fails closed.
+    let reviewedReactionIds:string[]=[];
+    if(this.files.has(CHEMISTRY_KNOWLEDGE_PACK_PATH)){
+      try{ reviewedReactionIds=assertKnowledgeIndex(await this.packJson(version,CHEMISTRY_KNOWLEDGE_PACK_PATH)).reactions.filter(r=>r.review==='REVIEWED').map(r=>r.id); }
+      catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('CHEMISTRY_KNOWLEDGE_INVALID',{resource:CHEMISTRY_KNOWLEDGE_PACK_PATH}); }
+    }
     return buildPracticePageModel({
-      activity,mapping,unit,executionPlan,readiness:readiness!,referenceConfig,contentVersion:version,
+      activity,mapping,unit,executionPlan,readiness:readiness!,referenceConfig,contentVersion:version,reviewedReactionIds,
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),

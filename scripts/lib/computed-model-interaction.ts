@@ -38,7 +38,10 @@ export const OWNER_DECIDED_RECORD_CHANGES=Object.freeze({
     // written as UNREVIEWED records (review pending) from the 2026 grade-7 textbook and workbook
     added:['rxn.mg-combustion','rxn.no-o2','rxn.co-combustion','rxn.na-cl2','rxn.ag2o-decomposition','rxn.caco3-decomposition','rxn.mgo-water',
       'rxn.hgo-decomposition','rxn.h2o-electrolysis','rxn.fe-s','rxn.hno3-caco3','rxn.koh-hno3','rxn.koh-hcl','rxn.mg-hcl','rxn.fe-hcl',
-      'rxn.malachite-decomposition'],
+      'rxn.malachite-decomposition',
+      // TT 4.2 (2026-11-23): Cu + dilute HCl, the workbook's "which metal did not react?" (p. 50), as an UNREVIEWED
+      // no-reaction record — added once the lab shows a no-reaction record only when it is reviewed (TT 4.2.6)
+      'rxn.cu-hcl'],
   },
   species:{removed:[] as string[],
     added:['species.mgo','species.no','species.no2','species.na','species.ag2o','species.ag','species.mgoh2','species.hgo','species.hg','species.fes',

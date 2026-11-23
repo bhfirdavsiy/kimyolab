@@ -280,7 +280,7 @@
       "migration": "NOT_MIGRATION_EQUIVALENT",
       "profileGaps": [
         "TEST_NOT_OFFERED",
-        "MODEL_SOURCE_GAP_CU_HCL",
+        "NO_REACTION_REVIEW_GAP_CU_HCL",
         "RECORD_CHECKER_MISSING",
         "HEAT_SOURCE_NOT_NAMED",
         "APPARATUS_WITHOUT_OPERATION"
@@ -357,7 +357,7 @@
     "precipitation": "8.1: the only experiment whose config is a learner-chosen reagent shelf over ReactionMatcher records (ionic-mixing); a precipitate forms while FILTER is not in its instruction (ACTION_NOT_ALLOWED_IN_TOPIC).",
     "gas": "11.2: the gas slice the chemistry supports. ElectrolysisModel holds exactly one record (CuCl2, aq, inert), which 11.2’s config queries, and its instruction does not contradict it. 9.10 is NOT used: its instruction connects a copper anode (active) and electrolyses KI, neither of which is modeled.",
     "multiStep": "7.2: the only experiment with DECLARED step dependencies (reference slice), seven steps over dissolution, filtration and evaporation (thermal), with an instruction quantity (20 ml).",
-    "contactReactionGas": "7.10 (P2.11): a new capability — ReactionMatcher evaluates only the trial combinations the instruction permits (Mg + dilute H2SO4, Zn + dilute HCl, Cu + dilute HCl), under the conditions the instruction declares (dilute acids; room temperature, or the gentle heating stated for the Zn + HCl trial only); out-of-scope combinations and actions are rejected before chemistry evaluation (ACTION_NOT_IN_INSTRUCTION_SCOPE); gas is collected from the tube it formed in. Cu + HCl itself has no record: when the pair is evaluated it fails closed (MODEL_SOURCE_GAP_CU_HCL); HEAT is not stated for that trial, so it is rejected by the instruction scope and never reaches chemistry.",
+    "contactReactionGas": "7.10 (P2.11): a new capability — ReactionMatcher evaluates only the trial combinations the instruction permits (Mg + dilute H2SO4, Zn + dilute HCl, Cu + dilute HCl), under the conditions the instruction declares (dilute acids; room temperature, or the gentle heating stated for the Zn + HCl trial only); out-of-scope combinations and actions are rejected before chemistry evaluation (ACTION_NOT_IN_INSTRUCTION_SCOPE); gas is collected from the tube it formed in. Cu + HCl has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50): the lab shows a no-reaction record only when it is reviewed (TT 4.2.6), so the pair still fails closed (NO_REACTION_REVIEW_GAP_CU_HCL); HEAT is not stated for that trial, so it is rejected by the instruction scope and never reaches chemistry.",
     "heatingGate": "8.14 (P2.11): a new capability — the reaction record requires heating, so nothing forms until the learner heats (HEAT is the gate, not a button); the tube is sealed and the gas collected. The school lab model stays step-bound. The instruction’s “oq tutun” and rxn.nh3-hcl (no-visible-change) conflict: SOURCE_CONFLICT_REVIEW_REQUIRED (sourceConflictReviews, resolution: null) — not a human decision, and neither source is chosen."
   },
   "counts": {
@@ -488,9 +488,9 @@
   "sourceGaps": [
     {
       "activityId": "practice.experiment.7.10",
-      "code": "MODEL_SOURCE_GAP_CU_HCL",
+      "code": "NO_REACTION_REVIEW_GAP_CU_HCL",
       "behaviour": "FAIL_CLOSED",
-      "detail": "Step 3 (Cu + dilute HCl): no ReactionMatcher record covers this pair, so the lab shows no outcome (UNSUPPORTED_CHEMISTRY, fail closed). The step-bound school model school.cu-hcl.no-reaction is not a reaction record and is not consumed. This is a missing model/source, not a choice: it stays fail-closed until a reviewed source exists."
+      "detail": "Step 3 (Cu + dilute HCl): the no-reaction record rxn.cu-hcl (workbook, practical work 5.2, p. 50) is not reviewed yet. A no-reaction claim is shown only for a reviewed record (TT 4.2.6), so the lab shows no outcome (NO_REACTION_NOT_REVIEWED, fail closed) until a chemist reviews it. The step-bound school model school.cu-hcl.no-reaction is not consumed."
     }
   ],
   "sourceConflictReviews": [
@@ -524,13 +524,13 @@
     },
     "after": {
       "learnerModules": 178,
-      "learnerModuleBytes": 956436,
-      "standaloneBytes": 6313348
+      "learnerModuleBytes": 960269,
+      "standaloneBytes": 6318537
     },
     "delta": {
       "learnerModules": 16,
-      "learnerModuleBytes": 242432,
-      "standaloneBytes": 609079
+      "learnerModuleBytes": 246265,
+      "standaloneBytes": 614268
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -556,8 +556,8 @@
       },
       "P2.14": {
         "learnerModules": 4,
-        "learnerModuleBytes": 60471,
-        "standaloneBytes": 211411
+        "learnerModuleBytes": 64304,
+        "standaloneBytes": 216600
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file"

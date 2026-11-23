@@ -138,28 +138,32 @@ test('7. a modeled reaction comes from the matcher with its record',()=>{
   assert.deepEqual(explore(domain,['species.agno3','species.nabr'],{}),{kind:'MODELED_REACTION',reactionId:'rxn.agno3-nabr'});
   // every reaction record whose reactants resolve opens from its own explorer link and the matcher finds THAT record
   let reachable=0;
-  for(const r of index.reactions){ const h=reactionExplorerHref(index,r.id,''); if(!h) continue; const st=parseExplorerQuery(new URL(`http://x${h}`).searchParams,index); const o=explore(domain,st.speciesIds,st.stated); assert.equal(o.kind,'MODELED_REACTION',r.id); assert.equal(o.reactionId,r.id); reachable++; }
+  for(const r of index.reactions){ const h=reactionExplorerHref(index,r.id,''); if(!h) continue; const st=parseExplorerQuery(new URL(`http://x${h}`).searchParams,index); const o=explore(domain,st.speciesIds,st.stated); assert.equal(o.kind,r.review!=='REVIEWED'&&REACTIONS.find(x=>x.id===r.id).reactionType==='no-reaction'?'NO_REACTION_NOT_REVIEWED':'MODELED_REACTION',r.id); assert.equal(o.reactionId,r.id); reachable++; }
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): its own link opens it, and while it is unreviewed the explorer says only NO_REACTION_NOT_REVIEWED
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry)
   assert.equal(reactionExplorerHref(index,'rxn.h2o-electrolysis',''),null);
   assert.equal(reachable,index.reactions.filter(r=>r.participants.reactants.every(Boolean)&&r.unsupportedConditions.length===0).length);
 });
 
 test('8. an explicit modeled no-reaction record is a separate outcome',()=>{
-  // the repository has none (Cu + dilute HCl stays not modeled); a TEST-ONLY record exercises the mechanics
-  assert.equal(REACTIONS.filter(r=>r.reactionType==='no-reaction').length,0);
-  const fixture={id:'rxn.fixture.no-reaction',reactants:[{formula:'Cu'},{formula:'HCl'}],products:[],conditions:{},direction:'forward',reactionType:'no-reaction',molecularEquation:'Cu + HCl → (fixture)',observations:[{type:'no-visible-change'}],safety:[],curriculumRefs:[],sourceRefs:[{id:'src.beta1.migration',type:'internal',title:'fixture'}],version:'1.0.0'};
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions). The TEST-ONLY fixture now uses another pair (NaCl + KNO3), so it does not collide with that record
+  assert.deepEqual(REACTIONS.filter(r=>r.reactionType==='no-reaction').map(r=>r.id),['rxn.cu-hcl']);
+  assert.deepEqual(explore(domain,['species.cu','species.hcl'],{'acid-concentration':'dilute'}),{kind:'NO_REACTION_NOT_REVIEWED',reactionId:'rxn.cu-hcl'});
+  assert.equal(index.reactions.find(r=>r.id==='rxn.cu-hcl').review,'MODEL_RECORD','the agent marks nothing reviewed');
+  const fixture={id:'rxn.fixture.no-reaction',reactants:[{formula:'NaCl'},{formula:'KNO3'}],products:[],conditions:{},direction:'forward',reactionType:'no-reaction',molecularEquation:'NaCl + KNO3 → (fixture)',observations:[{type:'no-visible-change'}],safety:[],curriculumRefs:[],sourceRefs:[{id:'src.beta1.migration',type:'internal',title:'fixture'}],version:'1.0.0'};
   const d={...domain,matcher:ReactionMatcher.from([...REACTIONS,fixture],{vocabulary})};
   // TT 4.2.6 changed this expectation: an UNREVIEWED no-reaction record is no longer shown as "does not react" — only a
   // record the knowledge index marks REVIEWED is MODELED_NO_REACTION (the domain without a review set is fail-closed)
-  assert.deepEqual(explore(d,['species.cu','species.hcl'],{}),{kind:'NO_REACTION_NOT_REVIEWED',reactionId:'rxn.fixture.no-reaction'});
-  assert.deepEqual(explore({...d,reviewedReactionIds:new Set(['rxn.fixture.no-reaction'])},['species.cu','species.hcl'],{}),{kind:'MODELED_NO_REACTION',reactionId:'rxn.fixture.no-reaction'});
+  assert.deepEqual(explore(d,['species.nacl','species.kno3'],{}),{kind:'NO_REACTION_NOT_REVIEWED',reactionId:'rxn.fixture.no-reaction'});
+  assert.deepEqual(explore({...d,reviewedReactionIds:new Set(['rxn.fixture.no-reaction'])},['species.nacl','species.kno3'],{}),{kind:'MODELED_NO_REACTION',reactionId:'rxn.fixture.no-reaction'});
   const {index:ix}=buildChemistryKnowledge(root,{reactions:[...REACTIONS,fixture]});
   const k=ix.reactions.find(r=>r.id==='rxn.fixture.no-reaction');
   assert.equal(k.ionicEquation.status,'GAP'); assert.equal(k.review,'MODEL_RECORD');
 });
 
 test('9. an unknown pair never becomes "no reaction"',()=>{
-  assert.deepEqual(explore(domain,['species.cu','species.hcl'],{}),{kind:'NOT_MODELED'});
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions), so Cu + HCl is no longer an unknown pair; NaCl + KNO3 has no record
+  assert.deepEqual(explore(domain,['species.nacl','species.kno3'],{}),{kind:'NOT_MODELED'});
   let checked=0;
   for(let i=0;i<SPECIES.length;i+=7) for(let j=i+1;j<SPECIES.length;j+=5){
     const a=SPECIES[i], b=SPECIES[j];
@@ -396,7 +400,8 @@ test('reports: generator-equal; dimensions separate (no merged percentage); form
   const inv=JSON.parse(out[KNOWLEDGE_REPORTS.inventory]);
   assert.equal(inv.species.total,SPECIES.length); assert.equal(inv.reactions.total,REACTIONS.length);
   const ex=JSON.parse(out[KNOWLEDGE_REPORTS.explorer]);
-  assert.equal(ex.pairsOfCanonicalSpecies.modeledNoReaction,0); assert.equal(ex.reachability.unreachable.length,2); // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry)
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): the report counts the pair that has a no-reaction record (1); the explorer still shows it only once reviewed
+  assert.equal(ex.pairsOfCanonicalSpecies.modeledNoReaction,1); assert.equal(ex.reachability.unreachable.length,2); // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41); rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry)
 });
 
 // ------------------------------------------------------------------ P2.14 closeout: complete condition semantics
@@ -491,20 +496,24 @@ test('closeout 12: the 28 canonical records use only tag conditions and stay rea
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41). The 25 earlier records still use only tag
   // conditions and stay reachable as before; of the new ones, rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry).
   const OWNER_ADDED=new Set(OWNER_DECIDED_RECORD_CHANGES.reactions.added);
-  assert.equal(REACTIONS.length,41); assert.equal(REACTIONS.filter(r=>!OWNER_ADDED.has(r.id)).length,25);
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); it is listed in OWNER_DECIDED_RECORD_CHANGES.reactions.added
+  assert.equal(REACTIONS.length,42); assert.equal(REACTIONS.filter(r=>!OWNER_ADDED.has(r.id)).length,25);
   assert.ok(REACTIONS.filter(r=>r.id!=='rxn.h2o-electrolysis').every(r=>conditionRequirementFields(r.conditions).every(f=>f==='tags')));
   assert.deepEqual(index.reactions.filter(r=>r.unsupportedConditions.length).map(r=>[r.id,r.unsupportedConditions]),[['rxn.h2o-electrolysis',['electricalCurrent']]]);
   const ex=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.explorer]);
-  assert.equal(ex.reachability.reachable,39);
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl's own explorer link opens it (reachable 39 → 40)
+  assert.equal(ex.reachability.reachable,40);
   assert.deepEqual(ex.reachability.unreachable.map(x=>[x.id,x.reason]),[['rxn.agno3-nacl','REACTANT_NOT_A_CANONICAL_SPECIES'],['rxn.h2o-electrolysis','EXPLORER_CONDITION_UNSUPPORTED']]);
   // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated (tag-condition records 22 → 21, condition claims 23 → 22)
-  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{electricalCurrent:1,tags:21});
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl states the 'dilute acid' tag (tag-condition records 21 → 22)
+  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{electricalCurrent:1,tags:22});
   assert.deepEqual(ex.conditionContract.explorerSupportedFields,['tags']);
   assert.deepEqual(ex.conditionContract.unsupportedRecords,[{id:'rxn.h2o-electrolysis',fields:['electricalCurrent']}]);
   assert.equal(ex.conditionContract.explorerUnsupportedFields.length,8);
   const gov=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.governance]);
-  assert.equal(gov.conditionGovernance.conditionAssertions,22);
-  assert.deepEqual(gov.conditionGovernance.review,{pending:22});
+  // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl adds one condition claim ('dilute acid'; 22 → 23), pending review
+  assert.equal(gov.conditionGovernance.conditionAssertions,23);
+  assert.deepEqual(gov.conditionGovernance.review,{pending:23});
   // the explorer's single matcher call states vocabulary dimensions only (every other field stays absent)
   assert.match(read('src/features/chemistry-knowledge/explorer.ts'),/conditions:\{dimensions:\{\.\.\.stated\}\},conditionPolicy:'require-record-conditions'/);
 });

@@ -12,11 +12,11 @@
   },
   "totals": {
     "substances": 93,
-    "reactions": 41,
+    "reactions": 42,
     "labs": 13,
     "topics": 14
   },
-  "formulaDerived": 328,
+  "formulaDerived": 331,
   "explicit": 157,
   "authoredReviewedShown": 0,
   "authoredClaims": {
@@ -27,7 +27,7 @@
   },
   "byKindAndProvenance": {
     "labs:PARTICIPATES:EXPLICIT_MAPPING": 69,
-    "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 136,
+    "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 139,
     "substances:PARTICIPATES:DERIVED_FROM_FORMULA": 192,
     "topics:PARTICIPATES:EXPLICIT_MAPPING": 88
   },
@@ -50,7 +50,7 @@
     {
       "symbol": "H",
       "substances": 21,
-      "reactions": 24,
+      "reactions": 25,
       "labs": [
         "practice.experiment.7.10",
         "practice.experiment.7.11",
@@ -210,7 +210,7 @@
     {
       "symbol": "Cl",
       "substances": 14,
-      "reactions": 16,
+      "reactions": 17,
       "labs": [
         "practice.experiment.11.2",
         "practice.experiment.7.10",
@@ -286,7 +286,7 @@
     {
       "symbol": "Cu",
       "substances": 6,
-      "reactions": 3,
+      "reactions": 4,
       "labs": [
         "practice.experiment.11.2",
         "practice.experiment.7.10",

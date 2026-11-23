@@ -20,7 +20,7 @@ import type {ElectrolysisModel} from '../chemistry/electrolysis-model.ts';
 import type {IonicEngine} from '../chemistry/ionic-engine.ts';
 import type {SpeciesRegistry} from '../chemistry/species-registry.ts';
 import type {Observation} from '../chemistry/types.ts';
-import {classifyMatch,type ReactionMatcher} from '../chemistry/reaction-matcher.ts';
+import {classifyMatch,type ReactionMatcher,type ReactionMatchResult} from '../chemistry/reaction-matcher.ts';
 import {familyDefinition,LAB_ACTION_FAMILIES,type LabActionFamily} from './action-catalog.ts';
 import type {GuidanceLevel,InstructionTrial,ProcedureStep,ProfileHeating,TopicLabProfile} from './topic-lab-profile.ts';
 
@@ -126,6 +126,9 @@ export interface LabDomain {
   electrolysis?:ElectrolysisModel;
   /** P2.11: the general reaction authority (reaction-matcher topics) */
   matcher?:ReactionMatcher;
+  /** TT 4.2.6: the ids of REVIEWED reaction records. A no-reaction record ("these do not react") is shown only when it is
+   *  reviewed; otherwise it is NO_REACTION_NOT_REVIEWED (nothing shown). Absent → empty: fail closed. */
+  reviewedReactionIds?:ReadonlySet<string>;
 }
 
 /** P2.11 — what each implemented handler IS and which authorities it may consult. The capability registry reads this
@@ -423,7 +426,10 @@ function reactInContainer(c:ContainerState,profile:TopicLabProfile,domain:LabDom
     const pair=`${reagents[i]}+${reagents[j]}`;
     const prior=c.reactions.find(r=>r.pair===pair);
     if(prior&&(prior.outcome!=='not-modeled'||prior.conditions===condKey)) continue;
-    const m=domain.matcher.match({reactants:[{formula:reagents[i]!},{formula:reagents[j]!}],conditions:{dimensions:{...dims}},conditionPolicy:'require-record-conditions'});
+    const matched=domain.matcher.match({reactants:[{formula:reagents[i]!},{formula:reagents[j]!}],conditions:{dimensions:{...dims}},conditionPolicy:'require-record-conditions'});
+    // TT 4.2.6: an unreviewed no-reaction record is never shown as "no reaction" — it stays unsupported (fail closed)
+    const m:ReactionMatchResult|{modeled:false;code:'NO_REACTION_NOT_REVIEWED'}=matched.modeled&&classifyMatch(matched)==='MODELED_NO_REACTION'&&!(domain.reviewedReactionIds??new Set()).has(matched.reaction.id)
+      ?{modeled:false,code:'NO_REACTION_NOT_REVIEWED'}:matched;
     const entry=m.modeled
       ?{pair,outcome:(classifyMatch(m)==='MODELED_NO_REACTION'?'no-reaction':'reaction') as 'reaction'|'no-reaction',reactionId:m.reaction.id,code:null,conditions:condKey}
       :{pair,outcome:'not-modeled' as const,reactionId:null,code:m.code,conditions:condKey};

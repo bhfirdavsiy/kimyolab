@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-23T05:42:49.386Z",
+  "createdAt": "2026-11-23T06:24:01.385Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -17,8 +17,8 @@
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "b5729f949f35ae5a169ef24198916e2563766efcd0954767f3b3b5d1ab5a6fe1",
-      "size": 28562
+      "checksum": "863bc84ca75d3e6796b7e83d350de2576545f20cbd3d58ad7d52f6a0e09b45ee",
+      "size": 29251
     },
     {
       "path": "app-preview/app/feature-flags.js",
@@ -137,8 +137,8 @@
     {
       "path": "app-preview/domain/chemistry/ionic-engine.js",
       "sourcePath": "public/app-preview/domain/chemistry/ionic-engine.js",
-      "checksum": "d2afe547d849c5666d873966b96773f3ab9f2bae807e8e0283f7256a0a485aee",
-      "size": 4107
+      "checksum": "7b169f51e13becc207e6e94fd9eed50e0835d7fdc0bcf73638c282194ccb0228",
+      "size": 4400
     },
     {
       "path": "app-preview/domain/chemistry/ionic-equation.js",
@@ -149,8 +149,8 @@
     {
       "path": "app-preview/domain/chemistry/ionic-mixing.js",
       "sourcePath": "public/app-preview/domain/chemistry/ionic-mixing.js",
-      "checksum": "3024a31f41b7721c358c2e908429fb08195494d96a58052556436f163ac07748",
-      "size": 9494
+      "checksum": "b5c944774843b2fd512c46b334355f2a268a9aec07b5cdb9546bac1794edb9e6",
+      "size": 10235
     },
     {
       "path": "app-preview/domain/chemistry/kb-review.js",
@@ -311,20 +311,20 @@
     {
       "path": "app-preview/domain/lab/capability-registry.js",
       "sourcePath": "public/app-preview/domain/lab/capability-registry.js",
-      "checksum": "5544ddc854b15296a3176fb4e31a82b02b41dcb19fe64321e2bce26ec85d606f",
-      "size": 13348
+      "checksum": "6e0745141c9ea3ccdd5eb17c42f9f00d826f897ecc4daf215650be4ca7c743e8",
+      "size": 14062
     },
     {
       "path": "app-preview/domain/lab/lab-domain.js",
       "sourcePath": "public/app-preview/domain/lab/lab-domain.js",
-      "checksum": "505b3039da93b9f5c05610169e132b0ca03b0c5c37b017925860170e7db8975d",
-      "size": 1558
+      "checksum": "3b842067e7cbdbc210fc451ec8c02fb783ac08f14e4be79b7cedf0d221878ebe",
+      "size": 1885
     },
     {
       "path": "app-preview/domain/lab/lab-runtime.js",
       "sourcePath": "public/app-preview/domain/lab/lab-runtime.js",
-      "checksum": "dd72966c335084cf61e95b0fa3d71dacf175a66b7b5167f14aeb9260405b4a3e",
-      "size": 55819
+      "checksum": "814e1b02b5fe3e6d3e05147807ab7ea9ac44ce213cd97c404950d3c10917f9ab",
+      "size": 56521
     },
     {
       "path": "app-preview/domain/lab/topic-lab-profile.js",
@@ -539,8 +539,8 @@
     {
       "path": "app-preview/features/practice/model.js",
       "sourcePath": "public/app-preview/features/practice/model.js",
-      "checksum": "7dca7ca3b6fcf05067900e7f554e8e474a2e4aea998d46fe6c4dd677986bbcc1",
-      "size": 4963
+      "checksum": "07544d96186634a0767610f5caae48c95c99f4c905ff212863fcc0d6125749b4",
+      "size": 5330
     },
     {
       "path": "app-preview/features/practice/render.js",
@@ -1247,8 +1247,8 @@
     {
       "path": "content/2026.09.1/chemistry/reactions.json",
       "sourcePath": "public/content/2026.09.1/chemistry/reactions.json",
-      "checksum": "f8a29aecc6e05c6de9775d9f4020bcc987affdd33e5e84d2a938013bab460025",
-      "size": 34678
+      "checksum": "20dba53434577b3d06ff64adb4f502e9d642c61d1445faa9f7158fae5365d671",
+      "size": 35493
     },
     {
       "path": "content/2026.09.1/chemistry/school-lab-models.json",
@@ -1289,8 +1289,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "4c532bc0075af9b173a665607709bafab22bc3520641668c7751e3eccf969a61",
-      "size": 83080
+      "checksum": "dea69f532a34d54d819986e40278b88faebc69867e768f6f10d9040ad35aeb5b",
+      "size": 83527
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1343,8 +1343,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "24888b1e568861fd2be223c4b329666db8a998b4acb83ce1b8bab0804819d048",
-      "size": 46083
+      "checksum": "2ef058ca9ee4f6af445e29f70b3a1796ec7c74f6a26cf28dd2aa9b2003b52090",
+      "size": 46270
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1355,7 +1355,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "6237cc28733ebf0acf6878da346731fd0a0890ce508252b1cb260c19eb5c09b2",
+      "checksum": "9cb4affc41c54364b9327967cba8b38497e8382a044abacc3786ddecc00b32f4",
       "size": 8343
     },
     {
@@ -1367,8 +1367,8 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "f1539b7674baad9d5102e61354c2671f38e2660e03fca9fd14236e2936e0e91c",
-      "size": 127363
+      "checksum": "68ae98529c8186543a20f51f3a8a5ff688a7ccf724ef82866dd832e3dd52e1c0",
+      "size": 127688
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
@@ -1391,13 +1391,13 @@
     {
       "path": "content/2026.09.1/topic-lab-profiles.json",
       "sourcePath": "public/content/2026.09.1/topic-lab-profiles.json",
-      "checksum": "5f2d6c8bf80d27057ecdaa83932927b142b7d6916374e0170fb161d7a5c7db48",
-      "size": 66410
+      "checksum": "71ff3143060852c730c80f296959e5cc264ff043d2a4657ac3f34b789c855420",
+      "size": 66435
     },
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "2028d6b3bee11b7770b206a8bc87cf01826a29366b5ac0b9fd058e29871e7817",
+      "checksum": "bd84da27abdc7f352300a7b4462ae1a202f7f64c781944eed2c33d63fcd3d19a",
       "size": 158
     },
     {

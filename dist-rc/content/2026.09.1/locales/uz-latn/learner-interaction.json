@@ -407,6 +407,7 @@
     "ui.dlab-reason-NO_OBSERVED_REACTION": "Avval shu idishda reaksiya kuzatilishi kerak.",
     "ui.dlab-reason-MIXTURE_OF_MORE_THAN_TWO_SOLUTIONS_NOT_MODELED": "Uch va undan ortiq eritma aralashmasi modellashtirilmagan.",
     "ui.dlab-reason-REACTION_NOT_MODELED": "Bu juftlik uchun reaksiya yozuvi yo‘q.",
+    "ui.dlab-reason-NO_REACTION_NOT_REVIEWED": "Bu juftlik uchun “reaksiya bormaydi” yozuvi bor, lekin uni kimyo eksperti hali tasdiqlamagan, shuning uchun natija ko‘rsatilmaydi.",
     "ui.dlab-reason-NO_PROCESS_YET": "Tok ulanmagan: elektrodlarda jarayon bo‘lmayapti.",
     "ui.dlab-reason-NOTHING_TO_OBSERVE_YET": "Bu kuzatuvni hosil qiladigan amal hali bajarilmagan.",
     "ui.dlab-reason-EQUATION_SYNTAX": "Tenglama yozilishi noto‘g‘ri.",

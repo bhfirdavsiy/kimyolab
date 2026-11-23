@@ -1,9 +1,9 @@
 {
   "schema": "kimyolab.chemistry-kb-coverage.v1",
   "assertions": {
-    "total": 171,
+    "total": 174,
     "approved": 0,
-    "pending": 171,
+    "pending": 174,
     "stale": 0,
     "rejected": 0,
     "missingSources": 30,
@@ -16,23 +16,23 @@
         "rejected": 0
       },
       "no-reaction": {
-        "total": 0,
+        "total": 1,
         "approved": 0,
-        "pending": 0,
+        "pending": 1,
         "stale": 0,
         "rejected": 0
       },
       "condition": {
-        "total": 31,
+        "total": 32,
         "approved": 0,
-        "pending": 31,
+        "pending": 32,
         "stale": 0,
         "rejected": 0
       },
       "observation": {
-        "total": 41,
+        "total": 42,
         "approved": 0,
-        "pending": 41,
+        "pending": 42,
         "stale": 0,
         "rejected": 0
       },
@@ -74,11 +74,11 @@
     }
   },
   "reactions": {
-    "total": 41,
+    "total": 42,
     "modeledReactions": 41,
-    "modeledNoReaction": 0,
-    "conditionDependent": 21,
-    "notReviewed": 41,
+    "modeledNoReaction": 1,
+    "conditionDependent": 22,
+    "notReviewed": 42,
     "netIonicDerivable": 5,
     "observationReviewRequired": [
       "rxn.h2-combustion",
@@ -193,6 +193,6 @@
   "gate": {
     "status": "PENDING",
     "fail": 0,
-    "pending": 341
+    "pending": 343
   }
 }

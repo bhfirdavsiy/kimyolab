@@ -23,6 +23,8 @@ export class IonicEngine{
   /** Can the net ionic equation of this reaction be derived from data alone? Lists what is missing if not. */
   support(reactionId:string):{supported:true}|{supported:false;unsupported:string[]}{
     const r=this.#reactions.get(reactionId);if(!r)return {supported:false,unsupported:[`reaction:${reactionId}`]};
+    // TT 4.2.6: an explicit no-reaction record has no products, so there is no net ionic equation to derive
+    if(r.reactionType==='no-reaction')return {supported:false,unsupported:['NO_REACTION']};
     const unsupported=[...r.reactants,...r.products].filter(x=>!this.#determined(x.formula,x.phase)).map(x=>x.formula);
     return unsupported.length?{supported:false,unsupported:[...new Set(unsupported)]}:{supported:true};
   }
@@ -45,6 +47,7 @@ export class IonicEngine{
   }
   netIonicEquation(reactionId:string){
     const r=this.#reactions.get(reactionId);if(!r)throw new Error('REACTION_NOT_MODELED');
+    if(r.reactionType==='no-reaction')throw new Error('NET_IONIC_UNSUPPORTED:NO_REACTION');
     const rf=r.reactants.map(x=>x.formula),pf=r.products.map(x=>x.formula);
     const bal=balanceSpecies(rf,pf);
     const left=this.#expand(rf,bal.reactantCoefficients,r.reactants),right=this.#expand(pf,bal.productCoefficients,r.products);

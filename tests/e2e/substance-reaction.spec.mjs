@@ -100,7 +100,14 @@ for (const name of ['portal', 'standalone']) {
     await hosts[name].open(page, `/reactions${FF.replace('?', '?r=c&r=o2&c=ignition:present&c=oxygen-supply:excess&')}`);
     await expect(res).toHaveAttribute('data-outcome', 'MODELED_REACTION');
     await expect(res.locator('[data-field=equation]')).toContainText('CO2');
-    await hosts[name].open(page, `/reactions${FF.replace('?', '?r=cu&r=hcl&')}`);
+    // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl) is an UNREVIEWED explicit no-reaction record, so
+    // Cu + HCl is no longer an unknown pair: without the stated condition it is CONDITION_REQUIRED, with it the explorer
+    // says only that the record is not yet reviewed (never "they do not react"). NaCl + KNO3 is the unknown pair now.
+    await hosts[name].open(page, `/reactions${FF.replace('?', '?r=cu&r=hcl&c=acid-concentration:dilute&')}`);
+    await expect(res).toHaveAttribute('data-outcome', 'NO_REACTION_NOT_REVIEWED');
+    await expect(res.locator('[data-explorer-no-reaction-unreviewed]')).toBeVisible();
+    await expect(res.locator('[data-explorer-no-reaction]')).toHaveCount(0);
+    await hosts[name].open(page, `/reactions${FF.replace('?', '?r=nacl&r=kno3&')}`);
     await expect(res).toHaveAttribute('data-outcome', 'NOT_MODELED');
     await expect(res.locator('[data-explorer-not-modeled]')).toHaveText(NOT_MODELED);
     await expect(res).toContainText('“reaksiya bormaydi” degani emas');
