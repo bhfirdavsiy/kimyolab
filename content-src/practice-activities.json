@@ -921,12 +921,14 @@
     "version": "2026.09.1",
     "legacyContent": {
       "equipment": "Probirkalar, shtativ, gaz yig‘ish vositasi, gugurt.",
-      "materials": "Mg, Zn, Cu; suyultirilgan H2SO4 va HCl.",
+      "materials": "Mg, Zn, Fe, Cu; suyultirilgan H2SO4 va HCl.",
       "safety": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin.",
       "steps": [
         "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
         "Rux granulalari ustiga HCl quying. Reaksiyani kuzating, zarur bo‘lsa biroz qizdiring, gazni yig‘ing va tekshiring.",
         "Mis qirindilari ustiga suyultirilgan HCl quying. Qizdirilganda ham sezilarli o‘zgarish bo‘lmasligini kuzating.",
+        "Magniy bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+        "Temir bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
         "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang."
       ],
       "tasks": [

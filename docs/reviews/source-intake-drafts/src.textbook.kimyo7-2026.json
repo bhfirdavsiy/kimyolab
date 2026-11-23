@@ -1,0 +1,25 @@
+{
+  "schema": "kimyolab.source-intake.v1",
+  "category": "TEXTBOOK",
+  "authority": "“Novda Edutainment”, Toshkent",
+  "edition": "O‘zbek tiliga tarjima qilingan nashr",
+  "year": 2026,
+  "language": "uz-Latn",
+  "license": "Ta’lim maqsadida, notijorat foydalanish. Loyiha egasining 2026-11-21 dagi bayonoti: «KimyoLab darslikdan common huquqi asosida foydalanadi, hech qanday tijoriylik yo‘q».",
+  "effectiveDate": "2026-09-02",
+  "locator": {
+    "kind": "page"
+  },
+  "submittedBy": "bhfirdavsiy",
+  "status": "ready-for-review",
+  "reviews": [],
+  "sourceId": "src.textbook.kimyo7-2026",
+  "title": "Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+  "bibliographic": {
+    "authors": [
+      "Jasvinder Randhava",
+      "Natasha Mehta"
+    ],
+    "isbn": "978-9910-672-78-1"
+  }
+}

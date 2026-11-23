@@ -1651,7 +1651,7 @@
       },
       "governance": {
         "chemistryDependencies": {
-          "total": 27,
+          "total": 33,
           "approved": 0
         },
         "assessmentReviews": {
@@ -2184,7 +2184,7 @@
       },
       "governance": {
         "chemistryDependencies": {
-          "total": 23,
+          "total": 29,
           "approved": 0
         },
         "assessmentReviews": {
@@ -15294,10 +15294,10 @@
       "content": "REVIEW_PENDING",
       "depth": "GUIDED",
       "interaction": "SCRIPTED",
-      "reason": "prescribed 4-step sequence grounded in domain state (CHEMISTRY_BASELINED_REACTION); learner makes no chemical choice",
+      "reason": "prescribed 6-step sequence grounded in domain state (CHEMISTRY_BASELINED_REACTION); learner makes no chemical choice",
       "classifiedDepth": "GUIDED",
       "canSucceed": "CAN_SUCCEED",
-      "canSucceedDetail": "experiment: 4 command(s); complete=true",
+      "canSucceedDetail": "experiment: 6 command(s); complete=true",
       "answerSource": "config",
       "wrongInput": "NOT_APPLICABLE",
       "expectsUntranslatedToken": null,
@@ -15305,7 +15305,7 @@
         "reaction-matcher"
       ],
       "blackSwan": null,
-      "steps": 4,
+      "steps": 6,
       "renderer": {
         "kind": "legacy",
         "capability": null,

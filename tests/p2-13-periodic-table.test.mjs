@@ -310,5 +310,6 @@ test('closeout 10–13: the repository state fabricates nothing; identity, e-con
   const rel=JSON.parse(periodicOutputs(root)[PERIODIC_REPORTS.relationships]);
   // TT 4.2 expert review (2026-11-04): three reaction records were removed, so formula-derived element ↔ reaction links 261 → 251
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): formula-derived links 251 → 328; Hg now has a substance (19 → 20)
-  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[328,154,20,16]);
+  // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + HCl and Fe + HCl steps: iron now appears in a lab (labs 16 → 17, explicit links 154 → 157)
+  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[328,157,20,17]);
 });

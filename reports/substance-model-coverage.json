@@ -3,9 +3,9 @@
   "phase": "P2.11",
   "semantics": "instruction substance → canonical species → supporting authority. Only formulas written in the materials text are resolved; an Uzbek name stays NAME_NOT_RESOLVED until content maps it. KNOWN_TO_OTHER_AUTHORITY means the species exists in some authority but not in the one the experiment is bound to (e.g. 9.10: KI is in a ReactionMatcher record, but ElectrolysisModel has no KI record) — it stays a blocker.",
   "summary": {
-    "materialItems": 154,
+    "materialItems": 155,
     "byStatus": {
-      "COVERED_BY_BOUND_AUTHORITY": 33,
+      "COVERED_BY_BOUND_AUTHORITY": 34,
       "KNOWN_TO_OTHER_AUTHORITY": 19,
       "NAME_NOT_RESOLVED": 96,
       "UNKNOWN_SUBSTANCE": 6
@@ -507,6 +507,15 @@
           "status": "COVERED_BY_BOUND_AUTHORITY"
         },
         {
+          "text": "Fe",
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
           "text": "Cu",
           "formula": "Cu",
           "speciesId": "species.cu",
@@ -557,6 +566,15 @@
           "source": "legacyContent.materials (\"Zn\") + legacyContent.steps[1] (\"Rux granulalari\")"
         },
         {
+          "id": "fe",
+          "speciesId": "species.fe",
+          "formula": "Fe",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"Fe\") + legacyContent.steps[4] (\"Temir bo‘laklari\")"
+        },
+        {
           "id": "cu",
           "speciesId": "species.cu",
           "formula": "Cu",
@@ -584,7 +602,7 @@
             "ReactionMatcher",
             "IonicEngine"
           ],
-          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2]"
+          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2], legacyContent.steps[3], legacyContent.steps[4]"
         }
       ]
     },

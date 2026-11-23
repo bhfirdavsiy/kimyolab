@@ -43,8 +43,8 @@
   "relations": {
     "withElements": 93,
     "withReactions": 63,
-    "withLabs": 37,
-    "withTopics": 37
+    "withLabs": 40,
+    "withTopics": 40
   },
   "notes": {
     "molarMass": "computed only from atomic masses a human reviewed against an eligible source (P2.13 Element Hub: 0 reviewed); legacy masses are never read, nothing is rounded",

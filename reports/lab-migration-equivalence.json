@@ -232,8 +232,8 @@
           "evidence": "runs both"
         },
         "observations": {
-          "status": "EQUIVALENT",
-          "detail": "the record observation for each completion reaction: rxn.mg-h2so4 equal, rxn.zn-hcl equal",
+          "status": "DIFFERENT",
+          "detail": "the record observation for each completion reaction: rxn.mg-h2so4 equal, rxn.zn-hcl equal, rxn.mg-hcl differs, rxn.fe-hcl differs",
           "evidence": "runs both"
         },
         "safety": {
@@ -243,7 +243,7 @@
         },
         "completion": {
           "status": "DIFFERENT",
-          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true), and that is PARTIAL_INSTRUCTION: 4 instruction operation(s) are not offered",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=false), and that is PARTIAL_INSTRUCTION: 4 instruction operation(s) are not offered",
           "evidence": "runs both"
         },
         "evidence": {
@@ -286,6 +286,24 @@
             "descriptionKey": "rxn.zn-hcl.observation"
           },
           "equal": true
+        },
+        {
+          "reactionId": "rxn.mg-hcl",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.mg-hcl.observation"
+          },
+          "new": null,
+          "equal": false
+        },
+        {
+          "reactionId": "rxn.fe-hcl",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.fe-hcl.observation"
+          },
+          "new": null,
+          "equal": false
         }
       ],
       "newOnly": {
@@ -298,6 +316,7 @@
       "blockingDimensions": [
         "instruction",
         "chemistryResult",
+        "observations",
         "completion",
         "evidence",
         "accessibility"

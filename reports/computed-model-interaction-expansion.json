@@ -251,13 +251,13 @@
       "learnerModuleBytes": 956436,
       "rendererModules": 13,
       "rendererBytes": 71591,
-      "standaloneBytes": 6305104
+      "standaloneBytes": 6313348
     },
     "delta": {
       "learnerModules": 20,
       "learnerModuleBytes": 290663,
       "rendererBytes": 19849,
-      "standaloneBytes": 658791
+      "standaloneBytes": 667035
     },
     "dependencies": "none added (DOM + CSS only; no canvas/WebGL/chart library)"
   },

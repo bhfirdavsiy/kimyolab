@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "10bf625d5bf3566e21e3f205874ad0dada44d2c1bf5baa68c8a8f6d9735e1066",
+  "checksum": "d4dbea28ad9fe255435dd27c8ef990facf83b7085ea24634d36afa3fefcca6b1",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -50,8 +50,8 @@
     },
     {
       "path": "activity-configs/guided-labs.json",
-      "checksum": "f48f98e2ed9e75b0040fe48e0f774d95e14a76f46e1d236e3b9fe78c99f2d919",
-      "size": 63978
+      "checksum": "0f4b6660c63e57bd3fc37cd564752dcd6c7a6b52f41a0aa66b9314e5e3768f90",
+      "size": 65175
     },
     {
       "path": "activity-configs/reference-slices.json",
@@ -110,8 +110,8 @@
     },
     {
       "path": "chemistry/guided-step-reaction-map.json",
-      "checksum": "cd96ebff6e726d8fddab353693b58cb80d5d9d982290a602dc83813343070a3a",
-      "size": 906
+      "checksum": "148536054f00433e0f581f943b80c3a3fecd355daffd6178a199fcee4dc800db",
+      "size": 952
     },
     {
       "path": "chemistry/hydrolysis.json",
@@ -175,8 +175,8 @@
     },
     {
       "path": "knowledge/chemistry-knowledge.json",
-      "checksum": "3b250adf4bb0ed58410860e7a0d5c6f8bbbe5d40121059126fb27148e0955bc1",
-      "size": 82176
+      "checksum": "4c532bc0075af9b173a665607709bafab22bc3520641668c7751e3eccf969a61",
+      "size": 83080
     },
     {
       "path": "learning-cycle.json",
@@ -220,8 +220,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "28ce1d1d0d539afc16b65f2c332487e2f88ff4fec3013a8ab76bb1a94755d70a",
-      "size": 45954
+      "checksum": "24888b1e568861fd2be223c4b329666db8a998b4acb83ce1b8bab0804819d048",
+      "size": 46083
     },
     {
       "path": "locales/uz-latn/name-provenance.json",
@@ -235,13 +235,13 @@
     },
     {
       "path": "periodic/element-hub.json",
-      "checksum": "cd7c17a7d55601b23d71e91593ed7066a8e05262a38b5c8f66a63932b7ab1959",
-      "size": 126966
+      "checksum": "f1539b7674baad9d5102e61354c2671f38e2660e03fca9fd14236e2936e0e91c",
+      "size": 127363
     },
     {
       "path": "practice-activities.json",
-      "checksum": "6d69e2c2cb8ee454b8f022ad1ed1a4aba9f6ad080f654383df69f4bbfca3b5a4",
-      "size": 311097
+      "checksum": "629c9a4d25dc31904a4a3236fde0afba1e72740d8e493a1ba30fbb7fe2f1031a",
+      "size": 311342
     },
     {
       "path": "theory-activities.json",
@@ -255,8 +255,8 @@
     },
     {
       "path": "topic-lab-profiles.json",
-      "checksum": "c5812b386c0c71bae071ab800a9d4e2859d5b54659cef1ac004a3fe00a5cf0dc",
-      "size": 61882
+      "checksum": "5f2d6c8bf80d27057ecdaa83932927b142b7d6916374e0170fb161d7a5c7db48",
+      "size": 66410
     }
   ]
 }

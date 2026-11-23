@@ -566,7 +566,9 @@
       "groundedSteps": [
         0,
         1,
-        2
+        2,
+        3,
+        4
       ],
       "apparatus": [
         {
@@ -591,6 +593,20 @@
           "isContainer": true
         },
         {
+          "id": "tube-4",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-4",
+          "source": "mashq daftari 5.2-amaliy ish (49–50-betlar): metallar alohida probirkalarda",
+          "isContainer": true
+        },
+        {
+          "id": "tube-5",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-5",
+          "source": "mashq daftari 5.2-amaliy ish (49–50-betlar): metallar alohida probirkalarda",
+          "isContainer": true
+        },
+        {
           "id": "gas-collector",
           "kind": "gas-collection-vessel",
           "labelKey": "ui.dlab-app-gas-collector",
@@ -612,6 +628,13 @@
           "labelKey": "ui.dlab-sub-zn",
           "role": "reagent",
           "source": "legacyContent.materials (\"Zn\") + legacyContent.steps[1] (\"Rux granulalari\")"
+        },
+        {
+          "id": "fe",
+          "speciesId": "species.fe",
+          "labelKey": "ui.dlab-sub-fe",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"Fe\") + legacyContent.steps[4] (\"Temir bo‘laklari\")"
         },
         {
           "id": "cu",
@@ -639,7 +662,7 @@
           "speciesId": "species.hcl",
           "labelKey": "ui.dlab-sub-hcl-dilute",
           "role": "reagent",
-          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2]",
+          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2], legacyContent.steps[3], legacyContent.steps[4]",
           "declaredConditions": [
             {
               "dimension": "acid-concentration",
@@ -654,6 +677,8 @@
           "tube-1",
           "tube-2",
           "tube-3",
+          "tube-4",
+          "tube-5",
           "gas-collector"
         ],
         "contents": {}
@@ -672,7 +697,7 @@
       },
       "procedure": {
         "mode": "FLEXIBLE",
-        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). The three metal–acid trials are independent; only state preconditions apply.",
+        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). The five metal–acid trials are independent; only state preconditions apply.",
         "steps": [
           {
             "id": "add-mg",
@@ -766,6 +791,50 @@
             "instructionStep": 2,
             "source": "legacyContent.steps[2]",
             "trial": "cu-hcl"
+          },
+          {
+            "id": "add-mg-hcl",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "mg"
+            },
+            "required": true,
+            "instructionStep": 3,
+            "source": "legacyContent.steps[3]",
+            "trial": "mg-hcl"
+          },
+          {
+            "id": "add-hcl-mg",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-dilute"
+            },
+            "required": true,
+            "instructionStep": 3,
+            "source": "legacyContent.steps[3]",
+            "trial": "mg-hcl"
+          },
+          {
+            "id": "add-fe",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "fe"
+            },
+            "required": true,
+            "instructionStep": 4,
+            "source": "legacyContent.steps[4]",
+            "trial": "fe-hcl"
+          },
+          {
+            "id": "add-hcl-fe",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "hcl-dilute"
+            },
+            "required": true,
+            "instructionStep": 4,
+            "source": "legacyContent.steps[4]",
+            "trial": "fe-hcl"
           }
         ],
         "trials": [
@@ -820,6 +889,40 @@
             ],
             "source": "legacyContent.steps[2] (\"Mis qirindilari ustiga suyultirilgan HCl quying\"; the step states no heating operation — \"Qizdirilganda ham\" is not an imperative)",
             "reactionIds": []
+          },
+          {
+            "id": "mg-hcl",
+            "instructionSteps": [
+              3
+            ],
+            "substances": [
+              "mg",
+              "hcl-dilute"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[3] (\"Magniy bo‘laklari ustiga suyultirilgan HCl quying …\"; mashq daftari 5.2-amaliy ish (49–50-betlar): metallar alohida probirkalarda)",
+            "reactionIds": [
+              "rxn.mg-hcl"
+            ]
+          },
+          {
+            "id": "fe-hcl",
+            "instructionSteps": [
+              4
+            ],
+            "substances": [
+              "fe",
+              "hcl-dilute"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[4] (\"Temir bo‘laklari ustiga suyultirilgan HCl quying …\"; mashq daftari 5.2-amaliy ish (49–50-betlar): metallar alohida probirkalarda)",
+            "reactionIds": [
+              "rxn.fe-hcl"
+            ]
           }
         ]
       },
@@ -837,7 +940,9 @@
         "kind": "reactions",
         "reactionIds": [
           "rxn.mg-h2so4",
-          "rxn.zn-hcl"
+          "rxn.zn-hcl",
+          "rxn.mg-hcl",
+          "rxn.fe-hcl"
         ],
         "gasCollected": true
       },
@@ -868,11 +973,11 @@
         },
         {
           "code": "RECORD_CHECKER_MISSING",
-          "detail": "Step 4 (\"faollik qatori bilan izohlang\") is a learner response with no checker; it is not offered."
+          "detail": "Step 6 (\"faollik qatori bilan izohlang\") is a learner response with no checker; it is not offered."
         },
         {
           "code": "HEAT_SOURCE_NOT_NAMED",
-          "detail": "The equipment lists no burner. Heating comes only from the instruction verb, and its level from \"biroz qizdiring\" (gently-heated). Heating is in scope only for the Zn + HCl trial (step 2); the Cu + HCl trial states no heating operation, so HEAT there is ACTION_NOT_IN_INSTRUCTION_SCOPE."
+          "detail": "The equipment lists no burner. Heating comes only from the instruction verb, and its level from \"biroz qizdiring\" (gently-heated). Heating is in scope only for the Zn + HCl trial (step 2); the Cu + HCl, Mg + HCl and Fe + HCl trials state no heating operation, so HEAT there is ACTION_NOT_IN_INSTRUCTION_SCOPE."
         },
         {
           "code": "APPARATUS_WITHOUT_OPERATION",

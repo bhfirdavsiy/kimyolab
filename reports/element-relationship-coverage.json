@@ -6,8 +6,8 @@
   "elementsWith": {
     "substances": 20,
     "reactions": 18,
-    "labs": 16,
-    "topics": 16,
+    "labs": 17,
+    "topics": 17,
     "reviewedPrimary": 0
   },
   "totals": {
@@ -17,7 +17,7 @@
     "topics": 14
   },
   "formulaDerived": 328,
-  "explicit": 154,
+  "explicit": 157,
   "authoredReviewedShown": 0,
   "authoredClaims": {
     "total": 0,
@@ -26,10 +26,10 @@
     "contract": "targetType ∈ SUBSTANCE | REACTION | TOPIC | LAB, targetId exists in that canonical registry, registry source ids; reviewed on the exact hash (chemistry role: substance / reaction; didactic role: topic / lab)"
   },
   "byKindAndProvenance": {
-    "labs:PARTICIPATES:EXPLICIT_MAPPING": 68,
+    "labs:PARTICIPATES:EXPLICIT_MAPPING": 69,
     "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 136,
     "substances:PARTICIPATES:DERIVED_FROM_FORMULA": 192,
-    "topics:PARTICIPATES:EXPLICIT_MAPPING": 86
+    "topics:PARTICIPATES:EXPLICIT_MAPPING": 88
   },
   "gradesCovered": [
     7,
@@ -275,8 +275,13 @@
       "symbol": "Fe",
       "substances": 4,
       "reactions": 3,
-      "labs": [],
-      "topics": []
+      "labs": [
+        "practice.experiment.7.10"
+      ],
+      "topics": [
+        "lu.7.15",
+        "lu.7.20"
+      ]
     },
     {
       "symbol": "Cu",

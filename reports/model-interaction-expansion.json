@@ -238,6 +238,13 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
         }
       ]
     },
@@ -701,7 +708,9 @@
       "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
       "ownReactionRecords": [
         "rxn.mg-h2so4",
-        "rxn.zn-hcl"
+        "rxn.zn-hcl",
+        "rxn.mg-hcl",
+        "rxn.fe-hcl"
       ],
       "availableModeledInputs": [
         "species.h2so4",
@@ -719,6 +728,12 @@
           "from": "reaction record rxn.zn-hcl",
           "reason": "NO_DISSOCIATION_RULE",
           "speciesId": "species.zn"
+        },
+        {
+          "formula": "Fe",
+          "from": "reaction record rxn.fe-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
         },
         {
           "formula": "Al",
@@ -750,7 +765,9 @@
       "targetReactionId": null,
       "ownRecordsUnreachableInMixingModel": [
         "rxn.mg-h2so4",
-        "rxn.zn-hcl"
+        "rxn.zn-hcl",
+        "rxn.mg-hcl",
+        "rxn.fe-hcl"
       ],
       "governanceBlockers": [
         "chemistry review of the reaction records (human, pending)",
@@ -779,6 +796,13 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
           ]
         }
       ],

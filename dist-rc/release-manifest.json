@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-23T05:18:18.131Z",
+  "createdAt": "2026-11-23T05:42:49.386Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -1139,8 +1139,8 @@
     {
       "path": "content/2026.09.1/activity-configs/guided-labs.json",
       "sourcePath": "public/content/2026.09.1/activity-configs/guided-labs.json",
-      "checksum": "f48f98e2ed9e75b0040fe48e0f774d95e14a76f46e1d236e3b9fe78c99f2d919",
-      "size": 63978
+      "checksum": "0f4b6660c63e57bd3fc37cd564752dcd6c7a6b52f41a0aa66b9314e5e3768f90",
+      "size": 65175
     },
     {
       "path": "content/2026.09.1/activity-configs/reference-slices.json",
@@ -1211,8 +1211,8 @@
     {
       "path": "content/2026.09.1/chemistry/guided-step-reaction-map.json",
       "sourcePath": "public/content/2026.09.1/chemistry/guided-step-reaction-map.json",
-      "checksum": "cd96ebff6e726d8fddab353693b58cb80d5d9d982290a602dc83813343070a3a",
-      "size": 906
+      "checksum": "148536054f00433e0f581f943b80c3a3fecd355daffd6178a199fcee4dc800db",
+      "size": 952
     },
     {
       "path": "content/2026.09.1/chemistry/hydrolysis.json",
@@ -1289,8 +1289,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "3b250adf4bb0ed58410860e7a0d5c6f8bbbe5d40121059126fb27148e0955bc1",
-      "size": 82176
+      "checksum": "4c532bc0075af9b173a665607709bafab22bc3520641668c7751e3eccf969a61",
+      "size": 83080
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1343,8 +1343,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "28ce1d1d0d539afc16b65f2c332487e2f88ff4fec3013a8ab76bb1a94755d70a",
-      "size": 45954
+      "checksum": "24888b1e568861fd2be223c4b329666db8a998b4acb83ce1b8bab0804819d048",
+      "size": 46083
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1355,7 +1355,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "a10db67d64ff0357f15b60b18ed3ab0dff04772d2e31b1cd57f61e0833be91e1",
+      "checksum": "6237cc28733ebf0acf6878da346731fd0a0890ce508252b1cb260c19eb5c09b2",
       "size": 8343
     },
     {
@@ -1367,14 +1367,14 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "cd7c17a7d55601b23d71e91593ed7066a8e05262a38b5c8f66a63932b7ab1959",
-      "size": 126966
+      "checksum": "f1539b7674baad9d5102e61354c2671f38e2660e03fca9fd14236e2936e0e91c",
+      "size": 127363
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
       "sourcePath": "public/content/2026.09.1/practice-activities.json",
-      "checksum": "6d69e2c2cb8ee454b8f022ad1ed1a4aba9f6ad080f654383df69f4bbfca3b5a4",
-      "size": 311097
+      "checksum": "629c9a4d25dc31904a4a3236fde0afba1e72740d8e493a1ba30fbb7fe2f1031a",
+      "size": 311342
     },
     {
       "path": "content/2026.09.1/theory-activities.json",
@@ -1391,13 +1391,13 @@
     {
       "path": "content/2026.09.1/topic-lab-profiles.json",
       "sourcePath": "public/content/2026.09.1/topic-lab-profiles.json",
-      "checksum": "c5812b386c0c71bae071ab800a9d4e2859d5b54659cef1ac004a3fe00a5cf0dc",
-      "size": 61882
+      "checksum": "5f2d6c8bf80d27057ecdaa83932927b142b7d6916374e0170fb161d7a5c7db48",
+      "size": 66410
     },
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "9bad7cf72a64feeefdfc69dd6f50660cdbb00ce1a6d5714658173be8d1fc87a9",
+      "checksum": "2028d6b3bee11b7770b206a8bc87cf01826a29366b5ac0b9fd058e29871e7817",
       "size": 158
     },
     {

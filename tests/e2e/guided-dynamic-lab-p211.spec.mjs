@@ -43,6 +43,15 @@ for (const name of ['portal', 'standalone']) {
     await expect(list(page).locator('[data-action-family=COLLECT_GAS][data-action-from=tube-1]')).toContainText('qayerdan: 1-probirka');
     await list(page).locator('[data-action-family=COLLECT_GAS][data-action-from=tube-1]').click();
     await expect(result(page)).toContainText('H2 gazi yig‘ildi (manba: 1-probirka)');
+    // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are trials of the instruction: the lab is not complete before them
+    await expect(page.locator(`${LAB}[data-complete=true]`)).toHaveCount(0);
+    await addTo(page, 'mg', 'tube-4'); await addTo(page, 'hcl-dilute', 'tube-4');
+    await expect(result(page)).toHaveAttribute('data-status', 'accepted');
+    await addTo(page, 'fe', 'tube-5'); await addTo(page, 'hcl-dilute', 'tube-5');
+    await expect(result(page)).toHaveAttribute('data-status', 'accepted');
+    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toHaveCount(4);
+    await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.mg-hcl');
+    await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.fe-hcl');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
     // closeout: the profile carries only part of the instruction — never announced as the whole lab
     await expect(page.locator(`${LAB}[data-completion-scope=PARTIAL_INSTRUCTION]`)).toBeVisible();
@@ -61,11 +70,12 @@ for (const name of ['portal', 'standalone']) {
     await expect(result(page)).toHaveAttribute('data-status', 'rejected');
     await expect(result(page)).toHaveAttribute('data-code', 'ACTION_NOT_IN_INSTRUCTION_SCOPE');
     await expect(result(page)).toContainText('Yo‘riqnoma bu amalni shu tajriba uchun ko‘rsatmagan');
-    // an arbitrary pairing is refused too (Mg is not a partner of HCl in this instruction)
+    // an arbitrary pairing is refused too (Mg is not part of the Cu trial; 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are trials of the instruction only in a tube of its own)
     await addTo(page, 'mg', 'tube-3');
     await expect(result(page)).toHaveAttribute('data-code', 'ACTION_NOT_IN_INSTRUCTION_SCOPE');
     await expect(result(page)).toContainText('bir idishda birga ishlatilmaydi');
-    await expect(page.locator(`${LAB} .kl-dlab__observations li`)).toHaveCount(3);
+    // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are trials of the instruction: 4 reaction observations + 1 collected gas (was 3)
+    await expect(page.locator(`${LAB} .kl-dlab__observations li`)).toHaveCount(5);
     await expect(page.locator(`${LAB} .kl-dlab__state`)).toContainText('3-probirka');
     // learner-facing text names no engine and leaks no developer term
     expect(await page.locator(LAB).innerText()).not.toMatch(DEV_TERMS);

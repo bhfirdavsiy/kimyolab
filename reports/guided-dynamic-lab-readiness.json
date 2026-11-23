@@ -221,6 +221,32 @@
           "families": [
             "ADD_SUBSTANCE"
           ]
+        },
+        {
+          "id": "mg-hcl",
+          "instructionSteps": [
+            3
+          ],
+          "substances": [
+            "mg",
+            "hcl-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "fe-hcl",
+          "instructionSteps": [
+            4
+          ],
+          "substances": [
+            "fe",
+            "hcl-dilute"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
         }
       ],
       "completion": "reactions",
@@ -245,7 +271,7 @@
           "reason": "OBSERVATION_NOT_PRODUCED"
         },
         {
-          "instructionStep": 3,
+          "instructionStep": 5,
           "verb": "izohlang",
           "family": "EXPLAIN",
           "reason": "LEARNER_RESPONSE_NOT_OFFERED"
@@ -336,8 +362,8 @@
   },
   "counts": {
     "experimentsInventoried": 57,
-    "operations": 350,
-    "mappedOperations": 348,
+    "operations": 354,
+    "mappedOperations": 352,
     "ambiguousOperations": 2,
     "unmappedOperations": 0,
     "families": 31,
@@ -499,12 +525,12 @@
     "after": {
       "learnerModules": 178,
       "learnerModuleBytes": 956436,
-      "standaloneBytes": 6305104
+      "standaloneBytes": 6313348
     },
     "delta": {
       "learnerModules": 16,
       "learnerModuleBytes": 242432,
-      "standaloneBytes": 600835
+      "standaloneBytes": 609079
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -531,7 +557,7 @@
       "P2.14": {
         "learnerModules": 4,
         "learnerModuleBytes": 60471,
-        "standaloneBytes": 203167
+        "standaloneBytes": 211411
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file"

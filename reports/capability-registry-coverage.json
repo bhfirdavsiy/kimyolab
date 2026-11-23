@@ -27,7 +27,7 @@
       "version": "1.1.0",
       "byStatus": {
         "AMBIGUOUS": 2,
-        "AUTHORITY_AT_RUNTIME": 163,
+        "AUTHORITY_AT_RUNTIME": 167,
         "AUTHORITY_REQUIRED": 20,
         "CONTROL": 1,
         "LEARNER_RESPONSE": 72,
@@ -976,10 +976,10 @@
     }
   },
   "summary": {
-    "operations": 350,
+    "operations": 354,
     "byStatus": {
       "AMBIGUOUS": 2,
-      "AUTHORITY_AT_RUNTIME": 163,
+      "AUTHORITY_AT_RUNTIME": 167,
       "AUTHORITY_REQUIRED": 20,
       "CONTROL": 1,
       "LEARNER_RESPONSE": 72,
@@ -990,8 +990,8 @@
     },
     "authorityAtRuntimeByBasis": {
       "FORMULA_KNOWN_ONLY": 3,
-      "NO_FORMULA_IN_STEP": 136,
-      "PART_OF_RECORD": 24
+      "NO_FORMULA_IN_STEP": 138,
+      "PART_OF_RECORD": 26
     },
     "unsupportedByFamily": {
       "BRING_NEAR": 6,
@@ -1838,6 +1838,42 @@
         },
         {
           "step": 3,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+        },
+        {
+          "step": 3,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 4,
+          "verb": "quying",
+          "family": "ADD_SUBSTANCE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "PART_OF_RECORD",
+          "authority": "ReactionMatcher|IonicEngine|ElectrolysisModel",
+          "reason": "HCl is part of 9 record(s) (rxn.caco3-hcl, rxn.cuo-hcl, rxn.fe-hcl, …); the other reagent comes from the runtime state"
+        },
+        {
+          "step": 4,
+          "verb": "kuzating",
+          "family": "OBSERVE",
+          "status": "AUTHORITY_AT_RUNTIME",
+          "basis": "NO_FORMULA_IN_STEP",
+          "authority": "ReactionMatcher|ElectrolysisModel|IonicEngine",
+          "reason": "handler exists; no formula in the step, so the authority is chosen from the substances at run time (not verified here)"
+        },
+        {
+          "step": 5,
           "verb": "izohlang",
           "family": "EXPLAIN",
           "status": "LEARNER_RESPONSE",

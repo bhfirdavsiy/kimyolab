@@ -247,6 +247,44 @@
         {
           "id": "step-4",
           "actionType": "guided.step.4",
+          "label": "Magniy bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+          "reactionIds": [
+            "rxn.mg-hcl"
+          ],
+          "reactionId": "rxn.mg-hcl",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.mg-hcl.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.mg-hcl.observation"
+          }
+        },
+        {
+          "id": "step-5",
+          "actionType": "guided.step.5",
+          "label": "Temir bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+          "reactionIds": [
+            "rxn.fe-hcl"
+          ],
+          "reactionId": "rxn.fe-hcl",
+          "observations": [
+            {
+              "type": "gas",
+              "descriptionKey": "rxn.fe-hcl.observation"
+            }
+          ],
+          "observation": {
+            "type": "gas",
+            "descriptionKey": "rxn.fe-hcl.observation"
+          }
+        },
+        {
+          "id": "step-6",
+          "actionType": "guided.step.6",
           "label": "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang."
         }
       ]
@@ -259,8 +297,8 @@
     "readiness": "guided-protocol",
     "hardening": {
       "status": "chemistry-grounded-partial",
-      "groundedSteps": 3,
-      "reactionGroundedSteps": 2,
+      "groundedSteps": 5,
+      "reactionGroundedSteps": 4,
       "modelGroundedSteps": 1,
       "hybridGroundedSteps": 0
     }

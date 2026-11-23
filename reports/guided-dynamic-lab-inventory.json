@@ -5,9 +5,9 @@
   "summary": {
     "experiments": 57,
     "withInstructionSteps": 55,
-    "instructionSteps": 213,
-    "operations": 350,
-    "mapped": 348,
+    "instructionSteps": 215,
+    "operations": 354,
+    "mapped": 352,
     "ambiguous": 2,
     "unmapped": 0,
     "byRuntime": {
@@ -2145,7 +2145,7 @@
       "lifecycleStatus": "planned",
       "instructionSource": {
         "field": "legacyContent",
-        "stepCount": 4,
+        "stepCount": 6,
         "sourceRefs": [
           "src.legacy.7.10"
         ],
@@ -2165,6 +2165,7 @@
         "materials": [
           "Mg",
           "Zn",
+          "Fe",
           "Cu; suyultirilgan H2SO4 va HCl"
         ],
         "legacyReagentList": [
@@ -2250,6 +2251,38 @@
         },
         {
           "index": 3,
+          "text": "Magniy bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+          "operations": [
+            {
+              "verb": "quying",
+              "family": "ADD_SUBSTANCE",
+              "status": "MAPPED"
+            },
+            {
+              "verb": "kuzating",
+              "family": "OBSERVE",
+              "status": "MAPPED"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "text": "Temir bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+          "operations": [
+            {
+              "verb": "quying",
+              "family": "ADD_SUBSTANCE",
+              "status": "MAPPED"
+            },
+            {
+              "verb": "kuzating",
+              "family": "OBSERVE",
+              "status": "MAPPED"
+            }
+          ]
+        },
+        {
+          "index": 5,
           "text": "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang.",
           "operations": [
             {
@@ -2276,9 +2309,19 @@
             "step": "step-3",
             "type": "no-visible-change",
             "ref": null
+          },
+          {
+            "step": "step-4",
+            "type": "gas",
+            "ref": "rxn.mg-hcl.observation"
+          },
+          {
+            "step": "step-5",
+            "type": "gas",
+            "ref": "rxn.fe-hcl.observation"
           }
         ],
-        "instructionObserveOperations": 2
+        "instructionObserveOperations": 4
       },
       "safetyNotes": [
         {
@@ -2292,7 +2335,9 @@
       ],
       "grounding": {
         "reactionIds": [
+          "rxn.fe-hcl",
           "rxn.mg-h2so4",
+          "rxn.mg-hcl",
           "rxn.zn-hcl"
         ],
         "modelIds": [
@@ -2312,7 +2357,9 @@
           "guided.step.1",
           "guided.step.2",
           "guided.step.3",
-          "guided.step.4"
+          "guided.step.4",
+          "guided.step.5",
+          "guided.step.6"
         ]
       },
       "renderer": {

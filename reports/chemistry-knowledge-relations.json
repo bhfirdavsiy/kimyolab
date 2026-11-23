@@ -23,14 +23,14 @@
       "consistent": true
     },
     "substanceReaction": 148,
-    "reactionLab": 21,
-    "reactionTopic": 34,
+    "reactionLab": 23,
+    "reactionTopic": 38,
     "substanceLab": {
-      "total": 72,
-      "viaShelf": 16,
-      "viaReaction": 62
+      "total": 75,
+      "viaShelf": 17,
+      "viaReaction": 65
     },
-    "substanceTopic": 113,
+    "substanceTopic": 119,
     "primary": 0
   },
   "unresolvedParticipants": [

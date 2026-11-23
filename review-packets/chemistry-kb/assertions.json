@@ -325,7 +325,9 @@
         "src.textbook.kimyo7-2026",
         "src.workbook.kimyo7-2026"
       ],
-      "affectedActivities": [],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
       "reviewStatus": "pending",
       "currentHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
       "flags": [],
@@ -568,7 +570,9 @@
         "src.textbook.kimyo7-2026",
         "src.workbook.kimyo7-2026"
       ],
-      "affectedActivities": [],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
       "reviewStatus": "pending",
       "currentHash": "8ac809227323b91fd0a577315356ff75322ffa69a339d28635ea53d5d3df3153",
       "flags": [],
@@ -2143,7 +2147,9 @@
         "src.textbook.kimyo7-2026",
         "src.workbook.kimyo7-2026"
       ],
-      "affectedActivities": [],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
       "reviewStatus": "pending",
       "currentHash": "84e85f3adcec434f676647fe7bf461ffe0bd6a759ee0e2614f00893cf393c428",
       "flags": [],
@@ -2407,7 +2413,9 @@
         "src.textbook.kimyo7-2026",
         "src.workbook.kimyo7-2026"
       ],
-      "affectedActivities": [],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
       "reviewStatus": "pending",
       "currentHash": "d19cfcd532a6aa3680c8ec863d652818fa1bb5a735db8e0b28f22f799ba703be",
       "flags": [],
@@ -3285,7 +3293,9 @@
         "src.textbook.kimyo7-2026",
         "src.workbook.kimyo7-2026"
       ],
-      "affectedActivities": [],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
       "reviewStatus": "pending",
       "currentHash": "429e539e3ae8e5aa0c21a00d5398831c79f6e316c8865ab8b3668aa686d887c6",
       "flags": [],
@@ -3685,7 +3695,9 @@
         "src.textbook.kimyo7-2026",
         "src.workbook.kimyo7-2026"
       ],
-      "affectedActivities": [],
+      "affectedActivities": [
+        "practice.experiment.7.10"
+      ],
       "reviewStatus": "pending",
       "currentHash": "f55f4bf3ba7b26a67f95f8d2343421b44957871d70281f28faeb50a8d6f44bce",
       "flags": [],

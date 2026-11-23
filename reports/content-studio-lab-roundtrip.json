@@ -12,11 +12,11 @@
       "dimensions": {
         "operations": {
           "equal": true,
-          "detail": "11 operations"
+          "detail": "15 operations"
         },
         "trialScope": {
           "equal": true,
-          "detail": "INSTRUCTION_TRIALS, 3 trial(s)"
+          "detail": "INSTRUCTION_TRIALS, 5 trial(s)"
         },
         "capabilityResolution": {
           "equal": true,
@@ -36,7 +36,7 @@
         }
       },
       "equal": true,
-      "operations": 11,
+      "operations": 15,
       "knownGaps": [
         {
           "instructionStep": 1,
@@ -54,7 +54,7 @@
           "reason": "OBSERVATION_NOT_PRODUCED"
         },
         {
-          "instructionStep": 4,
+          "instructionStep": 6,
           "verb": "izohlang",
           "reason": "LEARNER_RESPONSE_NOT_OFFERED"
         }
