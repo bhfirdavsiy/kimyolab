@@ -36,6 +36,7 @@
     "profiled": [
       "practice.experiment.11.2",
       "practice.experiment.7.10",
+      "practice.experiment.7.11",
       "practice.experiment.7.2",
       "practice.experiment.8.1",
       "practice.experiment.8.14"
@@ -2586,8 +2587,8 @@
       },
       "externalLabs": [],
       "dynamicLab": {
-        "profiled": false,
-        "profileId": null
+        "profiled": true,
+        "profileId": "lab-profile.7.11.water-oxides"
       },
       "gaps": [
         "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",

@@ -1193,6 +1193,234 @@
           "detail": "legacyContent.safety is empty."
         }
       ]
+    },
+    {
+      "profileId": "lab-profile.7.11.water-oxides",
+      "activityId": "practice.experiment.7.11",
+      "groundedSteps": [
+        0,
+        1,
+        2
+      ],
+      "apparatus": [
+        {
+          "id": "tube-1",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-1",
+          "source": "legacyContent.equipment (\"Probirkalar\") + legacyContent.steps[0] (\"Birinchi probirkaga …\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-2",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-2",
+          "source": "legacyContent.equipment (\"Probirkalar\") + legacyContent.steps[1] (\"Ikkinchi probirkaga …\")",
+          "isContainer": true
+        },
+        {
+          "id": "tube-3",
+          "kind": "test-tube",
+          "labelKey": "ui.dlab-app-tube-3",
+          "source": "legacyContent.equipment (\"Probirkalar\") + legacyContent.steps[2] (\"Uchinchi probirkaga …\")",
+          "isContainer": true
+        }
+      ],
+      "substances": [
+        {
+          "id": "cao",
+          "speciesId": "species.cao",
+          "labelKey": "ui.dlab-sub-cao",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"CaO\") + legacyContent.steps[0]"
+        },
+        {
+          "id": "water",
+          "speciesId": "species.h2o",
+          "labelKey": "ui.dlab-sub-water",
+          "role": "reagent",
+          "source": "legacyContent.materials (\"suv\") + legacyContent.steps[0] (\"CaO va suv soling\")"
+        },
+        {
+          "id": "carbonated-water",
+          "speciesId": null,
+          "labelKey": "ui.dlab-sub-carbonated-water",
+          "role": "sample",
+          "source": "legacyContent.materials (\"mineral suv yoki CO2 li suv\") + legacyContent.steps[1] (\"gazli mineral suv quying\")"
+        },
+        {
+          "id": "distilled-water",
+          "speciesId": "species.h2o",
+          "labelKey": "ui.dlab-sub-distilled-water",
+          "role": "sample",
+          "source": "legacyContent.materials (\"distillangan suv\") + legacyContent.steps[2]"
+        }
+      ],
+      "initialState": {
+        "setUp": [
+          "tube-1",
+          "tube-2",
+          "tube-3"
+        ],
+        "contents": {}
+      },
+      "allowedFamilies": [
+        "ADD_SUBSTANCE"
+      ],
+      "limits": {
+        "quantities": []
+      },
+      "procedure": {
+        "mode": "FLEXIBLE",
+        "orderSource": "No order is declared: the config (guided-labs) runs on the generic runtime, whose order is only the array position (ORDER_FROM_ARRAY_POSITION). The three tubes are independent; only state preconditions apply.",
+        "steps": [
+          {
+            "id": "add-cao",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "cao"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "trial": "cao-water"
+          },
+          {
+            "id": "add-water",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "water"
+            },
+            "required": true,
+            "instructionStep": 0,
+            "source": "legacyContent.steps[0]",
+            "trial": "cao-water"
+          },
+          {
+            "id": "add-carbonated-water",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "carbonated-water"
+            },
+            "required": true,
+            "instructionStep": 1,
+            "source": "legacyContent.steps[1]",
+            "trial": "carbonated-water"
+          },
+          {
+            "id": "add-distilled-water",
+            "family": "ADD_SUBSTANCE",
+            "match": {
+              "substance": "distilled-water"
+            },
+            "required": true,
+            "instructionStep": 2,
+            "source": "legacyContent.steps[2]",
+            "trial": "distilled-water"
+          }
+        ],
+        "trials": [
+          {
+            "id": "cao-water",
+            "instructionSteps": [
+              0
+            ],
+            "substances": [
+              "cao",
+              "water"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[0] (\"Birinchi probirkaga CaO va suv soling …\")",
+            "reactionIds": [
+              "rxn.cao-water"
+            ]
+          },
+          {
+            "id": "carbonated-water",
+            "instructionSteps": [
+              1
+            ],
+            "substances": [
+              "carbonated-water"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[1] (\"Ikkinchi probirkaga gazli mineral suv quying\"; a ready sample — the learner mixes nothing)",
+            "reactionIds": []
+          },
+          {
+            "id": "distilled-water",
+            "instructionSteps": [
+              2
+            ],
+            "substances": [
+              "distilled-water"
+            ],
+            "families": [
+              "ADD_SUBSTANCE"
+            ],
+            "source": "legacyContent.steps[2] (\"Uchinchi probirkaga distillangan suv quying\")",
+            "reactionIds": []
+          }
+        ]
+      },
+      "observationTargets": [
+        {
+          "id": "reaction",
+          "labelKey": "ui.dlab-target-reaction",
+          "producedBy": "ReactionMatcher",
+          "source": "chemistry/reactions.json (record observations)",
+          "kind": "reaction-observation",
+          "kindSource": "the matched reaction record's observations"
+        }
+      ],
+      "completionGoal": {
+        "kind": "reactions",
+        "reactionIds": [
+          "rxn.cao-water"
+        ],
+        "gasCollected": false
+      },
+      "guidance": {
+        "levels": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "defaultLevel": 1
+      },
+      "safety": {
+        "notes": [],
+        "forbiddenFamilies": []
+      },
+      "chemistry": {
+        "authority": "reaction-matcher"
+      },
+      "gaps": [
+        {
+          "code": "OBSERVATION_TEXT_PARTIAL",
+          "detail": "Step 1 says \"oqartiruvchi suspenziya yoki ishqoriy muhit\". The record rxn.cao-water states only the temperature rise, so only that is shown; the suspension and the basic medium are not invented."
+        },
+        {
+          "code": "CARBONATED_WATER_IS_A_SAMPLE",
+          "detail": "Step 2 pours a ready sample (gazli mineral suv). It is not a species and nothing reacts in the tube; rxn.co2-water (bound by the config) describes how the sample was made, not a learner operation, so no observation is produced."
+        },
+        {
+          "code": "INDICATOR_NOT_MODELED_IN_LAB",
+          "detail": "Step 4 (indicator in all three tubes, compare colours) is covered only by the step-bound school model school.water-oxide.indicator-comparison (review pending); the lab runtime has no indicator handler, so it is not offered."
+        },
+        {
+          "code": "RECORD_CHECKER_MISSING",
+          "detail": "Step 5 (\"tenglamasini yozing … tushuntiring\") is a learner response with no checker; it is not offered."
+        },
+        {
+          "code": "SAFETY_TEXT_EMPTY",
+          "detail": "legacyContent.safety is empty."
+        }
+      ]
     }
   ]
 }

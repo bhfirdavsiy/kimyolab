@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-23T07:04:11.199Z",
+  "createdAt": "2026-11-23T07:49:20.199Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -1295,8 +1295,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "dea69f532a34d54d819986e40278b88faebc69867e768f6f10d9040ad35aeb5b",
-      "size": 83527
+      "checksum": "9b515becf2f682a938643013f3c6870d636f3159ec6a560a4e3fcdded411c8f5",
+      "size": 83579
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1349,8 +1349,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "c6735e2d25e3800ed8e5d50c00efd4ef321bba22e184a8ac3432603e8500ed6e",
-      "size": 46782
+      "checksum": "8b55bda0305e91be878807da4a5fde75e5b2300d43f2b6341d1e04fbc36d61a0",
+      "size": 46916
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1361,7 +1361,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "d872c0cb7fce7f51e43a5a17e5c2e854c17ebe540c1abae2d7bb92c70e544e56",
+      "checksum": "25d24767ffc2683c3b9eee74cd8dedc886e3a5c6d2f9fee48adf8ad58327a441",
       "size": 8343
     },
     {
@@ -1373,8 +1373,8 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "68ae98529c8186543a20f51f3a8a5ff688a7ccf724ef82866dd832e3dd52e1c0",
-      "size": 127688
+      "checksum": "72bf89d7aa79520805a160f95932a4a9bfa9e117741b07ca8a52052f251a934c",
+      "size": 127744
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
@@ -1397,13 +1397,13 @@
     {
       "path": "content/2026.09.1/topic-lab-profiles.json",
       "sourcePath": "public/content/2026.09.1/topic-lab-profiles.json",
-      "checksum": "71ff3143060852c730c80f296959e5cc264ff043d2a4657ac3f34b789c855420",
-      "size": 66435
+      "checksum": "9bc8a579a6171f9444133cb61794575894251b12512b8ec9d9462dc147496c52",
+      "size": 78067
     },
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "0bea1508744d15d891198d3c5981975b5a0e9d7db0561b687ab1d92ac9aa3595",
+      "checksum": "e8bd564f9bed65f7e88d650834446a39203236c014482921bc81f7313ff2b145",
       "size": 158
     },
     {

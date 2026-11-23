@@ -653,7 +653,42 @@
           "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
         }
       ],
-      "profileSubstances": null
+      "profileSubstances": [
+        {
+          "id": "cao",
+          "speciesId": "species.cao",
+          "formula": "CaO",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"CaO\") + legacyContent.steps[0]"
+        },
+        {
+          "id": "water",
+          "speciesId": "species.h2o",
+          "formula": "H2O",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"suv\") + legacyContent.steps[0] (\"CaO va suv soling\")"
+        },
+        {
+          "id": "carbonated-water",
+          "speciesId": null,
+          "formula": null,
+          "authorities": [],
+          "source": "legacyContent.materials (\"mineral suv yoki CO2 li suv\") + legacyContent.steps[1] (\"gazli mineral suv quying\")"
+        },
+        {
+          "id": "distilled-water",
+          "speciesId": "species.h2o",
+          "formula": "H2O",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"distillangan suv\") + legacyContent.steps[2]"
+        }
+      ]
     },
     {
       "activityId": "practice.experiment.7.12",

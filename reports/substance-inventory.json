@@ -47,7 +47,7 @@
     },
     "topicLabProfiles": {
       "file": "content-src/topic-lab-profiles.json",
-      "labsWithShelfSpecies": 5,
+      "labsWithShelfSpecies": 6,
       "role": "Substance → Lab (shelf)"
     },
     "guidedStepReactionMap": {

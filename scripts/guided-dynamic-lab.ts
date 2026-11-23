@@ -483,6 +483,7 @@ async function equivalence72(root:string,profile:TopicLabProfile){
 /** P2.11 — the new slices' scripts: the instruction's own sequence, expressed as lab actions */
 export const REACTION_SCRIPTS:Record<string,LabAction[]>={
   'practice.experiment.7.10':[{family:'ADD_SUBSTANCE',params:{substance:'mg',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'h2so4-dilute',container:'tube-1'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'zn',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-2'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'cu',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-3'}}],
+  'practice.experiment.7.11':[{family:'ADD_SUBSTANCE',params:{substance:'cao',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'water',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'carbonated-water',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'distilled-water',container:'tube-3'}}],
   'practice.experiment.8.14':[{family:'ADD_SUBSTANCE',params:{substance:'nh4cl',container:'reaction-tube'}},{family:'ADD_SUBSTANCE',params:{substance:'slaked-lime',container:'reaction-tube'}},{family:'SEAL',params:{container:'reaction-tube'}},{family:'HEAT',params:{container:'reaction-tube'}},{family:'COLLECT_GAS',params:{container:'collector-tube'}}],
 };
 

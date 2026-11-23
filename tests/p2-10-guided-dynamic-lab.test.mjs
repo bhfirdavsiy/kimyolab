@@ -69,7 +69,8 @@ test('lexicon: classification only; unknown verbs and steps without a verb are U
 
 test('profile v1: compiled profiles are valid, never chemistry truth, derived from content; violations fail closed',()=>{
   // P2.11 added two vertical slices (7.10, 8.14; tests/p2-11-capability-registry.test.mjs); the P2.10 three are unchanged
-  assert.deepEqual(profiles.map(p=>p.activityId).sort(),['practice.experiment.11.2','practice.experiment.7.10','practice.experiment.7.2','practice.experiment.8.1','practice.experiment.8.14']);
+  // Step 4 of the owner's sequence (2026-11-23): 7.11 (water + oxides) was profiled as a guided dynamic lab (5 → 6 profiles)
+  assert.deepEqual(profiles.map(p=>p.activityId).sort(),['practice.experiment.11.2','practice.experiment.7.10','practice.experiment.7.11','practice.experiment.7.2','practice.experiment.8.1','practice.experiment.8.14']);
   for(const p of profiles){ assert.deepEqual(topicLabProfileProblems(p),[]); assert.equal(p.chemistryTruth,false); assert.equal(p.guidance.revealsFinalAnswer,false); }
   // derived, not duplicated: the shelf and target come from the config, the steps from legacyContent
   const ref=json('content-src/activity-configs/reference-slices.json');
@@ -270,7 +271,8 @@ test('closeout coverage: learner responses are never handler blockers; physical 
   assert.deepEqual(cov.rows.find(r=>r.activityId==='practice.experiment.9.10').blockers.map(b=>b.code),['INSTRUCTION_SUBSTANCE_NOT_MODELED:KI']);
   assert.ok(cov.rows.find(r=>r.activityId==='practice.experiment.8.2').blockers.some(b=>b.category==='CONTENT_REQUIRED'));
   // P2.11 profiled 7.10 and 8.14 as new slices (authored profiles); the reclassification itself still profiled nothing
-  assert.equal(cov.summary.PROFILED,5);
+  // Step 4 of the owner's sequence (2026-11-23): 7.11 (water + oxides) was profiled as a guided dynamic lab (PROFILED 5 → 6)
+  assert.equal(cov.summary.PROFILED,6);
   assert.equal(cov.reclassification.before.summary.PROFILED,3);
   assert.equal(cov.reclassification.before.summary.BLOCKED,54);
 });

@@ -351,6 +351,85 @@
         "APPARATUS_NOT_DECLARED",
         "SAFETY_TEXT_EMPTY"
       ]
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "profileId": "lab-profile.7.11.water-oxides",
+      "chemistryAuthority": "reaction-matcher",
+      "observationGrounding": {
+        "reaction": "MODEL_BASED"
+      },
+      "orderMode": "FLEXIBLE",
+      "scope": "INSTRUCTION_TRIALS",
+      "trials": [
+        {
+          "id": "cao-water",
+          "instructionSteps": [
+            0
+          ],
+          "substances": [
+            "cao",
+            "water"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "carbonated-water",
+          "instructionSteps": [
+            1
+          ],
+          "substances": [
+            "carbonated-water"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "distilled-water",
+          "instructionSteps": [
+            2
+          ],
+          "substances": [
+            "distilled-water"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        }
+      ],
+      "completion": "reactions",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "uncoveredInstructionOperations": [
+        {
+          "instructionStep": 3,
+          "verb": "taqqoslang",
+          "family": "COMPARE",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "yozing",
+          "family": "RECORD",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        },
+        {
+          "instructionStep": 4,
+          "verb": "tushuntiring",
+          "family": "EXPLAIN",
+          "reason": "LEARNER_RESPONSE_NOT_OFFERED"
+        }
+      ],
+      "migration": "NOT_MIGRATION_EQUIVALENT",
+      "profileGaps": [
+        "OBSERVATION_TEXT_PARTIAL",
+        "CARBONATED_WATER_IS_A_SAMPLE",
+        "INDICATOR_NOT_MODELED_IN_LAB",
+        "RECORD_CHECKER_MISSING",
+        "SAFETY_TEXT_EMPTY"
+      ]
     }
   ],
   "sliceJustification": {
@@ -368,9 +447,9 @@
     "unmappedOperations": 0,
     "families": 31,
     "familiesWithHandler": 15,
-    "profiled": 5,
+    "profiled": 6,
     "profileCandidates": 1,
-    "blocked": 51,
+    "blocked": 50,
     "migrationEquivalent": 0
   },
   "humanDecisions": [
@@ -525,12 +604,12 @@
     "after": {
       "learnerModules": 179,
       "learnerModuleBytes": 970939,
-      "standaloneBytes": 6330104
+      "standaloneBytes": 6343167
     },
     "delta": {
       "learnerModules": 17,
       "learnerModuleBytes": 256935,
-      "standaloneBytes": 625835
+      "standaloneBytes": 638898
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -557,7 +636,7 @@
       "P2.14": {
         "learnerModules": 5,
         "learnerModuleBytes": 74974,
-        "standaloneBytes": 228167
+        "standaloneBytes": 241230
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file"
