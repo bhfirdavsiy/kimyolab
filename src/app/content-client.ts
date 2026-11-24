@@ -240,6 +240,14 @@ export class ContentClient {
   /** P2.10: the guided dynamic lab profile of an activity, or null when the pack has none for it (or no profile
    *  file at all — older packs). A listed file is integrity-checked like every pack file; an invalid profile fails
    *  closed (TOPIC_LAB_PROFILE_INVALID), it is never repaired. */
+  /** the activities that have a guided dynamic lab (their catalogue card opens the lab itself) */
+  async listDynamicLabActivityIds():Promise<string[]>{
+    const version=await this.version();
+    if(!this.files.has(TOPIC_LAB_PROFILE_PACK_PATH)) return [];
+    const pack=await this.packJson(version,TOPIC_LAB_PROFILE_PACK_PATH);
+    return Array.isArray(pack?.profiles)?pack.profiles.map((p:any)=>String(p?.activityId??'')).filter(Boolean):[];
+  }
+
   async loadTopicLabProfile(practiceActivityId:string):Promise<TopicLabProfile|null>{
     const version=await this.version();
     if(!this.files.has(TOPIC_LAB_PROFILE_PACK_PATH)) return null;

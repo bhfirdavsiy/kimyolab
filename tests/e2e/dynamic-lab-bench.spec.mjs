@@ -62,3 +62,17 @@ test('the other labs keep the list layout (the bench is tried on 7.10 first)', a
   await expect(page.locator(`${LAB} [data-dlab-bench]`)).toHaveCount(0);
   await expect(page.locator(`${LAB} .kl-dlab__objects`)).toBeVisible();
 });
+
+// "hech nima o'zgarmaganku" (owner, 2026-11-24): the catalogue sent learners to the classic page, where the lab was only
+// a small offer. A card whose activity has a guided dynamic lab now opens that lab; the others still open the classic page.
+test('Virtual laboratoriya: the 7.10 card opens the bench; a lab without a profile opens the classic page', async ({page}) => {
+  await hosts.portal.open(page, '/labs');
+  const card710 = page.locator('.kl-lab-card', {hasText: 'Kislotalarning metallar bilan'}).first();
+  await expect(card710.locator('[data-lab-dynamic]')).toBeVisible();
+  await card710.getByRole('link', {name: 'Tajribani boshlash'}).click();
+  await expect(page.locator(`${LAB} [data-dlab-bench]`)).toBeVisible();
+  await hosts.portal.open(page, '/labs');
+  const card71 = page.locator('.kl-lab-card', {hasText: 'Laboratoriya shtativi'}).first();
+  await expect(card71.locator('[data-lab-dynamic]')).toHaveCount(0);
+  await expect(card71.getByRole('link', {name: 'Tajribani boshlash'})).toHaveAttribute('href', /practice\/practice\.experiment\.7\.1$/);
+});

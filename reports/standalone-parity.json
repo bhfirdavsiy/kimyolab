@@ -3,8 +3,8 @@
   "semantics": "The standalone presentation artifact is a generated deliverable of the SAME product (embedded host), not a demo.",
   "artifact": {
     "path": "dist-standalone/KimyoLab_standalone.html",
-    "sha256": "8544f558db135cadc9b86f47e42d5eed4216a765493dd961873966c3225cc0e8",
-    "sizeBytes": 6495664,
+    "sha256": "3b33685aaebe3967e0e5de52c60646f234fe2292200d1d40a9b9eac84712724e",
+    "sizeBytes": 6496581,
     "contentVersion": "2026.09.1",
     "moduleCount": 142,
     "contentJsonFiles": 49,

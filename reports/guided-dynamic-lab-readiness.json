@@ -864,13 +864,13 @@
     },
     "after": {
       "learnerModules": 182,
-      "learnerModuleBytes": 1019148,
-      "standaloneBytes": 6495664
+      "learnerModuleBytes": 1020255,
+      "standaloneBytes": 6496581
     },
     "delta": {
       "learnerModules": 20,
-      "learnerModuleBytes": 305144,
-      "standaloneBytes": 791395
+      "learnerModuleBytes": 306251,
+      "standaloneBytes": 792312
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -896,8 +896,8 @@
       },
       "P2.14": {
         "learnerModules": 8,
-        "learnerModuleBytes": 123183,
-        "standaloneBytes": 393727
+        "learnerModuleBytes": 124290,
+        "standaloneBytes": 394644
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file"

@@ -78,7 +78,7 @@ async function renderCurrent(){
   const route=parseAppRoute(active.pathname);
   if(route.name==='home'){renderHome(main);return;}
   if(route.name==='curriculum'){renderLoading(main);try{renderCurriculum(main,await client.loadCurriculum());}catch(error){renderError(main,contentErrorMessage(error,'Mavzularni yuklab bo‘lmadi.'));}return;}
-  if(route.name==='labs'){renderLoading(main);try{renderLabs(main,await client.loadLabCatalog());}catch(error){renderError(main,contentErrorMessage(error,'Virtual laboratoriyalarni yuklab bo‘lmadi.'));}return;}
+  if(route.name==='labs'){renderLoading(main);try{const [catalog,dynamicIds]=await Promise.all([client.loadLabCatalog(),isFeatureEnabled('guidedDynamicLabV1',active.searchParams)?client.listDynamicLabActivityIds():Promise.resolve([] as string[])]);renderLabs(main,{...catalog,dynamicLabIds:new Set(dynamicIds)});}catch(error){renderError(main,contentErrorMessage(error,'Virtual laboratoriyalarni yuklab bo‘lmadi.'));}return;}
   if(route.name==='external-lab'){renderLoading(main);try{const binding=await client.getExternalLabBinding(route.bindingId);const lu=active.searchParams.get('lu')??binding.learningUnitIds[0];if(!binding.learningUnitIds.includes(lu))throw new Error('EXTERNAL_LAB_LEARNING_UNIT_MISMATCH');await renderExternalLab(main,binding,lu,progressService.storage);}catch(error){renderError(main,contentErrorMessage(error,'Tashqi laboratoriya integratsiyasini yuklab bo‘lmadi.'));}return;}
   if(route.name==='worksheet'){
     renderLoading(main);

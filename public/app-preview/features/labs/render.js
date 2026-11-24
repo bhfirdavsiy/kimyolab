@@ -3,13 +3,14 @@ import {el,clear,link} from '../../ui/components/dom.js';
 
 const providerLabel=(id       )=>id==='nobook'?'NOBOOK':id==='chemai'?'ChemAI':'Chem Lab Station';
 
-function nativeCard(item                     ){
+function nativeCard(item                     ,dynamic=false){
   const card=el('article',{className:'kl-lab-card'});
   const top=el('div',{className:'kl-lab-card__top'}); top.append(el('span',{className:'kl-provider-badge kl-provider-badge--native',text:'KimyoLab'}),el('span',{className:'kl-lab-grade',text:`${item.grade}-sinf`})); card.append(top);
   card.append(el('h3',{text:item.title}),el('p',{text:item.goal}),el('small',{text:item.learningUnitTitle,className:'kl-muted'}));
-  if(item.executionMode==='guided') card.append(el('span',{className:'kl-status-pill',text:item.hardeningStatus==='procedural-only'?'Bosqichma-bosqich tajriba':'Yo‘naltirilgan tajriba'}));
+  if(dynamic) card.append(el('span',{className:'kl-status-pill kl-status-pill--interactive',text:'Interaktiv tajriba',attrs:{'data-lab-dynamic':''}}));
+  else if(item.executionMode==='guided') card.append(el('span',{className:'kl-status-pill',text:item.hardeningStatus==='procedural-only'?'Bosqichma-bosqich tajriba':'Yo‘naltirilgan tajriba'}));
   else if(item.executionMode==='engine') card.append(el('span',{className:'kl-status-pill',text:'Interaktiv tajriba'}));
-  if(item.launchable) card.append(link('Tajribani boshlash',`/practice/${encodeURIComponent(item.id)}`,'kl-button kl-button--primary'));
+  if(item.launchable) card.append(link('Tajribani boshlash',`/${dynamic?'dynamic-lab':'practice'}/${encodeURIComponent(item.id)}`,'kl-button kl-button--primary'));
   else card.append(el('span',{className:'kl-status-pill kl-status-pill--pending',text:'Tajriba tayyorlanmoqda'}));
   return card;
 }
@@ -41,7 +42,7 @@ export function renderLabs(root            ,model                ){
   shell.append(nativeTitle,nativeGrid,externalTitle,externalGrid); root.append(hero,shell);
   const render=()=>{
     const query=q.value.trim().toLocaleLowerCase('uz'); const selected=grade.value;
-    nativeGrid.replaceChildren(...model.native.filter(x=>(!selected||String(x.grade)===selected)&&(!query||`${x.title} ${x.goal} ${x.learningUnitTitle}`.toLocaleLowerCase('uz').includes(query))).map(nativeCard));
+    nativeGrid.replaceChildren(...model.native.filter(x=>(!selected||String(x.grade)===selected)&&(!query||`${x.title} ${x.goal} ${x.learningUnitTitle}`.toLocaleLowerCase('uz').includes(query))).map(x=>nativeCard(x,model.dynamicLabIds?.has(x.id)??false)));
     externalGrid.replaceChildren(...model.external.filter(x=>(!selected||x.grades.includes(Number(selected)))&&(!query||`${x.binding.title} ${x.binding.description} ${x.learningUnits.map(u=>u.title).join(' ')}`.toLocaleLowerCase('uz').includes(query))).map(externalCard));
     if(!nativeGrid.childElementCount) nativeGrid.append(el('p',{className:'kl-muted',text:'Mos KimyoLab tajribasi topilmadi.'}));
     if(!externalGrid.childElementCount) externalGrid.append(el('p',{className:'kl-muted',text:'Mos tashqi laboratoriya topilmadi.'}));

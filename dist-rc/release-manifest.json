@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-24T09:13:16.930Z",
+  "createdAt": "2026-11-24T16:25:48.029Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -11,14 +11,14 @@
     {
       "path": "app-preview/app/bootstrap.js",
       "sourcePath": "public/app-preview/app/bootstrap.js",
-      "checksum": "3a98e2145d93cbe158c4a94bed195c85d56aab4b395e238fc7f6d4323cf3135f",
-      "size": 18888
+      "checksum": "996f531f5892c3e4d0a52f2a2faf3ae3cb766c0b1a2630dd69c50dd41aee77cd",
+      "size": 19103
     },
     {
       "path": "app-preview/app/content-client.js",
       "sourcePath": "public/app-preview/app/content-client.js",
-      "checksum": "863bc84ca75d3e6796b7e83d350de2576545f20cbd3d58ad7d52f6a0e09b45ee",
-      "size": 29251
+      "checksum": "c014dc646a97284f9b822726a4565db3328f5df625b00c70c8ef0bb6c5ef1964",
+      "size": 29702
     },
     {
       "path": "app-preview/app/feature-flags.js",
@@ -485,14 +485,14 @@
     {
       "path": "app-preview/features/labs/model.js",
       "sourcePath": "public/app-preview/features/labs/model.js",
-      "checksum": "51c30a8ffc7ab1f807c216f22c8dc2bfd7a9bfda9096d4611be5838a10e032fb",
-      "size": 703
+      "checksum": "1f1e978bef24b7251e9c9d93553b46d86f7823bf9bce1f43ddd2edf782f2109f",
+      "size": 902
     },
     {
       "path": "app-preview/features/labs/render.js",
       "sourcePath": "public/app-preview/features/labs/render.js",
-      "checksum": "e76c83a6bc1ed9a2ef5bf38922c69f474b121f269d6a433c327bf8072bcc3359",
-      "size": 5079
+      "checksum": "31608814a33ba7dd20b75df3cce0ea0d4d764a36a69f661267c677dc221c0329",
+      "size": 5321
     },
     {
       "path": "app-preview/features/learning-hub/model.js",
