@@ -262,7 +262,7 @@
       "nameKey": "element.As.name",
       "assertionId": "element-name:As",
       "locale": "uz-Latn",
-      "displayName": "Margimush",
+      "displayName": "Mishyak",
       "sourceRef": null,
       "reviewStatus": "pending"
     },
@@ -902,7 +902,7 @@
       "nameKey": "element.Nh.name",
       "assertionId": "element-name:Nh",
       "locale": "uz-Latn",
-      "displayName": "Nixoniy",
+      "displayName": "Nihoniy",
       "sourceRef": null,
       "reviewStatus": "pending"
     },

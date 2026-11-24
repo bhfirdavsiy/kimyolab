@@ -269,7 +269,8 @@ test('reports are deterministic; the action queue shows every blocker and one ne
   const a=read(GOVERNANCE_REPORTS.authoring);
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived add-source authoring tasks drop by 7 (130/127 → 123/120).
   // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names): each new name is an open add-source task (123 → 221, 120 → 218)
-  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[221,218,3]);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): each new record cites only PROPOSED sources, so 11 more add-source tasks (221 → 232, 218 → 229)
+  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[232,229,3]);
   assert.equal(a.canonicalContentMutated,false);
   const q=read(GOVERNANCE_REPORTS.actions);
   assert.ok(q.items.every(i=>typeof i.nextHumanAction==='string'&&i.nextHumanAction.length>10&&Array.isArray(i.blockedBy)&&i.role));

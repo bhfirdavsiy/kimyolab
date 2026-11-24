@@ -4,15 +4,15 @@
   "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
   "semantics": "A reaction record in the model is not a human approval. Review state comes from the chemistry decision register (kb-review: current hash, human reviewer, stale on edit); a source counts only when registered, acceptable for chemistry and human-accepted.",
   "totals": {
-    "canonicalModelRecords": 42,
+    "canonicalModelRecords": 48,
     "effectiveHumanReviewed": 0,
-    "reviewPending": 42,
+    "reviewPending": 48,
     "stale": 0,
     "approvedButSourceNotEligible": 0,
     "source": {
-      "SOURCE_NOT_ELIGIBLE": 42
+      "SOURCE_NOT_ELIGIBLE": 48
     },
-    "observationFlagged": 12
+    "observationFlagged": 13
   },
   "sourceRefsAudit": {
     "speciesFormat": "object {id,type,title}",
@@ -26,7 +26,19 @@
         "classification": "PROPOSED"
       },
       {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "registered": true,
+        "category": "INTERNAL_PROPOSAL",
+        "classification": "PROPOSED"
+      },
+      {
         "id": "src.textbook.kimyo7-2026",
+        "registered": true,
+        "category": "TEXTBOOK",
+        "classification": "PROPOSED"
+      },
+      {
+        "id": "src.textbook.kimyo8",
         "registered": true,
         "category": "TEXTBOOK",
         "classification": "PROPOSED"
@@ -40,9 +52,9 @@
     ]
   },
   "substances": {
-    "total": 99,
+    "total": 101,
     "source": {
-      "SOURCE_NOT_ELIGIBLE": 99
+      "SOURCE_NOT_ELIGIBLE": 101
     },
     "hazardsClaimed": 46,
     "propertiesClaimed": 0,
@@ -51,14 +63,14 @@
   },
   "conditionGovernance": {
     "rule": "the condition assertion hashes EVERY canonical condition field the record requires (not only tags); changing medium, solvent, catalysts, light, current, temperature, pressure or concentration makes a decision on the old hash stale. A reaction counts as reviewed only when its condition claim is approved too",
-    "recordsWithRequirements": 23,
-    "conditionAssertions": 23,
+    "recordsWithRequirements": 26,
+    "conditionAssertions": 26,
     "fieldsCovered": {
       "electricalCurrent": 1,
-      "tags": 22
+      "tags": 25
     },
     "review": {
-      "pending": 23
+      "pending": 26
     }
   },
   "reactions": [
@@ -721,6 +733,96 @@
           "tags"
         ]
       },
+      "unsupportedConditions": []
+    },
+    {
+      "id": "rxn.fe-h2so4",
+      "assertionId": "reaction:rxn.fe-h2so4",
+      "hash": "3f2c2cecb37a33ac6922cdbffb5aae7559575b06eb37ebfc6cb097abd3f2e845",
+      "review": "pending",
+      "source": "SOURCE_NOT_ELIGIBLE",
+      "reviewed": false,
+      "observationFlags": [],
+      "condition": {
+        "assertionId": "condition:rxn.fe-h2so4",
+        "hash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
+    },
+    {
+      "id": "rxn.al-hcl",
+      "assertionId": "reaction:rxn.al-hcl",
+      "hash": "63d4a8d6a3f6ec318cf87c1a8551b28c7edbf5402af73976eaf603804913edb5",
+      "review": "pending",
+      "source": "SOURCE_NOT_ELIGIBLE",
+      "reviewed": false,
+      "observationFlags": [],
+      "condition": {
+        "assertionId": "condition:rxn.al-hcl",
+        "hash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
+    },
+    {
+      "id": "rxn.al-h2so4",
+      "assertionId": "reaction:rxn.al-h2so4",
+      "hash": "a48975a421fb23bf37ecc7e6307f1f2cbd2650a618d48a180755724df17e9055",
+      "review": "pending",
+      "source": "SOURCE_NOT_ELIGIBLE",
+      "reviewed": false,
+      "observationFlags": [],
+      "condition": {
+        "assertionId": "condition:rxn.al-h2so4",
+        "hash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+        "review": "pending",
+        "fields": [
+          "tags"
+        ]
+      },
+      "unsupportedConditions": []
+    },
+    {
+      "id": "rxn.caoh2-co2",
+      "assertionId": "reaction:rxn.caoh2-co2",
+      "hash": "e1c21b33727d699faf48655ab158e687a6c0b81115fc4dfd4f9c7cc0c7c2dcf4",
+      "review": "pending",
+      "source": "SOURCE_NOT_ELIGIBLE",
+      "reviewed": false,
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
+      ],
+      "condition": null,
+      "unsupportedConditions": []
+    },
+    {
+      "id": "rxn.cl2-nabr",
+      "assertionId": "reaction:rxn.cl2-nabr",
+      "hash": "66b9b782de0dd945f3246eb860bfab963e03e1e73ec1550edcccf3ab106beab8",
+      "review": "pending",
+      "source": "SOURCE_NOT_ELIGIBLE",
+      "reviewed": false,
+      "observationFlags": [],
+      "condition": null,
+      "unsupportedConditions": []
+    },
+    {
+      "id": "rxn.cl2-nai",
+      "assertionId": "reaction:rxn.cl2-nai",
+      "hash": "5c02c6d1088350923e0f96bfc47b5dec49c8314946c2ed377815fdc6c64e4734",
+      "review": "pending",
+      "source": "SOURCE_NOT_ELIGIBLE",
+      "reviewed": false,
+      "observationFlags": [],
+      "condition": null,
       "unsupportedConditions": []
     }
   ],

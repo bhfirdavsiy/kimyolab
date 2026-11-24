@@ -4,18 +4,18 @@
 
 ## Holat
 
-- Assertion’lar: **272** — approved: 0, pending: 272, stale: 0, rejected: 0, change_required: 0
-- Gate: **PENDING** (FAIL: 0, PENDING: 539)
+- Assertion’lar: **287** — approved: 0, pending: 287, stale: 0, rejected: 0, change_required: 0
+- Gate: **PENDING** (FAIL: 0, PENDING: 572)
 - Har assertion’ning hash’i o‘zgarsa, eski qaror **stale** bo‘ladi va hisobga olinmaydi.
 
 ## Kategoriyalar
 
 | Kategoriya | Soni | Review talab (flag) |
 |---|---|---|
-| reaction | 41 | 0 |
+| reaction | 47 | 0 |
 | no-reaction | 1 | 0 |
-| condition | 32 | 0 |
-| observation | 42 | 12 |
+| condition | 35 | 0 |
+| observation | 48 | 13 |
 | solubility | 20 | 0 |
 | hydrolysis | 4 | 0 |
 | indicator | 3 | 0 |
@@ -25,6 +25,7 @@
 ## Alohida e’tibor (CHEMISTRY_REVIEW_REQUIRED)
 
 - `observation:rxn.br2-ki` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
+- `observation:rxn.caoh2-co2` — OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid
 - `observation:rxn.cl2-kbr` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
 - `observation:rxn.co-combustion` — OBSERVATION_MISSING
 - `observation:rxn.h2-combustion` — OBSERVATION_NONSPECIFIC: colour change without a stated colour

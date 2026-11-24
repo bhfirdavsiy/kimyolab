@@ -5,18 +5,18 @@
   "semantics": "Element → Substance → Reaction → Lab → Topic, only from canonical records: formula-derived PARTICIPATES (formula parser), explicit mappings (lab profile shelf, guided-step reaction map, mapping links) and human-reviewed authored relations. No keyword matching, no inference. PARTICIPATES is never promoted to PRIMARY; an unreviewed authored relation is never shown or counted as reviewed.",
   "elementsWith": {
     "substances": 20,
-    "reactions": 18,
+    "reactions": 19,
     "labs": 17,
     "topics": 17,
     "reviewedPrimary": 0
   },
   "totals": {
-    "substances": 93,
-    "reactions": 42,
+    "substances": 95,
+    "reactions": 48,
     "labs": 13,
     "topics": 14
   },
-  "formulaDerived": 331,
+  "formulaDerived": 358,
   "explicit": 158,
   "authoredReviewedShown": 0,
   "authoredClaims": {
@@ -27,8 +27,8 @@
   },
   "byKindAndProvenance": {
     "labs:PARTICIPATES:EXPLICIT_MAPPING": 70,
-    "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 139,
-    "substances:PARTICIPATES:DERIVED_FROM_FORMULA": 192,
+    "reactions:PARTICIPATES:DERIVED_FROM_FORMULA": 160,
+    "substances:PARTICIPATES:DERIVED_FROM_FORMULA": 198,
     "topics:PARTICIPATES:EXPLICIT_MAPPING": 88
   },
   "gradesCovered": [
@@ -50,7 +50,7 @@
     {
       "symbol": "H",
       "substances": 21,
-      "reactions": 25,
+      "reactions": 29,
       "labs": [
         "practice.experiment.7.10",
         "practice.experiment.7.11",
@@ -81,7 +81,7 @@
     {
       "symbol": "C",
       "substances": 8,
-      "reactions": 8,
+      "reactions": 9,
       "labs": [
         "practice.experiment.7.11",
         "practice.experiment.7.9",
@@ -114,8 +114,8 @@
     },
     {
       "symbol": "O",
-      "substances": 45,
-      "reactions": 33,
+      "substances": 47,
+      "reactions": 36,
       "labs": [
         "practice.experiment.7.10",
         "practice.experiment.7.11",
@@ -147,7 +147,7 @@
     {
       "symbol": "Na",
       "substances": 12,
-      "reactions": 7,
+      "reactions": 9,
       "labs": [
         "practice.experiment.7.9",
         "practice.experiment.8.1",
@@ -180,8 +180,8 @@
     },
     {
       "symbol": "Al",
-      "substances": 2,
-      "reactions": 0,
+      "substances": 3,
+      "reactions": 2,
       "labs": [],
       "topics": []
     },
@@ -194,8 +194,8 @@
     },
     {
       "symbol": "S",
-      "substances": 18,
-      "reactions": 6,
+      "substances": 20,
+      "reactions": 8,
       "labs": [
         "practice.experiment.7.10",
         "practice.experiment.7.9",
@@ -211,7 +211,7 @@
     {
       "symbol": "Cl",
       "substances": 14,
-      "reactions": 17,
+      "reactions": 20,
       "labs": [
         "practice.experiment.11.2",
         "practice.experiment.7.10",
@@ -255,7 +255,7 @@
     {
       "symbol": "Ca",
       "substances": 7,
-      "reactions": 5,
+      "reactions": 6,
       "labs": [
         "practice.experiment.7.11",
         "practice.experiment.7.9",
@@ -274,8 +274,8 @@
     },
     {
       "symbol": "Fe",
-      "substances": 4,
-      "reactions": 3,
+      "substances": 5,
+      "reactions": 4,
       "labs": [
         "practice.experiment.7.10"
       ],
@@ -323,7 +323,7 @@
     {
       "symbol": "Br",
       "substances": 4,
-      "reactions": 3,
+      "reactions": 4,
       "labs": [
         "practice.experiment.8.10",
         "practice.experiment.8.8"
@@ -350,7 +350,7 @@
     {
       "symbol": "I",
       "substances": 4,
-      "reactions": 2,
+      "reactions": 3,
       "labs": [
         "practice.experiment.8.10",
         "practice.experiment.8.8"

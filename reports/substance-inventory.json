@@ -16,12 +16,12 @@
   "sources": {
     "species": {
       "file": "content-src/chemistry/species.json",
-      "records": 99,
+      "records": 101,
       "identity": "SpeciesRegistry (src/domain/chemistry/species-registry.ts): unique id and unique (formula, phase, charge, structuralVariant, allotrope)"
     },
     "reactions": {
       "file": "content-src/chemistry/reactions.json",
-      "records": 42,
+      "records": 48,
       "runtime": "ReactionMatcher (src/domain/chemistry/reaction-matcher.ts), policy require-record-conditions"
     },
     "ionicEngine": {
@@ -57,8 +57,8 @@
     }
   },
   "species": {
-    "total": 99,
-    "parseableFormulas": 93,
+    "total": 101,
+    "parseableFormulas": 95,
     "unparseable": [
       {
         "id": "species.etanol",
@@ -88,7 +88,7 @@
     "sharedFormulas": [],
     "charged": 12,
     "phases": {
-      "aq": 40,
+      "aq": 42,
       "g": 11,
       "l": 5,
       "s": 43
@@ -97,12 +97,13 @@
     "localizedNamesReview": "pending",
     "sourceRefIds": {
       "src.beta1.migration": 84,
+      "src.expert-review.tt-4.2-stage5": 2,
       "src.textbook.kimyo7-2026": 12,
       "src.workbook.kimyo7-2026": 3
     }
   },
   "reactions": {
-    "total": 42,
+    "total": 48,
     "byType": {
       "acid_base": 2,
       "combination": 6,
@@ -112,14 +113,16 @@
       "gas_evolution": 4,
       "neutralization": 3,
       "no-reaction": 1,
-      "precipitation": 5,
-      "redox": 4,
-      "single_displacement": 5
+      "precipitation": 6,
+      "redox": 6,
+      "single_displacement": 8
     },
     "explicitNoReaction": 1,
     "sourceRefIds": {
       "src.beta1.migration": 25,
+      "src.expert-review.tt-4.2-stage5": 6,
       "src.textbook.kimyo7-2026": 14,
+      "src.textbook.kimyo8": 2,
       "src.workbook.kimyo7-2026": 6
     }
   },
@@ -1903,6 +1906,42 @@
         "molarMass": "GAP",
         "dissociation": "GAP",
         "hazards": "SOURCE_PENDING",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.feso4",
+      "key": "feso4",
+      "formula": "FeSO4",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.feso4.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
+        "properties": "GAP"
+      }
+    },
+    {
+      "id": "species.al2so43",
+      "key": "al2so43",
+      "formula": "Al2(SO4)3",
+      "phase": "aq",
+      "charge": 0,
+      "nameKey": "species.al2so43.name",
+      "fields": {
+        "identity": "CANONICAL_IDENTITY",
+        "phase": "CANONICAL_MODEL_STATE",
+        "charge": "CANONICAL_MODEL_STATE",
+        "composition": "DERIVED",
+        "molarMass": "GAP",
+        "dissociation": "GAP",
+        "hazards": "GAP",
         "properties": "GAP"
       }
     }

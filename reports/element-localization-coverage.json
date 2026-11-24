@@ -15,10 +15,10 @@
     "copied": 0,
     "CANONICAL_MATCH": 0,
     "REVIEWED_MATCH": 0,
-    "UNREVIEWED_MATCH": 113,
+    "UNREVIEWED_MATCH": 115,
     "DISPLAY_ONLY": 0,
     "SOURCE_REQUIRED": 0,
-    "CONFLICT": 5,
+    "CONFLICT": 3,
     "NOT_USED": 0
   },
   "learnerUi": {

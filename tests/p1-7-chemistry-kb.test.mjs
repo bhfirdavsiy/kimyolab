@@ -211,7 +211,8 @@ test('ionic shelf: 21 pairs, 100% classified; NOT_MODELED is never "no reaction"
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); none of them is an ionic-shelf candidate
   // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); Cu + HCl is not an ionic-shelf candidate
-  assert.equal(REACTIONS.length,42,'no candidate became a KB record');
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101)
+  assert.equal(REACTIONS.length,48,'no candidate became a KB record');
   for(const p of shelf.pairs) if(p.candidate) assert.ok(!REACTIONS.some(r=>r.reactants.map(x=>x.formula).sort().join('+')===[...p.formulas].sort().join('+')),p.formulas.join('+'));
   assert.equal(coverage.ionic.totals.NOT_MODELED,shelf.summary.NOT_MODELED,'unknowns are reported, not hidden');
 });

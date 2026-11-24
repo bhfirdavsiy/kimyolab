@@ -497,23 +497,27 @@ test('closeout 12: the 28 canonical records use only tag conditions and stay rea
   // conditions and stay reachable as before; of the new ones, rxn.h2o-electrolysis requires an electric current, a condition the explorer cannot state: it is EXPLORER_CONDITION_UNSUPPORTED (no link, not reachable, no search entry).
   const OWNER_ADDED=new Set(OWNER_DECIDED_RECORD_CHANGES.reactions.added);
   // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); it is listed in OWNER_DECIDED_RECORD_CHANGES.reactions.added
-  assert.equal(REACTIONS.length,42); assert.equal(REACTIONS.filter(r=>!OWNER_ADDED.has(r.id)).length,25);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101)
+  assert.equal(REACTIONS.length,48); assert.equal(REACTIONS.filter(r=>!OWNER_ADDED.has(r.id)).length,25);
   assert.ok(REACTIONS.filter(r=>r.id!=='rxn.h2o-electrolysis').every(r=>conditionRequirementFields(r.conditions).every(f=>f==='tags')));
   assert.deepEqual(index.reactions.filter(r=>r.unsupportedConditions.length).map(r=>[r.id,r.unsupportedConditions]),[['rxn.h2o-electrolysis',['electricalCurrent']]]);
   const ex=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.explorer]);
   // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl's own explorer link opens it (reachable 39 → 40)
-  assert.equal(ex.reachability.reachable,40);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions were added as UNREVIEWED records (42 → 48); each has its own explorer link (reachable 40 → 46)
+  assert.equal(ex.reachability.reachable,46);
   assert.deepEqual(ex.reachability.unreachable.map(x=>[x.id,x.reason]),[['rxn.agno3-nacl','REACTANT_NOT_A_CANONICAL_SPECIES'],['rxn.h2o-electrolysis','EXPLORER_CONDITION_UNSUPPORTED']]);
   // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated (tag-condition records 22 → 21, condition claims 23 → 22)
   // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl states the 'dilute acid' tag (tag-condition records 21 → 22)
-  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{electricalCurrent:1,tags:22});
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): rxn.fe-h2so4, rxn.al-hcl and rxn.al-h2so4 state the 'dilute acid' tag (tag-condition records 22 → 25)
+  assert.deepEqual(ex.conditionContract.fieldsPresentInRecords,{electricalCurrent:1,tags:25});
   assert.deepEqual(ex.conditionContract.explorerSupportedFields,['tags']);
   assert.deepEqual(ex.conditionContract.unsupportedRecords,[{id:'rxn.h2o-electrolysis',fields:['electricalCurrent']}]);
   assert.equal(ex.conditionContract.explorerUnsupportedFields.length,8);
   const gov=JSON.parse(knowledgeOutputs(root)[KNOWLEDGE_REPORTS.governance]);
   // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl adds one condition claim ('dilute acid'; 22 → 23), pending review
-  assert.equal(gov.conditionGovernance.conditionAssertions,23);
-  assert.deepEqual(gov.conditionGovernance.review,{pending:23});
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): rxn.fe-h2so4, rxn.al-hcl and rxn.al-h2so4 add one condition claim each ('dilute acid'; 23 → 26), pending review
+  assert.equal(gov.conditionGovernance.conditionAssertions,26);
+  assert.deepEqual(gov.conditionGovernance.review,{pending:26});
   // the explorer's single matcher call states vocabulary dimensions only (every other field stays absent)
   assert.match(read('src/features/chemistry-knowledge/explorer.ts'),/conditions:\{dimensions:\{\.\.\.stated\}\},conditionPolicy:'require-record-conditions'/);
 });

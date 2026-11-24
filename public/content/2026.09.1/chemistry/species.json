@@ -1834,5 +1834,39 @@
         "page": "33"
       }
     ]
+  },
+  {
+    "id": "species.feso4",
+    "formula": "FeSO4",
+    "nameKey": "species.feso4.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ]
+  },
+  {
+    "id": "species.al2so43",
+    "formula": "Al2(SO4)3",
+    "nameKey": "species.al2so43.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ]
   }
 ]

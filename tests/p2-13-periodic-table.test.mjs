@@ -91,7 +91,8 @@ test('names: never invented, never copied from legacy; a missing name is the sym
   // P2.13 closeout: the locale catalog is pending review, so a matching legacy name is UNREVIEWED_MATCH, not canonical
   // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names). They were written from the Uzbek school terminology, not copied: 113 equal the legacy page, 5 differ in spelling
   // (As Margimush/Mishyak, Y, Lu, Hs, Nh) and are listed for the expert to decide
-  assert.deepEqual([p.CANONICAL_MATCH,p.UNREVIEWED_MATCH,p.SOURCE_REQUIRED,p.CONFLICT],[0,113,0,5]);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): the expert decided the spelling of the 5 conflicts — Y, Lu, Hs approved as written; As → Mishyak and Nh → Nihoniy (change_required, applied), which now equal the legacy page (113 → 115 matches, 5 → 3 conflicts)
+  assert.deepEqual([p.CANONICAL_MATCH,p.UNREVIEWED_MATCH,p.SOURCE_REQUIRED,p.CONFLICT],[0,115,0,3]);
 });
 
 test('electron configuration: computed only inside the engine range; known gaps and beyond are unavailable',()=>{
@@ -322,5 +323,6 @@ test('closeout 10–13: the repository state fabricates nothing; identity, e-con
   // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): Cu, H and Cl each gain one formula-derived link (328 → 331)
   // Step 4 (b) of the owner's sequence (2026-11-23): 8.8 (halide tests) became a profiled lab, so one more explicit
   // element ↔ lab link (157 → 158)
-  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[331,158,20,17]);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): their formulas add formula-derived element links (331 → 358)
+  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[358,158,20,17]);
 });

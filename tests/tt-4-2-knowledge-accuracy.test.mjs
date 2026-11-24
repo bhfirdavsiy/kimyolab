@@ -39,7 +39,8 @@ test('4.2.4 a source needs complete bibliography before it can back a canonical 
 test('4.2.4 the registry holds no eligible source: every legacy record lacks its bibliography (nothing is filled in)',()=>{
   const {registry}=parseSourceRegistry(json('content-src/source-registry.json'));
   // TT 4.2 expert review (2026-11-20): the textbook and workbook behind the owner-added reactions were registered as PROPOSED (not accepted, no licence or effective date) in a pull request the owner reviews (SOURCE_POLICY: a new source is registered by a person in a reviewed pull request)
-  assert.equal(registry.byId.size,7);
+  // TT 4.2 stage 5 (2026-11-24): the expert named the grade-8 textbook (p. 94) for the halogen reactions; it and the stage-5 expert review were registered as PROPOSED sources (not accepted) in this pull request (7 → 9)
+  assert.equal(registry.byId.size,9);
   for(const e of registry.byId.values()){ const a=sourceAcceptance(e); assert.equal(a.canonicalAuthoringEligible,false,e.id); assert.equal(a.bibliographicComplete,false,e.id); }
   // so molar mass stays unknown: no substance shows one
   const {index}=buildChemistryKnowledge(root);
@@ -89,8 +90,10 @@ test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewe
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); every one is balanced and agrees with the canonical balancer
   // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42); it has no equation to balance (NO_REACTION_RECORD) and carries 3 claims (no-reaction, condition, observation)
-  assert.equal(p.reactions.length,42); assert.equal(p.summary.noReactionRecords,1);
-  assert.equal(p.summary.atomBalanced,41); assert.equal(p.summary.balancerAgrees,41); assert.equal(p.summary.speciesResolved,41);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101)
+  assert.equal(p.reactions.length,48); assert.equal(p.summary.noReactionRecords,1);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions were added as UNREVIEWED records (42 → 48); all 6 are balanced, the balancer agrees and every species resolves (41 → 47)
+  assert.equal(p.summary.atomBalanced,47); assert.equal(p.summary.balancerAgrees,47); assert.equal(p.summary.speciesResolved,47);
   assert.deepEqual(p.speciesIdentity.issues,[],'SpeciesRegistry identity invariants hold');
   assert.doesNotThrow(()=>SpeciesRegistry.from(json('content-src/chemistry/species.json')));
   for(const r of p.reactions){
@@ -102,7 +105,8 @@ test('4.2 expert packet: every item PENDING; nothing unreviewed shown as reviewe
   // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): 23 records now state a condition
   // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated: 22 records now state a condition
   // TT 4.2.6 (2026-11-23, owner decision): rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42); it has no equation to balance (NO_REACTION_RECORD) and carries 3 claims (no-reaction, condition, observation)
-  assert.equal(p.summary.decisionsToMake,42+23+42,'42 reaction / no-reaction + 23 condition + 42 observation claims');
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions were added as UNREVIEWED records (42 → 48): 3 of them state a condition (dilute acid): 107 → 122 claims
+  assert.equal(p.summary.decisionsToMake,48+26+48,'48 reaction / no-reaction + 26 condition + 48 observation claims');
   assert.deepEqual(p.acceptance.shownReviewedWithoutApproval,[]);
   assert.match(p.acceptance.status,/^NOT_MET/,'PENDING never counts as PASS');
   assert.equal(p.naclDecision.machineRecommendation,null); assert.equal(p.naclDecision.expertDecision,'PENDING'); assert.equal(p.naclDecision.options.length,3);

@@ -15,7 +15,7 @@
       "id": "repository-files-only",
       "pass": true,
       "detail": {
-        "files": 1585
+        "files": 1587
       }
     },
     {
@@ -50,7 +50,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 1.1
+        "seconds": 3.1
       }
     },
     {
@@ -58,7 +58,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 1
+        "seconds": 1.8
       }
     },
     {
@@ -66,7 +66,7 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 0.4
+        "seconds": 0.5
       }
     },
     {
@@ -74,15 +74,15 @@
       "pass": true,
       "detail": {
         "exitCode": 0,
-        "seconds": 8.5
+        "seconds": 11.4
       }
     },
     {
       "id": "generated-files-reproducible",
       "pass": true,
       "detail": {
-        "committed": "913e122b2328e6d573a404d39d37d5c71ab89d9f94fe8631d948d3fff852d4ee",
-        "rebuilt": "913e122b2328e6d573a404d39d37d5c71ab89d9f94fe8631d948d3fff852d4ee"
+        "committed": "fc6af138a0bc7056acfcde39602e446253dbe23db259961d33ca428371c5e7b3",
+        "rebuilt": "fc6af138a0bc7056acfcde39602e446253dbe23db259961d33ca428371c5e7b3"
       }
     },
     {
@@ -98,9 +98,9 @@
       "detail": {
         "mount": "/kimyolab/",
         "fileCount": 237,
-        "sha256": "4914fb6f1eab453f060a8fe7634a5671d031dd5501158497a5ef0b40ce1b0589"
+        "sha256": "10137ca62d110798d589784a997a8432633a02a0be581fade4597a00ac2e8fe0"
       }
     }
   ],
-  "seconds": 12
+  "seconds": 18
 }

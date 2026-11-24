@@ -4,7 +4,7 @@
   "decision": "NOT_A_REVIEW_DECISION — every item is PENDING until a person decides",
   "howToDecide": "record approve / reject / change_required for the listed assertionId + assertionHash in content-src/chemistry-reviews.json (reviewer: a person, not an automation identity); a decision on an old hash is stale",
   "speciesIdentity": {
-    "records": 99,
+    "records": 101,
     "rule": "SpeciesRegistry: unique id and unique (formula, phase, charge, structuralVariant, allotrope); the formula parser charge equals the record charge",
     "issues": [],
     "formulaNotParseable": [
@@ -17,27 +17,27 @@
     ]
   },
   "summary": {
-    "reactions": 42,
+    "reactions": 48,
     "noReactionRecords": 1,
-    "equationParsed": 41,
-    "formulasMatchRecord": 41,
-    "atomBalanced": 41,
-    "chargeBalanced": 41,
-    "balancerAgrees": 41,
-    "arrowMatchesDirection": 41,
-    "speciesResolved": 41,
+    "equationParsed": 47,
+    "formulasMatchRecord": 47,
+    "atomBalanced": 47,
+    "chargeBalanced": 47,
+    "balancerAgrees": 47,
+    "arrowMatchesDirection": 47,
+    "speciesResolved": 47,
     "conditionRejected": 0,
-    "observationFlagged": 12,
+    "observationFlagged": 13,
     "sourceEligible": 0,
-    "decisionsToMake": 107,
+    "decisionsToMake": 122,
     "expertReviewed": 0,
     "hazardSpecies": 46,
     "hazardCodes": 62,
-    "reactionSafetyTags": 18
+    "reactionSafetyTags": 23
   },
   "acceptance": {
     "criterion": "28/28 reactions reviewed by a chemistry expert; 0 unapproved assertions shown as approved",
-    "reviewed": "0/42",
+    "reviewed": "0/48",
     "shownReviewedWithoutApproval": [],
     "status": "NOT_MET — human review outstanding (DRAFT/PENDING never counts as PASS)"
   },
@@ -4238,6 +4238,638 @@
           "expertDecision": "PENDING"
         }
       ]
+    },
+    {
+      "id": "rxn.fe-h2so4",
+      "molecularEquation": "Fe + H2SO4 → FeSO4 + H2",
+      "reactionType": "single_displacement",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Fe": 1,
+            "H": 2,
+            "O": 4,
+            "S": 1
+          },
+          "products": {
+            "Fe": 1,
+            "H": 2,
+            "O": 4,
+            "S": 1
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.fe",
+            "species.h2so4"
+          ],
+          "products": [
+            "species.feso4",
+            "species.h2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [
+        "corrosive"
+      ],
+      "sources": [
+        {
+          "id": "src.expert-review.tt-4.2-stage5",
+          "category": "INTERNAL_PROPOSAL",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.fe-h2so4",
+          "assertionHash": "3f2c2cecb37a33ac6922cdbffb5aae7559575b06eb37ebfc6cb097abd3f2e845",
+          "claim": "Fe + H2SO4 → FeSO4 + H2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.fe-h2so4",
+          "assertionHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+          "claim": "rxn.fe-h2so4 talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.fe-h2so4",
+          "assertionHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+          "claim": "rxn.fe-h2so4: [{\"type\":\"gas\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.al-hcl",
+      "molecularEquation": "2Al + 6HCl → 2AlCl3 + 3H2",
+      "reactionType": "single_displacement",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          6,
+          2,
+          3
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Al": 2,
+            "Cl": 6,
+            "H": 6
+          },
+          "products": {
+            "Al": 2,
+            "Cl": 6,
+            "H": 6
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            6,
+            2,
+            3
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.al",
+            "species.hcl"
+          ],
+          "products": [
+            "species.alcl3",
+            "species.h2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [
+        "corrosive"
+      ],
+      "sources": [
+        {
+          "id": "src.expert-review.tt-4.2-stage5",
+          "category": "INTERNAL_PROPOSAL",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.al-hcl",
+          "assertionHash": "63d4a8d6a3f6ec318cf87c1a8551b28c7edbf5402af73976eaf603804913edb5",
+          "claim": "2Al + 6HCl → 2AlCl3 + 3H2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.al-hcl",
+          "assertionHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+          "claim": "rxn.al-hcl talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.al-hcl",
+          "assertionHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+          "claim": "rxn.al-hcl: [{\"type\":\"gas\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.al-h2so4",
+      "molecularEquation": "2Al + 3H2SO4 → Al2(SO4)3 + 3H2",
+      "reactionType": "single_displacement",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          2,
+          3,
+          1,
+          3
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Al": 2,
+            "H": 6,
+            "O": 12,
+            "S": 3
+          },
+          "products": {
+            "Al": 2,
+            "H": 6,
+            "O": 12,
+            "S": 3
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            2,
+            3,
+            1,
+            3
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.al",
+            "species.h2so4"
+          ],
+          "products": [
+            "species.al2so43",
+            "species.h2"
+          ]
+        },
+        "conditionFields": [
+          "tags"
+        ],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [
+        "corrosive"
+      ],
+      "sources": [
+        {
+          "id": "src.expert-review.tt-4.2-stage5",
+          "category": "INTERNAL_PROPOSAL",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.al-h2so4",
+          "assertionHash": "a48975a421fb23bf37ecc7e6307f1f2cbd2650a618d48a180755724df17e9055",
+          "claim": "2Al + 3H2SO4 → Al2(SO4)3 + 3H2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "condition:rxn.al-h2so4",
+          "assertionHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+          "claim": "rxn.al-h2so4 talab qiladi: dilute acid",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.al-h2so4",
+          "assertionHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+          "claim": "rxn.al-h2so4: [{\"type\":\"gas\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.caoh2-co2",
+      "molecularEquation": "Ca(OH)2 + CO2 → CaCO3 + H2O",
+      "reactionType": "precipitation",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "C": 1,
+            "Ca": 1,
+            "H": 2,
+            "O": 4
+          },
+          "products": {
+            "C": 1,
+            "Ca": 1,
+            "H": 2,
+            "O": 4
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.camoh2",
+            "species.co2"
+          ],
+          "products": [
+            "species.caco3",
+            "species.h2o"
+          ]
+        },
+        "conditionFields": [],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": [
+          "CHEMISTRY_REVIEW_REQUIRED",
+          "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
+        ]
+      },
+      "safetyTags": [],
+      "sources": [
+        {
+          "id": "src.expert-review.tt-4.2-stage5",
+          "category": "INTERNAL_PROPOSAL",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.caoh2-co2",
+          "assertionHash": "e1c21b33727d699faf48655ab158e687a6c0b81115fc4dfd4f9c7cc0c7c2dcf4",
+          "claim": "Ca(OH)2 + CO2 → CaCO3 + H2O",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.caoh2-co2",
+          "assertionHash": "990a78a4d9bb8c0aec492aee361b3aa2a330ac9f67d6c015b557afc5c813ae9a",
+          "claim": "rxn.caoh2-co2: [{\"type\":\"precipitate\",\"color\":\"white\"}]",
+          "currentReview": "pending",
+          "flags": [
+            "CHEMISTRY_REVIEW_REQUIRED",
+            "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
+          ],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.cl2-nabr",
+      "molecularEquation": "Cl2 + 2NaBr → 2NaCl + Br2",
+      "reactionType": "redox",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Br": 2,
+            "Cl": 2,
+            "Na": 2
+          },
+          "products": {
+            "Br": 2,
+            "Cl": 2,
+            "Na": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            2,
+            2,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.cl2",
+            "species.nabr"
+          ],
+          "products": [
+            "species.nacl",
+            "species.br2"
+          ]
+        },
+        "conditionFields": [],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [
+        "toxic halogen"
+      ],
+      "sources": [
+        {
+          "id": "src.expert-review.tt-4.2-stage5",
+          "category": "INTERNAL_PROPOSAL",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        },
+        {
+          "id": "src.textbook.kimyo8",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.cl2-nabr",
+          "assertionHash": "66b9b782de0dd945f3246eb860bfab963e03e1e73ec1550edcccf3ab106beab8",
+          "claim": "Cl2 + 2NaBr → 2NaCl + Br2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.cl2-nabr",
+          "assertionHash": "acae0d41ea4dcd2d67b44fe813a97124a57a929695e4083752c5944a831913d9",
+          "claim": "rxn.cl2-nabr: [{\"type\":\"color-change\",\"from\":\"colorless\",\"to\":\"brown\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
+    },
+    {
+      "id": "rxn.cl2-nai",
+      "molecularEquation": "Cl2 + 2NaI → 2NaCl + I2",
+      "reactionType": "redox",
+      "direction": "forward",
+      "machineChecks": {
+        "equationParse": "PARSED",
+        "formulasMatchRecord": true,
+        "statedCoefficients": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "atomBalance": "BALANCED",
+        "chargeBalance": "BALANCED",
+        "atoms": {
+          "reactants": {
+            "Cl": 2,
+            "I": 2,
+            "Na": 2
+          },
+          "products": {
+            "Cl": 2,
+            "I": 2,
+            "Na": 2
+          }
+        },
+        "balancer": {
+          "status": "AGREES",
+          "coefficients": [
+            1,
+            2,
+            2,
+            1
+          ]
+        },
+        "arrowMatchesDirection": true,
+        "speciesResolution": "RESOLVED",
+        "unresolvedParticipants": [],
+        "participants": {
+          "reactants": [
+            "species.cl2",
+            "species.nai"
+          ],
+          "products": [
+            "species.nacl",
+            "species.i2"
+          ]
+        },
+        "conditionFields": [],
+        "conditionUnknownFields": [],
+        "conditionVerdict": "CONTRACT_OK",
+        "observationFlags": []
+      },
+      "safetyTags": [
+        "toxic halogen"
+      ],
+      "sources": [
+        {
+          "id": "src.expert-review.tt-4.2-stage5",
+          "category": "INTERNAL_PROPOSAL",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        },
+        {
+          "id": "src.textbook.kimyo8",
+          "category": "TEXTBOOK",
+          "classification": "PROPOSED",
+          "canonicalAuthoringEligible": false,
+          "bibliographyMissing": [
+            "authority",
+            "edition",
+            "authors",
+            "isbnOrUrl",
+            "license",
+            "effectiveDate"
+          ]
+        }
+      ],
+      "knowledgeIndexReview": "MODEL_RECORD",
+      "decisions": [
+        {
+          "assertionId": "reaction:rxn.cl2-nai",
+          "assertionHash": "5c02c6d1088350923e0f96bfc47b5dec49c8314946c2ed377815fdc6c64e4734",
+          "claim": "Cl2 + 2NaI → 2NaCl + I2",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        },
+        {
+          "assertionId": "observation:rxn.cl2-nai",
+          "assertionHash": "acae0d41ea4dcd2d67b44fe813a97124a57a929695e4083752c5944a831913d9",
+          "claim": "rxn.cl2-nai: [{\"type\":\"color-change\",\"from\":\"colorless\",\"to\":\"brown\"}]",
+          "currentReview": "pending",
+          "flags": [],
+          "expertDecision": "PENDING"
+        }
+      ]
     }
   ],
   "naclDecision": {
@@ -5588,6 +6220,36 @@
         "id": "rxn.c-combustion-limited",
         "tags": [
           "toxic gas"
+        ]
+      },
+      {
+        "id": "rxn.fe-h2so4",
+        "tags": [
+          "corrosive"
+        ]
+      },
+      {
+        "id": "rxn.al-hcl",
+        "tags": [
+          "corrosive"
+        ]
+      },
+      {
+        "id": "rxn.al-h2so4",
+        "tags": [
+          "corrosive"
+        ]
+      },
+      {
+        "id": "rxn.cl2-nabr",
+        "tags": [
+          "toxic halogen"
+        ]
+      },
+      {
+        "id": "rxn.cl2-nai",
+        "tags": [
+          "toxic halogen"
         ]
       }
     ]

@@ -266,7 +266,8 @@ test('no chemistry truth invented: record counts unchanged since P2.5; new text 
   // added nothing": the counts equal baseline − removed + added, exactly as OWNER_DECIDED_RECORD_CHANGES lists them.
   assert.deepEqual(expansion.chemistryRecordCounts,expectedChemistryRecordCounts());
   // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); it is listed in OWNER_DECIDED_RECORD_CHANGES
-  assert.deepEqual([expansion.chemistryRecordCounts.reactions,expansion.chemistryRecordCounts.species],[42,99]);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101); both are listed in OWNER_DECIDED_RECORD_CHANGES
+  assert.deepEqual([expansion.chemistryRecordCounts.reactions,expansion.chemistryRecordCounts.species],[48,101]);
   const {reactions:_r,species:_s,...nowRest}=expansion.chemistryRecordCounts, {reactions:_br,species:_bs,...baseRest}=P25_BASELINE.chemistryRecords;
   assert.deepEqual(nowRest,baseRest);
   assert.equal(json('content-src/chemistry/equilibrium.json').records.length,2);

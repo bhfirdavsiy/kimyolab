@@ -9,14 +9,15 @@
     "total": 0
   },
   "chemistry": {
-    "total": 272,
-    "pending": 272,
+    "total": 287,
+    "pending": 287,
     "approved": 0,
     "rejected": 0,
     "changeRequired": 0,
     "stale": 0,
     "flagged": [
       "observation:rxn.br2-ki",
+      "observation:rxn.caoh2-co2",
       "observation:rxn.cl2-kbr",
       "observation:rxn.co-combustion",
       "observation:rxn.h2-combustion",
@@ -32,10 +33,11 @@
     "priorityQueue": {
       "A": {
         "label": "A — kimyoviy anomaliyalar (kuzatuv flaglari)",
-        "total": 12,
-        "pending": 12,
+        "total": 13,
+        "pending": 13,
         "ids": [
           "observation:rxn.br2-ki",
+          "observation:rxn.caoh2-co2",
           "observation:rxn.cl2-kbr",
           "observation:rxn.co-combustion",
           "observation:rxn.h2-combustion",
@@ -51,8 +53,8 @@
       },
       "B": {
         "label": "B — asosiy modellar (indikator, sharoit lug‘ati, gidroliz, ion reaksiya maqsadlari)",
-        "total": 40,
-        "pending": 40,
+        "total": 43,
+        "pending": 43,
         "ids": [
           "condition-context:solution-mixing",
           "condition-term:concentrated acid",
@@ -64,12 +66,15 @@
           "condition-term:oxygen-limited",
           "condition-term:strong heating",
           "condition:rxn.ag2o-decomposition",
+          "condition:rxn.al-h2so4",
+          "condition:rxn.al-hcl",
           "condition:rxn.c-combustion",
           "condition:rxn.c-combustion-limited",
           "condition:rxn.caco3-decomposition",
           "condition:rxn.co-combustion",
           "condition:rxn.cu-hcl",
           "condition:rxn.fe-combustion",
+          "condition:rxn.fe-h2so4",
           "condition:rxn.fe-hcl",
           "condition:rxn.fe-s",
           "condition:rxn.h2-combustion",
@@ -241,8 +246,8 @@
       },
       "E": {
         "label": "E — qolgan assertion’lar",
-        "total": 91,
-        "pending": 91
+        "total": 102,
+        "pending": 102
       }
     }
   },

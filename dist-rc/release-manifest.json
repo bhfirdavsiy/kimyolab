@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-24T04:27:33.095Z",
+  "createdAt": "2026-11-24T07:35:04.206Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -1265,8 +1265,8 @@
     {
       "path": "content/2026.09.1/chemistry/reactions.json",
       "sourcePath": "public/content/2026.09.1/chemistry/reactions.json",
-      "checksum": "20dba53434577b3d06ff64adb4f502e9d642c61d1445faa9f7158fae5365d671",
-      "size": 35493
+      "checksum": "b00b20760811e7713ea77279115ca1b2638d9dd2e69faa36915e5247397a334e",
+      "size": 41020
     },
     {
       "path": "content/2026.09.1/chemistry/school-lab-models.json",
@@ -1283,8 +1283,8 @@
     {
       "path": "content/2026.09.1/chemistry/species.json",
       "sourcePath": "public/content/2026.09.1/chemistry/species.json",
-      "checksum": "50cc5dd7464590cbb368cbbdbfbce600ad4880e1cbf4cbb12d3aae496c8a5c17",
-      "size": 40877
+      "checksum": "44aa0210c79a1e3a6b8bc88c3cb62c3e36501b05bc8dda8e3b95da7c11ed68f1",
+      "size": 41769
     },
     {
       "path": "content/2026.09.1/concepts.json",
@@ -1307,8 +1307,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "c5fe794732d847d2d28cdbee647d92e6aa9dbbfce3fe942f4be9b0ded7b521a7",
-      "size": 84050
+      "checksum": "9e785c9ccfef01805f76a32cb36d9ef1102fe52d12e1e20bd88516b2f44ae8d4",
+      "size": 87926
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1349,8 +1349,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/chemistry-elements.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/chemistry-elements.json",
-      "checksum": "8a702feeffa27c54350e8be6f7798c60a811e4224c9e50f795dfdd3134947734",
-      "size": 2836
+      "checksum": "a585107a468525427343932dfad1706a559dbdfff8e241da97467041883be977",
+      "size": 2834
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/chemistry-species.json",
@@ -1367,13 +1367,13 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/name-provenance.json",
-      "checksum": "e87b0e7f62dbaf8dbe9362ddc2c8f8940e0c3e33b93b682f8a7532b11b04f26a",
-      "size": 26855
+      "checksum": "1a3142975642fde2532db17cc6a7a48b848a402323443601a70d77b90b993466",
+      "size": 26853
     },
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "7187f00a3f551d3dc524151c9029d461237dddb877707b6e082bc1256d12308e",
+      "checksum": "227c5f76c5d22736c8caa9d6a566475d186bb1197aa62f117bff2b7d035e9b58",
       "size": 8346
     },
     {
@@ -1385,8 +1385,8 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "ed3cdf53d851b88566b6a61d8d8b1d7c9ea7d5154e7948e9cf3c0bb636dad15d",
-      "size": 128284
+      "checksum": "4baa58047c8729689994210a5babbe243ebd4047467624cc6d03c6bd2589e0b0",
+      "size": 131224
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
@@ -1415,7 +1415,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "1622154602761771c310b2181c068b4b2ec488caf25b24e67da2ed75e88f556f",
+      "checksum": "7443f5b138eafebe3d81ae2821819d48ad40194460c2c0a2f6180989a3a01136",
       "size": 158
     },
     {

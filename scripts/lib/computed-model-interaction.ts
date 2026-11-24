@@ -41,11 +41,16 @@ export const OWNER_DECIDED_RECORD_CHANGES=Object.freeze({
       'rxn.malachite-decomposition',
       // TT 4.2 (2026-11-23): Cu + dilute HCl, the workbook's "which metal did not react?" (p. 50), as an UNREVIEWED
       // no-reaction record — added once the lab shows a no-reaction record only when it is reviewed (TT 4.2.6)
-      'rxn.cu-hcl'],
+      'rxn.cu-hcl',
+      // TT 4.2 stage 5 (docs/reviews/tt-4.2-expert-review-2026-11-24.md): proposals the expert approved (4) or approved
+      // with a requested change that was applied (2), written as UNREVIEWED records; KMnO4 and Br2 + NaI were rejected
+      'rxn.fe-h2so4','rxn.al-hcl','rxn.al-h2so4','rxn.caoh2-co2','rxn.cl2-nabr','rxn.cl2-nai'],
   },
   species:{removed:[] as string[],
     added:['species.mgo','species.no','species.no2','species.na','species.ag2o','species.ag','species.mgoh2','species.hgo','species.hg','species.fes',
-      'species.cano32','species.koh','species.mgcl2','species.fecl2','species.malachite']},
+      'species.cano32','species.koh','species.mgcl2','species.fecl2','species.malachite',
+      // TT 4.2 stage 5: the products of rxn.fe-h2so4 and rxn.al-h2so4 (hazards not yet decided by the expert)
+      'species.feso4','species.al2so43']},
 });
 /** The record counts the owner's decisions lead to (baseline − removed + added). */
 export function expectedChemistryRecordCounts():Record<string,number>{

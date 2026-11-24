@@ -23,30 +23,30 @@
     "deepLinkRefresh": true
   },
   "coverage": {
-    "canonicalSpecies": 99,
-    "parseableFormulas": 93,
+    "canonicalSpecies": 101,
+    "parseableFormulas": 95,
     "sharedFormulas": 0,
-    "computedComposition": 93,
+    "computedComposition": 95,
     "molarMassShown": 0,
     "dissociationModeled": 12,
     "reviewedProperties": 0,
     "reviewedHazards": 0,
-    "reactionRecords": 42,
-    "explorerReachable": 40,
+    "reactionRecords": 48,
+    "explorerReachable": 46,
     "explorerConditionUnsupported": 1,
     "explicitNoReactionRecords": 1,
     "pairs": {
-      "total": 4851,
-      "modeledReaction": 34,
+      "total": 5050,
+      "modeledReaction": 40,
       "modeledNoReaction": 1,
-      "notModeled": 4816,
-      "conditionDependent": 16,
+      "notModeled": 5009,
+      "conditionDependent": 19,
       "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
     },
     "ionicEquationSupported": 5,
     "humanReviewedReactions": 0,
     "sourceGaps": {
-      "SOURCE_NOT_ELIGIBLE": 42
+      "SOURCE_NOT_ELIGIBLE": 48
     },
     "topicLabBacklinks": {
       "substancesWithLabs": 40,
@@ -86,12 +86,12 @@
     "chemistry": "browser-local: the ReactionMatcher runs in the page over the pack records; no server lookup",
     "knowledgeIndex": {
       "packFile": "knowledge/chemistry-knowledge.json",
-      "bytes": 84050
+      "bytes": 87926
     },
     "bundle": {
       "learnerModules": 7,
       "learnerModuleBytes": 107388,
-      "standaloneBytes": 354964
+      "standaloneBytes": 370140
     },
     "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.14\"]"
   },

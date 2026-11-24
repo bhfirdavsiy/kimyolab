@@ -10,14 +10,14 @@
     "conditions": "only what the learner states; unknown values are refused"
   },
   "records": {
-    "total": 42,
-    "modeledReactions": 41,
+    "total": 48,
+    "modeledReactions": 47,
     "explicitNoReaction": 1,
     "reviewedNoReaction": 0
   },
   "reachability": {
     "definition": "opening the generated deep link reproduces this exact record through ReactionMatcher (reactants resolved AND every required condition stated faithfully)",
-    "reachable": 40,
+    "reachable": 46,
     "unreachable": [
       {
         "id": "rxn.agno3-nacl",
@@ -56,9 +56,9 @@
     ],
     "fieldsPresentInRecords": {
       "electricalCurrent": 1,
-      "tags": 22
+      "tags": 25
     },
-    "recordsWithAnyRequirement": 23,
+    "recordsWithAnyRequirement": 26,
     "explorerSupportedFields": [
       "tags"
     ],
@@ -85,15 +85,15 @@
     "note": "today every record uses only tag conditions; this is a property of the current data, not a claim that every condition type is supported"
   },
   "pairsOfCanonicalSpecies": {
-    "total": 4851,
-    "modeledReaction": 34,
+    "total": 5050,
+    "modeledReaction": 40,
     "modeledNoReaction": 1,
-    "notModeled": 4816,
-    "conditionDependent": 16,
+    "notModeled": 5009,
+    "conditionDependent": 19,
     "note": "counts the records written for a pair (any conditions); NOT_MODELED pairs are unknown, not non-reacting"
   },
   "conditionDependence": {
-    "recordsWithRequirements": 22,
+    "recordsWithRequirements": 25,
     "reagentSetsWithSeveralRecords": [
       {
         "set": "C + O2",
@@ -109,12 +109,12 @@
       "rxn.agno3-nacl",
       "rxn.bacl2-h2so4"
     ],
-    "notSupported": 37,
+    "notSupported": 43,
     "rule": "shown only when IonicEngine.support(reactionId) is supported:true; never a fallback"
   },
   "observations": {
     "GAP:OBSERVATION_MISSING": 5,
-    "GAP:OBSERVATION_REVIEW_REQUIRED": 7,
-    "MODEL": 30
+    "GAP:OBSERVATION_REVIEW_REQUIRED": 8,
+    "MODEL": 35
   }
 }

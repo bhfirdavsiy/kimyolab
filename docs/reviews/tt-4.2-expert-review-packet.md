@@ -5,7 +5,7 @@
 ## Qabul mezoni
 
 - Mezon: 28/28 reactions reviewed by a chemistry expert; 0 unapproved assertions shown as approved
-- Ekspert ko‘rib chiqqan: **0/42**
+- Ekspert ko‘rib chiqqan: **0/48**
 - Holat: **NOT_MET — human review outstanding (DRAFT/PENDING never counts as PASS)**
 - Tasdiqsiz “reviewed” ko‘rsatilganlar: 0
 
@@ -13,20 +13,20 @@
 
 | Tekshiruv | Natija |
 |---|---|
-| Tenglama o‘qildi | 41/42 |
-| Formulalar yozuvga mos | 41/42 |
-| Atomlar saqlangan | 41/42 |
-| Zaryad saqlangan | 41/42 |
-| Kanonik balancer bilan mos koeffitsientlar | 41/42 |
-| Strelka ↔ direction | 41/42 |
-| Species aniqlangan (formula + faza) | 41/42 |
+| Tenglama o‘qildi | 47/48 |
+| Formulalar yozuvga mos | 47/48 |
+| Atomlar saqlangan | 47/48 |
+| Zaryad saqlangan | 47/48 |
+| Kanonik balancer bilan mos koeffitsientlar | 47/48 |
+| Strelka ↔ direction | 47/48 |
+| Species aniqlangan (formula + faza) | 47/48 |
 | Noma’lum condition maydoni (REJECT) | 0 |
-| Kuzatuv bayroqlari | 12 |
-| Yaroqli manba | 0/42 |
-| Species identity buzilishi | 0 (99 ta yozuv) |
+| Kuzatuv bayroqlari | 13 |
+| Yaroqli manba | 0/48 |
+| Species identity buzilishi | 0 (101 ta yozuv) |
 | Formula o‘rnida nom (parser qo‘llamaydi) | 6: `species.etanol`, `species.kraxmal`, `species.saxaroza`, `species.sirka`, `species.moy`, `species.indikator` |
 
-Qaror kutayotgan da’volar: **107** (reaction / condition / observation).
+Qaror kutayotgan da’volar: **122** (reaction / condition / observation).
 
 ## Reaksiyalar
 
@@ -74,6 +74,12 @@ Qaror kutayotgan da’volar: **107** (reaction / condition / observation).
 | 40 | `rxn.fe-hcl` | Fe + 2HCl → FeCl2 + H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 41 | `rxn.malachite-decomposition` | Cu2(OH)2CO3 → 2CuO + H2O + CO2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
 | 42 | `rxn.cu-hcl` | Cu + HCl → reaksiya bormaydi | NO_REACTION_RECORD | — | — | RESOLVED | — | `no-reaction` pending<br>`condition` pending<br>`observation` pending |
+| 43 | `rxn.fe-h2so4` | Fe + H2SO4 → FeSO4 + H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 44 | `rxn.al-hcl` | 2Al + 6HCl → 2AlCl3 + 3H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 45 | `rxn.al-h2so4` | 2Al + 3H2SO4 → Al2(SO4)3 + 3H2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`condition` pending<br>`observation` pending |
+| 46 | `rxn.caoh2-co2` | Ca(OH)2 + CO2 → CaCO3 + H2O | BALANCED | BALANCED | AGREES | RESOLVED | OBSERVATION_PRODUCT_MISMATCH | `reaction` pending<br>`observation` pending |
+| 47 | `rxn.cl2-nabr` | Cl2 + 2NaBr → 2NaCl + Br2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`observation` pending |
+| 48 | `rxn.cl2-nai` | Cl2 + 2NaI → 2NaCl + I2 | BALANCED | BALANCED | AGREES | RESOLVED | — | `reaction` pending<br>`observation` pending |
 
 Har bir da’voning `assertionId` va `assertionHash` qiymatlari: `reports/chemistry-expert-review-packet.json` → `reactions[].decisions[]`.
 
@@ -89,7 +95,7 @@ Agent tanlamaydi (variantlar tartibi tavsiya emas). Qaror: **PENDING**.
 
 ## Xavf da’volari (safety review)
 
-46 ta species 62 ta xavf kodini da’vo qiladi; reaksiyalarda 18 ta safety tegi bor. Manba: INTERNAL_PROPOSAL (yaroqsiz). Xavf uchun kb-review kategoriyasi hali yo‘q — review yo‘lini inson belgilashi kerak.
+46 ta species 62 ta xavf kodini da’vo qiladi; reaksiyalarda 23 ta safety tegi bor. Manba: INTERNAL_PROPOSAL (yaroqsiz). Xavf uchun kb-review kategoriyasi hali yo‘q — review yo‘lini inson belgilashi kerak.
 
 | Species | Faza | Xavf kodlari | Qaror |
 |---|---|---|---|

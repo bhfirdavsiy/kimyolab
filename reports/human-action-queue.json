@@ -19,9 +19,10 @@
       "kind": "review-chemistry",
       "priority": "A",
       "role": "chemistry",
-      "count": 12,
+      "count": 13,
       "targetIds": [
         "observation:rxn.br2-ki",
+        "observation:rxn.caoh2-co2",
         "observation:rxn.cl2-kbr",
         "observation:rxn.co-combustion",
         "observation:rxn.h2-combustion",
@@ -35,16 +36,16 @@
         "observation:rxn.znoh2-hcl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 6/12 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 7/13 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 12 pending assertion(s) in queue A (workbench → Kimyo KB, filter “A”)."
+      "nextHumanAction": "Chemistry reviewer: review 13 pending assertion(s) in queue A (workbench → Kimyo KB, filter “A”)."
     },
     {
       "rank": 2,
       "kind": "review-chemistry",
       "priority": "B",
       "role": "chemistry",
-      "count": 40,
+      "count": 43,
       "targetIds": [
         "condition-context:solution-mixing",
         "condition-term:concentrated acid",
@@ -56,12 +57,15 @@
         "condition-term:oxygen-limited",
         "condition-term:strong heating",
         "condition:rxn.ag2o-decomposition",
+        "condition:rxn.al-h2so4",
+        "condition:rxn.al-hcl",
         "condition:rxn.c-combustion",
         "condition:rxn.c-combustion-limited",
         "condition:rxn.caco3-decomposition",
         "condition:rxn.co-combustion",
         "condition:rxn.cu-hcl",
         "condition:rxn.fe-combustion",
+        "condition:rxn.fe-h2so4",
         "condition:rxn.fe-hcl",
         "condition:rxn.fe-s",
         "condition:rxn.h2-combustion",
@@ -88,9 +92,9 @@
         "reaction:rxn.agno3-nacl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 20/40 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 23/43 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 40 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
+      "nextHumanAction": "Chemistry reviewer: review 43 pending assertion(s) in queue B (workbench → Kimyo KB, filter “B”)."
     },
     {
       "rank": 3,
@@ -252,7 +256,7 @@
       "kind": "review-chemistry",
       "priority": "E",
       "role": "chemistry",
-      "count": 91,
+      "count": 102,
       "targetIds": [
         "dissociation:AgNO3",
         "dissociation:BaCl2",
@@ -279,16 +283,21 @@
         "observation:rxn.agno3-nabr",
         "observation:rxn.agno3-nacl",
         "observation:rxn.agno3-nai",
+        "observation:rxn.al-h2so4",
+        "observation:rxn.al-hcl",
         "observation:rxn.bacl2-h2so4",
         "observation:rxn.c-combustion",
         "observation:rxn.c-combustion-limited",
         "observation:rxn.caco3-decomposition",
         "observation:rxn.caco3-hcl",
         "observation:rxn.cao-water",
+        "observation:rxn.cl2-nabr",
+        "observation:rxn.cl2-nai",
         "observation:rxn.co2-water",
         "observation:rxn.cu-hcl",
         "observation:rxn.cuo-hcl",
         "observation:rxn.fe-combustion",
+        "observation:rxn.fe-h2so4",
         "observation:rxn.fe-hcl",
         "observation:rxn.fe-s",
         "observation:rxn.h2-cuo",
@@ -308,6 +317,8 @@
         "reaction:rxn.ag2o-decomposition",
         "reaction:rxn.agno3-nabr",
         "reaction:rxn.agno3-nai",
+        "reaction:rxn.al-h2so4",
+        "reaction:rxn.al-hcl",
         "reaction:rxn.bacl2-h2so4",
         "reaction:rxn.br2-ki",
         "reaction:rxn.c-combustion",
@@ -315,11 +326,15 @@
         "reaction:rxn.caco3-decomposition",
         "reaction:rxn.caco3-hcl",
         "reaction:rxn.cao-water",
+        "reaction:rxn.caoh2-co2",
         "reaction:rxn.cl2-kbr",
+        "reaction:rxn.cl2-nabr",
+        "reaction:rxn.cl2-nai",
         "reaction:rxn.co-combustion",
         "reaction:rxn.co2-water",
         "reaction:rxn.cuo-hcl",
         "reaction:rxn.fe-combustion",
+        "reaction:rxn.fe-h2so4",
         "reaction:rxn.fe-hcl",
         "reaction:rxn.fe-s",
         "reaction:rxn.h2-combustion",
@@ -347,9 +362,9 @@
         "reaction:rxn.znoh2-hcl"
       ],
       "blockedBy": [
-        "SOURCE_NOT_ACCEPTABLE: 63/91 cite no acceptable source — an approval would not count until a source is added"
+        "SOURCE_NOT_ACCEPTABLE: 70/102 cite no acceptable source — an approval would not count until a source is added"
       ],
-      "nextHumanAction": "Chemistry reviewer: review 91 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
+      "nextHumanAction": "Chemistry reviewer: review 102 pending assertion(s) in queue E (workbench → Kimyo KB, filter “E”)."
     },
     {
       "rank": 6,
@@ -467,7 +482,7 @@
       "kind": "add-source",
       "priority": "A",
       "role": "author",
-      "count": 60,
+      "count": 71,
       "targetIds": [
         "observation:rxn.h2-combustion",
         "observation:rxn.cl2-kbr",
@@ -475,15 +490,19 @@
         "observation:rxn.nacl-h2so4",
         "observation:rxn.naoh-hcl",
         "observation:rxn.znoh2-hcl",
+        "observation:rxn.caoh2-co2",
         "reaction:rxn.agno3-nacl",
         "condition:rxn.h2-cuo",
         "condition:rxn.c-combustion-limited",
         "condition:rxn.zn-h2so4",
+        "condition:rxn.al-h2so4",
         "condition:rxn.nh4cl-caoh2",
         "condition:rxn.s-combustion",
         "condition:rxn.fe-combustion",
+        "condition:rxn.fe-h2so4",
         "condition:rxn.nacl-h2so4",
         "condition:rxn.c-combustion",
+        "condition:rxn.al-hcl",
         "condition:rxn.mg-h2so4",
         "condition:rxn.h2-combustion",
         "observation:rxn.s-combustion",
@@ -491,6 +510,8 @@
         "reaction:rxn.nacl-h2so4",
         "reaction:rxn.bacl2-h2so4",
         "reaction:rxn.mg-h2so4",
+        "reaction:rxn.fe-h2so4",
+        "observation:rxn.al-h2so4",
         "reaction:rxn.s-combustion",
         "reaction:rxn.zn-hcl",
         "reaction:rxn.nh4cl-caoh2",
@@ -499,6 +520,7 @@
         "observation:rxn.agno3-nabr",
         "reaction:rxn.nh3-hcl",
         "reaction:rxn.zn-h2so4",
+        "reaction:rxn.caoh2-co2",
         "reaction:rxn.naoh-hcl",
         "observation:rxn.mg-h2so4",
         "observation:rxn.agno3-nacl",
@@ -509,7 +531,11 @@
         "observation:rxn.h2-cuo",
         "reaction:rxn.cao-water",
         "reaction:rxn.zncl2-naoh",
+        "observation:rxn.al-hcl",
+        "reaction:rxn.al-hcl",
+        "observation:rxn.fe-h2so4",
         "reaction:rxn.c-combustion",
+        "reaction:rxn.al-h2so4",
         "observation:rxn.agno3-nai",
         "observation:rxn.c-combustion-limited",
         "observation:rxn.cuo-hcl",
@@ -532,7 +558,7 @@
       ],
       "file": "content-src/chemistry/reactions.json",
       "blockedBy": [],
-      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 60 claim(s) in content-src/chemistry/reactions.json."
+      "nextHumanAction": "Author: cite an acceptable, registered source (content-src/source-registry.json) for 71 claim(s) in content-src/chemistry/reactions.json."
     },
     {
       "rank": 15,
@@ -577,7 +603,6 @@
       "targetIds": [
         "species-name:species.naoh.name",
         "element-name:He",
-        "element-name:As",
         "element-name:Zr",
         "element-name:Pr",
         "element-name:Bi",
@@ -604,8 +629,10 @@
         "species-name:species.bacl2.name",
         "element-name:Mg",
         "element-name:Pm",
+        "element-name:As",
         "element-name:Sm",
         "element-name:Rh",
+        "element-name:Nh",
         "element-name:Au",
         "element-name:Es",
         "element-name:N",
@@ -665,7 +692,6 @@
         "element-name:Ts",
         "element-name:P",
         "element-name:Ge",
-        "element-name:Nh",
         "element-name:Mn",
         "element-name:Ga",
         "element-name:Pb",

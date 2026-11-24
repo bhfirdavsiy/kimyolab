@@ -194,7 +194,8 @@ test('provenance debt and pending review are their own categories — never coun
   const prov=reports.workPackages.packages.find(p=>p.id==='wp.provenance');
   // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived add-source tasks drop by 7 (127 → 120).
   // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names): 120 → 218 add-source tasks
-  assert.equal(prov.facts.addSourceTasks,218); assert.match(prov.facts.note,/PROVENANCE DEBT/);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): 218 → 229 add-source tasks
+  assert.equal(prov.facts.addSourceTasks,229); assert.match(prov.facts.note,/PROVENANCE DEBT/);
   for(const u of g.units) for(const k of ['strongestLayer','weakestLayer','blockingGaps','nextTechnicalOpportunity','nextHumanDependency']) assert.ok(k in u,k);
 });
 
