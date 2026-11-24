@@ -273,3 +273,25 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
 .kl-apparatus-block+.kl-apparatus-block{margin-top:1rem}
 .kl-apparatus-heading{margin:0 0 .5rem;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4a6584}
 .kl-apparatus[data-apparatus=bottle] svg{width:44px;height:44px}
+
+/* dynamic lab, card style (owner reference 2026-11-24: raqamlitalim.trm.uz laboratory) */
+.kl-dlab__flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem}
+.kl-dlab__flow ol{gap:0;align-items:center}
+.kl-dlab__flow li{display:flex;align-items:center}
+.kl-dlab__flow li+li::before{content:"";width:clamp(18px,4vw,56px);height:2px;background:#cddbeb;margin:0 .35rem}
+.kl-dlab__flow a{border:0;background:none;padding:.3rem .35rem;gap:.45rem;font-size:.92rem;color:#38506e}
+.kl-dlab__flow a::before{content:counter(dlab);display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#e8f0fa;color:#1d5fa8;font-weight:800;font-size:.8rem}
+.kl-dlab__flow a[aria-current]{background:none;color:#0b4aa8;text-decoration:none}
+.kl-dlab__flow a[aria-current]::before{background:#0b5bd3;color:#fff}
+.kl-dlab__tally{margin:0;font-size:.85rem;font-weight:700;color:#1d5fa8;background:#eef5ff;border:1px solid #cfe0f5;border-radius:999px;padding:.35rem .8rem}
+.kl-dlab__group{display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:.65rem}
+.kl-dlab__group-title{grid-column:1/-1;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#4a6584}
+.kl-dlab__object{display:grid;justify-items:center;align-content:center;gap:.3rem;min-height:96px;padding:.7rem .5rem;border-radius:16px;background:#fff;border:1px solid #d7e4f2;box-shadow:0 6px 16px rgba(2,52,128,.05);text-align:center;white-space:normal;line-height:1.25}
+.kl-dlab__object svg{width:40px;height:40px}
+.kl-dlab__formula{font-size:1.35rem;font-weight:800;color:#0d2547;letter-spacing:.01em}
+.kl-dlab__object-name{font-size:.78rem;font-weight:600;color:#4a6584}
+.kl-dlab__object--substance .kl-dlab__object-name{font-size:.74rem}
+.kl-dlab__object:hover{border-color:#8fb4e0;transform:translateY(-1px)}
+.kl-dlab__object[aria-pressed=true]{outline:none;border:2px solid #0b5bd3;background:#f2f7ff}
+.kl-dlab__object[aria-pressed=true]::after{content:none}
+@media (prefers-reduced-motion:reduce){.kl-dlab__object:hover{transform:none}}

@@ -46,6 +46,15 @@ export function equipmentItems(text:string):string[]{
   return text.replace(/\.$/,'').split(/,|;|\s+va\s+/).map(x=>x.trim()).filter(Boolean)
     .map(x=>x.charAt(0).toLocaleUpperCase('uz')+x.slice(1)).filter((x,i,a)=>a.indexOf(x)===i).slice(0,14);
 }
+/** profile apparatus kind → icon (the dynamic lab's object cards) */
+const KIND_ICON:Record<string,string>={'test-tube':'test-tube','gas-collection-vessel':'jar','beaker':'beaker','receiver':'beaker','electrolysis-cell':'beaker','electrodes':'electrodes','dc-source':'power','stirring-rod':'rod','funnel':'funnel','filter-paper':'filter-paper','stand':'stand','heat-source':'spirit-lamp','evaporating-dish':'dish','stopper':'crucible'};
+export function iconSvg(key:string):SVGSVGElement|null{
+  const shape=ICONS[key]; if(!shape) return null;
+  const svg=document.createElementNS(NS,'svg') as SVGSVGElement; svg.setAttribute('viewBox','0 0 48 48'); svg.setAttribute('focusable','false'); svg.setAttribute('aria-hidden','true');
+  for(const [tag,attrs] of shape){ const n=document.createElementNS(NS,tag); for(const [k,v] of Object.entries(attrs)) n.setAttribute(k,String(v)); svg.append(n); }
+  return svg;
+}
+export const iconForKind=(kind:string)=>KIND_ICON[kind]??null;
 export function iconFor(item:string):string|null{ for(const [re,k] of MATCH) if(re.test(item)) return k; return null; }
 
 /** apparatus named in the instruction's steps (fallback when no equipment list exists): icon keys in order of first use */

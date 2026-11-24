@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-23T15:51:33.375Z",
+  "createdAt": "2026-11-24T03:56:28.233Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -455,8 +455,8 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "b8069376a9418dfe57bb831341c966109e27f14cd31f80596371436a5a45f82d",
-      "size": 28586
+      "checksum": "f5b63cedf8f79f9f82d87bfb1efbf67f42f9f13285c2662caee9bb154658e50a",
+      "size": 30029
     },
     {
       "path": "app-preview/features/dynamic-lab/scene.js",
@@ -539,8 +539,8 @@
     {
       "path": "app-preview/features/practice/apparatus-icons.js",
       "sourcePath": "public/app-preview/features/practice/apparatus-icons.js",
-      "checksum": "3effb0183f337e83c35d6fff25b236f7eab013d1dd79c3489d2b65e23b5b9d7c",
-      "size": 7691
+      "checksum": "f350626690b4e02ca86536fdeb4aa1268f1dfb009e8a1ccb3a20d4fcdc3581bc",
+      "size": 8666
     },
     {
       "path": "app-preview/features/practice/form-question.js",
@@ -1091,8 +1091,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "c80321c8a79e38cb3b08d4f63dc99d79c0f14bcc204cec90673295fbc7292b99",
-      "size": 46488
+      "checksum": "130514fa8e3701c3092fdfdba43148bed82173d078d946a6f9a5e03823fce6c3",
+      "size": 48573
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1361,8 +1361,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "f5b36d0b7dfe72f7dd5b7331b90182ff038d210a9e461743964a53aeaddbd047",
-      "size": 48609
+      "checksum": "a4947441a6122c0b28f0d0924996a42da299037acfd61f389218464e3e5407fe",
+      "size": 48674
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1373,7 +1373,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "c7d8c2a52f8f19c6218814ce770467df34769ef9107b0e08ebcd41b005dc8a58",
+      "checksum": "3724586c473a94c2883c898ed9a9139a1f7dbc847729b6730cbd64c10d8a0757",
       "size": 8346
     },
     {
@@ -1415,7 +1415,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "a6f6fde1d2de1b7baa4cb3b91bb182c85ea5d05dffbb500de06121200885a530",
+      "checksum": "4bd499c1751c2cfebb4a28a995d6ef6f1093d764618a2947dfc54f26a7c81897",
       "size": 158
     },
     {

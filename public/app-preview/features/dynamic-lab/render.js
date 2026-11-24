@@ -15,7 +15,8 @@ import {LAB_ACTION_FAMILIES,                    } from '../../domain/lab/action-
 import {availableActions,createLabRuntime,createLabState,                                                                                       } from '../../domain/lab/lab-runtime.js';
                                                                                          
 import {createLabDomain} from '../../domain/lab/lab-domain.js';
-import {renderLabScene} from './scene.js';
+import {renderLabScene,subscriptFormula} from './scene.js';
+import {iconSvg,iconForKind} from '../practice/apparatus-icons.js';
 
                                                                  
 
@@ -95,7 +96,8 @@ export function renderDynamicLab(root            ,page                         ,
 
   // Maqsad: the goal, the instruction (its own sentences), the order rule and the safety notes
   const goal=section('goal','ui.dlab-stage-goal');
-  goal.append(el('p',{className:'kl-unit-outcome',text:profile.instruction.goal}));
+  // the legacy goal is often step 1 copied; then the instruction (below) already says it
+  if(profile.instruction.goal.trim()!==profile.instruction.steps[0]?.text.trim()) goal.append(el('p',{className:'kl-unit-outcome',text:profile.instruction.goal}));
   const instruction=el('details',{className:'kl-dlab__instruction'}); instruction.append(el('summary',{text:t.ui('ui.dlab-instruction')}));
   const steps=el('ol'); for(const s of profile.instruction.steps) steps.append(el('li',{text:s.text})); instruction.append(steps);
   if(profile.instruction.equipmentText) instruction.append(el('p',{text:t.ui('ui.lab-equipment',{text:profile.instruction.equipmentText})}));
@@ -163,7 +165,11 @@ export function renderDynamicLab(root            ,page                         ,
       const g=el('div',{className:'kl-dlab__group',attrs:{role:'group','aria-label':t.ui(key)}});
       g.append(el('p',{className:'kl-dlab__group-title',text:t.ui(key),attrs:{'aria-hidden':'true'}}));
       for(const ref of refs){
-        const b=el('button',{className:'kl-button kl-button--secondary kl-dlab__object',text:objectName(ref),attrs:{type:'button','aria-pressed':String(selected?.kind===ref.kind&&selected.id===ref.id),'data-object':`${ref.kind}:${ref.id}`}});
+        // a card: apparatus with its icon, a substance with its formula above the name (the accessible name is the name)
+        const b=el('button',{className:`kl-button kl-button--secondary kl-dlab__object kl-dlab__object--${ref.kind}`,attrs:{type:'button','aria-pressed':String(selected?.kind===ref.kind&&selected.id===ref.id),'data-object':`${ref.kind}:${ref.id}`}});
+        if(ref.kind==='apparatus'){ const ic=iconForKind(profile.apparatus.find(a=>a.id===ref.id)?.kind??''); const svg=ic?iconSvg(ic):null; if(svg) b.append(svg); }
+        if(ref.kind==='substance'){ const f=formulaOf(ref.id); if(f) b.append(el('span',{className:'kl-dlab__formula',text:subscriptFormula(f),attrs:{'aria-hidden':'true'}})); }
+        b.append(el('span',{className:'kl-dlab__object-name',text:objectName(ref)}));
         b.addEventListener('click',()=>{ selected=ref; pending=null; draw(); actionsBox.querySelector             ('h3')?.focus(); });
         g.append(b);
       }
@@ -356,10 +362,18 @@ export function renderDynamicLab(root            ,page                         ,
     for(const l of lines) guidanceOut.append(el('p',{text:l}));
   }
 
+  // a tally like a stepper's counter: how many of the goal's reactions the learner has observed (from the state)
+  const tally=el('p',{className:'kl-dlab__tally',attrs:{'data-dlab-tally':''}}); flow.append(tally);
+  function drawTally(){
+    const goal=profile.completionGoal.kind==='reactions'?profile.completionGoal.reactionIds:[];
+    if(!goal.length){ tally.hidden=true; return; }
+    const seen=goal.filter(id=>state.observations.some(o=>o.producedBy==='ReactionMatcher'&&o.source.endsWith(`#${id}`))).length;
+    tally.hidden=false; tally.textContent=t.ui('ui.dlab-tally',{done:seen,total:goal.length});
+  }
   function draw(){
     for(const [id,a] of flowLinks){ if(id===stage) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); }
     shell.dataset.complete=String(state.complete);
-    drawScene(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
+    drawScene(); drawTally(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
   }
 
   reset.addEventListener('click',()=>{ state=runtime.reset(profile); accepted.length=0; options.onChange?.({accepted:[],complete:state.complete}); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });
