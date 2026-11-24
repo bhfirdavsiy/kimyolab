@@ -295,3 +295,11 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
 .kl-dlab__object[aria-pressed=true]{outline:none;border:2px solid #0b5bd3;background:#f2f7ff}
 .kl-dlab__object[aria-pressed=true]::after{content:none}
 @media (prefers-reduced-motion:reduce){.kl-dlab__object:hover{transform:none}}
+
+/* chemical formulas in running text: a face whose capital I has serifs, so NaI / KI are never read as "Nal" / "Kl" */
+.kl-formula{font-family:"Cambria Math",Cambria,"STIX Two Text","Noto Serif","DejaVu Serif","Times New Roman",serif;font-size:1.04em;letter-spacing:.01em;white-space:nowrap}
+.kl-dlab__why-list{margin:0 0 1rem;padding-left:1.2rem}
+.kl-dlab__why-list li{margin:.35rem 0}
+.kl-dlab__teacher{margin-top:1rem;border-top:1px solid var(--kl-border,#d8e1ec);padding-top:.6rem;font-size:.92em;color:var(--kl-muted,#4a5b70)}
+.kl-dlab__teacher summary{cursor:pointer;font-weight:600}
+.kl-dlab__formula,.kl-scene__formula,.kl-scene__gas-label{font-family:"Cambria Math",Cambria,"STIX Two Text","Noto Serif","DejaVu Serif","Times New Roman",serif}

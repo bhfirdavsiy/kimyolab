@@ -3,6 +3,8 @@
 // Nothing here is chemistry: an item is matched to an icon by its own Uzbek word, its label is that item's text, and an
 // item with no icon is still shown, as text. Decoration (aria-hidden): the equipment list is also printed as text.
 
+import {setChemText} from '../../ui/chem-text.js';
+
 const NS='http://www.w3.org/2000/svg';
                                                         
 const glass={fill:'#eaf4ff',stroke:'#5d7895','stroke-width':2.2,'stroke-linejoin':'round'};
@@ -79,8 +81,8 @@ export function apparatusGallery(items                       ,heading        )  
     const fig=document.createElement('figure'); fig.className='kl-apparatus';
     if(item.key&&ICONS[item.key]){ const svg=document.createElementNS(NS,'svg'); svg.setAttribute('viewBox','0 0 48 48'); svg.setAttribute('focusable','false'); for(const [tag,attrs] of ICONS[item.key] ){ const n=document.createElementNS(NS,tag); for(const [k,v] of Object.entries(attrs)) n.setAttribute(k,String(v)); svg.append(n); } fig.append(svg); fig.dataset.apparatus=item.key; }
     else fig.classList.add('is-text-only');
-    // digits after an element symbol or a bracket are formula indices: NH4Cl → NH₄Cl
-    const cap=document.createElement('figcaption'); cap.textContent=item.label.replace(/([A-Z][a-z]?|\))(\d+)/g,(_,a       ,d       )=>a+[...d].map(x=>'₀₁₂₃₄₅₆₇₈₉'[Number(x)]).join('')); fig.append(cap);
+    // formulas in the caption are typeset (NH4Cl → NH₄Cl; NaI is never read as "Nal")
+    const cap=document.createElement('figcaption'); setChemText(cap,item.label); fig.append(cap);
     wrap.append(fig);
   }
   block.append(wrap);

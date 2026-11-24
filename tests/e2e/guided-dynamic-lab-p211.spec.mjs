@@ -32,7 +32,8 @@ for (const name of ['portal', 'standalone']) {
     await expect(page.locator(`${LAB}[data-dynamic-lab="lab-profile.7.10.metal-acid-gas"]`)).toBeVisible();
     await addTo(page, 'mg', 'tube-1'); await addTo(page, 'h2so4-dilute', 'tube-1');
     await expect(result(page)).toHaveAttribute('data-status', 'accepted');
-    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('H2 gazi ajraldi');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('H₂ gazi ajraldi');
     await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.mg-h2so4');
     await addTo(page, 'zn', 'tube-2'); await addTo(page, 'hcl-dilute', 'tube-2');
     await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toHaveCount(2);
@@ -42,7 +43,8 @@ for (const name of ['portal', 'standalone']) {
     await expect(collect).toHaveCount(2);
     await expect(list(page).locator('[data-action-family=COLLECT_GAS][data-action-from=tube-1]')).toContainText('qayerdan: 1-probirka');
     await list(page).locator('[data-action-family=COLLECT_GAS][data-action-from=tube-1]').click();
-    await expect(result(page)).toContainText('H2 gazi yig‘ildi (manba: 1-probirka)');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(result(page)).toContainText('H₂ gazi yig‘ildi (manba: 1-probirka)');
     // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are trials of the instruction: the lab is not complete before them
     await expect(page.locator(`${LAB}[data-complete=true]`)).toHaveCount(0);
     await addTo(page, 'mg', 'tube-4'); await addTo(page, 'hcl-dilute', 'tube-4');
@@ -104,11 +106,13 @@ for (const name of ['portal', 'standalone']) {
     await expect(page.locator(`${LAB} .kl-dlab__state`)).toContainText('tiqin bilan yopilgan');
     await object(page, 'apparatus:reaction-tube');
     await list(page).locator('[data-action-family=HEAT]').click();
-    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('NH3 gazi ajraldi');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('NH₃ gazi ajraldi');
     await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.nh4cl-caoh2');
     await object(page, 'apparatus:collector-tube');
     await list(page).locator('[data-action-family=COLLECT_GAS]').click();
-    await expect(result(page)).toContainText('NH3 gazi yig‘ildi');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(result(page)).toContainText('NH₃ gazi yig‘ildi');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
     await expect(result(page)).toContainText('qo‘llab-quvvatlanadigan qismi bajarildi');
     await expect(result(page)).not.toContainText('maqsadiga erishildi');

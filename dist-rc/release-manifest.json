@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-24T07:35:04.206Z",
+  "createdAt": "2026-11-24T08:46:47.718Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -455,8 +455,8 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "3c5dbf167a9841246aa2db9f27272b8a9cbe82c193a98a0609de3dc9f8ac4c67",
-      "size": 30383
+      "checksum": "50a893de2ed641af22f918df081a7e1ec13b21c92158f5977d40b3bf9b82071a",
+      "size": 33324
     },
     {
       "path": "app-preview/features/dynamic-lab/scene.js",
@@ -539,8 +539,8 @@
     {
       "path": "app-preview/features/practice/apparatus-icons.js",
       "sourcePath": "public/app-preview/features/practice/apparatus-icons.js",
-      "checksum": "f350626690b4e02ca86536fdeb4aa1268f1dfb009e8a1ccb3a20d4fcdc3581bc",
-      "size": 8666
+      "checksum": "df9ff48e3b1b25e8ce709e02e40604dbbee0a4985f7980e6354e98de374db8c5",
+      "size": 8593
     },
     {
       "path": "app-preview/features/practice/form-question.js",
@@ -563,8 +563,8 @@
     {
       "path": "app-preview/features/practice/render.js",
       "sourcePath": "public/app-preview/features/practice/render.js",
-      "checksum": "fb9681d648ca558d96ae2bb2648fc0fef62fbdf079c1253a80dd398f81550bfc",
-      "size": 16628
+      "checksum": "397f7fc8fa0699fbb3e4ffca57e7f4a7c08c48e5c905665b19edd9875cb26fa5",
+      "size": 16705
     },
     {
       "path": "app-preview/features/practice/session.js",
@@ -1077,6 +1077,12 @@
       "size": 5295
     },
     {
+      "path": "app-preview/ui/chem-text.js",
+      "sourcePath": "public/app-preview/ui/chem-text.js",
+      "checksum": "68b53a92e0bbb401bb54c92a13e7963db6a33cb6b31cb35834b27240e2937100",
+      "size": 2791
+    },
+    {
       "path": "app-preview/ui/components/dom.js",
       "sourcePath": "public/app-preview/ui/components/dom.js",
       "checksum": "4b6615a148baacaac0c98f02202a34b603e0bffe3281a203f6aff5ad7d7e7279",
@@ -1091,8 +1097,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "130514fa8e3701c3092fdfdba43148bed82173d078d946a6f9a5e03823fce6c3",
-      "size": 48573
+      "checksum": "d21aee4f94a30df78d9dd2491e7587ba13a994d1d089c1be2491937a2f201dee",
+      "size": 49326
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1361,8 +1367,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "6c791f33e21eb25ad2536d4cd59979c9751cb7fc3b800fad770ea3a3fc59defa",
-      "size": 49428
+      "checksum": "36634a88f78f7c94f7e8bcf282be4a8eb375537bba68413b962f80a78d41fa0d",
+      "size": 50229
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1373,7 +1379,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "227c5f76c5d22736c8caa9d6a566475d186bb1197aa62f117bff2b7d035e9b58",
+      "checksum": "cd1c70aaf22fcdf022e636dd076022dad9a79f2020240f3e7b20eed7bda69212",
       "size": 8346
     },
     {
@@ -1415,7 +1421,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "7443f5b138eafebe3d81ae2821819d48ad40194460c2c0a2f6180989a3a01136",
+      "checksum": "a939014e9b14ea5b0b453cd23e034c46d1495a032dbc70d19c56068af84a4bb7",
       "size": 158
     },
     {

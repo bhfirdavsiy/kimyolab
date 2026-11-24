@@ -1,4 +1,5 @@
 import type {StudentPracticePageModel} from './model.ts';
+import {setChemText} from '../../ui/chem-text.ts';
 import {buildPracticeUiModel} from './ui-model.ts';
 import {isPracticeResultComplete} from '../../runtime/learning-orchestrator/selectors.ts';
 import {feedbackState} from '../../runtime/shared/learner-input.ts';
@@ -126,7 +127,7 @@ export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,se
     model.controls.forEach((item,index)=>{
       const row=el('div',{className:`kl-experiment-step${index===0?' is-current':''}`,attrs:index===0?{'aria-current':'step'}:{}});
       const labelId=`${stepAlert.id}-step${index}`;
-      row.append(el('strong',{text:`${index+1}. ${item.label}`,attrs:{id:labelId}}));
+      { const s=el('strong',{attrs:{id:labelId}}); setChemText(s,`${index+1}. ${item.label}`); row.append(s); }
       // P2.7: every step button is named by its step (ui.do + the step label), not only ui.do; a finished step keeps
       // focus (aria-disabled instead of disabled, so focus never falls to <body>); a REJECTED action (e.g. out of
       // order) leaves the step open so the learner can retry it.

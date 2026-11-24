@@ -95,7 +95,8 @@ for (const name of ['portal', 'standalone']) {
     await on(page, 'target:cathode', 'OBSERVE'); await on(page, 'target:anode', 'OBSERVE');
     const obs = page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ElectrolysisModel]`);
     await expect(obs).toHaveCount(2);
-    await expect(obs.nth(0)).toContainText('Cu'); await expect(obs.nth(1)).toContainText('Cl2'); await expect(obs.nth(1)).toContainText('hidlab ko‘rmang');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(obs.nth(0)).toContainText('Cu'); await expect(obs.nth(1)).toContainText('Cl₂'); await expect(obs.nth(1)).toContainText('hidlab ko‘rmang');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
   });
 

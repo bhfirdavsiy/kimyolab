@@ -17,6 +17,7 @@ import {availableActions,createLabRuntime,createLabState,                       
 import {createLabDomain} from '../../domain/lab/lab-domain.js';
 import {renderLabScene,subscriptFormula} from './scene.js';
 import {iconSvg,iconForKind} from '../practice/apparatus-icons.js';
+import {setChemText} from '../../ui/chem-text.js';
 
                                                                  
 
@@ -99,12 +100,13 @@ export function renderDynamicLab(root            ,page                         ,
   // the legacy goal is often step 1 copied; then the instruction (below) already says it
   if(profile.instruction.goal.trim()!==profile.instruction.steps[0]?.text.trim()) goal.append(el('p',{className:'kl-unit-outcome',text:profile.instruction.goal}));
   const instruction=el('details',{className:'kl-dlab__instruction'}); instruction.append(el('summary',{text:t.ui('ui.dlab-instruction')}));
-  const steps=el('ol'); for(const s of profile.instruction.steps) steps.append(el('li',{text:s.text})); instruction.append(steps);
+  const steps=el('ol'); for(const s of profile.instruction.steps){ const li=el('li'); setChemText(li,s.text); steps.append(li); } instruction.append(steps);
   if(profile.instruction.equipmentText) instruction.append(el('p',{text:t.ui('ui.lab-equipment',{text:profile.instruction.equipmentText})}));
   if(profile.instruction.materialsText) instruction.append(el('p',{text:t.ui('ui.lab-materials',{text:profile.instruction.materialsText})}));
   goal.append(instruction,el('p',{className:'kl-dlab__order',text:t.ui(`ui.dlab-order-${profile.procedure.mode}`)}));
   if(profile.completionScope.kind==='PARTIAL_INSTRUCTION') goal.append(el('p',{className:'kl-notice kl-dlab__scope',text:t.ui('ui.dlab-partial-notice')}));
-  for(const n of profile.safety.notes) goal.append(el('p',{className:'kl-notice kl-dlab__safety',text:t.ui('ui.lab-safety',{text:n.text})}));
+  // the same note can come from two instruction steps: it is shown once
+  for(const text of [...new Set(profile.safety.notes.map(n=>n.text.trim()))]) goal.append(el('p',{className:'kl-notice kl-dlab__safety',text:t.ui('ui.lab-safety',{text})}));
 
   // Amal: object → action → parameters
   const action=section('action','ui.dlab-stage-action');
@@ -127,10 +129,14 @@ export function renderDynamicLab(root            ,page                         ,
   const obsEmpty=el('p',{text:t.ui('ui.dlab-no-observations')});
   const stateBox=el('div',{className:'kl-dlab__state'});
   observe.append(obsEmpty,obsList,el('h3',{text:t.ui('ui.dlab-state')}),stateBox);
+  // Stage 1 of the 2026-11-24 review: record ids, source paths and model names are for the teacher, behind one summary
 
   // Nega?: where each observation comes from + guidance levels 1–4 (never the answer)
   const why=section('why','ui.dlab-stage-why');
-  const sources=el('ul',{className:'kl-dlab__sources'});
+  const whyList=el('ul',{className:'kl-dlab__why-list'});
+  const whyEmpty=el('p',{text:t.ui('ui.dlab-why-empty')});
+  const teacher=el('details',{className:'kl-dlab__teacher'}); teacher.append(el('summary',{text:t.ui('ui.dlab-teacher')}));
+  const sources=el('ul',{className:'kl-dlab__sources'}); teacher.append(sources);
   const guidanceFs=el('fieldset',{className:'kl-choice-group kl-dlab__guidance'}); guidanceFs.append(el('legend',{text:t.ui('ui.dlab-guidance')}));
   for(const l of profile.guidance.levels){
     const id=`dlab-guidance-${l}`; const input=el('input',{attrs:{type:'radio',name:'dlab-guidance',id,value:String(l)}}); if(l===level) input.checked=true;
@@ -138,7 +144,7 @@ export function renderDynamicLab(root            ,page                         ,
     const lab=el('label',{attrs:{for:id}}); lab.append(input,document.createTextNode(` ${t.ui(`ui.dlab-guidance-${l}`)}`)); guidanceFs.append(lab);
   }
   const guidanceOut=el('div',{className:'kl-dlab__guidance-text',attrs:{'aria-live':'polite'}});
-  why.append(sources,guidanceFs,guidanceOut);
+  why.append(whyEmpty,whyList,guidanceFs,guidanceOut,teacher);
 
   shell.append(flow,scene,goal,action,observe,why);
   root.append(head,shell);
@@ -169,7 +175,7 @@ export function renderDynamicLab(root            ,page                         ,
         const b=el('button',{className:`kl-button kl-button--secondary kl-dlab__object kl-dlab__object--${ref.kind}`,attrs:{type:'button','aria-pressed':String(selected?.kind===ref.kind&&selected.id===ref.id),'data-object':`${ref.kind}:${ref.id}`}});
         if(ref.kind==='apparatus'){ const ic=iconForKind(profile.apparatus.find(a=>a.id===ref.id)?.kind??''); const svg=ic?iconSvg(ic):null; if(svg) b.append(svg); }
         if(ref.kind==='substance'){ const f=formulaOf(ref.id); if(f) b.append(el('span',{className:'kl-dlab__formula',text:subscriptFormula(f),attrs:{'aria-hidden':'true'}})); }
-        b.append(el('span',{className:'kl-dlab__object-name',text:objectName(ref)}));
+        { const nm=el('span',{className:'kl-dlab__object-name'}); setChemText(nm,objectName(ref)); b.append(nm); }
         b.addEventListener('click',()=>{ selected=ref; pending=null; draw(); actionsBox.querySelector             ('h3')?.focus(); });
         g.append(b);
       }
@@ -280,7 +286,7 @@ export function renderDynamicLab(root            ,page                         ,
   function run(a          ){
     const r=runtime.applyLabAction(state,a,profile);
     pending=null; clear(paramsBox);
-    result.textContent=resultText(r,a);
+    setChemText(result,resultText(r,a));
     result.dataset.status=r.status;
     result.dataset.code=r.error?.code??r.unsupported?.code??r.guidance.code;
     state=r.nextState;
@@ -328,11 +334,35 @@ export function renderDynamicLab(root            ,page                         ,
     return `${t.ui('ui.dlab-src-instruction')}${m?`, ${t.ui('ui.dlab-step-n',{n:Number(m[1])+1})}`:''}. ${t.ui('ui.dlab-why-instruction-note')}`;
   }
 
+  // Nega?: the learner reads the reason in plain words — the record's equation, the indicator's colours, the instruction
+  // itself — never a record id (those are in the teacher's summary). An unreviewed record says so.
+  const chem=page.chemistry       ;
+  const reactionList      =Array.isArray(chem?.reactions)?chem.reactions:(chem?.reactions?.reactions??[]);
+  const reactionById=new Map            (reactionList.map((r    )=>[r.id,r]));
+  const reviewed=new Set        (Array.isArray((page       ).reviewedReactionIds)?(page       ).reviewedReactionIds:Array.isArray(chem?.reviewedReactionIds)?chem.reviewedReactionIds:[]);
+  function whyText(o               ){
+    const seen=observationText(o);
+    if(o.producedBy==='ReactionMatcher'){
+      const id=o.source.split('#')[1]??''; const rec=reactionById.get(id);
+      if(!rec?.molecularEquation) return `${seen}. ${t.ui('ui.dlab-why-record')}`;
+      return `${seen}. ${t.ui('ui.dlab-why-equation',{equation:rec.molecularEquation})}${reviewed.has(id)?'':` ${t.ui('ui.dlab-why-unreviewed')}`}`;
+    }
+    if(o.producedBy==='SchoolLabModel'){
+      const colors=(chem?.hydrolysis?.indicator?.colors??{})                         ;
+      const list=(['acidic','basic','neutral']         ).filter(m=>colors[m]).map(m=>`${opt(`ui.dlab-medium-${m}`)??m} — ${opt(`ui.dlab-color-${colors[m]}`)??colors[m]}`).join(', ');
+      return `${seen}. ${t.ui('ui.dlab-why-indicator',{list})} ${t.ui('ui.dlab-why-unreviewed')}`;
+    }
+    if(o.producedBy==='IonicEngine') return `${seen}. ${t.ui('ui.dlab-why-solubility')}`;
+    if(o.producedBy==='ElectrolysisModel') return `${seen}. ${t.ui('ui.dlab-why-electrolysis')}`;
+    return `${seen}. ${t.ui('ui.dlab-why-instruction')}`;
+  }
+
   function drawObservations(){
-    clear(obsList); clear(sources);
-    obsEmpty.hidden=state.observations.length>0;
+    clear(obsList); clear(sources); clear(whyList);
+    obsEmpty.hidden=state.observations.length>0; whyEmpty.hidden=state.observations.length>0;
     for(const o of state.observations){
-      obsList.append(el('li',{text:observationText(o),attrs:{'data-observation-kind':o.kind,'data-produced-by':o.producedBy,'data-grounding':o.grounding}}));
+      const li=el('li',{attrs:{'data-observation-kind':o.kind,'data-produced-by':o.producedBy,'data-grounding':o.grounding}}); setChemText(li,observationText(o)); obsList.append(li);
+      const w=el('li',{attrs:{'data-produced-by':o.producedBy}}); setChemText(w,whyText(o)); whyList.append(w);
       sources.append(el('li',{text:`${observationText(o)} — ${t.ui('ui.dlab-why-source',{source:sourceText(o)})}`,attrs:{'data-grounding':o.grounding}}));
     }
   }
@@ -340,16 +370,20 @@ export function renderDynamicLab(root            ,page                         ,
   function drawState(){
     clear(stateBox);
     stateBox.append(el('p',{text:t.ui('ui.dlab-state-setup',{list:state.setUp.length?state.setUp.map(apparatusName).join(', '):t.ui('ui.dlab-state-none')})}));
-    const ul=el('ul');
+    // the text twin of the bench picture: only what is in a vessel (an empty vessel and an unmodelled pH or
+    // temperature are not listed — "not modelled" is a fact for the teacher, not an observation)
+    const ul=el('ul'); let empty=0;
     for(const c of profile.apparatus.filter(a=>a.isContainer)){
       const cs=state.containers[c.id] ;
       const items=cs.contents.map(e=>substanceName(e.substanceId)+(e.amount?` (${e.amount.value} ${e.amount.unit})`:''));
-      const temp=cs.heating||(cs.temperature.modeled&&cs.temperature.state==='heated')?t.ui('ui.dlab-heated'):t.ui('ui.dlab-not-modeled');
       const gases=cs.gases.filter(g=>!g.collected).map(g=>g.product);
-      const extra=[...(gases.length?[t.ui('ui.dlab-gas-in',{list:[...new Set(gases)].join(', ')})]:[]),...(cs.sealed?[t.ui('ui.dlab-sealed')]:[])];
-      ul.append(el('li',{text:`${t.ui('ui.dlab-contents',{container:apparatusName(c.id),list:items.length?items.join(', '):t.ui('ui.dlab-state-empty')})}; ${extra.length?`${extra.join('; ')}; `:''}${t.ui('ui.dlab-temperature',{value:temp})}; ${t.ui('ui.dlab-ph',{value:t.ui('ui.dlab-not-modeled')})}`}));
+      const heated=cs.heating||(cs.temperature.modeled&&cs.temperature.state==='heated');
+      if(!items.length&&!gases.length&&!cs.sealed&&!heated){ empty++; continue; }
+      const extra=[...(gases.length?[t.ui('ui.dlab-gas-in',{list:[...new Set(gases)].join(', ')})]:[]),...(cs.sealed?[t.ui('ui.dlab-sealed')]:[]),...(heated?[t.ui('ui.dlab-temperature',{value:t.ui('ui.dlab-heated')})]:[])];
+      const li=el('li'); setChemText(li,[t.ui('ui.dlab-contents',{container:apparatusName(c.id),list:items.length?items.join(', '):t.ui('ui.dlab-state-empty')}),...extra].join('; ')); ul.append(li);
     }
-    stateBox.append(ul);
+    if(ul.children.length) stateBox.append(ul);
+    if(empty) stateBox.append(el('p',{text:t.ui(ul.children.length?'ui.dlab-state-rest-empty':'ui.dlab-state-all-empty')}));
     if(state.current.on) stateBox.append(el('p',{text:t.ui('ui.dlab-current-on')}));
   }
 
@@ -361,7 +395,7 @@ export function renderDynamicLab(root            ,page                         ,
     if(level>=3) lines.push(g.recommended.length?t.ui(g.ordered?'ui.dlab-guidance-next':'ui.dlab-guidance-next-unordered',{list:g.recommended.map(r=>actionText(r.action)).join('; ')}):t.ui('ui.dlab-guidance-none'));
     if(level>=4){ for(const x of g.instructionText) lines.push(t.ui('ui.dlab-guidance-text',{text:x})); for(const b of g.blocked.slice(0,1)) lines.push(t.ui('ui.dlab-guidance-blocked',{step:stepLabel(b.step),list:b.blockedBy.map(stepLabel).join(', ')})); }
     lines.push(t.ui('ui.dlab-guidance-no-answer'));
-    for(const l of lines) guidanceOut.append(el('p',{text:l}));
+    for(const l of lines){ const p=el('p'); setChemText(p,l); guidanceOut.append(p); }
   }
 
   // a tally like a stepper's counter: how many of the goal's reactions the learner has observed (from the state)
