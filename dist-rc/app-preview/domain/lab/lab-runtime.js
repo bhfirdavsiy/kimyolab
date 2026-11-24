@@ -69,7 +69,8 @@ export const LAB_STATE_SCHEMA='kimyolab.lab-state.v1';
               
                                                                                     
                                                
-                                                                                                
+                                                                                                                               
+                                                                                                                 
                                                                                                    
                                  
                 
@@ -78,7 +79,7 @@ export const LAB_STATE_SCHEMA='kimyolab.lab-state.v1';
  *  MODEL_BASED. An instruction sentence (INSTRUCTION_TEXT) or a procedural fact (PROCEDURE) is never model chemistry,
  *  in a report, in a count or in the learner's "Nega?" source line. */
                                                                               
-const MODEL_AUTHORITIES                                          =new Set(['ReactionMatcher','ElectrolysisModel','IonicEngine']);
+const MODEL_AUTHORITIES                                          =new Set(['ReactionMatcher','ElectrolysisModel','IonicEngine','SchoolLabModel']);
 export function observationGrounding(o                                  )                     {
   return MODEL_AUTHORITIES.has(o.producedBy)?'MODEL_BASED':o.producedBy==='INSTRUCTION_TEXT'?'INSTRUCTION_TEXT':'PROCEDURE';
 }
@@ -129,6 +130,8 @@ export function observationGrounding(o                                  )       
                                                                                                                           
                                                                                                          
                                            
+                                                                                                                       
+                                                                                             
  
 
 /** P2.11 — what each implemented handler IS and which authorities it may consult. The capability registry reads this
@@ -493,6 +496,7 @@ export function createLabRuntime(domain          ){
     // P2.11 reaction-matcher: the container whose contents or conditions this action changed (evaluated after the switch)
     let contact                    =null;
     let procedureCode            =null;
+    let indicatorNotModeled            =null;
 
     switch(action.family){
       case 'SETUP_APPARATUS': next.setUp.push(paramText(action,'apparatus') ); break;
@@ -506,6 +510,17 @@ export function createLabRuntime(domain          ){
         }else if(chem.authority==='reaction-matcher'){
           // the substance enters with its registered phase; the authority then evaluates every new pair under the
           // container's actual conditions (no reaction is decided here)
+          if(sub.role==='indicator'){
+            // the indicator reveals the medium of the sample already in the container: the sample is matched by its exact
+            // set of learner-added substances; medium from the bound school model, colour from the indicator record
+            c .contents.push({substanceId:subId,speciesId:null,phase:null,form:'liquid',amount,source:sub.source});
+            const added=new Set(c .contents.filter(e=>e.substanceId!==subId&&!String(e.source).startsWith('ReactionMatcher')).map(e=>e.substanceId));
+            const smp=profile.indicator?.samples.find(x=>x.substances.length===added.size&&x.substances.every(y=>added.has(y)));
+            const color=smp?.medium?domain.indicator?.colors[smp.medium]:undefined;
+            if(smp&&color) observe({target:'indicator',container,kind:'indicator-response',data:{type:'indicator-response',indicator:domain.indicator .id,medium:smp.medium,color,sample:smp.sample},producedBy:'SchoolLabModel',source:`chemistry/school-lab-models.json#${smp.modelId}`});
+            else indicatorNotModeled=smp?'INDICATOR_COLOR_NOT_MODELED':'INDICATOR_MEDIUM_NOT_MODELED';
+            break;
+          }
           const species=sub.speciesId?domain.species.byId(sub.speciesId)       :null;
           const phase=species?.phase??null;
           if(!c .contents.some(e=>e.substanceId===subId)) c .contents.push({substanceId:subId,speciesId:sub.speciesId,phase,form:sub.declaredForm?.form??(phase?FORM_BY_PHASE[phase]??'solid':'solid'),amount,source:sub.source});
@@ -670,6 +685,14 @@ export function createLabRuntime(domain          ){
         }
         break;
       }
+    }
+    if(indicatorNotModeled){
+      // the drop happened; this sample's medium (or its colour) is not modeled — no colour is shown, never guessed
+      for(const k of Object.keys(next.containers)) next.containers[k] .phases=phasesOf(next.containers[k] );
+      if(step&&!next.completedSteps.includes(step.id)) next.completedSteps.push(step.id);
+      next.actionLog.push(clone(action));
+      next.complete=isComplete(next,profile,domain);
+      return {status:'unsupported',nextState:next,chemistryEvents:events,observations:[],procedural:{completedStep:step&&!state.completedSteps.includes(step.id)?step.id:null,blockedBy:[],reason:null},guidance:{category:'unsupported',code:indicatorNotModeled},evidenceCandidate:null,error:null,unsupported:{code:'UNSUPPORTED_CHEMISTRY',detail:indicatorNotModeled}};
     }
     if(contact){
       const r=reactInContainer(contact,profile,domain,observe);

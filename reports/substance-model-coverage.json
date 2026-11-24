@@ -687,6 +687,13 @@
             "ReactionMatcher"
           ],
           "source": "legacyContent.materials (\"distillangan suv\") + legacyContent.steps[2]"
+        },
+        {
+          "id": "litmus",
+          "speciesId": null,
+          "formula": null,
+          "authorities": [],
+          "source": "legacyContent.materials (\"fenolftalein yoki lakmus\") + legacyContent.steps[3] (\"indikator tomizib\")"
         }
       ]
     },
@@ -1152,6 +1159,22 @@
             "ReactionMatcher"
           ],
           "source": "legacyContent.materials (\"CaCO3 yoki bo‘r\") + legacyContent.steps[4]"
+        },
+        {
+          "id": "water",
+          "speciesId": "species.h2o",
+          "formula": "H2O",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.steps[1] (\"Suv va HCl eritmalariga …\")"
+        },
+        {
+          "id": "litmus",
+          "speciesId": null,
+          "formula": null,
+          "authorities": [],
+          "source": "legacyContent.materials (\"indikatorlar\") + legacyContent.steps[1] (\"indikator tomizib\"); litmus is the only indicator with a colour record (hydrolysis.json#indicator)"
         }
       ]
     },

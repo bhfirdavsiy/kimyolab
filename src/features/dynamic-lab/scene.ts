@@ -171,6 +171,8 @@ function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerS
 }
 
 function colorChange(obs:LabState['observations']):string|null{
+  // the latest indicator colour (an indicator-response observation) tints the liquid; else a record's colour change
+  const ind=[...obs].reverse().find(x=>(x.data as any)?.type==='indicator-response'); if(ind&&COLOR[String((ind.data as any).color)]) return COLOR[String((ind.data as any).color)]!;
   const o=obs.find(x=>(x.data as any)?.type==='color-change'); const to=String((o?.data as any)?.to??'');
   return COLOR[to]??null;
 }

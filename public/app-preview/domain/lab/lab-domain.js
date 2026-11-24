@@ -22,5 +22,7 @@ export function createLabDomain(data                 )          {
     species,ionicEngine,matcher,reviewedReactionIds,
     ionic:{species,matcher,ionic:ionicEngine,reviewedReactionIds,...(mixing?{mixingConditions:{dimensions:{...mixing.dimensions}}}:{})},
     ...(data.electrolysis?{electrolysis:ElectrolysisModel.from(data.electrolysis)}:{}),
+    // the indicator record travels with the hydrolysis data (hydrolysis.json#indicator); only valid colours are kept
+    ...((data       ).hydrolysis?.indicator?.colors?{indicator:{id:String((data       ).hydrolysis.indicator.id),colors:Object.fromEntries(Object.entries((data       ).hydrolysis.indicator.colors).filter(([m,c])=>['acidic','basic','neutral'].includes(m)&&typeof c==='string'))}}:{}),
   };
 }

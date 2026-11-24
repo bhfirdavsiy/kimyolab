@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "4e8088a57c74db4907e31f05be6a671af8a9d48b42ea9734ad658466c847a4d0",
+  "checksum": "07fb986e5dac6542ec86edc21bf49980ad6d5020187b15766d6cd3a86675abf0",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -175,8 +175,8 @@
     },
     {
       "path": "knowledge/chemistry-knowledge.json",
-      "checksum": "3ff936ffa5a03cee6d02f9d02b813e6fff2c90967f0570ac822f2f7092e3f0a8",
-      "size": 84024
+      "checksum": "c5fe794732d847d2d28cdbee647d92e6aa9dbbfce3fe942f4be9b0ded7b521a7",
+      "size": 84050
     },
     {
       "path": "learning-cycle.json",
@@ -220,8 +220,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "a4947441a6122c0b28f0d0924996a42da299037acfd61f389218464e3e5407fe",
-      "size": 48674
+      "checksum": "6c791f33e21eb25ad2536d4cd59979c9751cb7fc3b800fad770ea3a3fc59defa",
+      "size": 49428
     },
     {
       "path": "locales/uz-latn/name-provenance.json",
@@ -235,8 +235,8 @@
     },
     {
       "path": "periodic/element-hub.json",
-      "checksum": "f5f89ed60be864aa165f2376a3e8cefc190651d0cb05cbb84e8353fe99215470",
-      "size": 128256
+      "checksum": "ed3cdf53d851b88566b6a61d8d8b1d7c9ea7d5154e7948e9cf3c0bb636dad15d",
+      "size": 128284
     },
     {
       "path": "practice-activities.json",
@@ -255,8 +255,8 @@
     },
     {
       "path": "topic-lab-profiles.json",
-      "checksum": "3cb08c2bfa6ebe23903302ff307a9097c61646ae4f7450ceb3b14e8fc39e4c86",
-      "size": 110677
+      "checksum": "44825e1873d2027113ba015b7ea5f35d931578b9772aec42857d6f3d36b74453",
+      "size": 118258
     }
   ]
 }

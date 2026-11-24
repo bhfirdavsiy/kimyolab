@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-24T03:56:28.233Z",
+  "createdAt": "2026-11-24T04:27:33.095Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -323,20 +323,20 @@
     {
       "path": "app-preview/domain/lab/lab-domain.js",
       "sourcePath": "public/app-preview/domain/lab/lab-domain.js",
-      "checksum": "3b842067e7cbdbc210fc451ec8c02fb783ac08f14e4be79b7cedf0d221878ebe",
-      "size": 1885
+      "checksum": "4d7bc77f611068ded8b09ccedbf40239b5c2709f5874f034deb517248b270be8",
+      "size": 2287
     },
     {
       "path": "app-preview/domain/lab/lab-runtime.js",
       "sourcePath": "public/app-preview/domain/lab/lab-runtime.js",
-      "checksum": "c411a1d9eb64c7e6d843dbc0f8bbdb968929a499878e83019b93c0395dfc4199",
-      "size": 56547
+      "checksum": "9f7ab55fbabf84a975f61f6a9633a7ff7620519afd5703b9fafc2853726bd823",
+      "size": 58963
     },
     {
       "path": "app-preview/domain/lab/topic-lab-profile.js",
       "sourcePath": "public/app-preview/domain/lab/topic-lab-profile.js",
-      "checksum": "0267c2848d92175f827b59790e24bca4841ba6d2626fa516b5ab1c39de9e95a8",
-      "size": 28201
+      "checksum": "27850acded5569538bdb624c7bd46a919c27613546c0f602e03c3a76f5d459b2",
+      "size": 30620
     },
     {
       "path": "app-preview/domain/mastery/mastery.js",
@@ -455,14 +455,14 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "f5b63cedf8f79f9f82d87bfb1efbf67f42f9f13285c2662caee9bb154658e50a",
-      "size": 30029
+      "checksum": "3c5dbf167a9841246aa2db9f27272b8a9cbe82c193a98a0609de3dc9f8ac4c67",
+      "size": 30383
     },
     {
       "path": "app-preview/features/dynamic-lab/scene.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/scene.js",
-      "checksum": "5ab3543b785ed535c0fea79de6942adde6eaac9e359c026e48521d6ff9418766",
-      "size": 12170
+      "checksum": "bb1c89a39faf2219fbf7c534c8246504d144adffdcb070e281849c861ccfd88a",
+      "size": 12469
     },
     {
       "path": "app-preview/features/home/copy.js",
@@ -1307,8 +1307,8 @@
     {
       "path": "content/2026.09.1/knowledge/chemistry-knowledge.json",
       "sourcePath": "public/content/2026.09.1/knowledge/chemistry-knowledge.json",
-      "checksum": "3ff936ffa5a03cee6d02f9d02b813e6fff2c90967f0570ac822f2f7092e3f0a8",
-      "size": 84024
+      "checksum": "c5fe794732d847d2d28cdbee647d92e6aa9dbbfce3fe942f4be9b0ded7b521a7",
+      "size": 84050
     },
     {
       "path": "content/2026.09.1/learning-cycle.json",
@@ -1361,8 +1361,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "a4947441a6122c0b28f0d0924996a42da299037acfd61f389218464e3e5407fe",
-      "size": 48674
+      "checksum": "6c791f33e21eb25ad2536d4cd59979c9751cb7fc3b800fad770ea3a3fc59defa",
+      "size": 49428
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1373,7 +1373,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "3724586c473a94c2883c898ed9a9139a1f7dbc847729b6730cbd64c10d8a0757",
+      "checksum": "7187f00a3f551d3dc524151c9029d461237dddb877707b6e082bc1256d12308e",
       "size": 8346
     },
     {
@@ -1385,8 +1385,8 @@
     {
       "path": "content/2026.09.1/periodic/element-hub.json",
       "sourcePath": "public/content/2026.09.1/periodic/element-hub.json",
-      "checksum": "f5f89ed60be864aa165f2376a3e8cefc190651d0cb05cbb84e8353fe99215470",
-      "size": 128256
+      "checksum": "ed3cdf53d851b88566b6a61d8d8b1d7c9ea7d5154e7948e9cf3c0bb636dad15d",
+      "size": 128284
     },
     {
       "path": "content/2026.09.1/practice-activities.json",
@@ -1409,13 +1409,13 @@
     {
       "path": "content/2026.09.1/topic-lab-profiles.json",
       "sourcePath": "public/content/2026.09.1/topic-lab-profiles.json",
-      "checksum": "3cb08c2bfa6ebe23903302ff307a9097c61646ae4f7450ceb3b14e8fc39e4c86",
-      "size": 110677
+      "checksum": "44825e1873d2027113ba015b7ea5f35d931578b9772aec42857d6f3d36b74453",
+      "size": 118258
     },
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "4bd499c1751c2cfebb4a28a995d6ef6f1093d764618a2947dfc54f26a7c81897",
+      "checksum": "1622154602761771c310b2181c068b4b2ec488caf25b24e67da2ed75e88f556f",
       "size": 158
     },
     {

@@ -171,6 +171,8 @@ function drawVessel(g           ,kind       ,cx       ,floor       ,c           
 }
 
 function colorChange(obs                         )            {
+  // the latest indicator colour (an indicator-response observation) tints the liquid; else a record's colour change
+  const ind=[...obs].reverse().find(x=>(x.data       )?.type==='indicator-response'); if(ind&&COLOR[String((ind.data       ).color)]) return COLOR[String((ind.data       ).color)] ;
   const o=obs.find(x=>(x.data       )?.type==='color-change'); const to=String((o?.data       )?.to??'');
   return COLOR[to]??null;
 }

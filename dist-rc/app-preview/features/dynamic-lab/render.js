@@ -305,6 +305,7 @@ export function renderDynamicLab(root            ,page                         ,
       }
       case 'gas-collected': text=t.ui('ui.dlab-obs-gas-collected',{product:String(d.product),source:apparatusName(String(d.from))}); break;
       case 'no-visible-change': text=t.ui('ui.dlab-obs-no-visible-change'); break;
+      case 'indicator-response': { const c=d.color?opt(`ui.dlab-color-${d.color}`):null; const m=d.medium?opt(`ui.dlab-medium-${d.medium}`):null; text=c&&m?t.ui('ui.dlab-obs-indicator',{color:c,medium:m}):t.ui('ui.dlab-obs-other'); break; }
       case 'temperature-change': text=t.ui('ui.dlab-obs-temperature-change'); break;
       case 'deposit': text=t.ui('ui.dlab-obs-deposit',{electrode,product:String(d.product)}); break;
       case 'color-change': text=t.ui('ui.dlab-obs-color-change'); break;
@@ -322,6 +323,7 @@ export function renderDynamicLab(root            ,page                         ,
     if(o.producedBy==='ReactionMatcher') return t.ui('ui.dlab-src-reaction',{id:o.source.split('#')[1]??''});
     if(o.producedBy==='ElectrolysisModel') return t.ui('ui.dlab-src-electrolysis',{query:o.source.split('#')[1]??''});
     if(o.producedBy==='IonicEngine') return t.ui('ui.dlab-src-solubility');
+    if(o.producedBy==='SchoolLabModel') return t.ui('ui.dlab-src-school-model',{id:o.source.split('#')[1]??''});
     const m=o.source.match(/steps\[(\d+)\]/);
     return `${t.ui('ui.dlab-src-instruction')}${m?`, ${t.ui('ui.dlab-step-n',{n:Number(m[1])+1})}`:''}. ${t.ui('ui.dlab-why-instruction-note')}`;
   }

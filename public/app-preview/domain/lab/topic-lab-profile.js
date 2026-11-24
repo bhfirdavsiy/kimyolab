@@ -31,7 +31,7 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                                                                                                                   
                         
                   
-                                    
+                                                
                        
                                                                                                      
                                                                                                     
@@ -99,6 +99,12 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                                                                                                            
                                                                              
 
+                                                 
+                                      
+                                           
+                                                                                                                        
+                                                                                                          
+ 
                                   
                                          
                    
@@ -137,6 +143,9 @@ export const ORDER_MODES                     =['STRICT','FLEXIBLE','DEPENDENCY_G
                                                                                         
                                                                                                                 
                              
+                                                                                                                          
+                                                                                                                
+                                 
                                           
  
 
@@ -157,7 +166,7 @@ export function topicLabProfileProblems(raw        )         {
   const containers=new Set((p.apparatus??[]).filter(a=>a.isContainer).map(a=>a.id));
   const substances=new Set((p.substances??[]).map(s=>s.id));
   for(const a of p.apparatus??[]) if(!text(a.id)||!text(a.kind)||!text(a.labelKey)||!text(a.source)) out.push(`APPARATUS:${String(a?.id)}`);
-  for(const s of p.substances??[]) if(!text(s.id)||!text(s.labelKey)||!text(s.source)||!['reagent','solvent','sample'].includes(s.role)||!Array.isArray(s.undeclaredParts)) out.push(`SUBSTANCE:${String(s?.id)}`);
+  for(const s of p.substances??[]) if(!text(s.id)||!text(s.labelKey)||!text(s.source)||!['reagent','solvent','sample','indicator'].includes(s.role)||!Array.isArray(s.undeclaredParts)) out.push(`SUBSTANCE:${String(s?.id)}`);
   if(!Array.isArray(p.allowedFamilies)||!p.allowedFamilies.length) out.push('ALLOWED_FAMILIES');
   for(const f of p.allowedFamilies??[]) if(!FAMILIES.has(f)) out.push(`FAMILY_UNKNOWN:${f}`);
     // P2.10 closeout: RESET is lab-level control and a prohibition is not an action — neither is a topic action
@@ -214,6 +223,11 @@ export function topicLabProfileProblems(raw        )         {
     for(const r of p.completionGoal.reactionIds) if(!bound.includes(r)) out.push(`COMPLETION_REACTION_NOT_BOUND:${r}`);
   }
   if(p.limits?.heating&&(!['heated','gently-heated','strongly-heated'].includes(p.limits.heating.level)||!text(p.limits.heating.source))) out.push('HEATING_LIMIT');
+  if(p.indicator){
+    const ind=p.indicator;
+    if(!substances.has(ind.substanceId)||(p.substances??[]).find(x=>x.id===ind.substanceId)?.role!=='indicator'||!text(ind.source)) out.push(`INDICATOR:${String(ind.substanceId)}`);
+    for(const x of ind.samples??[]){ if(!text(x.sample)||!x.substances?.length||x.substances.some(y=>!substances.has(y))||!['acidic','basic','neutral'].includes(x.medium          )||!text(x.modelId)) out.push(`INDICATOR_SAMPLE:${String(x.sample)}`); }
+  }
   for(const s of p.substances??[]) if(s.declaredForm!==undefined&&(!['liquid','solid'].includes(s.declaredForm?.form          )||!text(s.declaredForm?.source))) out.push(`SUBSTANCE_FORM:${s.id}`);
   for(const s of p.substances??[]) for(const d of s.declaredConditions??[]) if(!text(d.dimension)||!text(d.value)||!text(d.source)) out.push(`SUBSTANCE_CONDITION:${s.id}`);
   if(p.completionGoal?.kind==='observations') for(const t of p.completionGoal.targets) if(!(p.observationTargets??[]).some(o=>o.id===t)) out.push(`COMPLETION_TARGET_UNKNOWN:${t}`);
@@ -255,6 +269,9 @@ export function assertTopicLabProfile(raw        )                {
                                                                
                                                                                                
                                                                                                                                                                                    
+                                                                                                                          
+                                                                                                                
+                                 
                                           
  
 
@@ -344,9 +361,21 @@ export function compileTopicLabProfile(overlay                       ,src       
     guidance:{levels:[...overlay.guidance.levels],defaultLevel:overlay.guidance.defaultLevel,revealsFinalAnswer:false},
     safety:{virtualOnly:true,notes:safetyNotes,forbiddenFamilies:[...overlay.safety.forbiddenFamilies]},
     chemistry,
+    ...(overlay.indicator?{indicator:compileIndicator(overlay.indicator,config,overlay.profileId)}:{}),
     gaps:overlay.gaps.map(g=>({...g})),
   };
   return assertTopicLabProfile(profile);
+}
+
+/** Each indicator sample's medium is the config step's school-model observation for that sample (sample label match).
+ *  A sample the config does not ground fails the compile (no medium is ever authored in the overlay). */
+function compileIndicator(ind                    ,config    ,profileId       )                    {
+  const steps      =config?.scenario?.steps??[];
+  return {substanceId:ind.substanceId,source:ind.source,samples:ind.samples.map(x=>{
+    for(const st of steps) for(const o of (st.observations??[])) if(o?.type==='indicator-response'&&o.sample===x.sample&&['acidic','basic','neutral'].includes(o.medium)&&text(st.modelId))
+      return {sample:x.sample,substances:[...x.substances],medium:o.medium             ,modelId:st.modelId          ,configStep:st.id          };
+    throw new Error(`TOPIC_LAB_PROFILE_INDICATOR_SAMPLE_NOT_GROUNDED:${profileId}:${x.sample}`);
+  })};
 }
 
 /** P2.11 closeout: which of the instruction's own operations this profile offers. An operation is covered when its family

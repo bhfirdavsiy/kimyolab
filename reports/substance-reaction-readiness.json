@@ -86,12 +86,12 @@
     "chemistry": "browser-local: the ReactionMatcher runs in the page over the pack records; no server lookup",
     "knowledgeIndex": {
       "packFile": "knowledge/chemistry-knowledge.json",
-      "bytes": 84024
+      "bytes": 84050
     },
     "bundle": {
       "learnerModules": 7,
-      "learnerModuleBytes": 101498,
-      "standaloneBytes": 339776
+      "learnerModuleBytes": 107388,
+      "standaloneBytes": 354964
     },
     "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.14\"]"
   },

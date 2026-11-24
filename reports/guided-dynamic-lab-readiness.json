@@ -365,11 +365,13 @@
         {
           "id": "cao-water",
           "instructionSteps": [
-            0
+            0,
+            3
           ],
           "substances": [
             "cao",
-            "water"
+            "water",
+            "litmus"
           ],
           "families": [
             "ADD_SUBSTANCE"
@@ -378,10 +380,12 @@
         {
           "id": "carbonated-water",
           "instructionSteps": [
-            1
+            1,
+            3
           ],
           "substances": [
-            "carbonated-water"
+            "carbonated-water",
+            "litmus"
           ],
           "families": [
             "ADD_SUBSTANCE"
@@ -390,10 +394,12 @@
         {
           "id": "distilled-water",
           "instructionSteps": [
-            2
+            2,
+            3
           ],
           "substances": [
-            "distilled-water"
+            "distilled-water",
+            "litmus"
           ],
           "families": [
             "ADD_SUBSTANCE"
@@ -426,9 +432,10 @@
       "profileGaps": [
         "OBSERVATION_TEXT_PARTIAL",
         "CARBONATED_WATER_IS_A_SAMPLE",
-        "INDICATOR_NOT_MODELED_IN_LAB",
         "RECORD_CHECKER_MISSING",
-        "SAFETY_TEXT_EMPTY"
+        "SAFETY_TEXT_EMPTY",
+        "INDICATOR_FROM_SCHOOL_MODEL",
+        "COMPARE_NOT_OFFERED"
       ]
     },
     {
@@ -493,6 +500,32 @@
           "families": [
             "ADD_SUBSTANCE"
           ]
+        },
+        {
+          "id": "water-indicator",
+          "instructionSteps": [
+            1
+          ],
+          "substances": [
+            "water",
+            "litmus"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
+        },
+        {
+          "id": "hcl-indicator",
+          "instructionSteps": [
+            1
+          ],
+          "substances": [
+            "hcl-solution",
+            "litmus"
+          ],
+          "families": [
+            "ADD_SUBSTANCE"
+          ]
         }
       ],
       "completion": "reactions",
@@ -539,7 +572,7 @@
       "profileGaps": [
         "CONDITION_NOT_STATED_NACL_H2SO4",
         "GAS_ABSORPTION_NOT_MODELED",
-        "INDICATOR_NOT_MODELED_IN_LAB",
+        "INDICATOR_PARTLY_MODELED",
         "OBSERVATION_REVIEW_FLAG_CUO_HCL",
         "RECORD_CHECKER_MISSING",
         "SAFETY_TEXT_EMPTY"
@@ -831,13 +864,13 @@
     },
     "after": {
       "learnerModules": 181,
-      "learnerModuleBytes": 997463,
-      "standaloneBytes": 6441713
+      "learnerModuleBytes": 1003353,
+      "standaloneBytes": 6456901
     },
     "delta": {
       "learnerModules": 19,
-      "learnerModuleBytes": 283459,
-      "standaloneBytes": 737444
+      "learnerModuleBytes": 289349,
+      "standaloneBytes": 752632
     },
     "cumulativeSince": "P2.9",
     "phases": {
@@ -863,8 +896,8 @@
       },
       "P2.14": {
         "learnerModules": 7,
-        "learnerModuleBytes": 101498,
-        "standaloneBytes": 339776
+        "learnerModuleBytes": 107388,
+        "standaloneBytes": 354964
       }
     },
     "newModules": "P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner \"Darslikdan o‘qish\" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file"
