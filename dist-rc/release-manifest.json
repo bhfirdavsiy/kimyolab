@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-24T08:46:47.718Z",
+  "createdAt": "2026-11-24T09:13:16.930Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -455,14 +455,14 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "50a893de2ed641af22f918df081a7e1ec13b21c92158f5977d40b3bf9b82071a",
-      "size": 33324
+      "checksum": "a073aa5df11865e6689ecc6c1abf78c7c5d4d93c035a5d34f0e1616ac0989b6a",
+      "size": 40625
     },
     {
       "path": "app-preview/features/dynamic-lab/scene.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/scene.js",
-      "checksum": "bb1c89a39faf2219fbf7c534c8246504d144adffdcb070e281849c861ccfd88a",
-      "size": 12469
+      "checksum": "fd7c806f77771ac13a994d4dc86a6e48bf31edf0259a06b37d4247ad4c8529df",
+      "size": 15227
     },
     {
       "path": "app-preview/features/home/copy.js",
@@ -1097,8 +1097,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "d21aee4f94a30df78d9dd2491e7587ba13a994d1d089c1be2491937a2f201dee",
-      "size": 49326
+      "checksum": "201da2ea5e15d199dfe5843d20345b737102f9b66b0a900b0bcdce5be31a72ac",
+      "size": 54248
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1367,8 +1367,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "36634a88f78f7c94f7e8bcf282be4a8eb375537bba68413b962f80a78d41fa0d",
-      "size": 50229
+      "checksum": "9c5614b0e7e5fe060deaaa6585b67ce253f06d0e4f7b797cd751f5e2a82ecaae",
+      "size": 51165
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1379,7 +1379,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "cd1c70aaf22fcdf022e636dd076022dad9a79f2020240f3e7b20eed7bda69212",
+      "checksum": "db15ac554ceddd2e5022aa2b6e36d3c50e81444c2b8117b6fe7814cb83d54a8b",
       "size": 8346
     },
     {
@@ -1421,7 +1421,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "a939014e9b14ea5b0b453cd23e034c46d1495a032dbc70d19c56068af84a4bb7",
+      "checksum": "a73a05211654ff65c8523da7c0d30db3e816a12eb20ea2e389800ef2f5768e93",
       "size": 158
     },
     {

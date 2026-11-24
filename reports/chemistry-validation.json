@@ -25,7 +25,7 @@
   "expertApprovalValid": false,
   "expertApprovalReason": "APPROVAL_PENDING",
   "expertReviewVersion": "1.0.0-rc.1",
-  "expertReviewHash": "001a0032053dc32c92c9680cec50ef70c1f846deab0ade318381bef5e475e166",
+  "expertReviewHash": "6749562afeaaa927760336d04232d509ad4badecbeb6278554aabe8ce7d90280",
   "expertReviewSurfaceSchema": "kimyolab.chemistry-review-surface.v2",
   "expertReviewSurfaceFileCount": 28
 }

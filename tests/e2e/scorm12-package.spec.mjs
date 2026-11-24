@@ -48,6 +48,9 @@ async function serve(page, files) {
 }
 const sco = (page) => page.frameLocator('#sco');
 async function addTo(f, substance, container) {
+  // lab review stage 2 (2026-11-24): 7.10 is the bench prototype; its full action list sits in a closed <details> (opened here)
+  const toggle = f.locator('.kl-dlab__list-toggle:not([open]) > summary');
+  if (await toggle.count()) await toggle.click();
   await f.locator(`${LAB} [data-object="substance:${substance}"]`).click();
   await f.locator(`${LAB} .kl-dlab__action-list [data-action-family=ADD_SUBSTANCE]`).click();
   await f.locator('#dlab-param-container').selectOption(container);

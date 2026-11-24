@@ -303,3 +303,68 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
 .kl-dlab__teacher{margin-top:1rem;border-top:1px solid var(--kl-border,#d8e1ec);padding-top:.6rem;font-size:.92em;color:var(--kl-muted,#4a5b70)}
 .kl-dlab__teacher summary{cursor:pointer;font-weight:600}
 .kl-dlab__formula,.kl-scene__formula,.kl-scene__gas-label{font-family:"Cambria Math",Cambria,"STIX Two Text","Noto Serif","DejaVu Serif","Times New Roman",serif}
+/* lab review stage 2 (2026-11-24): the bench — the picture is the workspace, the reagents stand next to it */
+.kl-bench{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,2.2fr) minmax(220px,1fr);gap:16px;align-items:start}
+.kl-bench__stage{background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border:1px solid var(--kl-line-blue,#d6e4f5);border-radius:20px;padding:12px 12px 14px;display:grid;gap:10px}
+.kl-bench__stage .kl-scene{border:0;background:none;padding:0}
+.kl-bench__stage .kl-scene__svg{max-height:400px}
+.kl-bench__hint{margin:0;font-weight:600;color:#0d2547}
+.kl-bench__vessels,.kl-bench__tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.kl-bench__vessel.is-focus{border-color:var(--kl-primary,#0b5bd3);box-shadow:0 0 0 2px #0b5bd333}
+.kl-bench__tools-title,.kl-bench__none{margin:0;font-weight:600}
+.kl-bench__side{background:#fff;border:1px solid var(--kl-border,#d8e1ec);border-radius:20px;padding:14px}
+.kl-bench__side h3{margin:0 0 10px}
+.kl-bench__shelf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kl-bench__bottle{display:grid;justify-items:center;gap:4px;padding:10px 6px;min-height:44px;border:1px solid var(--kl-border,#d8e1ec);border-radius:16px;background:#fff;cursor:grab;font:inherit;color:#0d2547;text-align:center}
+.kl-bench__bottle svg{width:34px;height:34px}
+.kl-bench__bottle:hover{border-color:#9cbbe6}
+.kl-bench__bottle.is-in-hand{border-color:var(--kl-primary,#0b5bd3);background:#eef5ff;box-shadow:0 0 0 3px #0b5bd333;transform:translateY(-3px)}
+.kl-bench__bottle-name{font-size:.8rem;line-height:1.25;color:#38506e}
+.kl-bench .kl-dlab__result{margin:0}
+.kl-dlab__list-toggle>summary{cursor:pointer;font-weight:600;margin-bottom:.6rem}
+.kl-scene__svg.is-armed .kl-scene__vessel.is-target .kl-scene__glass{stroke:var(--kl-primary,#0b5bd3);stroke-width:3;stroke-dasharray:6 4}
+.kl-scene__vessel.is-over .kl-scene__glass{stroke:#1e9e5a;stroke-width:3.5;stroke-dasharray:none}
+.kl-scene__vessel.is-focus .kl-scene__glass{stroke:var(--kl-primary,#0b5bd3);stroke-width:3.2}
+.kl-scene__rack-bar{fill:#c79a64;stroke:#8d6537;stroke-width:1.2}.kl-scene__rack-leg{fill:#b2865a}
+.kl-scene__bottle{fill:#eaf4ff;stroke:#5d7895;stroke-width:2}.kl-scene__bottle-neck{fill:#7a8899}
+.kl-scene__stream{fill:none;stroke:#7fb6f2;stroke-width:4;stroke-linecap:round;stroke-dasharray:60;stroke-dashoffset:60;animation:kl-pour-stream 1s ease-out forwards}
+.kl-scene__pour{animation:kl-pour-fade 1.4s ease-in-out forwards}
+.kl-scene__liquid.is-filling{transform-box:fill-box;transform-origin:50% 100%;animation:kl-fill .9s ease-out}
+.kl-scene__bubble--d1{animation-duration:1.2s}.kl-scene__bubble--d2{animation-duration:2s;animation-delay:.3s}.kl-scene__bubble--d3{animation-duration:1.4s;animation-delay:.8s}.kl-scene__bubble--d4{animation-duration:1.8s;animation-delay:1.2s}
+@keyframes kl-pour-stream{to{stroke-dashoffset:0}}
+@keyframes kl-pour-fade{0%{opacity:0}15%{opacity:1}75%{opacity:1}100%{opacity:0}}
+@keyframes kl-fill{from{transform:scaleY(.55)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.kl-scene__pour{display:none}.kl-scene__liquid.is-filling{animation:none}}
+@media (max-width:760px){
+  .kl-bench{grid-template-columns:1fr}
+  .kl-bench__shelf{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.kl-bench__vessel{min-height:36px;padding:4px 12px;font-size:.85rem}
+.kl-bench__vessel.is-target{border-style:dashed;border-color:var(--kl-primary,#0b5bd3)}
+@media (max-width:760px){
+  .kl-bench__stage{position:static}
+  .kl-bench__stage .kl-scene{overflow-x:auto;background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border-radius:14px}
+  .kl-bench__stage .kl-scene__svg{min-width:600px;max-height:none}
+  .kl-bench__vessels{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+  .kl-bench__vessel{flex:0 0 auto}
+}
+.kl-scene__bottle-label{fill:#fff;opacity:.9}
+.kl-bench__hint.is-result{background:#fff;border:1px solid #bcd6f5;border-left:4px solid var(--kl-primary,#0b5bd3);border-radius:12px;padding:8px 12px;font-size:1.05rem}
+@media (max-width:760px){.kl-bench__stage .kl-scene__svg{min-width:520px}}
+.kl-scene__rack{pointer-events:none}
+@media (max-width:760px){
+  /* phone: picture → what happened → reagents (one swipeable row) → vessels → the vessel's actions */
+  .kl-bench{display:flex;flex-direction:column;gap:10px}
+  .kl-bench__stage{display:contents}
+  .kl-bench__stage>.kl-scene{order:1;background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border:1px solid var(--kl-line-blue,#d6e4f5);border-radius:16px;padding:8px}
+  .kl-bench__hint{order:2}
+  .kl-bench__side{order:3;padding:10px}
+  .kl-bench__vessels{order:4}
+  .kl-bench__tools{order:5}
+  .kl-bench__shelf{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}
+  .kl-bench__bottle{flex:0 0 104px}
+}
+@media (max-width:760px){
+  .kl-bench,.kl-bench__stage>*,.kl-bench__side{min-width:0;max-width:100%}
+  .kl-dlab{overflow-x:clip}
+}

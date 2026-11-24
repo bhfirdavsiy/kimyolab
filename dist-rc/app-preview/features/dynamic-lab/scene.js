@@ -39,6 +39,16 @@ const NEUTRAL_PRECIPITATE='#e9edf2';
                                      
                                                                                  
                                      
+                                                                      
+                                   
+                                                               
+                 
+                                               
+                     
+                                                                                                            
+                    
+                                                     
+                 
  
 
 const VESSEL_KINDS=new Set(['test-tube','gas-collection-vessel','beaker','receiver','electrolysis-cell','evaporating-dish']);
@@ -48,30 +58,42 @@ export function renderLabScene(host            ,input           ){
   const vessels=profile.apparatus.filter(a=>a.isContainer||VESSEL_KINDS.has(a.kind)).filter(a=>VESSEL_KINDS.has(a.kind));
   host.replaceChildren();
   if(!vessels.length) return;
-  const slot=124, H=262, W=Math.max(slot*vessels.length+24,280);
+  const large=!!input.large;
+  const slot=large?132:124, H=large?318:262, W=Math.max(slot*vessels.length+24,280);
   const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,class:'kl-scene__svg','aria-hidden':'true',focusable:'false',preserveAspectRatio:'xMidYMid meet'})                 ;
   // the bench
   svg.append(s('rect',{x:0,y:H-34,width:W,height:34,rx:6,class:'kl-scene__bench'}));
+  if(input.armed) svg.classList.add('is-armed');
   vessels.forEach((a,i)=>{
     const cx=24+slot*i+slot/2-12;
     const c=state.containers[a.id];
     const setUp=state.setUp.includes(a.id);
-    const g=s('g',{class:`kl-scene__vessel kl-scene__vessel--${a.kind}${setUp?'':' is-idle'}`,'data-scene-object':`apparatus:${a.id}`});
+    const g=s('g',{class:`kl-scene__vessel kl-scene__vessel--${a.kind}${setUp||large?'':' is-idle'}${input.focus===a.id?' is-focus':''}${input.armed&&a.isContainer?' is-target':''}`,'data-scene-object':`apparatus:${a.id}`});
     if(input.onSelect){ g.addEventListener('click',()=>input.onSelect (a.id)); g.setAttribute('cursor','pointer'); }
-    drawVessel(g,a.kind,cx,H-34,c,state,input);
+    if(input.onDrop&&a.isContainer){ g.addEventListener('dragover',e=>{ e.preventDefault(); g.classList.add('is-over'); }); g.addEventListener('dragleave',()=>g.classList.remove('is-over')); g.addEventListener('drop',e=>{ e.preventDefault(); g.classList.remove('is-over'); input.onDrop (a.id); }); }
+    drawVessel(g,a.kind,cx,H-34,c,state,input,large);
+    if(input.pour===a.id) drawPour(g,cx,H-34-22-(large?190:150));
     // the label under the vessel, wrapped to two lines when long
     const words=input.labelOf(a.id).split(' '); const lines         =[]; for(const w of words){ const last=lines.at(-1); if(last!==undefined&&(last+' '+w).length<=15) lines[lines.length-1]=last+' '+w; else lines.push(w); }
     const shownLines=lines.length>2?[lines[0] ,lines.slice(1).join(' ')]:lines;
     shownLines.forEach((l,k)=>g.append(s('text',{x:cx,y:H-(shownLines.length===2?18:11)+k*12,'text-anchor':'middle',class:'kl-scene__label'},l)));
     svg.append(g);
   });
+  // a test-tube rack in front of the tubes (bench layout): a wooden bar the tubes stand through
+  if(large){
+    const tubes=vessels.map((a,i)=>({a,cx:24+slot*i+slot/2-12})).filter(x=>x.a.kind==='test-tube');
+    if(tubes.length){ const x0=tubes[0] .cx-46, x1=tubes.at(-1) .cx+46, y=H-34-22-190+34;
+      const rack=s('g',{class:'kl-scene__rack','aria-hidden':'true'});
+      rack.append(s('rect',{x:x0,y,width:x1-x0,height:13,rx:3,class:'kl-scene__rack-bar'}),s('rect',{x:x0+4,y:y+13,width:7,height:H-34-y-13,class:'kl-scene__rack-leg'}),s('rect',{x:x1-11,y:y+13,width:7,height:H-34-y-13,class:'kl-scene__rack-leg'}));
+      svg.append(rack); }
+  }
   host.append(svg);
 }
 
                                                                                      
-function vesselBox(kind       ,cx       ,floor       )    {
+function vesselBox(kind       ,cx       ,floor       ,large=false)    {
   switch(kind){
-    case 'test-tube': return {x:cx-17,y:floor-150,w:34,h:132,bottom:floor-18,mouth:floor-150};
+    case 'test-tube': return large?{x:cx-21,y:floor-190,w:42,h:172,bottom:floor-18,mouth:floor-190}:{x:cx-17,y:floor-150,w:34,h:132,bottom:floor-18,mouth:floor-150};
     case 'gas-collection-vessel': return {x:cx-30,y:floor-138,w:60,h:120,bottom:floor-18,mouth:floor-138};
     case 'evaporating-dish': return {x:cx-42,y:floor-58,w:84,h:30,bottom:floor-28,mouth:floor-58};
     case 'electrolysis-cell': return {x:cx-44,y:floor-118,w:88,h:100,bottom:floor-18,mouth:floor-118};
@@ -79,9 +101,9 @@ function vesselBox(kind       ,cx       ,floor       )    {
   }
 }
 
-function drawVessel(g           ,kind       ,cx       ,floor       ,c                         ,state         ,input           ){
+function drawVessel(g           ,kind       ,cx       ,floor       ,c                         ,state         ,input           ,large=false){
   // vessels stand 22 px above the bench, leaving room for the flame of a heated container
-  const b=vesselBox(kind,cx,floor-22);
+  const b=vesselBox(kind,cx,floor-22,large);
   // an invisible hit area: the glass is only an outline, so an empty vessel must still take a click
   g.append(s('rect',{x:b.x-10,y:b.mouth-30,width:b.w+20,height:floor-b.mouth+30,class:'kl-scene__hit'}));
   const clipId=`kl-scene-clip-${Math.round(cx)}-${kind}`;
@@ -107,7 +129,7 @@ function drawVessel(g           ,kind       ,cx       ,floor       ,c           
       const level=Math.min(0.72,0.38+0.17*(liquids.length-1));
       const top=b.bottom-(b.bottom-b.y)*level;
       const tint=colorChange(obs)??'#a9d6ff';
-      inside.append(s('rect',{x:b.x-6,y:top,width:b.w+12,height:b.bottom-top+40,class:'kl-scene__liquid',fill:tint}));
+      inside.append(s('rect',{x:b.x-6,y:top,width:b.w+12,height:b.bottom-top+40,class:`kl-scene__liquid${input.pour===c.id?' is-filling':''}`,fill:tint}));
       inside.append(s('rect',{x:b.x-6,y:top,width:b.w+12,height:3,class:'kl-scene__meniscus'}));
     }
     // solid granules at the bottom (a deterministic pattern, not a measurement)
@@ -130,8 +152,10 @@ function drawVessel(g           ,kind       ,cx       ,floor       ,c           
     // a gas still in its source (a collected one is marked collected there, and copied with collectedFrom into the collector)
     const produced=c.gases.filter(x=>!x.collected&&!x.collectedFrom);
     if(produced.length&&kind!=='gas-collection-vessel'){
-      for(let j=0;j<6;j+=1){
-        inside.append(s('circle',{cx:b.x+6+((j*11)%Math.max(8,b.w-12)),cy:b.bottom-10-j*6,r:2.2+(j%3),class:`kl-scene__bubble kl-scene__bubble--${j%3}`}));
+      // the bench draws a livelier stream (more bubbles from the metal at the bottom); a pattern, not a rate
+      const n=large?14:6;
+      for(let j=0;j<n;j+=1){
+        inside.append(s('circle',{cx:b.x+6+((j*11)%Math.max(8,b.w-12)),cy:b.bottom-10-(j%7)*6,r:large?1.8+(j%3)*1.1:2.2+(j%3),class:`kl-scene__bubble kl-scene__bubble--${j%3}${large?` kl-scene__bubble--d${j%5}`:''}`}));
       }
     }
     // collected gas: the collecting vessel fills, labelled by the product the record names
@@ -175,4 +199,14 @@ function colorChange(obs                         )            {
   const ind=[...obs].reverse().find(x=>(x.data       )?.type==='indicator-response'); if(ind&&COLOR[String((ind.data       ).color)]) return COLOR[String((ind.data       ).color)] ;
   const o=obs.find(x=>(x.data       )?.type==='color-change'); const to=String((o?.data       )?.to??'');
   return COLOR[to]??null;
+}
+
+/** the pour: a tilted bottle over the vessel's mouth and a stream into it (motion only; reduced motion shows nothing) */
+function drawPour(g           ,cx       ,mouthY       ){
+  const p=s('g',{class:'kl-scene__pour','aria-hidden':'true'});
+  const bx=cx+30, by=mouthY-70;
+  const bottle=s('g',{transform:`rotate(-62 ${bx} ${by+44})`});
+  bottle.append(s('rect',{x:bx-16,y:by,width:32,height:48,rx:7,class:'kl-scene__bottle'}),s('rect',{x:bx-16,y:by+20,width:32,height:16,class:'kl-scene__bottle-label'}),s('rect',{x:bx-6,y:by-13,width:12,height:14,rx:3,class:'kl-scene__bottle-neck'}));
+  p.append(bottle,s('path',{d:`M${cx+6} ${mouthY-34} C${cx+2} ${mouthY-16} ${cx} ${mouthY-4} ${cx} ${mouthY+24}`,class:'kl-scene__stream'}));
+  g.append(p);
 }

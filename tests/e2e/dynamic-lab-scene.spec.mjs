@@ -12,6 +12,9 @@ test.beforeAll(async () => { hosts = await startHosts(); });
 test.afterAll(async () => { await hosts?.close(); });
 
 async function addTo(page, substance, container) {
+  // lab review stage 2 (2026-11-24): 7.10 is the bench prototype; its full action list sits in a closed <details> (opened here)
+  const toggle = page.locator('.kl-dlab__list-toggle:not([open]) > summary');
+  if (await toggle.count()) await toggle.click();
   await page.locator(`${LAB} [data-object="substance:${substance}"]`).click();
   await list(page).locator('[data-action-family=ADD_SUBSTANCE]').click();
   await page.locator('#dlab-param-container').selectOption(container);
