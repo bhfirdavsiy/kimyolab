@@ -2,7 +2,7 @@
   "schema": "kimyolab.scorm-packages.v1",
   "standard": "SCORM 1.2",
   "contentVersion": "2026.09.1",
-  "standaloneSha256": "4854f520f981a90d2389364c23c41b3ef59b93db61d636d3ab20f95f269fe330",
+  "standaloneSha256": "a5a6bb8f2dd1539edc6c4cef2edcab6389be3bf4601eae5439290e89632bc0aa",
   "granularity": "one package (one SCO) per guided dynamic lab profile",
   "runtime": {
     "apiDiscovery": "window.API in this window, its parents (max 7) and the opener chain (SCORM 1.2 RTE)",
@@ -44,9 +44,9 @@
       "title": "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.2-scorm12.zip",
-      "sizeBytes": 3212747,
-      "sha256": "2ede003f9126d5170383ce692dbfd34b1ebf34b3ea67ddd24aeac3935e6a7d4c",
-      "indexSha256": "9e9495b2c6732796ecca78b874e901b8f106a261d8d180f6a3a8702ccba116e6",
+      "sizeBytes": 3214443,
+      "sha256": "9569d0e8d5698e2372f70258329654bfbbd6178d088eac2c27ee52f6c9989c93",
+      "indexSha256": "285c8ff19ec717ed918985acbcc35e325c63bbf7e3b813e2ffe54ddb3bd24a0b",
       "manifestSha256": "0fa82190a5f60a687e0c8b122f397b52dd9ca34276cc7992cb34ae3fa6309908"
     },
     {
@@ -55,9 +55,9 @@
       "title": "Kislotalarning olinishi va xossalari",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.9-scorm12.zip",
-      "sizeBytes": 3212695,
-      "sha256": "507dc3bd92f264801fe8668c9478127996def2ac672a3f3e847b3524a1dd9528",
-      "indexSha256": "9e6eaa349100e53f9e164e36e016a511208ccf52b884266ec75deabb4b2e39e1",
+      "sizeBytes": 3214401,
+      "sha256": "606ff89f948850a6c2c3977995cd2946e2c0a78616ec943bccbeab4c06fe1a28",
+      "indexSha256": "fac0c180dbd2dcc7afeacb294fd047c11c45c91cd50bb8806a2b824aa2ce842c",
       "manifestSha256": "49180d1c03b31f38826a7ddd80e3ef45bad9d8541fe6b5ae311443c71555f60e"
     },
     {
@@ -66,9 +66,9 @@
       "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.10-scorm12.zip",
-      "sizeBytes": 3212722,
-      "sha256": "3456660a10047562b3043f268f3d1580475ac21707de81389e301a48caccf0bc",
-      "indexSha256": "35ec0274a92a9fcd786dfbc7e217a5a15ac9403fd97b086bb4f20f5f91ccc317",
+      "sizeBytes": 3214429,
+      "sha256": "56eb7d9a2df8fe8808f674e4b37651a4dbec0bffca4f801b82bc417ae08822e3",
+      "indexSha256": "26d84a13e39a7ba55596f99e43f250d033be893b702bb27a1e90cd507a8759a3",
       "manifestSha256": "9198f4376ba11ba9a54805b018926d5de4fbcb92338c0e3efc929c1389051bb5"
     },
     {
@@ -77,9 +77,9 @@
       "title": "Suvning oksidlar bilan o‘zaro ta’siri",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-7.11-scorm12.zip",
-      "sizeBytes": 3212714,
-      "sha256": "c6749333a13a8f2e9084bd7973b799b58e6de3a60807505f075b1d8aa5dd8e9b",
-      "indexSha256": "6db3c8828796bc75286040a15f10208e74f00853883b5bfdda56069a29ab353b",
+      "sizeBytes": 3214422,
+      "sha256": "577c65dd112eaf6088a6771d6fc32c376b01e68a3d446929d17b258305c51ae6",
+      "indexSha256": "3202778105331a55111672ae53a65698b8707d3ce2785975dd64d3c4c4add79a",
       "manifestSha256": "66e6770690d2a2961ffe607f61ad6630025644357541743a09638b1976ea336f"
     },
     {
@@ -88,9 +88,9 @@
       "title": "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-8.1-scorm12.zip",
-      "sizeBytes": 3212752,
-      "sha256": "3bfeeb680d6b09d28ba94e4a3459457b7e0ce3caeff949f5d9cf1500bf1e39fb",
-      "indexSha256": "ddf54fcfe606ebce17dfb6cf9cf2e3916026915ac9428997628d2010c914d3d1",
+      "sizeBytes": 3214455,
+      "sha256": "89109fd1eb438b7d70dd2531f0e1d77c1cb2317fe46ad296302719e667160493",
+      "indexSha256": "efe773168f7f823650a2567953822c819c253ff6441ac8f0625d8c739c17ce0c",
       "manifestSha256": "bea4ee762182de4083007bf867c1ffa04c1fa453ce6c6f07c5f95eaba82f82cc"
     },
     {
@@ -99,9 +99,9 @@
       "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-8.8-scorm12.zip",
-      "sizeBytes": 3212723,
-      "sha256": "4ac8ce090325bed62bad5b6136b9465165ffb1fa627ba6f06a21525da6fc42ae",
-      "indexSha256": "bc06aca599a837d075580e0e3732e5e36e9f31eb983a64a9ec617162bbcc7d09",
+      "sizeBytes": 3214428,
+      "sha256": "ab9518810882235fa791f023135f3bb1ca181c064b63f7938d19e5647b5e7dec",
+      "indexSha256": "fce7556f1446394ebf5e60a385a817a2e1e43fb7c99e2714bf587c3a2fae0339",
       "manifestSha256": "19dcebfdad4039a789c2ae23712cd48a29708e320fbec2e8e08e06ec019babae"
     },
     {
@@ -110,9 +110,9 @@
       "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-8.14-scorm12.zip",
-      "sizeBytes": 3212743,
-      "sha256": "43937f70e8738d42fb20f80c2a8aa3307d4803f757b5b6eb8cdd0e69fdca1214",
-      "indexSha256": "d701b22a884e7fe8df950bc3fbe0b6a7bae49dcc63f086502dba0bec69e1f2f9",
+      "sizeBytes": 3214449,
+      "sha256": "e247bbbdfcd9717dc42f288ca1f30ad7c3ddbcd03059489f7bafef7b3ebf27ad",
+      "indexSha256": "a61fd522aa253656e257b43ddd18ac4c64697420dbd41f197dde5323bb581f53",
       "manifestSha256": "3c4c7df30be836b0f5e4410cb16a26bf60bbd5bdc55368b021a7e255da9a3976"
     },
     {
@@ -121,9 +121,9 @@
       "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
       "completionScope": "PARTIAL_INSTRUCTION",
       "file": "dist-scorm/kimyolab-11.2-scorm12.zip",
-      "sizeBytes": 3212720,
-      "sha256": "19fc3bf531ccc10088032be839620c5fa177a1023e02196f95101cade74da7ba",
-      "indexSha256": "33341a6d0d81df4896f278d103efe4c85ac2d3e39f802f4a2ef4c4a0b4d36d87",
+      "sizeBytes": 3214424,
+      "sha256": "bc1492519924a260dc2abd0f3c1f3bd0e4f38dfaf237f4805e268cbf5dd1fe34",
+      "indexSha256": "d92f07a11aca21a4bf21aa73436cc42bce4260f3802c207ba3b8b716a7b291c9",
       "manifestSha256": "7700c8bb80887250a3a7c2f80ab08d323d27f2692c3f3a4e2f05100322786954"
     }
   ]

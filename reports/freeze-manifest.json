@@ -10,7 +10,7 @@
   "source": {
     "src": {
       "fileCount": 196,
-      "sha256": "08b0a5ef112f97529878beb399fce08412bde57287f91bf3742365cf8dbf0d0f"
+      "sha256": "f345c59387e393f1c9a3bbfd6c47bf964d4335e2ae54a448015c03f48c221abe"
     },
     "scripts": {
       "fileCount": 143,
@@ -22,28 +22,28 @@
     },
     "contentSrc": {
       "fileCount": 58,
-      "sha256": "e426b3394726fb65a91cd562ab1581a521b5803b40671873a452041252edb2c7"
+      "sha256": "ab40f8de6692e47d113b9fe88403043773aa5e3eeca53471e30be76bbf209a43"
     },
     "tests": {
       "fileCount": 222,
-      "sha256": "c8570d73e68070cf1bf373b03ef9a700181daa73aa904ec3351d1aeb040a6216"
+      "sha256": "e111f03abbaa7467b639d250adcf487a964db86dd4b1b6cab2759828f9707b5c"
     }
   },
   "generated": {
     "note": "committed build outputs; npm run verify proves they equal a fresh build (generated-files-committed)",
     "publicContent": {
       "fileCount": 50,
-      "sha256": "973d1368316677da9fdf47e6c71c86d78a21c2fad324919746385c07c648d97f"
+      "sha256": "866624082852d090eef1863736c6aae69f54319fa228dc579a81cfe14003610f"
     },
     "publicAppPreview": {
       "fileCount": 184,
-      "sha256": "c53816b5860942f17cc3e89b9cf6d2d79204b07006fbb3a459bd33b3b2b629a7"
+      "sha256": "ef204cc7d5156ada478b74362b02e2ddcf22eebb3c3d4332cee06ce0ee1ca82c"
     }
   },
   "contentPack": {
     "activeVersion": "2026.09.1",
-    "checksum": "9b8119d0ac1a29f1588b3cfe6ab1df7960be0218ff29be84d8df959c6690b258",
-    "manifest": "a73a05211654ff65c8523da7c0d30db3e816a12eb20ea2e389800ef2f5768e93"
+    "checksum": "3e702908894eff7d770e5fdf23d576bb1771e932f7cba569fb5daa64fb03d891",
+    "manifest": "53e3f216833c2d05ae01476ba9af3c4d71bda3c7895cd4a4aa0a56b1b8f8dc2e"
   },
   "config": {
     "deployConfig": "d4ec8cae93a049e84d5bf5f232ed8b79ed9d317c70029efccc8a931bab289779",
@@ -74,7 +74,7 @@
     },
     {
       "file": "reports/accessibility-gap-summary.json",
-      "sha256": "7914330c0afa5b5d10648d0dc8dce543a2eccd2dd7cee6fa4bd9271b50400e21"
+      "sha256": "eeff112637fbd6e041610c5b6d0901481fe03c768aea24f048686f68c65310f4"
     },
     {
       "file": "reports/accessibility-verification.json",
@@ -82,7 +82,7 @@
     },
     {
       "file": "reports/activity-routing.json",
-      "sha256": "9a5246e6b7e9fac0262b1fe6e6c87f387a4597c195104af2cadebfa47961c1e9"
+      "sha256": "67006673007654d459263072b24fc80840c5d390533c126d88d8025c1534ceaf"
     },
     {
       "file": "reports/approval-pipeline.json",
@@ -102,7 +102,7 @@
     },
     {
       "file": "reports/beta1-readiness.json",
-      "sha256": "abde7068f1a169fbb114ec3dd363bc7f74fbe2844cdb6fd8eec1f15666114253"
+      "sha256": "a89ecb469522c8bb81c53a9bc9b7f4daf13d56708e732c65160ccc83a18b63e0"
     },
     {
       "file": "reports/beta2-capability-summary.json",
@@ -110,11 +110,11 @@
     },
     {
       "file": "reports/beta2-readiness.json",
-      "sha256": "b92d8cc2932cbfcedb53b69baa590c8f858feeaea1d31d494810b2e7d509ac45"
+      "sha256": "4285e6fcc2038c32dfeb9459fd06b318630c9973db65c34e2d921d3ff730d1a5"
     },
     {
       "file": "reports/beta3-readiness.json",
-      "sha256": "a461f2f37046039396fda708319b7909f9068f173145035a6e69c2b2184c402b"
+      "sha256": "4167622590baf0feb093daaea1f8161772b6c980175bc13f6b9af3dbba85ed79"
     },
     {
       "file": "reports/brand-integration.json",
@@ -154,7 +154,7 @@
     },
     {
       "file": "reports/chemistry-validation.json",
-      "sha256": "4ac8e462692dea9549e3f48a8a0024221fc86bd258faad6285be9bd5d972e072"
+      "sha256": "8c0611a08d67548ee16f651968b2384990e50713e3d3198192fc05c8c01eece9"
     },
     {
       "file": "reports/ci-reproducibility.json",
@@ -166,7 +166,7 @@
     },
     {
       "file": "reports/computed-model-interaction-expansion.json",
-      "sha256": "a7950291801a0cd2ed3479bf158d8f71c312a8cd0718af01594ae7a7b2509370"
+      "sha256": "ab07f0f1f6a3d212e614af94b40b16e98ae054baf80ab439fe15bb67cfbfc391"
     },
     {
       "file": "reports/content-pack-integrity.json",
@@ -178,35 +178,35 @@
     },
     {
       "file": "reports/content-studio-readiness.json",
-      "sha256": "05b795a6e065007cd7597d3e84fe63dc66e1245832bfa20fd24ffbe1864f129a"
+      "sha256": "873dc015b48bfc2e81f8343cfb2d320ce29b32c1c13844ae8b62489537739b95"
     },
     {
       "file": "reports/content-validation.json",
-      "sha256": "e2bac7c7f53a56bf47c57b3da579bb8bd7459f07f39fa509abd2d075ddf53b6b"
+      "sha256": "065fb796be22459518e46f15374f252d467d6acd423039d574c1dea6657f797b"
     },
     {
       "file": "reports/deployment-artifacts.json",
-      "sha256": "14bb76605e9c69ce0046045db71e62e0dbd3e32ffe7f7c10ada9a63f8c22d502"
+      "sha256": "cc1524b7e5a1fd043579f307b799740e562b544297d9e981dd24b070e252b937"
     },
     {
       "file": "reports/deployment-clean-drill.json",
-      "sha256": "86a053bab7645848deca61eab79d428c09f479c04d7ca5525c2deaf891c31a3c"
+      "sha256": "e0e8d858cd8a62d8beb8fc17f76187369b92569f87973c9d9143d61ac874e343"
     },
     {
       "file": "reports/deployment-config-audit.json",
-      "sha256": "e1a0a4eea4fe5736d5e9e5113656ec8256bb8497d28beaf3b2d77cc9ebba3c7c"
+      "sha256": "81cc8d9e9220f9c79e18e6ff221ba0d2e6fef052eeece21311483c4a756523d2"
     },
     {
       "file": "reports/deployment-preflight.json",
-      "sha256": "b11e29970b10e9cb6f6b9add933ff2e50a925c2c05b337506e66c70dcc026920"
+      "sha256": "48f2c5b29eac7352527606c43d7c274c6bc73e20dc83f537c8067f14b3a24be9"
     },
     {
       "file": "reports/deployment-rollback-drill.json",
-      "sha256": "ddbea0f7c572b96d7f2b15bbabd538259fa2c10c74e6e6cad8e8559c993b4dc5"
+      "sha256": "8fa137ae8c784788d069c9f2bc8b59db0fddc627788b8f3e8130f17493e3bc03"
     },
     {
       "file": "reports/deployment-smoke.json",
-      "sha256": "772132f416c1a2c8021806a6f1e951a386f7deff12634ea0a7c75d138777a816"
+      "sha256": "881e793a23c5f7c52a4aaea576518a7a28e4d22a1751cc95223f50498979fb3e"
     },
     {
       "file": "reports/electrolysis-model-readiness.json",
@@ -226,11 +226,11 @@
     },
     {
       "file": "reports/external-lab-integration.json",
-      "sha256": "21bdb5bd83752f32f4e7461d3421ec6607a4aba195e40687c537c5943c2e7fb4"
+      "sha256": "96ee273b114730447ae39e9311f1d372f1c679cc8ea24b206f4d50395a747cae"
     },
     {
       "file": "reports/external-provider-readiness.json",
-      "sha256": "ca5d93f4c171343f53fef13436e2e1838d66250038448ffc5cb9b87844a98011"
+      "sha256": "e207eefddbb43cd014d2e522e008ac642c7ef711f04ac397168e4a547b6c8c6a"
     },
     {
       "file": "reports/feedback-semantics-expansion.json",
@@ -259,7 +259,7 @@
     },
     {
       "file": "reports/guided-dynamic-lab-readiness.json",
-      "sha256": "de58561dd571c9fa4f24820337b0c8ab6f9c6033a64aec43c8065d9b3ebfd238"
+      "sha256": "e91f60c221dd77a1c84a61822a2ef01dbec30437a3cfd8ae53d88bf1004373f8"
     },
     {
       "file": "reports/guided-lab-hardening.json",
@@ -271,7 +271,7 @@
     },
     {
       "file": "reports/host-architecture-audit.json",
-      "sha256": "9b81d6959a2b4f23cfb4bd05b9f85132aea0611d9b02ae7840e41178c1a88f54"
+      "sha256": "06ff90a49439f97fc7c5c181183c10d48cde91e85a25c7c5bdd67b738e4c1365"
     },
     {
       "file": "reports/host-parity.json",
@@ -291,7 +291,7 @@
     },
     {
       "file": "reports/installation-readiness.json",
-      "sha256": "6aa63459d8990259545f373fb39b9947cd4acd733843ccf572e100bfaa19fe38"
+      "sha256": "3886881abaeec72d2eaa39ecf5c5ae4d41561580938812fe934b303dae78ba87"
     },
     {
       "file": "reports/interaction-reliability.json",
@@ -343,7 +343,7 @@
     },
     {
       "file": "reports/mapping-validation.json",
-      "sha256": "0d00fca0e27b83309f665858d53de02c63536e2c947381228d4f485a6356a037"
+      "sha256": "f345c92fa63390995f2ad10d8a43061fc8d9af4bbe400b68e64a067c4080863c"
     },
     {
       "file": "reports/mastery-ux-coverage.json",
@@ -355,7 +355,7 @@
     },
     {
       "file": "reports/p0-acceptance.json",
-      "sha256": "6209e2fe8427643abf8ededfec2fb63050ceb56de1c5cd6df50171424a7ba11c"
+      "sha256": "38651357e25b60257ea95a5d69af8bf868db4932e0b12f8ec9572d1bcdadadfd"
     },
     {
       "file": "reports/p2-work-packages.json",
@@ -403,7 +403,7 @@
     },
     {
       "file": "reports/production-build.json",
-      "sha256": "02f3ddf0d8d91c465f9807adb7d060c3f469ad6a3d22b98f116fa66c0a63abe9"
+      "sha256": "6a55c94b916c8f89b6fd8d2b283206cb3cb6dd6290152f624b5c945adb50662f"
     },
     {
       "file": "reports/project-progress.json",
@@ -411,7 +411,7 @@
     },
     {
       "file": "reports/rc-preflight.json",
-      "sha256": "ea60a72ec8cc23e158c1143c0d4e6899897e548926b1c6a827165b12af2bc3fd"
+      "sha256": "231c58dea4f87a6751046321b9a69d06404a7834315fa97a86da552a3e06c728"
     },
     {
       "file": "reports/rc-traceability.json",
@@ -487,11 +487,11 @@
     },
     {
       "file": "reports/reviewer-workspace.json",
-      "sha256": "caa388ac58d5192dbea0904c0e8cab91f5722c62076656dc0126230495269129"
+      "sha256": "4fb006227ded8dac2a0e7cf60da88abe5985a3b26fdf91ea6e1a6e43cf012784"
     },
     {
       "file": "reports/scorm-packages.json",
-      "sha256": "cc4dd7878be24e7e9a8f31a113fd53a79a5161afa7989a12cf3f56268fa072c1"
+      "sha256": "4131993c75f5d97697c82cbd4c831606e79b793e0e5960ad40e0d420246d553a"
     },
     {
       "file": "reports/stable-preflight.json",
@@ -507,7 +507,7 @@
     },
     {
       "file": "reports/standalone-build.json",
-      "sha256": "8455ffae5ea6cfe072b0f52c4033b80e3f49fd225c770928d5dc41c07d5c8ec5"
+      "sha256": "0b1199cdac880a8654b86a95870f5931c850bb5c660a897e6f9c8b3ff04dec39"
     },
     {
       "file": "reports/standalone-mobile-smoke.json",
@@ -515,7 +515,7 @@
     },
     {
       "file": "reports/standalone-parity.json",
-      "sha256": "9ffe868354c35230185d83f4442f922406ecb0ba9dd770bead453d64b2f0cc22"
+      "sha256": "d3f7189d41d93f3b24beb20bafcd047abe16445a1aba3c27bc8f5a10246b5f6e"
     },
     {
       "file": "reports/substance-inventory.json",
@@ -531,7 +531,7 @@
     },
     {
       "file": "reports/substance-reaction-readiness.json",
-      "sha256": "87011c5872d1af9dd569942b11a8a72d17dabbe2c1d8f561cabf4e4f009f199f"
+      "sha256": "390e61677e55497d54ed6cc51e70ea9a0ce6bec98f57a3f372b7e524e35990de"
     },
     {
       "file": "reports/test-summary.json",
@@ -555,7 +555,7 @@
     },
     {
       "file": "reports/xlsx-import-snapshot.json",
-      "sha256": "02e40cf6700f8bebd6c1d22cf8e5bd108adfa1330d6f75f3ac82e55f27403403"
+      "sha256": "48001d24dc9fdcf1071832ae20f0c5377ccee1d01402d8926ab6cb53570115b4"
     }
   ]
 }

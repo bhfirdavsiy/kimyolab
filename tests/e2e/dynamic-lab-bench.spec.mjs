@@ -38,6 +38,13 @@ for (const name of ['portal', 'standalone']) {
     await expect(collect).toContainText('1-probirkadagi gazni yig‘ish');
     await collect.click();
     await expect(vessel(page, 'gas-collector').locator('.kl-scene__gas-label')).toHaveText('H₂');
+    // owner, 2026-11-26 ("Amal bloki tushunarsiz"): the Amal block lists the instruction's steps with their state
+    const tasks = page.locator(`${LAB} .kl-bench__tasks > li`);
+    await expect(tasks.first()).toHaveAttribute('data-bench-task', 'done');
+    await expect(tasks.nth(1)).toHaveAttribute('data-bench-task', 'now');
+    await expect(page.locator(`${LAB} .kl-bench__tasks > li[data-bench-task=outside]`)).toHaveCount(1);
+    // the collector is a test tube held mouth-down in a stand (the school way to collect hydrogen)
+    await expect(vessel(page, 'gas-collector').locator('.kl-scene__glass-img')).toHaveCount(1);
     // nothing is persisted (practice mode)
     const store = await semanticStore(page, hosts[name].dbName);
     expect(store.evidence).toEqual([]);

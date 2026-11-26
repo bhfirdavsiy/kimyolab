@@ -20,7 +20,7 @@
   },
   "current": {
     "source": "dist-deploy/kimyolab/",
-    "sha256": "b8ca7f87681c1817fad3550da596ff575448d3685b9b197ba41bfaf7d1d3cc1f",
+    "sha256": "f8ac7907f83df51c85b13b71685ce48fa10e5ef59dcb1abe0faaedeff706c358",
     "fileCount": 239
   },
   "steps": [
@@ -38,7 +38,7 @@
       "detail": {
         "collisions": [],
         "previousPack": "2026.09.1/manifest.json",
-        "currentPack": "2026.09.1/9b8119d0ac1a29f1588b3cfe6ab1df7960be0218ff29be84d8df959c6690b258/manifest.json"
+        "currentPack": "2026.09.1/3e702908894eff7d770e5fdf23d576bb1771e932f7cba569fb5daa64fb03d891/manifest.json"
       }
     },
     {
@@ -117,7 +117,7 @@
       "id": "restored-bytes-identical",
       "pass": true,
       "detail": {
-        "sha256": "b8ca7f87681c1817fad3550da596ff575448d3685b9b197ba41bfaf7d1d3cc1f"
+        "sha256": "f8ac7907f83df51c85b13b71685ce48fa10e5ef59dcb1abe0faaedeff706c358"
       }
     }
   ],

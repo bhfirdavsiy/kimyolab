@@ -380,3 +380,26 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
 /* the glass picture lies over the contents: multiply keeps its edges and highlights and lets the liquid show through */
 .kl-scene__glass-img{mix-blend-mode:multiply}
 .kl-scene__vessel--gas-collection-vessel .kl-scene__glass{fill:#ffffff55;stroke:#8aa0b8;stroke-width:2.6}
+/* stage 2c: the stand and the collector's trip; a real pour */
+.kl-scene__stand-base{fill:#5f6b78}.kl-scene__stand-rod{fill:#8d99a6}.kl-scene__stand-arm{fill:#7a8693}.kl-scene__stand-clamp{fill:none;stroke:#5f6b78;stroke-width:3}
+.kl-scene__collector.is-collecting{animation:kl-collect 2.4s ease-in-out both}
+@keyframes kl-collect{0%{transform:translate(0,0)}30%,70%{transform:translate(var(--kl-dx),var(--kl-dy))}100%{transform:translate(0,0)}}
+.kl-scene__pour{animation:none}
+.kl-scene__pour--liquid .kl-scene__pour-move{animation:kl-pour-in 1.9s ease-in-out both}
+@keyframes kl-pour-in{0%{transform:translate(46px,-40px);opacity:0}18%{transform:translate(0,0);opacity:1}80%{transform:translate(0,0);opacity:1}100%{transform:translate(46px,-40px);opacity:0}}
+.kl-scene__pour--liquid .kl-scene__stream{stroke-dasharray:240;stroke-dashoffset:240;animation:kl-pour-stream2 1.9s linear both}
+@keyframes kl-pour-stream2{0%,18%{stroke-dashoffset:240;opacity:1}45%{stroke-dashoffset:0;opacity:1}78%{stroke-dashoffset:0;opacity:1}90%,100%{stroke-dashoffset:0;opacity:0}}
+.kl-scene__stream{stroke:#9cc9f5;stroke-width:3.5;opacity:.9}
+.kl-scene__drop{animation:kl-drop .9s cubic-bezier(.55,0,1,.45) both}
+@keyframes kl-drop{0%{transform:translateY(-24px);opacity:0}20%{opacity:1}85%{transform:translateY(var(--kl-drop));opacity:1}100%{transform:translateY(var(--kl-drop));opacity:0}}
+.kl-scene__liquid.is-filling{animation:kl-fill 1.2s ease-out .45s both}
+@media (prefers-reduced-motion:reduce){.kl-scene__pour,.kl-scene__drop{display:none}.kl-scene__collector.is-collecting{animation:none}}
+.kl-bench__tasks{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.kl-bench__task{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--kl-border,#d8e1ec);border-radius:14px;background:#fff}
+.kl-bench__task-mark{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#eef3f9;color:#38506e;font-weight:800}
+.kl-bench__task-text{margin:0;line-height:1.45}
+.kl-bench__task-status{display:inline-block;margin-top:4px;font-size:.82rem;font-weight:700}
+.kl-bench__task.is-done{border-color:#b9e2c8;background:#f3fbf6}.kl-bench__task.is-done .kl-bench__task-mark{background:#1e9e5a;color:#fff}.kl-bench__task.is-done .kl-bench__task-status{color:#177a46}
+.kl-bench__task.is-now{border-color:var(--kl-primary,#0b5bd3);box-shadow:0 0 0 3px #0b5bd31f}.kl-bench__task.is-now .kl-bench__task-mark{background:var(--kl-primary,#0b5bd3);color:#fff}.kl-bench__task.is-now .kl-bench__task-status{color:var(--kl-primary,#0b5bd3)}
+.kl-bench__task.is-outside{opacity:.62}.kl-bench__task.is-outside .kl-bench__task-status{color:#5b6b7d;font-weight:600}
+.kl-bench__task.is-todo .kl-bench__task-text{color:#38506e}

@@ -799,7 +799,7 @@
     "ui.bench-title": "Laboratoriya stoli",
     "ui.bench-shelf": "Reaktivlar",
     "ui.bench-vessels": "Idishlar",
-    "ui.bench-list": "Barcha amallar ro‘yxati (klaviatura va ekran o‘quvchi uchun)",
+    "ui.bench-list": "Ro‘yxat ko‘rinishida ishlash (klaviatura va ekran o‘quvchi uchun)",
     "ui.bench-hint-start": "Reaktivni tanlang, keyin uni quyadigan probirkani bosing. Reaktivni probirkaga sudrab olib borsangiz ham bo‘ladi.",
     "ui.bench-hint-in-hand": "{name} qo‘lingizda. Endi uni quyadigan idishni bosing.",
     "ui.bench-hint-vessel": "{vessel} tanlandi. Uning amallari pastda. Reaktiv quyish uchun avval reaktivni tanlang.",
@@ -808,6 +808,10 @@
     "ui.bench-tools": "{vessel} bilan:",
     "ui.bench-no-tools": "Bu idish bilan hozircha boshqa amal yo‘q.",
     "ui.bench-nothing-seen": "Bajarildi. Hozircha ko‘zga ko‘rinadigan o‘zgarish yo‘q.",
-    "ui.bench-collect-from": "{from}dagi gazni yig‘ish"
+    "ui.bench-collect-from": "{from}dagi gazni yig‘ish",
+    "ui.bench-tasks": "Vazifalar",
+    "ui.bench-task-done": "bajarildi",
+    "ui.bench-task-now": "hozir shu qadam",
+    "ui.bench-task-outside": "bu qadam odatdagi mashg‘ulotda bajariladi"
   }
 }

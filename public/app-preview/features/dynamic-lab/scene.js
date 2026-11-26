@@ -50,6 +50,11 @@ const NEUTRAL_PRECIPITATE='#e9edf2';
                     
                                                      
                  
+                                                                                                                       
+                         
+                      
+                                                                                           
+                                        
                                                                                                                   
                                                
  
@@ -78,7 +83,7 @@ export function renderLabScene(host            ,input           ){
     if(input.onSelect){ g.addEventListener('click',()=>input.onSelect (a.id)); g.setAttribute('cursor','pointer'); }
     if(input.onDrop&&a.isContainer){ g.addEventListener('dragover',e=>{ e.preventDefault(); g.classList.add('is-over'); }); g.addEventListener('dragleave',()=>g.classList.remove('is-over')); g.addEventListener('drop',e=>{ e.preventDefault(); g.classList.remove('is-over'); input.onDrop (a.id); }); }
     drawVessel(g,a.kind,cx,H-34,c,state,input,large);
-    if(input.pour===a.id) drawPour(g,cx,H-34-22-(large?190:150));
+    if(input.pour===a.id) drawPour(g,cx,H-34-22-(large?190:150),H-52,input);
     // the label under the vessel, wrapped to two lines when long
     const words=input.labelOf(a.id).split(' '); const lines         =[]; for(const w of words){ const last=lines.at(-1); if(last!==undefined&&(last+' '+w).length<=15) lines[lines.length-1]=last+' '+w; else lines.push(w); }
     const shownLines=lines.length>2?[lines[0] ,lines.slice(1).join(' ')]:lines;
@@ -111,7 +116,7 @@ const TUBE={T:0.105,w:326,h:1468,bodyX:34,bodyW:257,rimH:60};
 function renderRackBench(host            ,input           ,vessels                             ){
   const {state}=input; const S=RACK.S;
   const tubes=vessels.filter(a=>a.kind==='test-tube'), others=vessels.filter(a=>a.kind!=='test-tube');
-  const rackX=24, tubeTop=84, tubeLen=TUBE.h*TUBE.T;
+  const rackX=24, tubeTop=150, tubeLen=TUBE.h*TUBE.T;
   const shelfTop=tubeTop+tubeLen+2; const rackY=shelfTop-(RACK.shelfY-RACK.cropY)*S;
   const rackBottom=rackY+(RACK.bottomY-RACK.cropY)*S, rackW=(RACK.aW+RACK.bW)*S;
   const otherSlot=96, W=Math.ceil(rackX+rackW+(others.length?28+others.length*otherSlot:0)+20), H=Math.ceil(rackBottom+44);
@@ -130,7 +135,7 @@ function renderRackBench(host            ,input           ,vessels              
     const g=vesselGroup(a,input,false);
     const box    ={x:cx-bodyW/2,y:tubeTop+TUBE.rimH*TUBE.T*0.6,w:bodyW,h:tubeLen-TUBE.rimH*TUBE.T*0.6-4,bottom:tubeTop+tubeLen-3,mouth:tubeTop};
     drawVessel(g,'test-tube',cx,rackBottom,c,state,input,true,{box,glassImage:{href:BENCH_IMAGES.tube,x:cx-tw/2,y:tubeTop,w:tw,h:tubeLen}});
-    if(input.pour===a.id) drawPour(g,cx,tubeTop);
+    if(input.pour===a.id) drawPour(g,cx,tubeTop,box.bottom,input);
     svg.append(g);
   });
   // the rack's front face in front of the tubes: they stand IN the holes; the tube numbers are stamped on it
@@ -140,16 +145,36 @@ function renderRackBench(host            ,input           ,vessels              
   tubes.forEach((_,i)=>front.append(s('text',{x:rackX+(RACK.holeX0+RACK.holeDx*i)*S,y:fy+fh/2+4,'text-anchor':'middle',class:'kl-scene__rack-number'},String(i+1))));
   svg.append(front);
   // the other vessels stand on the table to the right of the rack, with their name under them
+  const tubeCx=(id       )=>{ const i=tubes.findIndex(x=>x.id===id); return i<0?null:rackX+(RACK.holeX0+RACK.holeDx*i)*S; };
   others.forEach((a,i)=>{
     const cx=rackX+rackW+28+otherSlot*i+otherSlot/2;
     const g=vesselGroup(a,input,false);
-    drawVessel(g,a.kind,cx,rackBottom+16,state.containers[a.id],state,input,false);
-    if(input.pour===a.id) drawPour(g,cx,rackBottom+16-22-138);
+    if(a.kind==='gas-collection-vessel'){
+      // the school way to collect hydrogen: a test tube held mouth-down in a stand's clamp (the gas rises into it)
+      const top=tubeTop+26, h=tubeLen-30, box    ={x:cx-bodyW/2,y:top,w:bodyW,h,bottom:top+h,mouth:top};
+      drawStand(g,cx,top,box.bottom,rackBottom);
+      const mover=s('g',{class:'kl-scene__collector'});
+      drawVessel(mover,a.kind,cx,rackBottom,state.containers[a.id],state,input,true,{box,glassImage:{href:BENCH_IMAGES.tube,x:cx-tw/2,y:top-4,w:tw,h:h+8,flip:true}});
+      const from=input.collect?.to===a.id?tubeCx(input.collect.from):null;
+      if(from!==null){ mover.classList.add('is-collecting'); (mover              ).style.setProperty('--kl-dx',`${from-cx}px`); (mover              ).style.setProperty('--kl-dy',`${tubeTop-6-box.bottom}px`); }
+      g.append(mover);
+    }
+    else drawVessel(g,a.kind,cx,rackBottom+16,state.containers[a.id],state,input,false);
+    if(input.pour===a.id) drawPour(g,cx,rackBottom+16-22-138,rackBottom-10,input);
     const words=input.labelOf(a.id).split(' '); const l1=words.slice(0,Math.ceil(words.length/2)).join(' '), l2=words.slice(Math.ceil(words.length/2)).join(' ');
     [l1,l2].filter(Boolean).forEach((l,k)=>g.append(s('text',{x:cx,y:rackBottom+22+k*12,'text-anchor':'middle',class:'kl-scene__label'},l)));
     svg.append(g);
   });
   host.append(svg);
+}
+
+/** a lab stand: base on the table, a rod, and a clamp arm holding the tube near its top */
+function drawStand(g           ,cx       ,top       ,bottom       ,table       ){
+  const rx=cx+26;
+  g.append(s('rect',{x:cx-14,y:table-9,width:56,height:8,rx:2,class:'kl-scene__stand-base'}),
+    s('rect',{x:rx-2.5,y:top-34,width:5,height:table-9-(top-34),rx:2,class:'kl-scene__stand-rod'}),
+    s('rect',{x:cx-2,y:top+18,width:rx-cx+4,height:5,rx:2,class:'kl-scene__stand-arm'}),
+    s('rect',{x:cx-17,y:top+13,width:34,height:15,rx:5,class:'kl-scene__stand-clamp'}));
 }
 
                                                                                      
@@ -163,7 +188,7 @@ function vesselBox(kind       ,cx       ,floor       ,large=false)    {
   }
 }
 
-function drawVessel(g           ,kind       ,cx       ,floor       ,c                         ,state         ,input           ,large=false,opts                                                                          ){
+function drawVessel(g           ,kind       ,cx       ,floor       ,c                         ,state         ,input           ,large=false,opts                                                                                        ){
   // vessels stand 22 px above the bench, leaving room for the flame of a heated container
   const b=opts?.box??vesselBox(kind,cx,floor-22,large);
   // an invisible hit area: the glass is only an outline, so an empty vessel must still take a click
@@ -175,7 +200,7 @@ function drawVessel(g           ,kind       ,cx       ,floor       ,c           
     :kind==='evaporating-dish'
       ?`M${b.x} ${b.y} Q${cx} ${b.bottom+26} ${b.x+b.w} ${b.y}`
       :kind==='gas-collection-vessel'
-        ?`M${b.x} ${b.bottom} L${b.x} ${b.y+14} Q${b.x} ${b.y} ${b.x+14} ${b.y} L${b.x+b.w-14} ${b.y} Q${b.x+b.w} ${b.y} ${b.x+b.w} ${b.y+14} L${b.x+b.w} ${b.bottom} Z`
+        ?`M${b.x} ${b.bottom} L${b.x} ${b.y+Math.min(14,b.w/2)} Q${b.x} ${b.y} ${b.x+Math.min(14,b.w/2)} ${b.y} L${b.x+b.w-Math.min(14,b.w/2)} ${b.y} Q${b.x+b.w} ${b.y} ${b.x+b.w} ${b.y+Math.min(14,b.w/2)} L${b.x+b.w} ${b.bottom} Z`
         :`M${b.x-4} ${b.y} L${b.x} ${b.y+6} L${b.x} ${b.bottom-8} Q${b.x} ${b.bottom} ${b.x+8} ${b.bottom} L${b.x+b.w-8} ${b.bottom} Q${b.x+b.w} ${b.bottom} ${b.x+b.w} ${b.bottom-8} L${b.x+b.w} ${b.y+6} L${b.x+b.w+4} ${b.y}`;
   const defs=s('defs'); const clip=s('clipPath',{id:clipId}); clip.append(s('path',{d:glass+(kind==='gas-collection-vessel'?'':' Z')})); defs.append(clip); g.append(defs);
   const inside=s('g',{'clip-path':`url(#${clipId})`});
@@ -257,7 +282,7 @@ function drawVessel(g           ,kind       ,cx       ,floor       ,c           
     }
   }
   // the glass: a picture of a tube over its contents (the outline stays, invisible, for the hover / target ring), or the line drawing
-  if(opts?.glassImage){ const gi=opts.glassImage; g.append(s('image',{href:gi.href,x:gi.x,y:gi.y,width:gi.w,height:gi.h,preserveAspectRatio:'none',class:'kl-scene__glass-img'}),s('path',{d:glass,class:'kl-scene__glass kl-scene__glass--img'})); }
+  if(opts?.glassImage){ const gi=opts.glassImage; g.append(s('image',{href:gi.href,x:gi.x,y:gi.y,width:gi.w,height:gi.h,preserveAspectRatio:'none',class:'kl-scene__glass-img',...(gi.flip?{transform:`matrix(1 0 0 -1 0 ${2*gi.y+gi.h})`}:{})}),s('path',{d:glass,class:'kl-scene__glass kl-scene__glass--img'})); }
   else g.append(s('path',{d:glass,class:'kl-scene__glass'}));
 }
 
@@ -268,12 +293,23 @@ function colorChange(obs                         )            {
   return COLOR[to]??null;
 }
 
-/** the pour: a tilted bottle over the vessel's mouth and a stream into it (motion only; reduced motion shows nothing) */
-function drawPour(g           ,cx       ,mouthY       ){
-  const p=s('g',{class:'kl-scene__pour','aria-hidden':'true'});
-  const bx=cx+30, by=mouthY-70;
-  const bottle=s('g',{transform:`rotate(-62 ${bx} ${by+44})`});
-  bottle.append(s('rect',{x:bx-16,y:by,width:32,height:48,rx:7,class:'kl-scene__bottle'}),s('rect',{x:bx-16,y:by+20,width:32,height:16,class:'kl-scene__bottle-label'}),s('rect',{x:bx-6,y:by-13,width:12,height:14,rx:3,class:'kl-scene__bottle-neck'}));
-  p.append(bottle,s('path',{d:`M${cx+6} ${mouthY-34} C${cx+2} ${mouthY-16} ${cx} ${mouthY-4} ${cx} ${mouthY+24}`,class:'kl-scene__stream'}));
+/** the pour (motion only; reduced motion shows nothing): a liquid's bottle comes over the mouth, tilts and pours a
+ *  stream while the liquid rises; a solid sample (its picture) drops in. The picture is the shelf's own. */
+function drawPour(g           ,cx       ,mouthY       ,bottomY       ,input           ){
+  const href=input.pourImage??null;
+  const p=s('g',{class:`kl-scene__pour kl-scene__pour--${input.pourLiquid?'liquid':'solid'}`,'aria-hidden':'true'});
+  if(input.pourLiquid){
+    const move=s('g',{class:'kl-scene__pour-move'});
+    // the bottle's neck at the mouth, its body up and to the right (rotated about the neck)
+    const nx=cx+4, ny=mouthY-10, w=26, h=60;
+    const tilt=s('g',{transform:`translate(${nx} ${ny}) rotate(-128)`,class:'kl-scene__pour-tilt'});
+    tilt.append(href?s('image',{href,x:-w/2,y:-2,width:w,height:h,preserveAspectRatio:'xMidYMid meet'}):s('rect',{x:-w/2,y:0,width:w,height:h,rx:6,class:'kl-scene__bottle'}));
+    move.append(tilt);
+    p.append(move,s('path',{d:`M${nx} ${ny} C${cx+2} ${mouthY+8} ${cx} ${mouthY+30} ${cx} ${bottomY-18}`,class:'kl-scene__stream'}));
+  } else {
+    const size=22;
+    p.append(href?s('image',{href,x:cx-size/2,y:mouthY-size-6,width:size,height:size,class:'kl-scene__drop',preserveAspectRatio:'xMidYMid meet'}):s('circle',{cx,cy:mouthY-12,r:5,class:'kl-scene__drop'}));
+    (p              ).style.setProperty('--kl-drop',`${bottomY-mouthY-6}px`);
+  }
   g.append(p);
 }

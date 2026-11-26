@@ -128,7 +128,7 @@ export function renderDynamicLab(root            ,page                         ,
   const formulaOf=(substanceId       )=>{ const sub=profile.substances.find(x=>x.id===substanceId); const sp=sub?.speciesId??sub?.soluteSpeciesId??null; return sp?formulaBySpecies.get(sp)??null:null; };
   const benchMode=options.bench??BENCH_PROTOTYPE.has(profile.activityId);
   // the bench: a reagent "in hand", the vessel being worked with, and the pour that just happened (motion only)
-  let inHand            =null, focusVessel            =null, pourFx            =null, lastNote            =null;
+  let inHand            =null, focusVessel            =null, pourFx            =null, pourImageFx            =null, pourLiquidFx=false, collectFx                             =null, lastNote            =null;
   const containers=profile.apparatus.filter(a=>a.isContainer);
   // pictures for the bench (decoration): a metal sample by its formula; a solution in a clear bottle, a solid in a brown jar
   const METAL_IMAGE                      ={Mg:BENCH_IMAGES.mg,Zn:BENCH_IMAGES.zn,Fe:BENCH_IMAGES.fe,Cu:BENCH_IMAGES.cu};
@@ -136,7 +136,7 @@ export function renderDynamicLab(root            ,page                         ,
   const sampleImage=(id       )=>{ const f=formulaOf(id); return f&&!isLiquid(id)?METAL_IMAGE[f]??null:null; };
   const shelfImage=(id       )=>sampleImage(id)??(isLiquid(id)?BENCH_IMAGES['bottle-clear']:BENCH_IMAGES['bottle-amber']);
   const drawScene=()=>renderLabScene(scene,benchMode
-    ?{profile,state,formulaOf,labelOf:apparatusName,large:true,sampleImage,armed:inHand!==null,focus:focusVessel,pour:pourFx,onSelect:(id)=>vesselClick(id),onDrop:(id)=>{ if(inHand) pour(inHand,id); }}
+    ?{profile,state,formulaOf,labelOf:apparatusName,large:true,sampleImage,armed:inHand!==null,focus:focusVessel,pour:pourFx,pourImage:pourImageFx,pourLiquid:pourLiquidFx,collect:collectFx,onSelect:(id)=>vesselClick(id),onDrop:(id)=>{ if(inHand) pour(inHand,id); }}
     :{profile,state,formulaOf,labelOf:apparatusName,onSelect:(id)=>{ objectsBox.querySelector                   (`[data-object="apparatus:${id}"]`)?.click(); }});
   const bench=el('section',{className:'kl-bench',attrs:{'aria-labelledby':'dlab-bench-title','data-dlab-bench':''}});
   const benchHint=el('p',{className:'kl-bench__hint',attrs:{'aria-live':'polite'}});
@@ -144,6 +144,7 @@ export function renderDynamicLab(root            ,page                         ,
   const vesselRow=el('div',{className:'kl-bench__vessels',attrs:{role:'group','aria-label':t.ui('ui.bench-vessels')}});
   const shelf=el('div',{className:'kl-bench__shelf',attrs:{role:'group','aria-label':t.ui('ui.bench-shelf')}});
   const tools=el('div',{className:'kl-bench__tools'});
+  const tasksBox=el('ol',{className:'kl-bench__tasks'});
   if(benchMode){
     bench.append(el('h2',{className:'kl-sr-only',text:t.ui('ui.bench-title'),attrs:{id:'dlab-bench-title'}}));
     result.classList.add('kl-sr-only');
@@ -152,17 +153,33 @@ export function renderDynamicLab(root            ,page                         ,
     bench.append(benchStage,side);
     // the list of every action stays — for the keyboard and screen readers, and for what the bench does not show
     const list=el('details',{className:'kl-dlab__list-toggle'}); list.append(el('summary',{text:t.ui('ui.bench-list')}),objectsBox,actionsBox,paramsBox);
-    action.append(list,reset);
+    action.append(el('h3',{text:t.ui('ui.bench-tasks')}),tasksBox,reset,list);
   }
   else action.append(objectsBox,actionsBox,paramsBox,result,reset);
 
+  // the bench's task list: the instruction's own steps, each with what the lab state says about it
+  function drawTasks(){
+    if(!benchMode) return;
+    clear(tasksBox);
+    let nowGiven=false;
+    profile.instruction.steps.forEach((s,i)=>{
+      const own=profile.procedure.steps.filter(p=>p.instructionStep===i&&p.required!==false);
+      const status=!own.length?'outside':own.every(p=>state.completedSteps.includes(p.id))?'done':nowGiven?'todo':'now';
+      if(status==='now') nowGiven=true;
+      const li=el('li',{className:`kl-bench__task is-${status}`,attrs:{'data-bench-task':status}});
+      li.append(el('span',{className:'kl-bench__task-mark',text:status==='done'?'✓':status==='now'?'➜':status==='outside'?'–':String(i+1),attrs:{'aria-hidden':'true'}}));
+      const body=el('div'); const txt=el('p',{className:'kl-bench__task-text'}); setChemText(txt,s.text); body.append(txt);
+      if(status!=='todo') body.append(el('span',{className:'kl-bench__task-status',text:t.ui(`ui.bench-task-${status}`)}));
+      li.append(body); tasksBox.append(li);
+    });
+  }
   function vesselClick(id       ){
     if(inHand&&containers.some(c=>c.id===id)){ pour(inHand,id); return; }
     focusVessel=focusVessel===id?null:id; selected={kind:'apparatus',id}; draw();
   }
   function pour(substance       ,container       ){
     const limit=profile.limits.quantities.find(q=>q.substanceId===substance);
-    inHand=null; focusVessel=container; pourFx=container;
+    inHand=null; focusVessel=container; pourFx=container; pourImageFx=isLiquid(substance)?BENCH_IMAGES['bottle-clear']:sampleImage(substance)??BENCH_IMAGES['bottle-amber']; pourLiquidFx=isLiquid(substance);
     run({family:'ADD_SUBSTANCE',params:{substance,container,...(limit?{quantity:limit.value}:{})}});
     pourFx=null;
   }
@@ -203,7 +220,7 @@ export function renderDynamicLab(root            ,page                         ,
       let label=actionText(o.action);
       if(o.action.family==='COLLECT_GAS'){ const from=o.action.params?.from?String(o.action.params.from):(containers.map(c=>c.id).filter(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom)).length===1?containers.map(c=>c.id).find(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom)) :null); if(from) label=t.ui('ui.bench-collect-from',{from:apparatusName(from)}); }
       setChemText(b,label);
-      b.addEventListener('click',()=>{ if(o.action.family==='RECORD'){ selected=ref; (action.querySelector('details')                           )?.setAttribute('open',''); choose(o.action); return; } run(o.action); });
+      b.addEventListener('click',()=>{ if(o.action.family==='COLLECT_GAS'){ const src=o.action.params?.from?String(o.action.params.from):containers.map(c=>c.id).find(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom))??null; const to=String(o.action.params?.container??focusVessel??''); if(src&&to){ collectFx={to,from:src}; run(o.action); collectFx=null; return; } } if(o.action.family==='RECORD'){ selected=ref; (action.querySelector('details')                           )?.setAttribute('open',''); choose(o.action); return; } run(o.action); });
       tools.append(b);
     }
   }
@@ -498,7 +515,7 @@ export function renderDynamicLab(root            ,page                         ,
   function draw(){
     for(const [id,a] of flowLinks){ if(id===stage) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); }
     shell.dataset.complete=String(state.complete);
-    drawScene(); drawBench(); drawTally(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
+    drawScene(); drawBench(); drawTasks(); drawTally(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
   }
 
   reset.addEventListener('click',()=>{ state=runtime.reset(profile); accepted.length=0; inHand=null; focusVessel=null; options.onChange?.({accepted:[],complete:state.complete}); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });
