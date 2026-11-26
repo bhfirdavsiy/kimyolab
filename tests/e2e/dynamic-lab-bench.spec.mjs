@@ -30,6 +30,8 @@ for (const name of ['portal', 'standalone']) {
     await page.locator(`${LAB} [data-bench-substance=h2so4-dilute]`).click();
     await page.locator(`${LAB} [data-bench-vessel=tube-1]`).click();
     await expect(page.locator(`${LAB} .kl-bench__hint`)).toContainText('H₂ gazi ajraldi');
+    // pouring alone does not finish step 1 (the gas is not collected yet): the result does not say the step is done
+    await expect(page.locator(`${LAB} .kl-dlab__result`)).not.toContainText('qadami bajarildi');
     await expect(vessel(page, 'tube-1').locator('.kl-scene__bubble').first()).toBeAttached();
     await expect(page.locator(`${LAB} .kl-dlab__why-list`)).toContainText('Mg + H₂SO₄ → MgSO₄ + H₂');
     // the collector's own action names the gas's source tube
@@ -40,7 +42,11 @@ for (const name of ['portal', 'standalone']) {
     await expect(vessel(page, 'gas-collector').locator('.kl-scene__gas-label')).toHaveText('H₂');
     // owner, 2026-11-26 ("Amal bloki tushunarsiz"): the Amal block lists the instruction's steps with their state
     const tasks = page.locator(`${LAB} .kl-bench__tasks > li`);
-    await expect(tasks.first()).toHaveAttribute('data-bench-task', 'done');
+    // owner, 2026-11-26: step 1 also says "gugurt alangasi bilan tekshiring", which this lab does not offer
+    // (completionScope.uncovered): only the lab's part of it is done, and the task says what is left
+    await expect(tasks.first()).toHaveAttribute('data-bench-task', 'partial');
+    await expect(tasks.first()).toContainText('gugurt alangasi bilan tekshirish bu laboratoriyada yo‘q');
+    await expect(tasks.first()).toContainText('laboratoriyadagi qismi bajarildi');
     await expect(tasks.nth(1)).toHaveAttribute('data-bench-task', 'now');
     await expect(page.locator(`${LAB} .kl-bench__tasks > li[data-bench-task=outside]`)).toHaveCount(1);
     // the collector is a test tube held mouth-down in a stand (the school way to collect hydrogen)

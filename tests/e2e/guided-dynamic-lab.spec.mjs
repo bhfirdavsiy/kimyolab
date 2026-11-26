@@ -114,7 +114,10 @@ for (const name of ['portal', 'standalone']) {
     await expect(setup).toHaveAttribute('data-category', 'recommended');
     await setup.focus(); await page.keyboard.press('Enter');
     await expect(result(page)).toBeFocused();
-    await expect(result(page)).toContainText('1-qadami bajarildi');
+    // owner, 2026-11-26 ("gaz yig'ish vositasini qo'yganimda bajarildi dedi"): an instruction step is announced as done
+    // only when ALL its required lab steps are. Step 1 of 7.2 is setup + water + mixture + dissolving, so setting up the
+    // beaker alone no longer says "1-qadami bajarildi" (it did before, which was wrong)
+    await expect(result(page)).not.toContainText('qadami bajarildi');
     // the 20 ml limit comes from the instruction
     await object(page, 'substance:water'); await action(page, 'ADD_SUBSTANCE');
     await page.locator('#dlab-param-container').selectOption('beaker');
@@ -127,6 +130,7 @@ for (const name of ['portal', 'standalone']) {
     await on(page, 'apparatus:glass-rod', 'SETUP_APPARATUS');
     await addTo(page, 'contaminated-salt', 'beaker');
     await on(page, 'apparatus:beaker', 'MIX');
+    await expect(result(page)).toContainText(/1-qadam(i|idagi laboratoriya qismi) bajarildi/);
     await expect(page.locator(`${LAB} .kl-dlab__sources li[data-grounding=INSTRUCTION_TEXT]`)).toContainText('ko‘rsatmaning o‘z jumlasidan');
     await expect(page.locator(`${LAB} .kl-dlab__sources li[data-grounding=MODEL_BASED]`)).toContainText('eruvchanlik');
     // guidance level 4 shows the instruction sentence and never an outcome

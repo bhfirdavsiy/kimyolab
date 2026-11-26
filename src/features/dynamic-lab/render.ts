@@ -157,19 +157,28 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
   }
   else action.append(objectsBox,actionsBox,paramsBox,result,reset);
 
+  /** an instruction step against a state: outside the lab, still to do, done, or done as far as the lab goes */
+  function stepStatus(i:number,st:LabState):'outside'|'todo'|'done'|'partial'{
+    const own=profile.procedure.steps.filter(p=>p.instructionStep===i&&p.required!==false);
+    if(!own.length) return 'outside';
+    if(!own.every(p=>st.completedSteps.includes(p.id))) return 'todo';
+    return profile.completionScope.uncovered.some(u=>u.instructionStep===i)?'partial':'done';
+  }
   // the bench's task list: the instruction's own steps, each with what the lab state says about it
   function drawTasks(){
     if(!benchMode) return;
     clear(tasksBox);
     let nowGiven=false;
     profile.instruction.steps.forEach((s,i)=>{
-      const own=profile.procedure.steps.filter(p=>p.instructionStep===i&&p.required!==false);
-      const status=!own.length?'outside':own.every(p=>state.completedSteps.includes(p.id))?'done':nowGiven?'todo':'now';
+      const base=stepStatus(i,state);
+      const status=base==='todo'?(nowGiven?'todo':'now'):base;
       if(status==='now') nowGiven=true;
       const li=el('li',{className:`kl-bench__task is-${status}`,attrs:{'data-bench-task':status}});
-      li.append(el('span',{className:'kl-bench__task-mark',text:status==='done'?'✓':status==='now'?'➜':status==='outside'?'–':String(i+1),attrs:{'aria-hidden':'true'}}));
+      li.append(el('span',{className:'kl-bench__task-mark',text:status==='done'?'✓':status==='partial'?'◐':status==='now'?'➜':status==='outside'?'–':String(i+1),attrs:{'aria-hidden':'true'}}));
       const body=el('div'); const txt=el('p',{className:'kl-bench__task-text'}); setChemText(txt,s.text); body.append(txt);
       if(status!=='todo') body.append(el('span',{className:'kl-bench__task-status',text:t.ui(`ui.bench-task-${status}`)}));
+      // what of this step the lab does not do (and therefore never marks as done)
+      if(status!=='outside') for(const u of profile.completionScope.uncovered.filter(x=>x.instructionStep===i)){ const m=opt(`ui.bench-missing-${u.family}`); if(m) body.append(el('p',{className:'kl-bench__task-missing',text:m})); }
       li.append(body); tasksBox.append(li);
     });
   }
@@ -379,7 +388,10 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
     const consequence=opt(`ui.dlab-reason-${r.guidance.code}`); if(consequence) parts.push(consequence);
     for(const o of r.observations) parts.push(observationText(o,r.nextState));
     const eq=r.chemistryEvents.find(e=>e.type==='equation'); if(eq) parts.push(t.ui(eq.detail.correct?'ui.dlab-equation-correct':'ui.dlab-equation-incorrect'));
-    if(r.procedural.completedStep){ const s=profile.procedure.steps.find(x=>x.id===r.procedural.completedStep); if(s?.instructionStep!==null&&s?.instructionStep!==undefined) parts.push(t.ui('ui.dlab-step-done',{n:s.instructionStep+1})); }
+    // an instruction step is "done" only when all its required lab steps are; when the instruction asks for something
+    // the lab does not offer (completionScope.uncovered, e.g. the flame test), only the lab's part of it is done
+    if(r.procedural.completedStep){ const s=profile.procedure.steps.find(x=>x.id===r.procedural.completedStep); const n=s?.instructionStep;
+      if(n!==null&&n!==undefined&&stepStatus(n,r.nextState)!=='todo') parts.push(t.ui(stepStatus(n,r.nextState)==='partial'?'ui.dlab-step-done-partial':'ui.dlab-step-done',{n:n+1})); }
     // P2.11 closeout: “the lab's goal is reached” only when the profile carries the WHOLE instruction
     if(r.nextState.complete&&!state.complete) parts.push(t.ui(profile.completionScope.kind==='FULL_INSTRUCTION'?'ui.dlab-complete':'ui.dlab-complete-partial'));
     return parts.join(' ');

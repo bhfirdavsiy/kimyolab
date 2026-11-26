@@ -72,6 +72,7 @@ export function renderLabScene(host:HTMLElement,input:SceneInput){
   if(large&&tubeCount>=1&&tubeCount<=6){ renderRackBench(host,input,vessels); return; }
   const slot=large?132:124, H=large?318:262, W=Math.max(slot*vessels.length+24,280);
   const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,class:'kl-scene__svg','aria-hidden':'true',focusable:'false',preserveAspectRatio:'xMidYMid meet'}) as SVGSVGElement;
+  svg.append(sceneDefs());
   // the bench
   svg.append(s('rect',{x:0,y:H-34,width:W,height:34,rx:6,class:'kl-scene__bench'}));
   if(input.armed) svg.classList.add('is-armed');
@@ -121,6 +122,7 @@ function renderRackBench(host:HTMLElement,input:SceneInput,vessels:TopicLabProfi
   const rackBottom=rackY+(RACK.bottomY-RACK.cropY)*S, rackW=(RACK.aW+RACK.bW)*S;
   const otherSlot=96, W=Math.ceil(rackX+rackW+(others.length?28+others.length*otherSlot:0)+20), H=Math.ceil(rackBottom+44);
   const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,class:'kl-scene__svg kl-scene__svg--rack','aria-hidden':'true',focusable:'false',preserveAspectRatio:'xMidYMid meet'}) as SVGSVGElement;
+  svg.append(sceneDefs());
   if(input.armed) svg.classList.add('is-armed');
   // the table
   svg.append(s('rect',{x:0,y:rackBottom-6,width:W,height:H-rackBottom+6,rx:8,class:'kl-scene__bench kl-scene__bench--table'}));
@@ -134,7 +136,7 @@ function renderRackBench(host:HTMLElement,input:SceneInput,vessels:TopicLabProfi
     const c=state.containers[a.id];
     const g=vesselGroup(a,input,false);
     const box:Box={x:cx-bodyW/2,y:tubeTop+TUBE.rimH*TUBE.T*0.6,w:bodyW,h:tubeLen-TUBE.rimH*TUBE.T*0.6-4,bottom:tubeTop+tubeLen-3,mouth:tubeTop};
-    drawVessel(g,'test-tube',cx,rackBottom,c,state,input,true,{box,glassImage:{href:BENCH_IMAGES.tube,x:cx-tw/2,y:tubeTop,w:tw,h:tubeLen}});
+    drawVessel(g,'test-tube',cx,rackBottom,c,state,input,true,{box,noFlame:true,glassImage:{href:BENCH_IMAGES.tube,x:cx-tw/2,y:tubeTop,w:tw,h:tubeLen}});
     if(input.pour===a.id) drawPour(g,cx,tubeTop,box.bottom,input);
     svg.append(g);
   });
@@ -144,6 +146,9 @@ function renderRackBench(host:HTMLElement,input:SceneInput,vessels:TopicLabProfi
   front.append(img(BENCH_IMAGES['rack-a-front'],rackX,fy,aW,fh,'kl-scene__rack-img'),img(BENCH_IMAGES['rack-b-front'],rackX+aW,fy,bW,fh,'kl-scene__rack-img'));
   tubes.forEach((_,i)=>front.append(s('text',{x:rackX+(RACK.holeX0+RACK.holeDx*i)*S,y:fy+fh/2+4,'text-anchor':'middle',class:'kl-scene__rack-number'},String(i+1))));
   svg.append(front);
+  // a heated tube: the spirit lamp stands in front of the rack, its flame at the tube's bottom
+  tubes.forEach((a,i)=>{ const c=state.containers[a.id]; if(!c?.heating) return; const cx=rackX+(RACK.holeX0+RACK.holeDx*i)*S;
+    const lg=s('g',{'data-scene-heat':a.id}); drawLamp(lg,cx,rackBottom-2,tubeTop+tubeLen-6,c.heating); svg.append(lg); });
   // the other vessels stand on the table to the right of the rack, with their name under them
   const tubeCx=(id:string)=>{ const i=tubes.findIndex(x=>x.id===id); return i<0?null:rackX+(RACK.holeX0+RACK.holeDx*i)*S; };
   others.forEach((a,i)=>{
@@ -168,6 +173,41 @@ function renderRackBench(host:HTMLElement,input:SceneInput,vessels:TopicLabProfi
   host.append(svg);
 }
 
+/** shared gradients: the flame (outer, core, glow) and the spirit lamp's glass and alcohol */
+function sceneDefs():SVGElement{
+  const d=s('defs');
+  const lin=(id:string,stops:Array<[string,string,number?]>,x2=0,y2=1)=>{ const g=s('linearGradient',{id,x1:0,y1:0,x2,y2}); for(const [o,c,a] of stops) g.append(s('stop',{offset:o,'stop-color':c,'stop-opacity':a??1})); d.append(g); };
+  const rad=(id:string,stops:Array<[string,string,number?]>)=>{ const g=s('radialGradient',{id,cx:'50%',cy:'60%',r:'50%'}); for(const [o,c,a] of stops) g.append(s('stop',{offset:o,'stop-color':c,'stop-opacity':a??1})); d.append(g); };
+  lin('kl-flame-outer',[['0','#fff6c2',0.15],['0.35','#ffd34d'],['0.75','#ff9a1f'],['1','#ff6a00',0.9]]);
+  lin('kl-flame-core',[['0','#bfe3ff',0.2],['0.6','#5aa9ff',0.85],['1','#2b6fd6']]);
+  rad('kl-flame-glow',[['0','#ffcc55',0.55],['0.6','#ffb12b',0.18],['1','#ffb12b',0]]);
+  lin('kl-lamp-glass',[['0','#f4f8fc',0.95],['0.5','#dbe6f1',0.9],['1','#c3d1df',0.95]],1,0);
+  lin('kl-lamp-alcohol',[['0','#e9f2ff',0.7],['1','#bcd6f2',0.85]]);
+  return d;
+}
+
+/** a spirit lamp (glass body with alcohol, metal collar, wick) with a layered flame whose tip reaches tipY */
+function drawLamp(g:SVGElement,cx:number,baseY:number,tipY:number,level:string){
+  const total=Math.max(30,baseY-tipY), bodyH=Math.min(20,total*0.38), bodyW=bodyH*1.55;
+  const top=baseY-bodyH, collarY=top-4, wickTop=collarY-4, flameH=Math.max(14,wickTop-tipY), fw=flameH*0.34;
+  const lamp=s('g',{class:'kl-scene__lamp-group'});
+  // the glow behind the flame
+  lamp.append(s('ellipse',{cx,cy:wickTop-flameH*0.45,rx:fw*2.2,ry:flameH*0.75,fill:'url(#kl-flame-glow)',class:'kl-scene__flame-glow'}));
+  // glass body and the alcohol in it
+  lamp.append(s('path',{d:`M${cx-bodyW*0.28} ${top} C${cx-bodyW*0.62} ${top+2} ${cx-bodyW/2} ${baseY-1} ${cx-bodyW*0.42} ${baseY} L${cx+bodyW*0.42} ${baseY} C${cx+bodyW/2} ${baseY-1} ${cx+bodyW*0.62} ${top+2} ${cx+bodyW*0.28} ${top} Z`,fill:'url(#kl-lamp-glass)',stroke:'#8aa0b8','stroke-width':1.2,class:'kl-scene__lamp'}));
+  lamp.append(s('path',{d:`M${cx-bodyW*0.46} ${top+bodyH*0.45} L${cx+bodyW*0.46} ${top+bodyH*0.45} C${cx+bodyW*0.5} ${baseY-2} ${cx+bodyW*0.44} ${baseY-1} ${cx+bodyW*0.4} ${baseY-1} L${cx-bodyW*0.4} ${baseY-1} C${cx-bodyW*0.44} ${baseY-1} ${cx-bodyW*0.5} ${baseY-2} ${cx-bodyW*0.46} ${top+bodyH*0.45} Z`,fill:'url(#kl-lamp-alcohol)'}));
+  lamp.append(s('path',{d:`M${cx-bodyW*0.2} ${top+3} L${cx-bodyW*0.16} ${baseY-3}`,stroke:'#ffffff',opacity:0.7,'stroke-width':1.5,'stroke-linecap':'round'}));
+  // metal collar and the wick
+  lamp.append(s('rect',{x:cx-bodyW*0.22,y:collarY,width:bodyW*0.44,height:5,rx:1.5,fill:'#9aa5b1',stroke:'#6b7784','stroke-width':0.8}));
+  lamp.append(s('rect',{x:cx-1.4,y:wickTop,width:2.8,height:5,fill:'#5b4a3a'}));
+  // the flame: an orange-yellow outer body, a blue core at its base
+  const f=s('g',{class:'kl-scene__flame-group'});
+  f.append(s('path',{d:`M${cx} ${wickTop-flameH} C${cx+fw*0.9} ${wickTop-flameH*0.62} ${cx+fw*1.15} ${wickTop-flameH*0.22} ${cx+fw*0.55} ${wickTop+1} C${cx+fw*0.2} ${wickTop+2.5} ${cx-fw*0.2} ${wickTop+2.5} ${cx-fw*0.55} ${wickTop+1} C${cx-fw*1.15} ${wickTop-flameH*0.22} ${cx-fw*0.9} ${wickTop-flameH*0.62} ${cx} ${wickTop-flameH} Z`,fill:'url(#kl-flame-outer)',class:`kl-scene__flame kl-scene__flame--${level}`}));
+  f.append(s('path',{d:`M${cx} ${wickTop-flameH*0.42} C${cx+fw*0.42} ${wickTop-flameH*0.25} ${cx+fw*0.48} ${wickTop-2} ${cx} ${wickTop+0.5} C${cx-fw*0.48} ${wickTop-2} ${cx-fw*0.42} ${wickTop-flameH*0.25} ${cx} ${wickTop-flameH*0.42} Z`,fill:'url(#kl-flame-core)',class:'kl-scene__flame-core'}));
+  lamp.append(f);
+  g.append(lamp);
+}
+
 /** a lab stand: base on the table, a rod, and a clamp arm holding the tube near its top */
 function drawStand(g:SVGElement,cx:number,top:number,bottom:number,table:number){
   const rx=cx+26;
@@ -188,7 +228,7 @@ function vesselBox(kind:string,cx:number,floor:number,large=false):Box{
   }
 }
 
-function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerState|undefined,state:LabState,input:SceneInput,large=false,opts?:{box?:Box;glassImage?:{href:string;x:number;y:number;w:number;h:number;flip?:boolean}}){
+function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerState|undefined,state:LabState,input:SceneInput,large=false,opts?:{box?:Box;noFlame?:boolean;glassImage?:{href:string;x:number;y:number;w:number;h:number;flip?:boolean}}){
   // vessels stand 22 px above the bench, leaving room for the flame of a heated container
   const b=opts?.box??vesselBox(kind,cx,floor-22,large);
   // an invisible hit area: the glass is only an outline, so an empty vessel must still take a click
@@ -275,11 +315,7 @@ function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerS
       if(state.current.on&&state.current.container===c.id) g.append(s('path',{d:`M${cx-21} ${b.y-16} L${cx-21} ${b.y-30} L${cx+21} ${b.y-30} L${cx+21} ${b.y-16}`,class:'kl-scene__wire is-on'}));
     }
     // flame below a heated container
-    if(c.heating){
-      const fy=floor+2;
-      g.append(s('rect',{x:cx-11,y:fy-9,width:22,height:9,rx:3,class:'kl-scene__lamp'}));
-      g.append(s('path',{d:`M${cx} ${fy-34} C${cx+9} ${fy-24} ${cx+7} ${fy-12} ${cx} ${fy-9} C${cx-7} ${fy-12} ${cx-9} ${fy-24} ${cx} ${fy-34} Z`,class:`kl-scene__flame kl-scene__flame--${c.heating}`}));
-    }
+    if(c.heating&&!opts?.noFlame) drawLamp(g,cx,floor+2,b.bottom-2,c.heating);
   }
   // the glass: a picture of a tube over its contents (the outline stays, invisible, for the hover / target ring), or the line drawing
   if(opts?.glassImage){ const gi=opts.glassImage; g.append(s('image',{href:gi.href,x:gi.x,y:gi.y,width:gi.w,height:gi.h,preserveAspectRatio:'none',class:'kl-scene__glass-img',...(gi.flip?{transform:`matrix(1 0 0 -1 0 ${2*gi.y+gi.h})`}:{})}),s('path',{d:glass,class:'kl-scene__glass kl-scene__glass--img'})); }

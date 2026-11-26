@@ -812,6 +812,11 @@
     "ui.bench-tasks": "Vazifalar",
     "ui.bench-task-done": "bajarildi",
     "ui.bench-task-now": "hozir shu qadam",
-    "ui.bench-task-outside": "bu qadam odatdagi mashg‘ulotda bajariladi"
+    "ui.bench-task-outside": "bu qadam odatdagi mashg‘ulotda bajariladi",
+    "ui.bench-task-partial": "laboratoriyadagi qismi bajarildi",
+    "ui.dlab-step-done-partial": "Ko‘rsatmaning {n}-qadamidagi laboratoriya qismi bajarildi (qolgani odatdagi mashg‘ulotda).",
+    "ui.bench-missing-TEST": "Gazni gugurt alangasi bilan tekshirish bu laboratoriyada yo‘q — uni odatdagi mashg‘ulotda o‘qituvchi bilan bajaring.",
+    "ui.bench-missing-OBSERVE": "Bu kuzatuvning natijasi bu laboratoriyada hali ko‘rsatilmaydi (kimyo eksperti tasdiqlashi kutilmoqda).",
+    "ui.bench-missing-EXPLAIN": "Izoh yozish bu laboratoriyada yo‘q."
   }
 }

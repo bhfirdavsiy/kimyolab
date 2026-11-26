@@ -403,3 +403,14 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
 .kl-bench__task.is-now{border-color:var(--kl-primary,#0b5bd3);box-shadow:0 0 0 3px #0b5bd31f}.kl-bench__task.is-now .kl-bench__task-mark{background:var(--kl-primary,#0b5bd3);color:#fff}.kl-bench__task.is-now .kl-bench__task-status{color:var(--kl-primary,#0b5bd3)}
 .kl-bench__task.is-outside{opacity:.62}.kl-bench__task.is-outside .kl-bench__task-status{color:#5b6b7d;font-weight:600}
 .kl-bench__task.is-todo .kl-bench__task-text{color:#38506e}
+.kl-bench__task.is-partial{border-color:#f1d08a;background:#fffaf0}.kl-bench__task.is-partial .kl-bench__task-mark{background:#e0a100;color:#fff}.kl-bench__task.is-partial .kl-bench__task-status{color:#946200}
+.kl-bench__task-missing{margin:6px 0 0;font-size:.85rem;color:#6b5420;background:#fff3d6;border-radius:8px;padding:6px 8px}
+/* the spirit lamp and a layered flame (stage 2d) */
+.kl-scene__flame{fill:url(#kl-flame-outer);stroke:none;transform-box:fill-box;transform-origin:50% 100%;animation:kl-flame-flicker 1.1s ease-in-out infinite alternate}
+.kl-scene__flame--strongly-heated{filter:saturate(1.3)}
+.kl-scene__flame-core{transform-box:fill-box;transform-origin:50% 100%;animation:kl-flame-core 1.4s ease-in-out infinite alternate}
+.kl-scene__flame-glow{animation:kl-flame-glow 1.6s ease-in-out infinite alternate}
+@keyframes kl-flame-flicker{0%{transform:scale(.94,.92) skewX(-2deg)}40%{transform:scale(1.03,1.05) skewX(1.5deg)}100%{transform:scale(.98,1.1) skewX(-1deg)}}
+@keyframes kl-flame-core{from{transform:scaleY(.92)}to{transform:scaleY(1.06)}}
+@keyframes kl-flame-glow{from{opacity:.7}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.kl-scene__flame,.kl-scene__flame-core,.kl-scene__flame-glow{animation:none}}
