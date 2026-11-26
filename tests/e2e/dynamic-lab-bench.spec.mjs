@@ -33,7 +33,15 @@ for (const name of ['portal', 'standalone']) {
     // pouring alone does not finish step 1 (the gas is not collected yet): the result does not say the step is done
     await expect(page.locator(`${LAB} .kl-dlab__result`)).not.toContainText('qadami bajarildi');
     await expect(vessel(page, 'tube-1').locator('.kl-scene__bubble').first()).toBeAttached();
-    await expect(page.locator(`${LAB} .kl-dlab__why-list`)).toContainText('Mg + H₂SO₄ → MgSO₄ + H₂');
+    // owner, 2026-11-26 ("Nega? tushunarliroq"): one card per reaction — what was seen, the equation (gas ↑), a pill
+    // while the expert has not reviewed the record
+    const card = page.locator(`${LAB} .kl-why-card`).first();
+    await expect(card.locator('.kl-why-card__eq')).toHaveText('Mg + H₂SO₄ → MgSO₄ + H₂↑');
+    await expect(card.locator('.kl-why-card__pill')).toBeVisible();
+    // the hint is one button; each press adds a level, the third names one next action
+    const hint = page.locator(`${LAB} [data-dlab-hint]`);
+    await hint.click(); await hint.click();
+    await expect(page.locator(`${LAB} .kl-dlab__guidance-text`)).toContainText('Keyingi qadam:');
     // owner, 2026-11-26 ("muammo bor": the tube with the bubbles said "no other action"): the source tube itself offers
     // collecting its gas
     await expect(page.locator(`${LAB} .kl-bench__tools [data-bench-action=COLLECT_GAS]`)).toContainText('1-probirkadagi gazni yig‘ish');

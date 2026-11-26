@@ -817,6 +817,14 @@
     "ui.dlab-step-done-partial": "Ko‘rsatmaning {n}-qadamidagi laboratoriya qismi bajarildi (qolgani odatdagi mashg‘ulotda).",
     "ui.bench-missing-TEST": "Gazni gugurt alangasi bilan tekshirish bu laboratoriyada yo‘q — uni odatdagi mashg‘ulotda o‘qituvchi bilan bajaring.",
     "ui.bench-missing-OBSERVE": "Bu kuzatuvning natijasi bu laboratoriyada hali ko‘rsatilmaydi (kimyo eksperti tasdiqlashi kutilmoqda).",
-    "ui.bench-missing-EXPLAIN": "Izoh yozish bu laboratoriyada yo‘q."
+    "ui.bench-missing-EXPLAIN": "Izoh yozish bu laboratoriyada yo‘q.",
+    "ui.why-seen": "Kuzatildi",
+    "ui.why-equation": "Reaksiya tenglamasi",
+    "ui.why-unreviewed-pill": "kimyo eksperti hali tasdiqlamagan",
+    "ui.why-hint-title": "Qiynalyapsizmi?",
+    "ui.why-hint-first": "Maslahat olish",
+    "ui.why-hint-more": "Yana maslahat",
+    "ui.why-hint-last": "Boshqa maslahat yo‘q",
+    "ui.why-hint-next": "Keyingi qadam: {action}"
   }
 }

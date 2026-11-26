@@ -90,8 +90,8 @@
     },
     "bundle": {
       "learnerModules": 9,
-      "learnerModuleBytes": 234999,
-      "standaloneBytes": 511417
+      "learnerModuleBytes": 239519,
+      "standaloneBytes": 517249
     },
     "report": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.14\"]"
   },

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-26T11:52:52.876Z",
+  "generatedAt": "2026-11-26T12:24:37.905Z",
   "builder": "dependency-free production pack",
   "entry": "index.html",
   "fileCount": 240,
-  "sha256": "85fffe5cdf31c1afd007a6db5b7b6f9af6eae39ea5683a8ddbdc4834d782c7a8",
+  "sha256": "ab2c7d01e20a4d6c0b02f18b74e7e96413492a020f01fd3bda2a066a7c29f1c7",
   "deployFileCount": 239,
-  "deploySurfaceSha256": "248637e2c537baafb303e20a96f6945dfde5300365cca31dd88e5750998d8d02",
+  "deploySurfaceSha256": "5f8f46d4c9e4f340d25cda33fc97b06030c5799f7c2295a0ae9b543806962334",
   "requiredFiles": [
     "app.html",
     "index.html",

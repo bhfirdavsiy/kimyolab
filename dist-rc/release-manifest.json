@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-26T11:37:43.167Z",
+  "createdAt": "2026-11-26T12:11:12.870Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -461,8 +461,8 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "07d17e5a9120b6c7f899fd444b8483b794f74fd45bbde56c5ed82f7a3588af5c",
-      "size": 45362
+      "checksum": "1e9bf3792960c7c678bef803f51a33272a97f6ab55f1fe02070843dac15ff847",
+      "size": 49882
     },
     {
       "path": "app-preview/features/dynamic-lab/scene.js",
@@ -1103,8 +1103,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "0934a77ffd0358626d1435835b519bf4afd5f0f13facf4a9812b6f8642c7c6aa",
-      "size": 59196
+      "checksum": "5b80d4d30414e893bf79fd6ab87a02876333f8b6df69a0c889db390708fa060f",
+      "size": 60035
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",
@@ -1373,8 +1373,8 @@
     {
       "path": "content/2026.09.1/locales/uz-latn/learner-interaction.json",
       "sourcePath": "public/content/2026.09.1/locales/uz-latn/learner-interaction.json",
-      "checksum": "e0cfce21e796e3dc9151a39611c234b2765cf41b669fd8ecd72590fe3a08c93a",
-      "size": 51932
+      "checksum": "6dc9cd2f02c14f5e827d56b9c339f85450042b7f7b708dc51c322a401d2e1ffb",
+      "size": 52306
     },
     {
       "path": "content/2026.09.1/locales/uz-latn/name-provenance.json",
@@ -1385,7 +1385,7 @@
     {
       "path": "content/2026.09.1/manifest.json",
       "sourcePath": "public/content/2026.09.1/manifest.json",
-      "checksum": "cc78485c22398a6a0675b683884d55a2a7facc7af02ed6735fb4eb282a4f4414",
+      "checksum": "6539183390daa56a1a2705ac0e9b0cd12ca69ab433afe438359fae297e017398",
       "size": 8346
     },
     {
@@ -1427,7 +1427,7 @@
     {
       "path": "content/manifest.json",
       "sourcePath": "public/content/manifest.json",
-      "checksum": "78d836557f5859cd6c394a0cd3eb2cc693d2e7aa4275bb6e0999693659066032",
+      "checksum": "f5bdbc33e6eda819f9193d22b5df0eeaf74529343fe36a6bde1e807a47684377",
       "size": 158
     },
     {
