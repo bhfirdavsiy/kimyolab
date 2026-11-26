@@ -34,6 +34,9 @@ for (const name of ['portal', 'standalone']) {
     await expect(page.locator(`${LAB} .kl-dlab__result`)).not.toContainText('qadami bajarildi');
     await expect(vessel(page, 'tube-1').locator('.kl-scene__bubble').first()).toBeAttached();
     await expect(page.locator(`${LAB} .kl-dlab__why-list`)).toContainText('Mg + H₂SO₄ → MgSO₄ + H₂');
+    // owner, 2026-11-26 ("muammo bor": the tube with the bubbles said "no other action"): the source tube itself offers
+    // collecting its gas
+    await expect(page.locator(`${LAB} .kl-bench__tools [data-bench-action=COLLECT_GAS]`)).toContainText('1-probirkadagi gazni yig‘ish');
     // the collector's own action names the gas's source tube
     await page.locator(`${LAB} [data-bench-vessel=gas-collector]`).click();
     const collect = page.locator(`${LAB} .kl-bench__tools [data-bench-action=COLLECT_GAS]`);

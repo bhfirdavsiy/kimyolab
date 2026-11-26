@@ -219,7 +219,13 @@ export function renderDynamicLab(root            ,page                         ,
     // the vessel's own actions (heat, collect its gas, …): what the runtime offers for it, the instruction's next first
     const ref={kind:'apparatus'         ,id:focusVessel};
     const seen=new Set        ();
-    const opts=availableActions(state,profile).filter(o=>o.action.family!=='ADD_SUBSTANCE'&&touches(o,ref)&&(o.category==='recommended'||o.category==='possible'));
+    const all=availableActions(state,profile).filter(o=>o.category==='recommended'||o.category==='possible');
+    // a vessel giving off a gas also offers collecting it (the collector's action, named by this source): the learner
+    // looks at the tube with the bubbles, not at the empty collector
+    const gasHere=state.containers[focusVessel]?.gases.some(g=>!g.collected&&!g.collectedFrom)??false;
+    const sources=containers.map(c=>c.id).filter(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom));
+    const collectHere=gasHere?all.filter(o=>o.action.family==='COLLECT_GAS'&&(o.action.params?.from===focusVessel||(!o.action.params?.from&&sources.length===1&&sources[0]===focusVessel))):[];
+    const opts=[...collectHere,...all.filter(o=>o.action.family!=='ADD_SUBSTANCE'&&touches(o,ref)&&!collectHere.includes(o))];
     if(!opts.length){ tools.append(el('p',{className:'kl-bench__none',text:t.ui('ui.bench-no-tools')})); return; }
     tools.append(el('p',{className:'kl-bench__tools-title',text:t.ui('ui.bench-tools',{vessel:apparatusName(focusVessel)})}));
     for(const o of opts){
@@ -229,7 +235,7 @@ export function renderDynamicLab(root            ,page                         ,
       let label=actionText(o.action);
       if(o.action.family==='COLLECT_GAS'){ const from=o.action.params?.from?String(o.action.params.from):(containers.map(c=>c.id).filter(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom)).length===1?containers.map(c=>c.id).find(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom)) :null); if(from) label=t.ui('ui.bench-collect-from',{from:apparatusName(from)}); }
       setChemText(b,label);
-      b.addEventListener('click',()=>{ if(o.action.family==='COLLECT_GAS'){ const src=o.action.params?.from?String(o.action.params.from):containers.map(c=>c.id).find(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom))??null; const to=String(o.action.params?.container??focusVessel??''); if(src&&to){ collectFx={to,from:src}; run(o.action); collectFx=null; return; } } if(o.action.family==='RECORD'){ selected=ref; (action.querySelector('details')                           )?.setAttribute('open',''); choose(o.action); return; } run(o.action); });
+      b.addEventListener('click',()=>{ if(o.action.family==='COLLECT_GAS'){ const src=o.action.params?.from?String(o.action.params.from):containers.map(c=>c.id).find(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom))??null; const to=String(o.action.params?.container??containers.find(c=>c.kind==='gas-collection-vessel')?.id??focusVessel??''); if(src&&to){ collectFx={to,from:src}; run(o.action); collectFx=null; return; } } if(o.action.family==='RECORD'){ selected=ref; (action.querySelector('details')                           )?.setAttribute('open',''); choose(o.action); return; } run(o.action); });
       tools.append(b);
     }
   }
@@ -383,6 +389,9 @@ export function renderDynamicLab(root            ,page                         ,
       const detail=opt(`ui.dlab-reason-${r.error.detail}`);
       return detail?`${base} ${detail}`:base;
     }
+    // a no-reaction record that is not reviewed yet: the reason alone says it ("the model does not model this" first
+    // would contradict it — there IS a record)
+    if(r.unsupported?.detail==='NO_REACTION_NOT_REVIEWED'){ const d=opt('ui.dlab-reason-NO_REACTION_NOT_REVIEWED'); if(d) return d; }
     if(r.unsupported){ const detail=opt(`ui.dlab-reason-${r.unsupported.detail}`); const key=r.unsupported.code==='UNSUPPORTED_CHEMISTRY'?'ui.dlab-unsupported-chemistry':r.unsupported.code==='LEARNER_RESPONSE_CHECKER_MISSING'?'ui.dlab-unsupported-response':'ui.dlab-unsupported-action'; return `${t.ui(key)}${detail?` ${detail}`:''}`; }
     const parts=[t.ui('ui.dlab-accepted',{action:actionText(a)})];
     const consequence=opt(`ui.dlab-reason-${r.guidance.code}`); if(consequence) parts.push(consequence);

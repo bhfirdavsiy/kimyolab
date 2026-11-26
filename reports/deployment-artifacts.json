@@ -10,8 +10,8 @@
     "entryDocument": "/kimyolab/index.html",
     "spaFallback": "every /kimyolab/* path that is not a file → /kimyolab/index.html (see docs/DEPLOY.md §5)",
     "fileCount": 239,
-    "totalBytes": 5314341,
-    "sha256": "1b12f96f84891ca1ff85854b20300fcb697d886c878a2d5775fdc23c58feb5a3",
+    "totalBytes": 5315381,
+    "sha256": "9cc7be826022a04740f4239ad6a8f6c03e6499e0f37f835b3d41441711c78668",
     "content": {
       "activeVersion": "2026.09.1",
       "contentVersion": "2026.09.1",
@@ -34,8 +34,8 @@
     "buildCommand": "npm run standalone:build",
     "path": "dist-standalone/KimyoLab_standalone.html",
     "alias": "dist-standalone/index.html",
-    "bytes": 6612303,
-    "sha256": "42ba19c2b62380358bc07889ae34bd8d007db8cbf0ba2983bb08564e90ae811e",
+    "bytes": 6613354,
+    "sha256": "802d8028d8f5e997ca930ad42fbc045fc838ddaaef8c6e39d08df05ed40596dd",
     "delivery": "one HTML file; opens from disk (hash routes, embedded content pack with the same integrity checks); external laboratories that need the network stay network-dependent and say so"
   },
   "learnerBundle": {
@@ -49,8 +49,8 @@
     },
     "after": {
       "learnerModules": 183,
-      "learnerModuleBytes": 1129924,
-      "standaloneBytes": 6612303,
+      "learnerModuleBytes": 1130964,
+      "standaloneBytes": 6613354,
       "cssBytes": 59196
     },
     "note": "deployment tooling is operator-side (scripts/, never copied into the artefact by the builder)"

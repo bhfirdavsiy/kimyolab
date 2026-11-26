@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-26T10:01:52.591Z",
+  "createdAt": "2026-11-26T11:37:43.167Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -461,8 +461,8 @@
     {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "4f417589a233a6dfa7642b42f26555f22f5bc18669011d852e16527c985e4597",
-      "size": 44322
+      "checksum": "07d17e5a9120b6c7f899fd444b8483b794f74fd45bbde56c5ed82f7a3588af5c",
+      "size": 45362
     },
     {
       "path": "app-preview/features/dynamic-lab/scene.js",
