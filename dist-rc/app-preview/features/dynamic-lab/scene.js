@@ -138,6 +138,8 @@ function renderRackBench(host            ,input           ,vessels              
     const box    ={x:cx-bodyW/2,y:tubeTop+TUBE.rimH*TUBE.T*0.6,w:bodyW,h:tubeLen-TUBE.rimH*TUBE.T*0.6-4,bottom:tubeTop+tubeLen-3,mouth:tubeTop};
     drawVessel(g,'test-tube',cx,rackBottom,c,state,input,true,{box,noFlame:true,glassImage:{href:BENCH_IMAGES.tube,x:cx-tw/2,y:tubeTop,w:tw,h:tubeLen}});
     if(input.pour===a.id) drawPour(g,cx,tubeTop,box.bottom,input);
+    // a heated tube: the spirit lamp stands under it, its flame at the tube's bottom (below the rack's front face)
+    if(c?.heating) drawLamp(g,cx,rackBottom-2,tubeTop+tubeLen-6,c.heating);
     svg.append(g);
   });
   // the rack's front face in front of the tubes: they stand IN the holes; the tube numbers are stamped on it
@@ -146,9 +148,7 @@ function renderRackBench(host            ,input           ,vessels              
   front.append(img(BENCH_IMAGES['rack-a-front'],rackX,fy,aW,fh,'kl-scene__rack-img'),img(BENCH_IMAGES['rack-b-front'],rackX+aW,fy,bW,fh,'kl-scene__rack-img'));
   tubes.forEach((_,i)=>front.append(s('text',{x:rackX+(RACK.holeX0+RACK.holeDx*i)*S,y:fy+fh/2+4,'text-anchor':'middle',class:'kl-scene__rack-number'},String(i+1))));
   svg.append(front);
-  // a heated tube: the spirit lamp stands in front of the rack, its flame at the tube's bottom
-  tubes.forEach((a,i)=>{ const c=state.containers[a.id]; if(!c?.heating) return; const cx=rackX+(RACK.holeX0+RACK.holeDx*i)*S;
-    const lg=s('g',{'data-scene-heat':a.id}); drawLamp(lg,cx,rackBottom-2,tubeTop+tubeLen-6,c.heating); svg.append(lg); });
+
   // the other vessels stand on the table to the right of the rack, with their name under them
   const tubeCx=(id       )=>{ const i=tubes.findIndex(x=>x.id===id); return i<0?null:rackX+(RACK.holeX0+RACK.holeDx*i)*S; };
   others.forEach((a,i)=>{

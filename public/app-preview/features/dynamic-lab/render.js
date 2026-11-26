@@ -137,7 +137,7 @@ export function renderDynamicLab(root            ,page                         ,
   const sampleImage=(id       )=>{ const f=formulaOf(id); return f&&!isLiquid(id)?METAL_IMAGE[f]??null:null; };
   const shelfImage=(id       )=>sampleImage(id)??(isLiquid(id)?BENCH_IMAGES['bottle-clear']:BENCH_IMAGES['bottle-amber']);
   const drawScene=()=>renderLabScene(scene,benchMode
-    ?{profile,state,formulaOf,labelOf:apparatusName,large:true,sampleImage,armed:inHand!==null,focus:focusVessel,pour:pourFx,pourImage:pourImageFx,pourLiquid:pourLiquidFx,collect:collectFx,onSelect:(id)=>vesselClick(id),onDrop:(id)=>{ if(inHand) pour(inHand,id); }}
+    ?{profile,state,formulaOf,labelOf:apparatusName,large:true,sampleImage,armed:inHand!==null,focus:focusVessel,pour:pourFx,pourImage:pourImageFx,pourLiquid:pourLiquidFx,collect:collectFx,onSelect:(id)=>{ if(!suppressClick) vesselClick(id); }}
     :{profile,state,formulaOf,labelOf:apparatusName,onSelect:(id)=>{ objectsBox.querySelector                   (`[data-object="apparatus:${id}"]`)?.click(); }});
   const bench=el('section',{className:'kl-bench',attrs:{'aria-labelledby':'dlab-bench-title','data-dlab-bench':''}});
   const benchHint=el('p',{className:'kl-bench__hint',attrs:{'aria-live':'polite'}});
@@ -183,6 +183,51 @@ export function renderDynamicLab(root            ,page                         ,
       li.append(body); tasksBox.append(li);
     });
   }
+  // ---- drag and drop (owner, 2026-11-26: "surib soladigan qilolmaymizmi?"): pointer events, so a mouse and a finger
+  // both work. A reagent is dragged onto a vessel (pour), the collector onto the tube giving off a gas (collect), the
+  // spirit lamp under a tube (heat). Each drop builds the same LabAction the buttons build; the buttons stay for keys.
+  let suppressClick=false;
+  const vesselAt=(x       ,y       )=>{ const hit=document.elementFromPoint(x,y); const v=hit?.closest('[data-scene-object^="apparatus:"],[data-bench-vessel]'); if(!v) return null; const id=v.getAttribute('data-bench-vessel')??(v.getAttribute('data-scene-object')??'').slice('apparatus:'.length); return containers.some(c=>c.id===id)?id:null; };
+  const markOver=(id            ,ok        )=>{ root.querySelectorAll('.is-drop-over,.is-drop-no').forEach(n=>n.classList.remove('is-drop-over','is-drop-no')); if(id) root.querySelectorAll(`[data-scene-object="apparatus:${id}"],[data-bench-vessel="${id}"]`).forEach(n=>n.classList.add(ok?'is-drop-over':'is-drop-no')); };
+  function dragSource(node        ,ghost         ,canDrop                         ,onDrop                      ){
+    node.addEventListener('pointerdown',(ev)=>{
+      const e=ev                ; if(e.button!==0) return;
+      const sx=e.clientX, sy=e.clientY; let g                 =null; let over            =null;
+      const move=(mv      )=>{ const m=mv                ;
+        if(!g&&Math.hypot(m.clientX-sx,m.clientY-sy)<6) return;
+        if(!g){ g=el('div',{className:'kl-drag-ghost',attrs:{'aria-hidden':'true'}}); g.append(ghost()); document.body.append(g); root.classList.add('is-dragging'); }
+        g.style.transform=`translate(${m.clientX-30}px,${m.clientY-30}px)`;
+        over=vesselAt(m.clientX,m.clientY); markOver(over,over!==null&&canDrop(over)); m.preventDefault(); };
+      const up=()=>{ document.removeEventListener('pointermove',move); document.removeEventListener('pointerup',up); document.removeEventListener('pointercancel',up);
+        if(!g) return; g.remove(); root.classList.remove('is-dragging'); markOver(null,false);
+        suppressClick=true; setTimeout(()=>{ suppressClick=false; },0);
+        if(over) onDrop(over); };
+      document.addEventListener('pointermove',move); document.addEventListener('pointerup',up); document.addEventListener('pointercancel',up);
+    });
+  }
+  const imgNode=(src       ,flip=false)=>{ const i=el('img',{attrs:{src,alt:''}}); if(flip) i.style.transform='scaleY(-1)'; return i; };
+  const gasSourcesNow=()=>containers.map(c=>c.id).filter(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom));
+  const collectOptionFor=(source       )=>{ const srcs=gasSourcesNow(); return availableActions(state,profile).find(o=>o.action.family==='COLLECT_GAS'&&(o.category==='recommended'||o.category==='possible')&&(o.action.params?.from===source||(!o.action.params?.from&&srcs.length===1&&srcs[0]===source)))??null; };
+  const heatOptionFor=(vessel       )=>availableActions(state,profile).find(o=>o.action.family==='HEAT'&&(o.category==='recommended'||o.category==='possible')&&touches(o,{kind:'apparatus',id:vessel}))??null;
+  function collectInto(source       ){
+    const o=collectOptionFor(source);
+    if(!o){ lastNote=t.ui('ui.bench-drop-no-gas',{vessel:apparatusName(source)}); draw(); return; }
+    const to=String(o.action.params?.container??containers.find(c=>c.kind==='gas-collection-vessel')?.id??'');
+    focusVessel=source; collectFx={to,from:source}; run(o.action); collectFx=null;
+  }
+  function heatTube(vessel       ){
+    const o=heatOptionFor(vessel);
+    if(!o){ lastNote=t.ui('ui.bench-drop-no-heat',{vessel:apparatusName(vessel)}); draw(); return; }
+    focusVessel=vessel; run(o.action);
+  }
+  function wireSceneDrags(){
+    if(!benchMode) return;
+    for(const c of containers.filter(x=>x.kind==='gas-collection-vessel')){
+      const node=scene.querySelector(`[data-scene-object="apparatus:${c.id}"]`); if(!node) continue;
+      node.classList.add('is-draggable');
+      dragSource(node,()=>imgNode(BENCH_IMAGES.tube,true),(v)=>collectOptionFor(v)!==null,(v)=>collectInto(v));
+    }
+  }
   function vesselClick(id       ){
     if(inHand&&containers.some(c=>c.id===id)){ pour(inHand,id); return; }
     focusVessel=focusVessel===id?null:id; selected={kind:'apparatus',id}; draw();
@@ -199,20 +244,28 @@ export function renderDynamicLab(root            ,page                         ,
     setChemText(benchHint,inHand?t.ui('ui.bench-hint-in-hand',{name:substanceName(inHand)}):lastNote?lastNote:focusVessel?t.ui('ui.bench-hint-vessel',{vessel:apparatusName(focusVessel)}):t.ui('ui.bench-hint-start'));
     benchHint.classList.toggle('is-result',!inHand&&!!lastNote); lastNote=null;
     for(const sub of profile.substances){
-      const b=el('button',{className:`kl-bench__bottle${inHand===sub.id?' is-in-hand':''}`,attrs:{type:'button',draggable:'true','aria-pressed':String(inHand===sub.id),'data-bench-substance':sub.id}});
+      const b=el('button',{className:`kl-bench__bottle${inHand===sub.id?' is-in-hand':''}`,attrs:{type:'button','aria-pressed':String(inHand===sub.id),'data-bench-substance':sub.id}});
       const f=formulaOf(sub.id);
       b.append(el('img',{className:'kl-bench__bottle-img',attrs:{src:shelfImage(sub.id),alt:'',draggable:'false'}}));
       if(f) b.append(el('span',{className:'kl-dlab__formula',text:subscriptFormula(f),attrs:{'aria-hidden':'true'}}));
       const nm=el('span',{className:'kl-bench__bottle-name'}); setChemText(nm,substanceName(sub.id)); b.append(nm);
-      b.addEventListener('click',()=>{ inHand=inHand===sub.id?null:sub.id; focusVessel=null; draw(); });
-      b.addEventListener('dragstart',e=>{ inHand=sub.id; e.dataTransfer?.setData('text/plain',sub.id); scene.querySelector('svg')?.classList.add('is-armed'); });
+      b.addEventListener('click',()=>{ if(suppressClick) return; inHand=inHand===sub.id?null:sub.id; focusVessel=null; draw(); });
+      dragSource(b,()=>imgNode(shelfImage(sub.id)),()=>true,(v)=>pour(sub.id,v));
+      shelf.append(b);
+    }
+    // the spirit lamp on the shelf, where the instruction heats: drag it under a tube
+    if(profile.allowedFamilies.includes('HEAT')){
+      const b=el('button',{className:'kl-bench__bottle kl-bench__bottle--tool',attrs:{type:'button','data-bench-tool':'lamp'}});
+      const ic=iconSvg('spirit-lamp'); if(ic){ ic.classList.add('kl-bench__bottle-img'); b.append(ic); }
+      b.append(el('span',{className:'kl-bench__bottle-name',text:t.ui('ui.bench-lamp')}));
+      b.addEventListener('click',()=>{ if(suppressClick) return; lastNote=t.ui('ui.bench-lamp-hint'); draw(); });
+      dragSource(b,()=>{ const s=iconSvg('spirit-lamp'); return s??document.createTextNode(''); },(v)=>heatOptionFor(v)!==null,(v)=>heatTube(v));
       shelf.append(b);
     }
     for(const c of containers){
       const b=el('button',{className:`kl-button kl-button--secondary kl-bench__vessel${focusVessel===c.id?' is-focus':''}`,attrs:{type:'button','data-bench-vessel':c.id}});
       setChemText(b,apparatusName(c.id)); if(inHand){ b.classList.add('is-target'); b.setAttribute('aria-label',t.ui('ui.bench-pour-into',{vessel:apparatusName(c.id)})); }
       b.addEventListener('click',()=>vesselClick(c.id));
-      b.addEventListener('dragover',e=>e.preventDefault()); b.addEventListener('drop',e=>{ e.preventDefault(); if(inHand) pour(inHand,c.id); });
       vesselRow.append(b);
     }
     if(inHand){ const cancel=el('button',{className:'kl-button kl-button--secondary',text:t.ui('ui.bench-cancel'),attrs:{type:'button'}}); cancel.addEventListener('click',()=>{ inHand=null; draw(); }); tools.append(cancel); return; }
@@ -395,6 +448,8 @@ export function renderDynamicLab(root            ,page                         ,
     }
     // a no-reaction record that is not reviewed yet: the reason alone says it ("the model does not model this" first
     // would contradict it — there IS a record)
+    // heating with no modelled effect: the lamp is lit, the lab just does not show what heat changes
+    if(r.unsupported?.detail==='HEATING_EFFECT_NOT_MODELED'){ const d=opt('ui.bench-heated-no-effect'); if(d) return t.ui('ui.bench-heated-no-effect',{vessel:apparatusName(String(a.params?.container??a.params?.apparatus??''))}); }
     if(r.unsupported?.detail==='NO_REACTION_NOT_REVIEWED'){ const d=opt('ui.dlab-reason-NO_REACTION_NOT_REVIEWED'); if(d) return d; }
     if(r.unsupported){ const detail=opt(`ui.dlab-reason-${r.unsupported.detail}`); const key=r.unsupported.code==='UNSUPPORTED_CHEMISTRY'?'ui.dlab-unsupported-chemistry':r.unsupported.code==='LEARNER_RESPONSE_CHECKER_MISSING'?'ui.dlab-unsupported-response':'ui.dlab-unsupported-action'; return `${t.ui(key)}${detail?` ${detail}`:''}`; }
     const parts=[t.ui('ui.dlab-accepted',{action:actionText(a)})];
@@ -587,7 +642,7 @@ export function renderDynamicLab(root            ,page                         ,
   function draw(){
     for(const [id,a] of flowLinks){ if(id===stage) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); }
     shell.dataset.complete=String(state.complete);
-    drawScene(); drawBench(); drawTasks(); drawTally(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
+    drawScene(); wireSceneDrags(); drawBench(); drawTasks(); drawTally(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
   }
 
   reset.addEventListener('click',()=>{ state=runtime.reset(profile); accepted.length=0; inHand=null; focusVessel=null; options.onChange?.({accepted:[],complete:state.complete}); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });

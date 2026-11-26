@@ -100,3 +100,32 @@ test('Virtual laboratoriya: the 7.10 card opens the bench; a lab without a profi
   await expect(card71.locator('[data-lab-dynamic]')).toHaveCount(0);
   await expect(card71.getByRole('link', {name: 'Tajribani boshlash'})).toHaveAttribute('href', /practice\/practice\.experiment\.7\.1$/);
 });
+
+// owner, 2026-11-26 ("tugmalar juda ko'p bosilyapti — surib soladigan qilolmaymizmi?"): the main gestures are drags
+// (pointer events: a mouse or a finger). Each drop builds the same LabAction as the buttons.
+test('drag: pour a reagent onto a tube in the picture, drag the collector onto the bubbling tube, the lamp under a tube', async ({page}) => {
+  await page.setViewportSize({width: 1280, height: 1500});
+  const errors = []; page.on('pageerror', (e) => errors.push(e.message));
+  await hosts.portal.open(page, '/dynamic-lab/practice.experiment.7.10');
+  const hit = (id) => page.locator(`[data-dlab-scene] [data-scene-object="apparatus:${id}"] .kl-scene__hit`);
+  const drag = async (src, dst) => {
+    const a = await src.boundingBox(), c = await dst.boundingBox();
+    await page.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await page.mouse.down();
+    await page.mouse.move(a.x + a.width / 2 + 15, a.y + a.height / 2, {steps: 3});
+    await page.mouse.move(c.x + c.width / 2, c.y + c.height * 0.6, {steps: 8}); await page.mouse.up();
+  };
+  await drag(page.locator(`${LAB} [data-bench-substance=mg]`), hit('tube-1'));
+  await drag(page.locator(`${LAB} [data-bench-substance=h2so4-dilute]`), hit('tube-1'));
+  await expect(page.locator(`${LAB} .kl-bench__hint`)).toContainText('H₂ gazi ajraldi');
+  await drag(hit('gas-collector'), hit('tube-1'));
+  await expect(vessel(page, 'gas-collector').locator('.kl-scene__gas-label')).toHaveText('H₂');
+  await drag(page.locator(`${LAB} [data-bench-substance=zn]`), hit('tube-2'));
+  await drag(page.locator(`${LAB} [data-bench-substance=hcl-dilute]`), hit('tube-2'));
+  await drag(page.locator(`${LAB} [data-bench-tool=lamp]`), hit('tube-2'));
+  await expect(vessel(page, 'tube-2').locator('.kl-scene__flame')).toHaveCount(1);
+  // a tube the instruction does not heat: the lamp is not placed, and the bench says why
+  await drag(page.locator(`${LAB} [data-bench-tool=lamp]`), hit('tube-3'));
+  await expect(page.locator(`${LAB} .kl-bench__hint`)).toContainText('qizdirishni aytmaydi');
+  await expect(vessel(page, 'tube-3').locator('.kl-scene__flame')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});

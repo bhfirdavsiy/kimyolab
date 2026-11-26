@@ -6,7 +6,7 @@
   "assessmentVersion": "0.0.0",
   "scoringVersion": "0.0.0",
   "createdAt": "2026-09-22T00:00:00.000Z",
-  "checksum": "53e8d7040fa1cbd47ad2abf0beb94ec8c811f6acae1704e5dd32cd896ef4489e",
+  "checksum": "4d83bd004ba24aff46d3f093003f9cb181cc668ece04e8fb1dbb6d30425bc85e",
   "compatibility": {
     "minAppVersion": "20.1.0"
   },
@@ -220,8 +220,8 @@
     },
     {
       "path": "locales/uz-latn/learner-interaction.json",
-      "checksum": "6dc9cd2f02c14f5e827d56b9c339f85450042b7f7b708dc51c322a401d2e1ffb",
-      "size": 52306
+      "checksum": "2553bc06d4c33f3ee90ef925b320cf8152f81fd4cd85e62bb21951f6c1d5d1f2",
+      "size": 52790
     },
     {
       "path": "locales/uz-latn/name-provenance.json",

@@ -800,7 +800,7 @@
     "ui.bench-shelf": "Reaktivlar",
     "ui.bench-vessels": "Idishlar",
     "ui.bench-list": "Ro‘yxat ko‘rinishida ishlash (klaviatura va ekran o‘quvchi uchun)",
-    "ui.bench-hint-start": "Reaktivni tanlang, keyin uni quyadigan probirkani bosing. Reaktivni probirkaga sudrab olib borsangiz ham bo‘ladi.",
+    "ui.bench-hint-start": "Reaktivni probirkaga sudrab olib boring — u quyiladi. Gazni yig‘ish uchun shtativdagi probirkani gaz chiqayotgan probirka ustiga, qizdirish uchun lampani probirka tagiga sudrang.",
     "ui.bench-hint-in-hand": "{name} qo‘lingizda. Endi uni quyadigan idishni bosing.",
     "ui.bench-hint-vessel": "{vessel} tanlandi. Uning amallari pastda. Reaktiv quyish uchun avval reaktivni tanlang.",
     "ui.bench-pour-into": "{vessel}: shu yerga quyish",
@@ -825,6 +825,11 @@
     "ui.why-hint-first": "Maslahat olish",
     "ui.why-hint-more": "Yana maslahat",
     "ui.why-hint-last": "Boshqa maslahat yo‘q",
-    "ui.why-hint-next": "Keyingi qadam: {action}"
+    "ui.why-hint-next": "Keyingi qadam: {action}",
+    "ui.bench-lamp": "Spirt lampa",
+    "ui.bench-lamp-hint": "Lampani qizdiriladigan probirka tagiga sudrab olib boring.",
+    "ui.bench-drop-no-gas": "{vessel}dan hozir yig‘iladigan gaz yo‘q.",
+    "ui.bench-drop-no-heat": "Ko‘rsatma {vessel}ni qizdirishni aytmaydi.",
+    "ui.bench-heated-no-effect": "{vessel} qizdirilmoqda. Qizdirish reaksiyani qanday o‘zgartirishi bu laboratoriyada ko‘rsatilmaydi."
   }
 }
