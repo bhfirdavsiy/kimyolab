@@ -73,7 +73,7 @@
     "shell": {
       "rootAbsoluteUrlsWhenMountedAtKimyolab": [],
       "declaresBasePath": true,
-      "routeAnchors": 6
+      "routeAnchors": 7
     }
   },
   "serviceWorker": {
@@ -100,8 +100,8 @@
     "note": "the defaults are the root namespace values used by Node tests; the browser bootstrap always passes the host namespace"
   },
   "css": {
-    "selectors": 469,
-    "klScoped": 467,
+    "selectors": 715,
+    "klScoped": 713,
     "rootCustomPropertyBlocks": 2,
     "rootNonNamespacedDeclarations": [],
     "global": []

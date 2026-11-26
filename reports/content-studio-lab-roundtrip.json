@@ -12,11 +12,11 @@
       "dimensions": {
         "operations": {
           "equal": true,
-          "detail": "11 operations"
+          "detail": "15 operations"
         },
         "trialScope": {
           "equal": true,
-          "detail": "INSTRUCTION_TRIALS, 3 trial(s)"
+          "detail": "INSTRUCTION_TRIALS, 5 trial(s)"
         },
         "capabilityResolution": {
           "equal": true,
@@ -36,7 +36,7 @@
         }
       },
       "equal": true,
-      "operations": 11,
+      "operations": 15,
       "knownGaps": [
         {
           "instructionStep": 1,
@@ -54,14 +54,14 @@
           "reason": "OBSERVATION_NOT_PRODUCED"
         },
         {
-          "instructionStep": 4,
+          "instructionStep": 6,
           "verb": "izohlang",
           "reason": "LEARNER_RESPONSE_NOT_OFFERED"
         }
       ],
       "recordedGaps": [
         "TEST_NOT_OFFERED",
-        "MODEL_SOURCE_GAP_CU_HCL",
+        "NO_REACTION_REVIEW_GAP_CU_HCL",
         "RECORD_CHECKER_MISSING",
         "HEAT_SOURCE_NOT_NAMED",
         "APPARATUS_WITHOUT_OPERATION"

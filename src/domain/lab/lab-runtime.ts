@@ -20,7 +20,7 @@ import type {ElectrolysisModel} from '../chemistry/electrolysis-model.ts';
 import type {IonicEngine} from '../chemistry/ionic-engine.ts';
 import type {SpeciesRegistry} from '../chemistry/species-registry.ts';
 import type {Observation} from '../chemistry/types.ts';
-import {classifyMatch,type ReactionMatcher} from '../chemistry/reaction-matcher.ts';
+import {classifyMatch,type ReactionMatcher,type ReactionMatchResult} from '../chemistry/reaction-matcher.ts';
 import {familyDefinition,LAB_ACTION_FAMILIES,type LabActionFamily} from './action-catalog.ts';
 import type {GuidanceLevel,InstructionTrial,ProcedureStep,ProfileHeating,TopicLabProfile} from './topic-lab-profile.ts';
 
@@ -69,7 +69,8 @@ export interface LabObservation {
   kind:string;
   /** the observation data exactly as the authority returned it (never rewritten) */
   data:Observation|Record<string,unknown>|null;
-  producedBy:'ReactionMatcher'|'ElectrolysisModel'|'IonicEngine'|'INSTRUCTION_TEXT'|'PROCEDURE';
+  /** SchoolLabModel: a bounded school-lab model record (school-lab-models.json, review pending), looked up — never computed */
+  producedBy:'ReactionMatcher'|'ElectrolysisModel'|'IonicEngine'|'SchoolLabModel'|'INSTRUCTION_TEXT'|'PROCEDURE';
   /** derived from producedBy (observationGrounding): MODEL_BASED only for a chemistry authority */
   grounding:ObservationGrounding;
   source:string;
@@ -78,7 +79,7 @@ export interface LabObservation {
  *  MODEL_BASED. An instruction sentence (INSTRUCTION_TEXT) or a procedural fact (PROCEDURE) is never model chemistry,
  *  in a report, in a count or in the learner's "Nega?" source line. */
 export type ObservationGrounding='MODEL_BASED'|'INSTRUCTION_TEXT'|'PROCEDURE';
-const MODEL_AUTHORITIES:ReadonlySet<LabObservation['producedBy']>=new Set(['ReactionMatcher','ElectrolysisModel','IonicEngine']);
+const MODEL_AUTHORITIES:ReadonlySet<LabObservation['producedBy']>=new Set(['ReactionMatcher','ElectrolysisModel','IonicEngine','SchoolLabModel']);
 export function observationGrounding(o:Pick<LabObservation,'producedBy'>):ObservationGrounding{
   return MODEL_AUTHORITIES.has(o.producedBy)?'MODEL_BASED':o.producedBy==='INSTRUCTION_TEXT'?'INSTRUCTION_TEXT':'PROCEDURE';
 }
@@ -126,6 +127,11 @@ export interface LabDomain {
   electrolysis?:ElectrolysisModel;
   /** P2.11: the general reaction authority (reaction-matcher topics) */
   matcher?:ReactionMatcher;
+  /** TT 4.2.6: the ids of REVIEWED reaction records. A no-reaction record ("these do not react") is shown only when it is
+   *  reviewed; otherwise it is NO_REACTION_NOT_REVIEWED (nothing shown). Absent → empty: fail closed. */
+  reviewedReactionIds?:ReadonlySet<string>;
+  /** the indicator record (hydrolysis.json#indicator, review pending): medium → colour. Absent → no colour is shown */
+  indicator?:{id:string;colors:Readonly<Partial<Record<'acidic'|'basic'|'neutral',string>>>};
 }
 
 /** P2.11 — what each implemented handler IS and which authorities it may consult. The capability registry reads this
@@ -423,7 +429,10 @@ function reactInContainer(c:ContainerState,profile:TopicLabProfile,domain:LabDom
     const pair=`${reagents[i]}+${reagents[j]}`;
     const prior=c.reactions.find(r=>r.pair===pair);
     if(prior&&(prior.outcome!=='not-modeled'||prior.conditions===condKey)) continue;
-    const m=domain.matcher.match({reactants:[{formula:reagents[i]!},{formula:reagents[j]!}],conditions:{dimensions:{...dims}},conditionPolicy:'require-record-conditions'});
+    const matched=domain.matcher.match({reactants:[{formula:reagents[i]!},{formula:reagents[j]!}],conditions:{dimensions:{...dims}},conditionPolicy:'require-record-conditions'});
+    // TT 4.2.6: an unreviewed no-reaction record is never shown as "no reaction" — it stays unsupported (fail closed)
+    const m:ReactionMatchResult|{modeled:false;code:'NO_REACTION_NOT_REVIEWED'}=matched.modeled&&classifyMatch(matched)==='MODELED_NO_REACTION'&&!(domain.reviewedReactionIds??new Set()).has(matched.reaction.id)
+      ?{modeled:false,code:'NO_REACTION_NOT_REVIEWED'}:matched;
     const entry=m.modeled
       ?{pair,outcome:(classifyMatch(m)==='MODELED_NO_REACTION'?'no-reaction':'reaction') as 'reaction'|'no-reaction',reactionId:m.reaction.id,code:null,conditions:condKey}
       :{pair,outcome:'not-modeled' as const,reactionId:null,code:m.code,conditions:condKey};
@@ -487,6 +496,7 @@ export function createLabRuntime(domain:LabDomain){
     // P2.11 reaction-matcher: the container whose contents or conditions this action changed (evaluated after the switch)
     let contact:ContainerState|null=null;
     let procedureCode:string|null=null;
+    let indicatorNotModeled:string|null=null;
 
     switch(action.family){
       case 'SETUP_APPARATUS': next.setUp.push(paramText(action,'apparatus')!); break;
@@ -500,9 +510,20 @@ export function createLabRuntime(domain:LabDomain){
         }else if(chem.authority==='reaction-matcher'){
           // the substance enters with its registered phase; the authority then evaluates every new pair under the
           // container's actual conditions (no reaction is decided here)
+          if(sub.role==='indicator'){
+            // the indicator reveals the medium of the sample already in the container: the sample is matched by its exact
+            // set of learner-added substances; medium from the bound school model, colour from the indicator record
+            c!.contents.push({substanceId:subId,speciesId:null,phase:null,form:'liquid',amount,source:sub.source});
+            const added=new Set(c!.contents.filter(e=>e.substanceId!==subId&&!String(e.source).startsWith('ReactionMatcher')).map(e=>e.substanceId));
+            const smp=profile.indicator?.samples.find(x=>x.substances.length===added.size&&x.substances.every(y=>added.has(y)));
+            const color=smp?.medium?domain.indicator?.colors[smp.medium]:undefined;
+            if(smp&&color) observe({target:'indicator',container,kind:'indicator-response',data:{type:'indicator-response',indicator:domain.indicator!.id,medium:smp.medium,color,sample:smp.sample},producedBy:'SchoolLabModel',source:`chemistry/school-lab-models.json#${smp.modelId}`});
+            else indicatorNotModeled=smp?'INDICATOR_COLOR_NOT_MODELED':'INDICATOR_MEDIUM_NOT_MODELED';
+            break;
+          }
           const species=sub.speciesId?domain.species.byId(sub.speciesId) as any:null;
           const phase=species?.phase??null;
-          if(!c!.contents.some(e=>e.substanceId===subId)) c!.contents.push({substanceId:subId,speciesId:sub.speciesId,phase,form:phase?FORM_BY_PHASE[phase]??'solid':'solid',amount,source:sub.source});
+          if(!c!.contents.some(e=>e.substanceId===subId)) c!.contents.push({substanceId:subId,speciesId:sub.speciesId,phase,form:sub.declaredForm?.form??(phase?FORM_BY_PHASE[phase]??'solid':'solid'),amount,source:sub.source});
           contact=c!;
         }else if(sub.role==='sample'){
           c!.contents.push({substanceId:subId,speciesId:sub.speciesId,phase:null,form:'solid-sample',amount,source:sub.source});
@@ -664,6 +685,14 @@ export function createLabRuntime(domain:LabDomain){
         }
         break;
       }
+    }
+    if(indicatorNotModeled){
+      // the drop happened; this sample's medium (or its colour) is not modeled — no colour is shown, never guessed
+      for(const k of Object.keys(next.containers)) next.containers[k]!.phases=phasesOf(next.containers[k]!);
+      if(step&&!next.completedSteps.includes(step.id)) next.completedSteps.push(step.id);
+      next.actionLog.push(clone(action));
+      next.complete=isComplete(next,profile,domain);
+      return {status:'unsupported',nextState:next,chemistryEvents:events,observations:[],procedural:{completedStep:step&&!state.completedSteps.includes(step.id)?step.id:null,blockedBy:[],reason:null},guidance:{category:'unsupported',code:indicatorNotModeled},evidenceCandidate:null,error:null,unsupported:{code:'UNSUPPORTED_CHEMISTRY',detail:indicatorNotModeled}};
     }
     if(contact){
       const r=reactInContainer(contact,profile,domain,observe);

@@ -46,7 +46,8 @@ test('reports are deterministic, counted from content (never hardcoded), and the
   assert.deepEqual([c.species,c.reactions,c.solubilityRecords.dissociation,c.solubilityRecords.insoluble,c.hydrolysisSalts,c.electrolysisRecords],
     [read('content-src/chemistry/species.json').length,REACTIONS.length,RULES.dissociation.length,RULES.insoluble.length,read('content-src/chemistry/hydrolysis.json').records.length,read('content-src/chemistry/electrolysis.json').records.length]);
   assert.equal(c.conditionedReactions,REACTIONS.filter(x=>(x.conditions.tags??[]).length).length);
-  assert.equal(c.explicitNoReactionRecords,0,'KNOWN CONTENT GAP');
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions)
+  assert.equal(c.explicitNoReactionRecords,1);
   assert.equal(c.reviewed,0,'nothing is approved by tooling');
   assert.equal(c.assertions,c.pending+c.reviewed+c.rejected+c.stale);
   assert.equal(r.gate.status,'PENDING'); assert.deepEqual(r.gate.fail,[]);
@@ -119,7 +120,8 @@ test('IonicEngine: derivable equations are deterministic and atom- and charge-ba
   }
   assert.ok(derived>=5,`${derived} derivable`);
   // a soluble salt without a dissociation rule is unsupported, never treated as molecular
-  assert.deepEqual(e.support('rxn.cuso4-na2s'),{supported:false,unsupported:['CuSO4','Na2S']});
+  // TT 4.2 expert review: rxn.cuso4-na2s was removed; rxn.agno3-nai shows the same rule (NaI has no dissociation rule)
+  assert.deepEqual(e.support('rxn.agno3-nai'),{supported:false,unsupported:['NaI']});
   assert.throws(()=>e.netIonicEquation('rxn.agno3-nabr'),/NET_IONIC_UNSUPPORTED:NaBr/);
 });
 
@@ -141,7 +143,9 @@ test('gate: invalid content FAILs; incomplete-but-valid content is PENDING',()=>
   ];
   for(const [mutate,code] of cases){ const g=gateOf(mutate); assert.equal(g.status,'FAIL',code); assert.ok(g.fail.some(f=>f.startsWith(code)),`${code}: ${g.fail.join(' | ')}`); }
   const g=buildKbReports(root).gate;
-  for(const p of ['REVIEW_PENDING:','NO_REACTION_RECORDS_MISSING','LOCALIZATION_PENDING','NET_IONIC_UNSUPPORTED:','CHEMISTRY_REVIEW_REQUIRED:observation:rxn.naoh-hcl']) assert.ok(g.pending.some(x=>x.startsWith(p)),p);
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): NO_REACTION_RECORDS_MISSING is no longer pending
+  assert.ok(!g.pending.includes('NO_REACTION_RECORDS_MISSING'));
+  for(const p of ['REVIEW_PENDING:','LOCALIZATION_PENDING','NET_IONIC_UNSUPPORTED:','CHEMISTRY_REVIEW_REQUIRED:observation:rxn.naoh-hcl']) assert.ok(g.pending.some(x=>x.startsWith(p)),p);
 });
 
 // ------------------------------------------------------------------ human-only review + stale
@@ -204,7 +208,12 @@ test('ionic shelf: 21 pairs, 100% classified; NOT_MODELED is never "no reaction"
   const bacl=shelf.pairs.find(p=>p.formulas.join('+')==='AgNO3+BaCl2');
   assert.deepEqual([bacl.class,bacl.candidate.kind],['NOT_MODELED','reaction-candidate']);
   for(const p of shelf.pairs.filter(p=>p.class==='NOT_MODELED')){ assert.match(p.currentBehavior,/never shown as no reaction/); assert.equal(p.reviewDecisionRequired,true); }
-  assert.equal(REACTIONS.length,28,'no candidate became a KB record');
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed (not in the 2026 grade-7 textbook, used by no lab), so 28 → 25 records
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); none of them is an ionic-shelf candidate
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); Cu + HCl is not an ionic-shelf candidate
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101)
+  assert.equal(REACTIONS.length,48,'no candidate became a KB record');
+  for(const p of shelf.pairs) if(p.candidate) assert.ok(!REACTIONS.some(r=>r.reactants.map(x=>x.formula).sort().join('+')===[...p.formulas].sort().join('+')),p.formulas.join('+'));
   assert.equal(coverage.ionic.totals.NOT_MODELED,shelf.summary.NOT_MODELED,'unknowns are reported, not hidden');
 });
 

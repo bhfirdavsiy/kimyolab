@@ -113,7 +113,8 @@ test('candidate accept_for_authoring → DRAFT with PROPOSED fields; never canon
     assert.equal(out.applied,false); assert.match(out.issues.join(),/CANDIDATE_DRAFT_NOT_APPLICABLE/);
   }
   assert.equal(digest(t,['content-src/chemistry/reactions.json']),before,'no reaction / no-reaction record added');
-  assert.deepEqual(buildKbReports(t).inventory.counts.explicitNoReactionRecords,0);
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); the candidate flow still adds none: the count equals the repository's
+  assert.deepEqual(buildKbReports(t).inventory.counts.explicitNoReactionRecords,JSON.parse(fs.readFileSync(path.join(root,'content-src/chemistry/reactions.json'),'utf8')).filter(r=>r.reactionType==='no-reaction').length);
 });
 
 // ------------------------------------------------------------------ source provenance (never weakened)
@@ -142,7 +143,8 @@ test('source policy: registered categories; INTERNAL_PROPOSAL never counts; APPR
 
 test('names: display translation with its own provenance; add-source through a human-applied draft makes the name approvable',()=>{
   const prov=read('content-src/locales/uz-latn/name-provenance.json');
-  assert.equal(prov.entries.length,30);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names): 30 → 128 provenance entries
+  assert.equal(prov.entries.length,128);
   assert.ok(prov.entries.every(e=>['nameKey','locale','displayName','sourceRef','reviewStatus'].every(k=>k in e)&&e.sourceRef===null&&e.reviewStatus==='pending'));
   const t=sandbox();
   // a person registers a glossary (in a reviewed PR) — then the author cites it through the add-source task
@@ -265,7 +267,10 @@ test('reports are deterministic; the action queue shows every blocker and one ne
   assert.deepEqual(read(GOVERNANCE_REPORTS.actions),humanActionQueue(m,tasks,entries,root));
   assert.deepEqual(read(GOVERNANCE_REPORTS.goldenGraph),goldenSliceGraph(m,tasks,entries,root));
   const a=read(GOVERNANCE_REPORTS.authoring);
-  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[130,127,3]);
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived add-source authoring tasks drop by 7 (130/127 → 123/120).
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names): each new name is an open add-source task (123 → 221, 120 → 218)
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): each new record cites only PROPOSED sources, so 11 more add-source tasks (221 → 232, 218 → 229)
+  assert.deepEqual([a.totals.tasks,a.byAction['add-source'].OPEN,a.byAction['map-concept'].OPEN],[232,229,3]);
   assert.equal(a.canonicalContentMutated,false);
   const q=read(GOVERNANCE_REPORTS.actions);
   assert.ok(q.items.every(i=>typeof i.nextHumanAction==='string'&&i.nextHumanAction.length>10&&Array.isArray(i.blockedBy)&&i.role));

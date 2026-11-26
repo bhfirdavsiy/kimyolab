@@ -156,7 +156,7 @@
     "charge": 0,
     "oxidationStates": [],
     "hazards": [
-      "irritant"
+      "corrosive"
     ],
     "properties": {},
     "sourceRefs": [
@@ -514,7 +514,7 @@
     "charge": 0,
     "oxidationStates": [],
     "hazards": [
-      "irritant"
+      "corrosive"
     ],
     "properties": {},
     "sourceRefs": [
@@ -644,7 +644,7 @@
     "charge": 0,
     "oxidationStates": [],
     "hazards": [
-      "irritant"
+      "toxic"
     ],
     "properties": {},
     "sourceRefs": [
@@ -753,6 +753,8 @@
     "charge": 0,
     "oxidationStates": [],
     "hazards": [
+      "flammable",
+      "corrosive",
       "irritant"
     ],
     "properties": {},
@@ -859,9 +861,7 @@
     "phase": "aq",
     "charge": 0,
     "oxidationStates": [],
-    "hazards": [
-      "irritant"
-    ],
+    "hazards": [],
     "properties": {},
     "sourceRefs": [
       {
@@ -898,7 +898,7 @@
     "charge": 0,
     "oxidationStates": [],
     "hazards": [
-      "irritant"
+      "corrosive"
     ],
     "properties": {},
     "sourceRefs": [
@@ -1508,6 +1508,364 @@
         "id": "src.beta1.migration",
         "type": "internal",
         "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ]
+  },
+  {
+    "id": "species.mgo",
+    "formula": "MgO",
+    "nameKey": "species.mgo.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "46"
+      }
+    ]
+  },
+  {
+    "id": "species.no",
+    "formula": "NO",
+    "nameKey": "species.no.name",
+    "phase": "g",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "toxic",
+      "irritant",
+      "oxidizer"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "47"
+      }
+    ]
+  },
+  {
+    "id": "species.no2",
+    "formula": "NO2",
+    "nameKey": "species.no2.name",
+    "phase": "g",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "toxic",
+      "corrosive",
+      "oxidizer"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "47"
+      }
+    ]
+  },
+  {
+    "id": "species.na",
+    "formula": "Na",
+    "nameKey": "species.na.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "flammable",
+      "corrosive"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "45"
+      }
+    ]
+  },
+  {
+    "id": "species.ag2o",
+    "formula": "Ag2O",
+    "nameKey": "species.ag2o.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "irritant",
+      "oxidizer"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "45"
+      }
+    ]
+  },
+  {
+    "id": "species.ag",
+    "formula": "Ag",
+    "nameKey": "species.ag.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "45"
+      }
+    ]
+  },
+  {
+    "id": "species.mgoh2",
+    "formula": "Mg(OH)2",
+    "nameKey": "species.mgoh2.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "50"
+      }
+    ]
+  },
+  {
+    "id": "species.hgo",
+    "formula": "HgO",
+    "nameKey": "species.hgo.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "toxic",
+      "irritant"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "50"
+      }
+    ]
+  },
+  {
+    "id": "species.hg",
+    "formula": "Hg",
+    "nameKey": "species.hg.name",
+    "phase": "l",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "toxic"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "10, 50"
+      }
+    ]
+  },
+  {
+    "id": "species.fes",
+    "formula": "FeS",
+    "nameKey": "species.fes.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "46, 99"
+      }
+    ]
+  },
+  {
+    "id": "species.cano32",
+    "formula": "Ca(NO3)2",
+    "nameKey": "species.cano32.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "79"
+      }
+    ]
+  },
+  {
+    "id": "species.koh",
+    "formula": "KOH",
+    "nameKey": "species.koh.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "corrosive"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "82"
+      }
+    ]
+  },
+  {
+    "id": "species.mgcl2",
+    "formula": "MgCl2",
+    "nameKey": "species.mgcl2.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "49–50"
+      }
+    ]
+  },
+  {
+    "id": "species.fecl2",
+    "formula": "FeCl2",
+    "nameKey": "species.fecl2.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "49–50"
+      }
+    ]
+  },
+  {
+    "id": "species.malachite",
+    "formula": "Cu2(OH)2CO3",
+    "nameKey": "species.malachite.name",
+    "phase": "s",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [
+      "toxic",
+      "irritant"
+    ],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "33"
+      }
+    ]
+  },
+  {
+    "id": "species.feso4",
+    "formula": "FeSO4",
+    "nameKey": "species.feso4.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ]
+  },
+  {
+    "id": "species.al2so43",
+    "formula": "Al2(SO4)3",
+    "nameKey": "species.al2so43.name",
+    "phase": "aq",
+    "charge": 0,
+    "oxidationStates": [],
+    "hazards": [],
+    "properties": {},
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
       }
     ]
   }

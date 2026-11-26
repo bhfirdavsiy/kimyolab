@@ -42,15 +42,17 @@ export function studioData(root:string){
   const overlays=(readJson(root,'content-src/topic-lab-profiles.json').overlays as any[]);
   const labSources=activities.filter(a=>a.type==='experiment'&&Array.isArray(a.legacyContent?.steps)&&a.legacyContent.steps.length).flatMap(a=>{
     const lus=[...new Set(mappings.filter(m=>m.practiceActivityId===a.id).map(m=>m.learningUnitId as string))];
-    return lus.map(lu=>({learningUnitId:lu,practiceActivityId:a.id,goal:a.goal??'',legacy:{equipment:a.legacyContent.equipment??'',materials:a.legacyContent.materials??'',safety:a.legacyContent.safety??'',steps:[...a.legacyContent.steps]},profiled:overlays.some(o=>o.activityId===a.id)}));
+    return lus.map(lu=>({learningUnitId:lu,practiceActivityId:a.id,title:a.title??a.id,goal:a.goal??'',legacy:{equipment:a.legacyContent.equipment??'',materials:a.legacyContent.materials??'',safety:a.legacyContent.safety??'',steps:[...a.legacyContent.steps]},profiled:overlays.some(o=>o.activityId===a.id)}));
   }).sort((a,b)=>a.learningUnitId.localeCompare(b.learningUnitId,'en',{numeric:true})||a.practiceActivityId.localeCompare(b.practiceActivityId,'en',{numeric:true}));
-  // one lab source per topic: a profiled activity first (it is the one the lab view exists for)
-  const byUnit=new Map<string,any>(); for(const s of labSources){ const cur=byUnit.get(s.learningUnitId); if(!cur||(!cur.profiled&&s.profiled)) byUnit.set(s.learningUnitId,s); }
+  // per topic: every profiled activity (each has a lab view; the author chooses one when a topic has several), else the
+  // first activity with steps. Was: one source per topic — a second profiled lab in the topic hid the first (step 4,
+  // 2026-11-23: 7.9 and 7.10 share lu.7.15 / lu.7.20).
+  const byUnit=new Map<string,any[]>(); for(const s of labSources){ const cur=byUnit.get(s.learningUnitId)??[]; if(s.profiled){ byUnit.set(s.learningUnitId,[...cur.filter((x:any)=>x.profiled),s]); } else if(!cur.length) byUnit.set(s.learningUnitId,[s]); }
   const j=(rel:string)=>readJson(root,`content-src/chemistry/${rel}`);
   return {
     schema:'kimyolab.content-studio-data.v1',
     units,
-    labSources:[...byUnit.values()],
+    labSources:[...byUnit.values()].flat(),
     registryData:{reactions:j('reactions.json'),solutionRules:j('solubility.json'),species:j('species.json'),electrolysis:j('electrolysis.json'),conditionVocabulary:j('condition-vocabulary.json'),schoolLabModels:j('school-lab-models.json'),qualitativeTests:j('qualitative-tests.json')},
     studioLabels:readJson(root,'content-src/studio/content-studio.uz-latn.json').labels,
     learnerLabels:readJson(root,'content-src/locales/uz-latn/learner-interaction.json').labels,

@@ -445,8 +445,8 @@
   "localization": {
     "locale": "uz-Latn",
     "catalog": "content-src/studio/content-studio.uz-latn.json",
-    "labels": 137,
-    "usedKeys": 119,
+    "labels": 138,
+    "usedKeys": 120,
     "dynamicKeyFamilies": [
       "studio.blocker",
       "studio.severity",
@@ -458,11 +458,11 @@
   },
   "bundleImpact": {
     "studio": {
-      "modules": 71,
-      "moduleBytes": 496124,
+      "modules": 76,
+      "moduleBytes": 684612,
       "studioOnlyModules": 9,
-      "studioOnlyBytes": 90011,
-      "sharedLearnerModules": 62
+      "studioOnlyBytes": 91431,
+      "sharedLearnerModules": 67
     },
     "learner": "reports/guided-dynamic-lab-readiness.json#bundleDelta.phases[\"P2.12\"]"
   },

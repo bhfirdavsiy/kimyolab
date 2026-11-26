@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildComputedModelAudit,buildComputedModelExpansion,bundle,P26_CONVERTED,P25_BASELINE,CMI_AUDIT_REPORT,CMI_EXPANSION_REPORT} from '../scripts/lib/computed-model-interaction.ts';
+import {buildComputedModelAudit,buildComputedModelExpansion,bundle,P26_CONVERTED,P25_BASELINE,expectedChemistryRecordCounts,CMI_AUDIT_REPORT,CMI_EXPANSION_REPORT} from '../scripts/lib/computed-model-interaction.ts';
 import {buildConditionReport,CONDITION_REPORT} from '../scripts/renderer-reports.ts';
 import {hardcodedUzbek,classifyActivity} from '../scripts/lib/learning-depth.ts';
 import {evaluateConditionTrials,equilibriumConditionModel,manganeseConditionModel,assertConditionTarget} from '../src/domain/chemistry/condition-trial.ts';
@@ -261,7 +261,15 @@ test('localization: every key the renderer reads is in the catalog; labels are t
 
 test('no chemistry truth invented: record counts unchanged since P2.5; new text is display only (review pending)',()=>{
   assert.equal(expansion.newChemistryRecords,0);
-  assert.deepEqual(expansion.chemistryRecordCounts,P25_BASELINE.chemistryRecords);
+  // TT 4.2 expert review: the owner removed 3 unused reactions (2026-11-04) and added 16 textbook reactions with 15
+  // species (2026-11-20). The P2.5 baseline is history and is not rewritten; the invariant is still "the computed-model work
+  // added nothing": the counts equal baseline − removed + added, exactly as OWNER_DECIDED_RECORD_CHANGES lists them.
+  assert.deepEqual(expansion.chemistryRecordCounts,expectedChemistryRecordCounts());
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); it is listed in OWNER_DECIDED_RECORD_CHANGES
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101); both are listed in OWNER_DECIDED_RECORD_CHANGES
+  assert.deepEqual([expansion.chemistryRecordCounts.reactions,expansion.chemistryRecordCounts.species],[48,101]);
+  const {reactions:_r,species:_s,...nowRest}=expansion.chemistryRecordCounts, {reactions:_br,species:_bs,...baseRest}=P25_BASELINE.chemistryRecords;
+  assert.deepEqual(nowRest,baseRest);
   assert.equal(json('content-src/chemistry/equilibrium.json').records.length,2);
   assert.equal(json('content-src/chemistry/manganese-redox.json').records.length,3);
   assert.equal(json('content-src/chemistry/kinetics.json').records.length,3,'no kinetics record added to unblock 11.16');

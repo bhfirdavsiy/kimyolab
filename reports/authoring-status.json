@@ -2,8 +2,8 @@
   "schema": "kimyolab.authoring-status.v1",
   "semantics": "Authoring tasks are DERIVED from human decisions (and machine flags a person must resolve). A task is work for an author — never a content change, an approval or a release. Content changes only through a person running authoring:apply; the new hash then needs a new human review.",
   "totals": {
-    "tasks": 130,
-    "OPEN": 130,
+    "tasks": 232,
+    "OPEN": 232,
     "IN_PROGRESS": 0,
     "READY_FOR_REVIEW": 0,
     "SUPERSEDED": 0,
@@ -18,7 +18,7 @@
       "CLOSED": 0
     },
     "chemistry": {
-      "OPEN": 127,
+      "OPEN": 229,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -27,7 +27,7 @@
   },
   "byAction": {
     "add-source": {
-      "OPEN": 127,
+      "OPEN": 229,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -43,14 +43,14 @@
   },
   "byPriority": {
     "A": {
-      "OPEN": 6,
+      "OPEN": 7,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
       "CLOSED": 0
     },
     "B": {
-      "OPEN": 24,
+      "OPEN": 26,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -64,14 +64,14 @@
       "CLOSED": 0
     },
     "D": {
-      "OPEN": 30,
+      "OPEN": 128,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
       "CLOSED": 0
     },
     "E": {
-      "OPEN": 69,
+      "OPEN": 70,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -80,7 +80,7 @@
   },
   "byAffectedActivity": {
     "(none)": {
-      "OPEN": 46,
+      "OPEN": 50,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -192,7 +192,7 @@
       "CLOSED": 0
     },
     "practice.simulation.7.07.planned": {
-      "OPEN": 20,
+      "OPEN": 118,
       "IN_PROGRESS": 0,
       "READY_FOR_REVIEW": 0,
       "SUPERSEDED": 0,
@@ -399,6 +399,37 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.beta1.migration"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f7c75cfbabb4bf1b99ec",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.caoh2-co2",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.caoh2-co2",
+      "action": "add-source",
+      "basisHash": "990a78a4d9bb8c0aec492aee361b3aa2a330ac9f67d6c015b557afc5c813ae9a",
+      "currentHash": "990a78a4d9bb8c0aec492aee361b3aa2a330ac9f67d6c015b557afc5c813ae9a",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "A",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -641,6 +672,37 @@
       "status": "OPEN"
     },
     {
+      "id": "task.47ac3c45a4f7c24156e7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.al-h2so4",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.al-h2so4",
+      "action": "add-source",
+      "basisHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+      "currentHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.52a63d15c3ef9affa5c2",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition-term:heating",
       "surface": "chemistry",
@@ -829,6 +891,37 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.a4e073f8beb2d43e54d6",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.fe-h2so4",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.fe-h2so4",
+      "action": "add-source",
+      "basisHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+      "currentHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -1039,6 +1132,37 @@
       "status": "OPEN"
     },
     {
+      "id": "task.ebe3916ed3ad3c352587",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.al-hcl",
+      "surface": "chemistry",
+      "targetId": "condition:rxn.al-hcl",
+      "action": "add-source",
+      "basisHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+      "currentHash": "84452eb9a85ed5ff3d0d1539390c95973417322319ae7551935975df5b776d0b",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "B",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.eff752d28b6fc62de267",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.mg-h2so4",
       "surface": "chemistry",
@@ -1091,37 +1215,6 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.school.solution-rules"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
-      "id": "task.f44a389c75d4600acc5c",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:condition:rxn.p-combustion",
-      "surface": "chemistry",
-      "targetId": "condition:rxn.p-combustion",
-      "action": "add-source",
-      "basisHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
-      "currentHash": "7c89472822fdd1a151b26e2b5faa8d02de7f688526817c70a09e4c2bb6a94a97",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "B",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -1298,6 +1391,122 @@
       "status": "OPEN"
     },
     {
+      "id": "task.0534fbbbb4badea98c29",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Zr",
+      "surface": "chemistry",
+      "targetId": "element-name:Zr",
+      "action": "add-source",
+      "basisHash": "97c72d288425fb3184105147d5c2271e8fc271ceda0af4acd13f0310caf9c8fa",
+      "currentHash": "97c72d288425fb3184105147d5c2271e8fc271ceda0af4acd13f0310caf9c8fa",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.0619b06e9677e03584e2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Pr",
+      "surface": "chemistry",
+      "targetId": "element-name:Pr",
+      "action": "add-source",
+      "basisHash": "7728b464c6df578fea5ea9a787b6c0d362cb19c627aa4df85b264a84ea9afee2",
+      "currentHash": "7728b464c6df578fea5ea9a787b6c0d362cb19c627aa4df85b264a84ea9afee2",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.0860fc01bdb161cf310f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Bi",
+      "surface": "chemistry",
+      "targetId": "element-name:Bi",
+      "action": "add-source",
+      "basisHash": "4fcdb29bbd8573a040549d32596c8978086a82e0c71db729f8e582a10b252131",
+      "currentHash": "4fcdb29bbd8573a040549d32596c8978086a82e0c71db729f8e582a10b252131",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.0dc5a9dfddc93ed8c938",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cd",
+      "surface": "chemistry",
+      "targetId": "element-name:Cd",
+      "action": "add-source",
+      "basisHash": "ceed9e1468558c6289cfec1c9da930d2c77efdc68fa37e7023b8b49115152ad1",
+      "currentHash": "ceed9e1468558c6289cfec1c9da930d2c77efdc68fa37e7023b8b49115152ad1",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.0fc3582f2dc22243bbfe",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Li",
       "surface": "chemistry",
@@ -1356,6 +1565,180 @@
       "status": "OPEN"
     },
     {
+      "id": "task.1574c6a5b7e39713d46e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Fe",
+      "surface": "chemistry",
+      "targetId": "element-name:Fe",
+      "action": "add-source",
+      "basisHash": "0cfa79d73d692ee7432d6a9992d5d38cefdff6e2bc9d7cd6d33807d452f5e15e",
+      "currentHash": "0cfa79d73d692ee7432d6a9992d5d38cefdff6e2bc9d7cd6d33807d452f5e15e",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.166daedf13cef5c5e6e7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Re",
+      "surface": "chemistry",
+      "targetId": "element-name:Re",
+      "action": "add-source",
+      "basisHash": "178c68cefa0447b1e180399dcc686ae75b9adaa84c5b82fa90afe64eb79b14c4",
+      "currentHash": "178c68cefa0447b1e180399dcc686ae75b9adaa84c5b82fa90afe64eb79b14c4",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.174111fda6f5260f703f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Te",
+      "surface": "chemistry",
+      "targetId": "element-name:Te",
+      "action": "add-source",
+      "basisHash": "ef113168235e6f9b098b754ee47f2f38c7e8681a614722b413f3e4041ccc1eaa",
+      "currentHash": "ef113168235e6f9b098b754ee47f2f38c7e8681a614722b413f3e4041ccc1eaa",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.179b3ebc479ff32c0ed7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ni",
+      "surface": "chemistry",
+      "targetId": "element-name:Ni",
+      "action": "add-source",
+      "basisHash": "5d3dae3fac99f854445c1f55a9034258c486a516be5b2ffd9317ebb49d2320fb",
+      "currentHash": "5d3dae3fac99f854445c1f55a9034258c486a516be5b2ffd9317ebb49d2320fb",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.17c9137ec95ec56f9617",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Md",
+      "surface": "chemistry",
+      "targetId": "element-name:Md",
+      "action": "add-source",
+      "basisHash": "ab050a95f7f64a100a9592fdd4cd0ba923b132c8022591c00034e2fef793d053",
+      "currentHash": "ab050a95f7f64a100a9592fdd4cd0ba923b132c8022591c00034e2fef793d053",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.186eaad7e07efd45b498",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Er",
+      "surface": "chemistry",
+      "targetId": "element-name:Er",
+      "action": "add-source",
+      "basisHash": "af4a1c5dba151c1e910acfc4b648c533f422ca45d2854773b87c970c0775fd82",
+      "currentHash": "af4a1c5dba151c1e910acfc4b648c533f422ca45d2854773b87c970c0775fd82",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.19db975d083dfd6de658",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ne",
       "surface": "chemistry",
@@ -1385,6 +1768,151 @@
       "status": "OPEN"
     },
     {
+      "id": "task.1acce07cf84845ad3daf",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Kr",
+      "surface": "chemistry",
+      "targetId": "element-name:Kr",
+      "action": "add-source",
+      "basisHash": "04c8cc9491517e18fa988e928ee32cc43307d6f0b74a50da040994ab394eb90f",
+      "currentHash": "04c8cc9491517e18fa988e928ee32cc43307d6f0b74a50da040994ab394eb90f",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.1ccafc3434324e5e7e07",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Zn",
+      "surface": "chemistry",
+      "targetId": "element-name:Zn",
+      "action": "add-source",
+      "basisHash": "f048dc90538ac2bd60cba375f80b5a7fc25516a47f6add704fce91b6c685b82c",
+      "currentHash": "f048dc90538ac2bd60cba375f80b5a7fc25516a47f6add704fce91b6c685b82c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.21b6d06015ec08e015cc",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Br",
+      "surface": "chemistry",
+      "targetId": "element-name:Br",
+      "action": "add-source",
+      "basisHash": "76b89eae6aa71312858725523b4ae30baaf7536148754158c1bb19985261f715",
+      "currentHash": "76b89eae6aa71312858725523b4ae30baaf7536148754158c1bb19985261f715",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.21dcd31bc444cba9b44e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Bk",
+      "surface": "chemistry",
+      "targetId": "element-name:Bk",
+      "action": "add-source",
+      "basisHash": "fd560f72f24be56c2b7458691f0ffb632d1dd92238d5c31b6cd051bc824f0018",
+      "currentHash": "fd560f72f24be56c2b7458691f0ffb632d1dd92238d5c31b6cd051bc824f0018",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.2221feab24c907559aa3",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cr",
+      "surface": "chemistry",
+      "targetId": "element-name:Cr",
+      "action": "add-source",
+      "basisHash": "6cb9cd8164a36ddbb15d37395a461f9c970205885b4fbb6bb05552bfc910576f",
+      "currentHash": "6cb9cd8164a36ddbb15d37395a461f9c970205885b4fbb6bb05552bfc910576f",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.23244b2ecf468f007a2e",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:H",
       "surface": "chemistry",
@@ -1392,6 +1920,35 @@
       "action": "add-source",
       "basisHash": "6ae10af57873082f2171c8432778cf307228893fc2f18d52a4705a75549584a7",
       "currentHash": "6ae10af57873082f2171c8432778cf307228893fc2f18d52a4705a75549584a7",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.25bd42c0cf6f966358c4",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Fm",
+      "surface": "chemistry",
+      "targetId": "element-name:Fm",
+      "action": "add-source",
+      "basisHash": "1e2cd3679504a723c6fbf115c3fa10eab4dc8488b18f2ce1221d919b077377ff",
+      "currentHash": "1e2cd3679504a723c6fbf115c3fa10eab4dc8488b18f2ce1221d919b077377ff",
       "affectedFiles": [
         "content-src/locales/uz-latn/name-provenance.json"
       ],
@@ -1472,6 +2029,35 @@
       "status": "OPEN"
     },
     {
+      "id": "task.2f20fb73b791cc36b3fa",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Mo",
+      "surface": "chemistry",
+      "targetId": "element-name:Mo",
+      "action": "add-source",
+      "basisHash": "312e15da835578d4a31d8cee032f02d5a9e36c7053696a9df0bfe283568f874e",
+      "currentHash": "312e15da835578d4a31d8cee032f02d5a9e36c7053696a9df0bfe283568f874e",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.32dcc76fc2e01b06c5bb",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.bacl2.name",
       "surface": "chemistry",
@@ -1530,6 +2116,209 @@
       "status": "OPEN"
     },
     {
+      "id": "task.346d898fd6a0ee0fb5f0",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Pm",
+      "surface": "chemistry",
+      "targetId": "element-name:Pm",
+      "action": "add-source",
+      "basisHash": "e91c2488aefa0dc54d981d3e97b3863ebc81f3d4f2605063fdc671ba4f799afa",
+      "currentHash": "e91c2488aefa0dc54d981d3e97b3863ebc81f3d4f2605063fdc671ba4f799afa",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.35a88d471d575c08de85",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:As",
+      "surface": "chemistry",
+      "targetId": "element-name:As",
+      "action": "add-source",
+      "basisHash": "ad5845d133e0376bb81910ae3487da0d47cbbb857373ae7a0c246cdbed56cf9c",
+      "currentHash": "ad5845d133e0376bb81910ae3487da0d47cbbb857373ae7a0c246cdbed56cf9c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.37e1c852fbd0cd48f080",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Sm",
+      "surface": "chemistry",
+      "targetId": "element-name:Sm",
+      "action": "add-source",
+      "basisHash": "ea169fcdff557707d5b10183caa59ee2a5e018a1b8b2d10750ee3c1f05a9250b",
+      "currentHash": "ea169fcdff557707d5b10183caa59ee2a5e018a1b8b2d10750ee3c1f05a9250b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.3cefa332770e0a9b2d84",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Rh",
+      "surface": "chemistry",
+      "targetId": "element-name:Rh",
+      "action": "add-source",
+      "basisHash": "c182c276b5f0cf6674a4e61850834e3c7ff595e4db1ffcae09b7b9807e1e3ad2",
+      "currentHash": "c182c276b5f0cf6674a4e61850834e3c7ff595e4db1ffcae09b7b9807e1e3ad2",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.3db05c47d6fb4347314e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Nh",
+      "surface": "chemistry",
+      "targetId": "element-name:Nh",
+      "action": "add-source",
+      "basisHash": "103cf774724bd30d2bbc0bdb268cbc9e147c59eb5d4cbcf546ce2e18cd7e37b6",
+      "currentHash": "103cf774724bd30d2bbc0bdb268cbc9e147c59eb5d4cbcf546ce2e18cd7e37b6",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.3f915fe1f395f23eddd9",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Au",
+      "surface": "chemistry",
+      "targetId": "element-name:Au",
+      "action": "add-source",
+      "basisHash": "79196427c260ccfabd466935d7573bb33798b585323a712ee0230dd07a3f2746",
+      "currentHash": "79196427c260ccfabd466935d7573bb33798b585323a712ee0230dd07a3f2746",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.3fa5e998d07c33196ce9",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Es",
+      "surface": "chemistry",
+      "targetId": "element-name:Es",
+      "action": "add-source",
+      "basisHash": "420aff936cfa0753a43e613892c97f1b0ee5b616991865dd2db8a55f472e9e49",
+      "currentHash": "420aff936cfa0753a43e613892c97f1b0ee5b616991865dd2db8a55f472e9e49",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.45751cf97a8c0124aa24",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:N",
       "surface": "chemistry",
@@ -1537,6 +2326,35 @@
       "action": "add-source",
       "basisHash": "f599582a48a0617e4ebeeb960e603201f3edc344f79fdeafdd95fcfd65c1260a",
       "currentHash": "f599582a48a0617e4ebeeb960e603201f3edc344f79fdeafdd95fcfd65c1260a",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.483f656fb66c5a3da393",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ta",
+      "surface": "chemistry",
+      "targetId": "element-name:Ta",
+      "action": "add-source",
+      "basisHash": "5c6af084e14becc0afc70a1142beb3b9a2338847178b7e502f4d78bb80104529",
+      "currentHash": "5c6af084e14becc0afc70a1142beb3b9a2338847178b7e502f4d78bb80104529",
       "affectedFiles": [
         "content-src/locales/uz-latn/name-provenance.json"
       ],
@@ -1586,6 +2404,35 @@
       "status": "OPEN"
     },
     {
+      "id": "task.4b570b4aecf0d53f9464",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Lr",
+      "surface": "chemistry",
+      "targetId": "element-name:Lr",
+      "action": "add-source",
+      "basisHash": "3fda8dab6ab81154c02964575d448792201a431298a08ce8b09c109a0a06478b",
+      "currentHash": "3fda8dab6ab81154c02964575d448792201a431298a08ce8b09c109a0a06478b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.4b6a56a9825f819fff73",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:S",
       "surface": "chemistry",
@@ -1593,6 +2440,122 @@
       "action": "add-source",
       "basisHash": "671855a29f96d22a15300953188afb882a1c5bdc1a1af49dc697a9e08dffbd5b",
       "currentHash": "671855a29f96d22a15300953188afb882a1c5bdc1a1af49dc697a9e08dffbd5b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.4e0cd3c1bb2993524045",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Sn",
+      "surface": "chemistry",
+      "targetId": "element-name:Sn",
+      "action": "add-source",
+      "basisHash": "0804c8ba99274420386c9ea073a86236daf2d9f4345140e2dee42ea7fd4700b9",
+      "currentHash": "0804c8ba99274420386c9ea073a86236daf2d9f4345140e2dee42ea7fd4700b9",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.4f2d56c9937e035988df",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:I",
+      "surface": "chemistry",
+      "targetId": "element-name:I",
+      "action": "add-source",
+      "basisHash": "eb8e327a9f4f407a8986e86f9876885c1296a220f8d4965e4601e44e0a60c72c",
+      "currentHash": "eb8e327a9f4f407a8986e86f9876885c1296a220f8d4965e4601e44e0a60c72c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.510c75e0db4c6e355e94",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Tb",
+      "surface": "chemistry",
+      "targetId": "element-name:Tb",
+      "action": "add-source",
+      "basisHash": "2dca0f1d200fe7b0d8faa2ebabf0921742bdd75b89406a04f6dc3a3dc3793346",
+      "currentHash": "2dca0f1d200fe7b0d8faa2ebabf0921742bdd75b89406a04f6dc3a3dc3793346",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.5129efe0bdc110382297",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Bh",
+      "surface": "chemistry",
+      "targetId": "element-name:Bh",
+      "action": "add-source",
+      "basisHash": "f7adea810d3dcfc41c921dc4734d2fbb78924d6e7d5793c81b45e6903bd69ae7",
+      "currentHash": "f7adea810d3dcfc41c921dc4734d2fbb78924d6e7d5793c81b45e6903bd69ae7",
       "affectedFiles": [
         "content-src/locales/uz-latn/name-provenance.json"
       ],
@@ -1673,6 +2636,296 @@
       "status": "OPEN"
     },
     {
+      "id": "task.565e0a9eba44c09e17da",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Nb",
+      "surface": "chemistry",
+      "targetId": "element-name:Nb",
+      "action": "add-source",
+      "basisHash": "9dae3bf1929c637d3e0466fbf6f99c39f07bf87751346eb049ce5dbd118e57e4",
+      "currentHash": "9dae3bf1929c637d3e0466fbf6f99c39f07bf87751346eb049ce5dbd118e57e4",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.578459ea16d7323b39f1",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Np",
+      "surface": "chemistry",
+      "targetId": "element-name:Np",
+      "action": "add-source",
+      "basisHash": "9f17d58dbc278cb81272d5d40d7505733b7e9dbe42ff0fec34473e8ce54e3a96",
+      "currentHash": "9f17d58dbc278cb81272d5d40d7505733b7e9dbe42ff0fec34473e8ce54e3a96",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.57c3ff29a3ae858e999f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Hg",
+      "surface": "chemistry",
+      "targetId": "element-name:Hg",
+      "action": "add-source",
+      "basisHash": "39f2b12e1b7370a063391cc538a051b2d741381d0cd99b9ecbdcff7f5975bc7d",
+      "currentHash": "39f2b12e1b7370a063391cc538a051b2d741381d0cd99b9ecbdcff7f5975bc7d",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.5d3b10dfa523d973a237",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:In",
+      "surface": "chemistry",
+      "targetId": "element-name:In",
+      "action": "add-source",
+      "basisHash": "7d0f4d7f1c09a8e3d97d8f4427674ed7d8e5863610718130d20a6bc670b69a98",
+      "currentHash": "7d0f4d7f1c09a8e3d97d8f4427674ed7d8e5863610718130d20a6bc670b69a98",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.5e2f3d51bca060be513d",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Sr",
+      "surface": "chemistry",
+      "targetId": "element-name:Sr",
+      "action": "add-source",
+      "basisHash": "c0678b3c1ce5a82dd9554be340812bb0354950de22bdbb62f0a70ecacd73189b",
+      "currentHash": "c0678b3c1ce5a82dd9554be340812bb0354950de22bdbb62f0a70ecacd73189b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.5e6697ff55094f25ba6d",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Tm",
+      "surface": "chemistry",
+      "targetId": "element-name:Tm",
+      "action": "add-source",
+      "basisHash": "063d76fb59841ce48e32e3b5b321b8ce1fbd89325718c89b1b797b5d9540bdac",
+      "currentHash": "063d76fb59841ce48e32e3b5b321b8ce1fbd89325718c89b1b797b5d9540bdac",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.60e5ad49247456095c90",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Yb",
+      "surface": "chemistry",
+      "targetId": "element-name:Yb",
+      "action": "add-source",
+      "basisHash": "63a012209d05b366a382a4e92f914f46e9242c4401d227f4d8c21378b8d3c89c",
+      "currentHash": "63a012209d05b366a382a4e92f914f46e9242c4401d227f4d8c21378b8d3c89c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.614c4696ede2caa73535",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Dy",
+      "surface": "chemistry",
+      "targetId": "element-name:Dy",
+      "action": "add-source",
+      "basisHash": "813b8fa891f2934aab27135b1712788a0b59aa83a3081730436c9f39cbca392d",
+      "currentHash": "813b8fa891f2934aab27135b1712788a0b59aa83a3081730436c9f39cbca392d",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.621d2674e164826a7046",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cm",
+      "surface": "chemistry",
+      "targetId": "element-name:Cm",
+      "action": "add-source",
+      "basisHash": "bcd931f586e843b27e0a054c9dbd11ee307fe5a269cc8973e4e2e991e789e063",
+      "currentHash": "bcd931f586e843b27e0a054c9dbd11ee307fe5a269cc8973e4e2e991e789e063",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.62ef85ef2b5cefaeef77",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Og",
+      "surface": "chemistry",
+      "targetId": "element-name:Og",
+      "action": "add-source",
+      "basisHash": "4a1c23ca34086d7a7c65e6857343c356baddf65456e574c76a345ecfb69df970",
+      "currentHash": "4a1c23ca34086d7a7c65e6857343c356baddf65456e574c76a345ecfb69df970",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.6338467db961ddfc8c20",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ca",
       "surface": "chemistry",
@@ -1680,6 +2933,35 @@
       "action": "add-source",
       "basisHash": "d7a1ed8f3f178f5132ec8363e46489d31038ace9f82e7810a84049e2dd4f8e3a",
       "currentHash": "d7a1ed8f3f178f5132ec8363e46489d31038ace9f82e7810a84049e2dd4f8e3a",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.647f54c198477ecf0834",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cu",
+      "surface": "chemistry",
+      "targetId": "element-name:Cu",
+      "action": "add-source",
+      "basisHash": "84a2d66f286e4818877d8191032dd1e1b2f80c4b3daebee1ba98bdfb93a44a82",
+      "currentHash": "84a2d66f286e4818877d8191032dd1e1b2f80c4b3daebee1ba98bdfb93a44a82",
       "affectedFiles": [
         "content-src/locales/uz-latn/name-provenance.json"
       ],
@@ -1731,6 +3013,93 @@
       "status": "OPEN"
     },
     {
+      "id": "task.673816866e6699fcb2a9",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Pu",
+      "surface": "chemistry",
+      "targetId": "element-name:Pu",
+      "action": "add-source",
+      "basisHash": "ec4cc61c023de39404fc12d6eb313d6aabf3cf95bc8f468f4a86e35f5227e558",
+      "currentHash": "ec4cc61c023de39404fc12d6eb313d6aabf3cf95bc8f468f4a86e35f5227e558",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.688096458b4df2200ac8",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Db",
+      "surface": "chemistry",
+      "targetId": "element-name:Db",
+      "action": "add-source",
+      "basisHash": "208657d27c740ac9bebf125ba139f29814cbeccb0e00c42e49aa4bda1bb511ef",
+      "currentHash": "208657d27c740ac9bebf125ba139f29814cbeccb0e00c42e49aa4bda1bb511ef",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.69c1065bac4084faaaf5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Po",
+      "surface": "chemistry",
+      "targetId": "element-name:Po",
+      "action": "add-source",
+      "basisHash": "4fd13453661098c83336a91ffbdef8bfd07d88f81b29bce10b4e9ea59c673892",
+      "currentHash": "4fd13453661098c83336a91ffbdef8bfd07d88f81b29bce10b4e9ea59c673892",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.6baefd9fa1611ad5ef65",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.nacl.name",
       "surface": "chemistry",
@@ -1743,6 +3112,93 @@
       ],
       "affectedActivities": [
         "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6d740fc90dcec2d1da34",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Rb",
+      "surface": "chemistry",
+      "targetId": "element-name:Rb",
+      "action": "add-source",
+      "basisHash": "01db4c4539e22847a589b775e659d462e2a0bdae7f9b8ac13abca4f04eca9d05",
+      "currentHash": "01db4c4539e22847a589b775e659d462e2a0bdae7f9b8ac13abca4f04eca9d05",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6d7a41e469756c336585",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Hf",
+      "surface": "chemistry",
+      "targetId": "element-name:Hf",
+      "action": "add-source",
+      "basisHash": "121a127fb56e05707c66db1e78937e646a719d6f0ef986129dccc010759b9d2c",
+      "currentHash": "121a127fb56e05707c66db1e78937e646a719d6f0ef986129dccc010759b9d2c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.6e11d854b0617e4e1dd2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Tc",
+      "surface": "chemistry",
+      "targetId": "element-name:Tc",
+      "action": "add-source",
+      "basisHash": "afa2ff3bb10f9fac57c5dd5437db1e1dbd002113a5fd670bc7853d32bdfc3dd5",
+      "currentHash": "afa2ff3bb10f9fac57c5dd5437db1e1dbd002113a5fd670bc7853d32bdfc3dd5",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
       ],
       "reviewerDecision": null,
       "priority": "D",
@@ -1818,6 +3274,93 @@
       "status": "OPEN"
     },
     {
+      "id": "task.747245e284903614fc99",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Gd",
+      "surface": "chemistry",
+      "targetId": "element-name:Gd",
+      "action": "add-source",
+      "basisHash": "5a6a8302c4de61238e2feb08c823973d4bca6d368293523453ff49f701556e0c",
+      "currentHash": "5a6a8302c4de61238e2feb08c823973d4bca6d368293523453ff49f701556e0c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.7c50348c8dcbc97f32bb",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cn",
+      "surface": "chemistry",
+      "targetId": "element-name:Cn",
+      "action": "add-source",
+      "basisHash": "5a91f0bcdabf19d42cfea4821709460e2f2f63cca0407e0dc82adcc0b85cf8a6",
+      "currentHash": "5a91f0bcdabf19d42cfea4821709460e2f2f63cca0407e0dc82adcc0b85cf8a6",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.7c63228542a3dc6e5c31",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Sc",
+      "surface": "chemistry",
+      "targetId": "element-name:Sc",
+      "action": "add-source",
+      "basisHash": "5f2d6bcaa0ef93006c509ec9d238ed502859126d6f34071678ea926d88a2b9de",
+      "currentHash": "5f2d6bcaa0ef93006c509ec9d238ed502859126d6f34071678ea926d88a2b9de",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.7d0daf092ffc68f3853e",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.zncl2.name",
       "surface": "chemistry",
@@ -1847,6 +3390,180 @@
       "status": "OPEN"
     },
     {
+      "id": "task.7e2b8c0067b4039bb41f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ti",
+      "surface": "chemistry",
+      "targetId": "element-name:Ti",
+      "action": "add-source",
+      "basisHash": "c4d5984cc6faf86e21ba38f7cac9e25c120c7b509833795ef3678212027363e1",
+      "currentHash": "c4d5984cc6faf86e21ba38f7cac9e25c120c7b509833795ef3678212027363e1",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.807ae9a850361a0947d6",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Lv",
+      "surface": "chemistry",
+      "targetId": "element-name:Lv",
+      "action": "add-source",
+      "basisHash": "9eb4836844fad6e8f6925a1a36025af40f742d3ae8f2369707ebbdb8529b63c8",
+      "currentHash": "9eb4836844fad6e8f6925a1a36025af40f742d3ae8f2369707ebbdb8529b63c8",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.82834e431626701e0003",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Fl",
+      "surface": "chemistry",
+      "targetId": "element-name:Fl",
+      "action": "add-source",
+      "basisHash": "f93755b670b1a46952171cefca94c1e755e539708f5468d31038809b0dd94a74",
+      "currentHash": "f93755b670b1a46952171cefca94c1e755e539708f5468d31038809b0dd94a74",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.863aefe5dec6f00cd262",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ho",
+      "surface": "chemistry",
+      "targetId": "element-name:Ho",
+      "action": "add-source",
+      "basisHash": "9eb59601c99866542f13d4dac51ba510932e31279fd4895b8e63f5312d505929",
+      "currentHash": "9eb59601c99866542f13d4dac51ba510932e31279fd4895b8e63f5312d505929",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.86604f23926889619b9e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:V",
+      "surface": "chemistry",
+      "targetId": "element-name:V",
+      "action": "add-source",
+      "basisHash": "96e96bf1451af1dc2d1d1a3db99f72f9cc2bdd5673b33e8989768269c2d1a46b",
+      "currentHash": "96e96bf1451af1dc2d1d1a3db99f72f9cc2bdd5673b33e8989768269c2d1a46b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.866258f4f0fbd6045a0c",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Am",
+      "surface": "chemistry",
+      "targetId": "element-name:Am",
+      "action": "add-source",
+      "basisHash": "fbccd46db2f599d5bcbc618d4b46d5e62d2376f7b6076a8270dffc397b2ee2fe",
+      "currentHash": "fbccd46db2f599d5bcbc618d4b46d5e62d2376f7b6076a8270dffc397b2ee2fe",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.8ae08ddea05e3726c39d",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:K",
       "surface": "chemistry",
@@ -1854,6 +3571,325 @@
       "action": "add-source",
       "basisHash": "491986093b97bb15d4988e8e63b8bc24b24d54caeaaf3b1cb94f1215b93a2380",
       "currentHash": "491986093b97bb15d4988e8e63b8bc24b24d54caeaaf3b1cb94f1215b93a2380",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8ddb97688014ddd4546d",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Rg",
+      "surface": "chemistry",
+      "targetId": "element-name:Rg",
+      "action": "add-source",
+      "basisHash": "270db0e5ca5fac4d2afec5a2d469950572006bbbaa896a9c4c733bb15361fa21",
+      "currentHash": "270db0e5ca5fac4d2afec5a2d469950572006bbbaa896a9c4c733bb15361fa21",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8e2d981802ac2ecb9de5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:No",
+      "surface": "chemistry",
+      "targetId": "element-name:No",
+      "action": "add-source",
+      "basisHash": "1816605bf405d52e444e1ac43957738e28e7a51f305d021060efbc66957915b6",
+      "currentHash": "1816605bf405d52e444e1ac43957738e28e7a51f305d021060efbc66957915b6",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8f943f83ba28592da779",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Th",
+      "surface": "chemistry",
+      "targetId": "element-name:Th",
+      "action": "add-source",
+      "basisHash": "81a27b2936f83b806b169542a437a5e2a1ea61eccbfa34d32f44b8b566021781",
+      "currentHash": "81a27b2936f83b806b169542a437a5e2a1ea61eccbfa34d32f44b8b566021781",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.9030ed357f0b0d837e92",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ba",
+      "surface": "chemistry",
+      "targetId": "element-name:Ba",
+      "action": "add-source",
+      "basisHash": "6cabeab4a94ea629f93dc655916127af56510e272e73926ac36ed6cd046a9683",
+      "currentHash": "6cabeab4a94ea629f93dc655916127af56510e272e73926ac36ed6cd046a9683",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.90e3f0ee3d1be4d0a6e5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:At",
+      "surface": "chemistry",
+      "targetId": "element-name:At",
+      "action": "add-source",
+      "basisHash": "d49d181670f955248b8ed34fc151be29b8d46bc3018c678ed57e4f9615a6b2ba",
+      "currentHash": "d49d181670f955248b8ed34fc151be29b8d46bc3018c678ed57e4f9615a6b2ba",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.92aef2c463b9001f2fc0",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Sb",
+      "surface": "chemistry",
+      "targetId": "element-name:Sb",
+      "action": "add-source",
+      "basisHash": "b2c5eb997192bc40c9d5e740983de56b6ec9abd608f40183388481047da7c885",
+      "currentHash": "b2c5eb997192bc40c9d5e740983de56b6ec9abd608f40183388481047da7c885",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.92d52d21e0aa33d019b2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Os",
+      "surface": "chemistry",
+      "targetId": "element-name:Os",
+      "action": "add-source",
+      "basisHash": "68136ef3cdd141d5998ddc0f2bf84066195f27bb17459bc8835257faefe2f98d",
+      "currentHash": "68136ef3cdd141d5998ddc0f2bf84066195f27bb17459bc8835257faefe2f98d",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.93035ba41cc14fb5f195",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Pd",
+      "surface": "chemistry",
+      "targetId": "element-name:Pd",
+      "action": "add-source",
+      "basisHash": "f2b91bdf6fd28acd983dfce6e991df0f9fdeb518bd64a2a3f295bc66b2519ca6",
+      "currentHash": "f2b91bdf6fd28acd983dfce6e991df0f9fdeb518bd64a2a3f295bc66b2519ca6",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.93325f34a70b420a0bf4",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Sg",
+      "surface": "chemistry",
+      "targetId": "element-name:Sg",
+      "action": "add-source",
+      "basisHash": "c4c37d702d66de24d9a09d07ada642d6c01c296b1a81b1dc71b7c39c3b839d99",
+      "currentHash": "c4c37d702d66de24d9a09d07ada642d6c01c296b1a81b1dc71b7c39c3b839d99",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.979494ffff228b829a9f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ru",
+      "surface": "chemistry",
+      "targetId": "element-name:Ru",
+      "action": "add-source",
+      "basisHash": "8b7d9f81d495ab72f0702ee73bd85341d2cbcb2d40e05252a17b2379fca76522",
+      "currentHash": "8b7d9f81d495ab72f0702ee73bd85341d2cbcb2d40e05252a17b2379fca76522",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.9b7bda0c73738f1f0bd5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ts",
+      "surface": "chemistry",
+      "targetId": "element-name:Ts",
+      "action": "add-source",
+      "basisHash": "0f03bb0b6b18d3d4bbc68086a5205d73b4a9a3553b2ec0046220c748accb3abf",
+      "currentHash": "0f03bb0b6b18d3d4bbc68086a5205d73b4a9a3553b2ec0046220c748accb3abf",
       "affectedFiles": [
         "content-src/locales/uz-latn/name-provenance.json"
       ],
@@ -1905,6 +3941,238 @@
       "status": "OPEN"
     },
     {
+      "id": "task.9e230fa1811cd7a7d190",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ge",
+      "surface": "chemistry",
+      "targetId": "element-name:Ge",
+      "action": "add-source",
+      "basisHash": "e9697a3417fbd25d20bdafb8594ee03e9ea810663da7a9dd6def50f615aa841f",
+      "currentHash": "e9697a3417fbd25d20bdafb8594ee03e9ea810663da7a9dd6def50f615aa841f",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.a0760a00090c41516276",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Mn",
+      "surface": "chemistry",
+      "targetId": "element-name:Mn",
+      "action": "add-source",
+      "basisHash": "45bf10317e7ac9d0a9865a724511c76ecef07c1fb21453c99b2023c17049d0a2",
+      "currentHash": "45bf10317e7ac9d0a9865a724511c76ecef07c1fb21453c99b2023c17049d0a2",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.a1f5623827f6aa7c1181",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ga",
+      "surface": "chemistry",
+      "targetId": "element-name:Ga",
+      "action": "add-source",
+      "basisHash": "e1c72439b45365f8790a07e4641f08f585729839cb2d4c732b89a7b4ab901eaf",
+      "currentHash": "e1c72439b45365f8790a07e4641f08f585729839cb2d4c732b89a7b4ab901eaf",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.a7497ed00aa451c505e5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Pb",
+      "surface": "chemistry",
+      "targetId": "element-name:Pb",
+      "action": "add-source",
+      "basisHash": "86a6db5fa29e2801f1fad838b902bd71653f6388b511aa91751ffea5ef14089d",
+      "currentHash": "86a6db5fa29e2801f1fad838b902bd71653f6388b511aa91751ffea5ef14089d",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.aa5018abd6e420c975f7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ce",
+      "surface": "chemistry",
+      "targetId": "element-name:Ce",
+      "action": "add-source",
+      "basisHash": "ea399a4a3a933b5332bb24f2174f5d918b4265744c8473f417bf44193a04a0f6",
+      "currentHash": "ea399a4a3a933b5332bb24f2174f5d918b4265744c8473f417bf44193a04a0f6",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.aa9627a54da267018444",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Tl",
+      "surface": "chemistry",
+      "targetId": "element-name:Tl",
+      "action": "add-source",
+      "basisHash": "1870b0cccf1f7afb269801ffac656467fa467160d78aca849dc5b490e6cdb448",
+      "currentHash": "1870b0cccf1f7afb269801ffac656467fa467160d78aca849dc5b490e6cdb448",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.ab2515ba613580a64fa5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ag",
+      "surface": "chemistry",
+      "targetId": "element-name:Ag",
+      "action": "add-source",
+      "basisHash": "6fd80e7985f01740845b3a01b751d99dbb66cedabdc41507b78aad0b92a178fa",
+      "currentHash": "6fd80e7985f01740845b3a01b751d99dbb66cedabdc41507b78aad0b92a178fa",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.ab9d99dc5dc3016ec62d",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Y",
+      "surface": "chemistry",
+      "targetId": "element-name:Y",
+      "action": "add-source",
+      "basisHash": "1178c78f14c0f94a1e82292bf7955a4eda4a0217409d3943e0002ae0b99534f6",
+      "currentHash": "1178c78f14c0f94a1e82292bf7955a4eda4a0217409d3943e0002ae0b99534f6",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.ae96552667189954ed16",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:species-name:species.agno3.name",
       "surface": "chemistry",
@@ -1917,6 +4185,93 @@
       ],
       "affectedActivities": [
         "practice.experiment.8.1"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.afe98db8141d91f8c75a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Mc",
+      "surface": "chemistry",
+      "targetId": "element-name:Mc",
+      "action": "add-source",
+      "basisHash": "3dd6fc65f34d5214084424e98b5ceb6e4f36fa01fdfbdf5561a8d52edb55e0b6",
+      "currentHash": "3dd6fc65f34d5214084424e98b5ceb6e4f36fa01fdfbdf5561a8d52edb55e0b6",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b135f3de826fcc9a80e5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ds",
+      "surface": "chemistry",
+      "targetId": "element-name:Ds",
+      "action": "add-source",
+      "basisHash": "b57aa12490940795fcebc9db75f695df5a61ac84a401be5c615b0f2e2f05a10c",
+      "currentHash": "b57aa12490940795fcebc9db75f695df5a61ac84a401be5c615b0f2e2f05a10c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b215a6fd85681c836d47",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:La",
+      "surface": "chemistry",
+      "targetId": "element-name:La",
+      "action": "add-source",
+      "basisHash": "8e6cab56a7ea10f6a6ddc1bad856218f776328d36ee555ea14fbb9fa8f003e7c",
+      "currentHash": "8e6cab56a7ea10f6a6ddc1bad856218f776328d36ee555ea14fbb9fa8f003e7c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
       ],
       "reviewerDecision": null,
       "priority": "D",
@@ -1963,6 +4318,151 @@
       "status": "OPEN"
     },
     {
+      "id": "task.b49a0f8bbd17fa949f80",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Lu",
+      "surface": "chemistry",
+      "targetId": "element-name:Lu",
+      "action": "add-source",
+      "basisHash": "ea4544298531a40c16965c73ef7784861d2bffa2bf296d1a9f4e57747a0b7472",
+      "currentHash": "ea4544298531a40c16965c73ef7784861d2bffa2bf296d1a9f4e57747a0b7472",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b4ad7aec4f08a4e61676",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ac",
+      "surface": "chemistry",
+      "targetId": "element-name:Ac",
+      "action": "add-source",
+      "basisHash": "9c9269de4a46a5bfc9f463a83d5eb4ef7b42bb04201495631acb64e7e137fb7a",
+      "currentHash": "9c9269de4a46a5bfc9f463a83d5eb4ef7b42bb04201495631acb64e7e137fb7a",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b74058cb39308e13abd7",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Fr",
+      "surface": "chemistry",
+      "targetId": "element-name:Fr",
+      "action": "add-source",
+      "basisHash": "18e27149610c91beec3a33ea564f81acf85f834c5af366ca9042c9c0803ee49b",
+      "currentHash": "18e27149610c91beec3a33ea564f81acf85f834c5af366ca9042c9c0803ee49b",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.b8c55cacc49066a96de5",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Mt",
+      "surface": "chemistry",
+      "targetId": "element-name:Mt",
+      "action": "add-source",
+      "basisHash": "e925b6f31f218b600d72282e6e3da4497eba2071ac7df00ed6aa00c04bce0812",
+      "currentHash": "e925b6f31f218b600d72282e6e3da4497eba2071ac7df00ed6aa00c04bce0812",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.bc623345c8a729fa6c4c",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Co",
+      "surface": "chemistry",
+      "targetId": "element-name:Co",
+      "action": "add-source",
+      "basisHash": "b482aafb3ae5a46271c908d12c8db97ddea976c7c80113e2bd7bf88dcf832788",
+      "currentHash": "b482aafb3ae5a46271c908d12c8db97ddea976c7c80113e2bd7bf88dcf832788",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.c30f753c902ded24498d",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:C",
       "surface": "chemistry",
@@ -1970,6 +4470,35 @@
       "action": "add-source",
       "basisHash": "44fb91c396d661896129454afc1f1fb400ab9fdd2a2448b590ab1feb5142a718",
       "currentHash": "44fb91c396d661896129454afc1f1fb400ab9fdd2a2448b590ab1feb5142a718",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.c44e8793b181ed4d72f4",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cf",
+      "surface": "chemistry",
+      "targetId": "element-name:Cf",
+      "action": "add-source",
+      "basisHash": "5559b588730845c0273b1e9b1df99f4c1d33fc0401df3f6a722fd65bcc538b42",
+      "currentHash": "5559b588730845c0273b1e9b1df99f4c1d33fc0401df3f6a722fd65bcc538b42",
       "affectedFiles": [
         "content-src/locales/uz-latn/name-provenance.json"
       ],
@@ -2079,6 +4608,267 @@
       "status": "OPEN"
     },
     {
+      "id": "task.cc37d5a674f2376e6f5f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Se",
+      "surface": "chemistry",
+      "targetId": "element-name:Se",
+      "action": "add-source",
+      "basisHash": "475e91ff0ae477cbefba95d1d4823293e689b16a5a28544705a71d2f9e653ec1",
+      "currentHash": "475e91ff0ae477cbefba95d1d4823293e689b16a5a28544705a71d2f9e653ec1",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.d5f69088ad938e0e063a",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cs",
+      "surface": "chemistry",
+      "targetId": "element-name:Cs",
+      "action": "add-source",
+      "basisHash": "c444c7520561956812c9a9edc02c6f8be7a82dc61dae9627f0cf02ad89384d6f",
+      "currentHash": "c444c7520561956812c9a9edc02c6f8be7a82dc61dae9627f0cf02ad89384d6f",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.d8237ab169bd4416826e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Pt",
+      "surface": "chemistry",
+      "targetId": "element-name:Pt",
+      "action": "add-source",
+      "basisHash": "6e210bd21cad63153c6370a0c547e1911735829980a842a70f51feec942b4ae7",
+      "currentHash": "6e210bd21cad63153c6370a0c547e1911735829980a842a70f51feec942b4ae7",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.da9b306717f2de718920",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Nd",
+      "surface": "chemistry",
+      "targetId": "element-name:Nd",
+      "action": "add-source",
+      "basisHash": "df4dd727675b337cc56a5cda7440aa590b1b9995518272ebf45fcc1e1c6880bf",
+      "currentHash": "df4dd727675b337cc56a5cda7440aa590b1b9995518272ebf45fcc1e1c6880bf",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.dfad4468a57d724a0803",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Eu",
+      "surface": "chemistry",
+      "targetId": "element-name:Eu",
+      "action": "add-source",
+      "basisHash": "6babdf75ca7025ef7cfac5fccaeb8eed17ee50eec8775ca2a58e18275b56940d",
+      "currentHash": "6babdf75ca7025ef7cfac5fccaeb8eed17ee50eec8775ca2a58e18275b56940d",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.dfc04e58b132c510729e",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ra",
+      "surface": "chemistry",
+      "targetId": "element-name:Ra",
+      "action": "add-source",
+      "basisHash": "646948f9894c02e9a3840dc2bb0d5d7a3e313fb94ba0bf190fc83d6e23c2d437",
+      "currentHash": "646948f9894c02e9a3840dc2bb0d5d7a3e313fb94ba0bf190fc83d6e23c2d437",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e304064a06138547fe87",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:W",
+      "surface": "chemistry",
+      "targetId": "element-name:W",
+      "action": "add-source",
+      "basisHash": "c705517425d5c5d5f3f010cab4a5630130451a82fcbab7f1967e4c2ea47da25c",
+      "currentHash": "c705517425d5c5d5f3f010cab4a5630130451a82fcbab7f1967e4c2ea47da25c",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.e6958cc8e7abda468ba2",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Rf",
+      "surface": "chemistry",
+      "targetId": "element-name:Rf",
+      "action": "add-source",
+      "basisHash": "233e90d2dbce4789ae1b48bd824f2c802b27e108fb6fcd74f589e857a477f2df",
+      "currentHash": "233e90d2dbce4789ae1b48bd824f2c802b27e108fb6fcd74f589e857a477f2df",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.eec71418d3068b2ebe25",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:U",
+      "surface": "chemistry",
+      "targetId": "element-name:U",
+      "action": "add-source",
+      "basisHash": "4f0e99cc829194552c55bfddfaea60a3c52746b29e7b96f285df26ee3cdd9c17",
+      "currentHash": "4f0e99cc829194552c55bfddfaea60a3c52746b29e7b96f285df26ee3cdd9c17",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.f1e3d2b729a13113352a",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Cl",
       "surface": "chemistry",
@@ -2086,6 +4876,151 @@
       "action": "add-source",
       "basisHash": "1d25e8a924188e9960ea6f6773f8b4c646a801153e0c8c7b6d41ea799313d2ca",
       "currentHash": "1d25e8a924188e9960ea6f6773f8b4c646a801153e0c8c7b6d41ea799313d2ca",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f36698cb39fc1be652f4",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Ir",
+      "surface": "chemistry",
+      "targetId": "element-name:Ir",
+      "action": "add-source",
+      "basisHash": "fd9d96bce28f5e6f162b3841031dac6488528f04dccf2ac284bb1b4dd21ffcbc",
+      "currentHash": "fd9d96bce28f5e6f162b3841031dac6488528f04dccf2ac284bb1b4dd21ffcbc",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f4ca8ac842a025291e47",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Pa",
+      "surface": "chemistry",
+      "targetId": "element-name:Pa",
+      "action": "add-source",
+      "basisHash": "4af92f41d3886d16c5029f76eca7c6e87df4b4f916061eea14c0d5f313990685",
+      "currentHash": "4af92f41d3886d16c5029f76eca7c6e87df4b4f916061eea14c0d5f313990685",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f5bec9276879e0f58c1f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Hs",
+      "surface": "chemistry",
+      "targetId": "element-name:Hs",
+      "action": "add-source",
+      "basisHash": "991d22b203ab4d57591c904f28c52e4ee10f5090073328316f1ef1c8a5a783ca",
+      "currentHash": "991d22b203ab4d57591c904f28c52e4ee10f5090073328316f1ef1c8a5a783ca",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.f6df8cb6ad6568574035",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Rn",
+      "surface": "chemistry",
+      "targetId": "element-name:Rn",
+      "action": "add-source",
+      "basisHash": "b20d4b44d81df51d86328bd9e186573228cdf8d47458b9eb56963ee3f29667f1",
+      "currentHash": "b20d4b44d81df51d86328bd9e186573228cdf8d47458b9eb56963ee3f29667f1",
+      "affectedFiles": [
+        "content-src/locales/uz-latn/name-provenance.json"
+      ],
+      "affectedActivities": [
+        "practice.simulation.7.07.planned"
+      ],
+      "reviewerDecision": null,
+      "priority": "D",
+      "context": {
+        "claimKind": "display-translation",
+        "currentSources": [],
+        "currentCategories": [],
+        "acceptableCategories": [
+          "LOCALIZATION_GLOSSARY",
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.fe06b34fbf161d1af1b9",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:element-name:Xe",
+      "surface": "chemistry",
+      "targetId": "element-name:Xe",
+      "action": "add-source",
+      "basisHash": "3415236a90c307b13efdea4b1e3ce7ccd66517b454da7c80c05b9c1ab10e10f5",
+      "currentHash": "3415236a90c307b13efdea4b1e3ce7ccd66517b454da7c80c05b9c1ab10e10f5",
       "affectedFiles": [
         "content-src/locales/uz-latn/name-provenance.json"
       ],
@@ -2335,6 +5270,68 @@
       "status": "OPEN"
     },
     {
+      "id": "task.1f67a12f86208318cf99",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.fe-h2so4",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.fe-h2so4",
+      "action": "add-source",
+      "basisHash": "3f2c2cecb37a33ac6922cdbffb5aae7559575b06eb37ebfc6cb097abd3f2e845",
+      "currentHash": "3f2c2cecb37a33ac6922cdbffb5aae7559575b06eb37ebfc6cb097abd3f2e845",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.21ba4bf3ae2ea4ecd99d",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.al-h2so4",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.al-h2so4",
+      "action": "add-source",
+      "basisHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+      "currentHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.26392e34c3a9707a4210",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.s-combustion",
       "surface": "chemistry",
@@ -2389,37 +5386,6 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.school.solution-rules"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
-      "id": "task.360974ef9a625167292b",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuso4-na2s",
-      "surface": "chemistry",
-      "targetId": "reaction:rxn.cuso4-na2s",
-      "action": "add-source",
-      "basisHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-      "currentHash": "3de39a3c8cb7e9c84d7d1769627a8c58997ede4ce709d0a2c35542a767d4b13c",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -2581,37 +5547,6 @@
       "affectedActivities": [
         "practice.experiment.7.11"
       ],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
-      "id": "task.4da2a049b568335fe595",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.cuso4-na2s",
-      "surface": "chemistry",
-      "targetId": "observation:rxn.cuso4-na2s",
-      "action": "add-source",
-      "basisHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
-      "currentHash": "2eb20d73f80b846deb0c5fb879bfd406052a885031c058db45a5f8735ad1312c",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
       "reviewerDecision": null,
       "priority": "E",
       "context": {
@@ -2810,6 +5745,37 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.5d4a1cf11da5cc9339fc",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.caoh2-co2",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.caoh2-co2",
+      "action": "add-source",
+      "basisHash": "e1c21b33727d699faf48655ab158e687a6c0b81115fc4dfd4f9c7cc0c7c2dcf4",
+      "currentHash": "e1c21b33727d699faf48655ab158e687a6c0b81115fc4dfd4f9c7cc0c7c2dcf4",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -3320,6 +6286,68 @@
       "status": "OPEN"
     },
     {
+      "id": "task.8b31f1792f6b352293fc",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.al-hcl",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.al-hcl",
+      "action": "add-source",
+      "basisHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+      "currentHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8de6a1be55de573ca976",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.al-hcl",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.al-hcl",
+      "action": "add-source",
+      "basisHash": "63d4a8d6a3f6ec318cf87c1a8551b28c7edbf5402af73976eaf603804913edb5",
+      "currentHash": "63d4a8d6a3f6ec318cf87c1a8551b28c7edbf5402af73976eaf603804913edb5",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
       "id": "task.8ef49205fdf34369ba89",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:HCl",
       "surface": "chemistry",
@@ -3344,6 +6372,37 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.8f6f79618c978e7cbd9f",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.fe-h2so4",
+      "surface": "chemistry",
+      "targetId": "observation:rxn.fe-h2so4",
+      "action": "add-source",
+      "basisHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+      "currentHash": "3d139f00c16d8fc079111baf00fee1439fcc25c0d145e76c0e6b1642047f641c",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -3410,6 +6469,37 @@
         "claimKind": "chemistry",
         "currentSources": [
           "src.school.solution-rules"
+        ],
+        "currentCategories": [
+          "INTERNAL_PROPOSAL"
+        ],
+        "acceptableCategories": [
+          "CURRICULUM",
+          "TEXTBOOK",
+          "OFFICIAL_STANDARD",
+          "AUTHORITATIVE_REFERENCE"
+        ]
+      },
+      "status": "OPEN"
+    },
+    {
+      "id": "task.9f0b41b2c64a77248203",
+      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.al-h2so4",
+      "surface": "chemistry",
+      "targetId": "reaction:rxn.al-h2so4",
+      "action": "add-source",
+      "basisHash": "a48975a421fb23bf37ecc7e6307f1f2cbd2650a618d48a180755724df17e9055",
+      "currentHash": "a48975a421fb23bf37ecc7e6307f1f2cbd2650a618d48a180755724df17e9055",
+      "affectedFiles": [
+        "content-src/chemistry/reactions.json"
+      ],
+      "affectedActivities": [],
+      "reviewerDecision": null,
+      "priority": "E",
+      "context": {
+        "claimKind": "chemistry",
+        "currentSources": [
+          "src.expert-review.tt-4.2-stage5"
         ],
         "currentCategories": [
           "INTERNAL_PROPOSAL"
@@ -3979,37 +7069,6 @@
       "status": "OPEN"
     },
     {
-      "id": "task.dd843d2c234bcf4cd3fc",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.p-combustion",
-      "surface": "chemistry",
-      "targetId": "reaction:rxn.p-combustion",
-      "action": "add-source",
-      "basisHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
-      "currentHash": "b5159c653bd640dab67c8cffea84137a937e5e686d6a651f5ca25c99cc479144",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
       "id": "task.e3576b2e1c2a0c9c5c8f",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.c-combustion",
       "surface": "chemistry",
@@ -4108,37 +7167,6 @@
       "status": "OPEN"
     },
     {
-      "id": "task.e8f4f3e50ea8bc4c56e0",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:reaction:rxn.na2s-hcl",
-      "surface": "chemistry",
-      "targetId": "reaction:rxn.na2s-hcl",
-      "action": "add-source",
-      "basisHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
-      "currentHash": "9d0e3cefade852bcc45f33b026225b883ab3f635e4bf602f11c3d46c11529979",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
       "id": "task.eca8051680a2fcba542a",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:dissociation:BaCl2",
       "surface": "chemistry",
@@ -4170,37 +7198,6 @@
       "status": "OPEN"
     },
     {
-      "id": "task.ee19b932673b404cbf26",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.na2s-hcl",
-      "surface": "chemistry",
-      "targetId": "observation:rxn.na2s-hcl",
-      "action": "add-source",
-      "basisHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
-      "currentHash": "c82e233fa4f200dee39d7ec22e5b80819584137555cb4d3a464a9ed42cdc427d",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
       "id": "task.ef4157f39776a16a0e36",
       "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.nh3-hcl",
       "surface": "chemistry",
@@ -4214,37 +7211,6 @@
       "affectedActivities": [
         "practice.experiment.8.14"
       ],
-      "reviewerDecision": null,
-      "priority": "E",
-      "context": {
-        "claimKind": "chemistry",
-        "currentSources": [
-          "src.beta1.migration"
-        ],
-        "currentCategories": [
-          "INTERNAL_PROPOSAL"
-        ],
-        "acceptableCategories": [
-          "CURRICULUM",
-          "TEXTBOOK",
-          "OFFICIAL_STANDARD",
-          "AUTHORITATIVE_REFERENCE"
-        ]
-      },
-      "status": "OPEN"
-    },
-    {
-      "id": "task.f00dbed6478543b8106a",
-      "sourceDecisionId": "policy:SOURCE_NOT_ACCEPTABLE:observation:rxn.p-combustion",
-      "surface": "chemistry",
-      "targetId": "observation:rxn.p-combustion",
-      "action": "add-source",
-      "basisHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
-      "currentHash": "5ea890c5d64ec841ee22856efdfc1bbdf72ac02288120319854f1ea7b7137d2f",
-      "affectedFiles": [
-        "content-src/chemistry/reactions.json"
-      ],
-      "affectedActivities": [],
       "reviewerDecision": null,
       "priority": "E",
       "context": {

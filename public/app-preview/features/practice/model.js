@@ -37,6 +37,8 @@
                    
                                                                                   
                              
+                                                                                                                           
+                                  
     
  
 
@@ -61,6 +63,8 @@ export function buildPracticePageModel(input
                    
                  
                            
+                                                                              
+                                
                                    
                                    
                                   
@@ -100,6 +104,7 @@ export function buildPracticePageModel(input
       equilibrium:input.equilibrium===undefined?undefined:structuredClone(input.equilibrium),
       species:input.species===undefined?undefined:structuredClone(input.species),
       conditionVocabulary:input.conditionVocabulary===undefined?undefined:structuredClone(input.conditionVocabulary),
+      ...(input.reviewedReactionIds?{reviewedReactionIds:[...input.reviewedReactionIds]}:{}),
     },
   };
 }

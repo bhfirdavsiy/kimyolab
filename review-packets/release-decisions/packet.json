@@ -320,19 +320,25 @@
       "dependencies": {
         "chemistryAssertions": [
           "condition-term:dilute acid",
+          "condition:rxn.fe-hcl",
           "condition:rxn.mg-h2so4",
+          "condition:rxn.mg-hcl",
           "dissociation:H2SO4",
           "dissociation:HCl",
           "dissociation:ZnCl2",
+          "observation:rxn.fe-hcl",
           "observation:rxn.mg-h2so4",
+          "observation:rxn.mg-hcl",
           "observation:rxn.zn-hcl",
+          "reaction:rxn.fe-hcl",
           "reaction:rxn.mg-h2so4",
+          "reaction:rxn.mg-hcl",
           "reaction:rxn.zn-hcl"
         ],
         "staleChemistryAssertions": []
       },
       "currentLifecycle": "planned",
-      "basisHash": "c10c74802eff1e9c5bb09f9bb9bf659df8bf76deab0c9b826890532e91ac196c",
+      "basisHash": "2a3bb92c4736e14353987d0b3b17ba80868a7268b01cc4b1aba888d30ebbc428",
       "eligibility": {
         "status": "NOT_ELIGIBLE",
         "reasons": [

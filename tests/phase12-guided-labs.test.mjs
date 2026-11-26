@@ -72,7 +72,8 @@ test('reaction-grounded guided steps use only curated Reaction KB observation re
     }
     assert.deepEqual(step.observation,expected[0]);
   }
-  assert.equal(grounded.length,19);
+  // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): two new steps grounded in rxn.mg-hcl and rxn.fe-hcl (19 → 21)
+  assert.equal(grounded.length,21);
   assert.deepEqual(configs['practice.experiment.8.8'].scenario.steps[2].reactionIds,['rxn.agno3-nacl','rxn.agno3-nabr','rxn.agno3-nai']);
   assert.equal(configs['practice.experiment.8.8'].scenario.steps[2].observations.length,3);
 });

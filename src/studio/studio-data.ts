@@ -10,7 +10,7 @@ export interface StudioData {
   /** learning units, shown to the author by class and topic name only */
   units:Array<{id:string;grade:number;title:string;chapter:string}>;
   /** topics whose lab instruction exists in the canonical content, with the activity it lives in */
-  labSources:Array<{learningUnitId:string;practiceActivityId:string;goal:string;legacy:{equipment:string;materials:string;safety:string;steps:string[]};profiled:boolean}>;
+  labSources:Array<{learningUnitId:string;practiceActivityId:string;title?:string;goal:string;legacy:{equipment:string;materials:string;safety:string;steps:string[]};profiled:boolean}>;
   /** the engine data the capability registry is derived from (the same files the learner pack ships) */
   registryData:RegistryData;
   /** content-src/studio/content-studio.uz-latn.json */

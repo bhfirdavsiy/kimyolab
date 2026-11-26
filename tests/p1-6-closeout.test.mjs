@@ -46,6 +46,9 @@ test('condition policy is explicit: no caller gets enforcement (or its absence) 
     // P2.11: the guided lab runtime evaluates substances in a container under the ACTUAL lab conditions (ADR-P2-012);
     // it states the enforcing policy explicitly, like ionic mixing
     'src/domain/lab/lab-runtime.ts':"conditionPolicy:'require-record-conditions'",
+    // P2.14 changed this matrix: the Reaction Explorer (ADR-P2-015) is a new production caller. It matches under the
+    // conditions the learner STATES, so it states the enforcing policy explicitly — nothing unstated is assumed
+    'src/features/chemistry-knowledge/explorer.ts':"conditionPolicy:'require-record-conditions'",
   };
   for(const [file,policy] of Object.entries(callers)){
     const src=fs.readFileSync(path.join(root,file),'utf8');
@@ -105,13 +108,18 @@ test('three classes: MODELED_REACTION / MODELED_NO_REACTION / NOT_MODELED — in
   assert.equal(classifyMatch(q('NaCl','NaNO3')),'MODELED_NO_REACTION');
   assert.equal(classifyMatch(q('AgNO3','NaNO3')),'NOT_MODELED');
   assert.equal(classifyMatch(q('NaCl','H2SO4')),'NOT_MODELED');
-  assert.equal(REACTIONS.filter(r=>r.reactionType===NO_REACTION_TYPE).length,0,'KNOWN CONTENT GAP: the production KB has no explicit no-reaction record');
-  const d={species:SpeciesRegistry.from(SPECIES),matcher:m2,ionic:IonicEngine.from({reactions:[...REACTIONS,fixture],rules:RULES})};
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions); the known content gap is closed by that one record
+  assert.deepEqual(REACTIONS.filter(r=>r.reactionType===NO_REACTION_TYPE).map(r=>r.id),['rxn.cu-hcl']);
+  // TT 4.2.6 (2026-11-23): ionic mixing shows a no-reaction record only once it is reviewed; the fixture is passed as
+  // reviewed here so the three renderer classes stay exercised, and the unreviewed case is checked below
+  const d={species:SpeciesRegistry.from(SPECIES),matcher:m2,ionic:IonicEngine.from({reactions:[...REACTIONS,fixture],rules:RULES}),reviewedReactionIds:new Set(['rxn.fixture.no-reaction'])};
   const st=(actions)=>evaluateIonicMixing(d,{shelf:CONFIG.reagentShelf,targetReactionId:CONFIG.reactionId,actions});
   const states=[['species.agno3','species.nacl'],['species.nacl','species.nano3'],['species.agno3','species.nano3']].map(([a,b])=>toIonicPrecipitationRendererModel({finalState:{ionic:st(pair(a,b))},evidence:[]}));
   assert.deepEqual(states.map(s=>s.reactionState),['modeled-reaction','modeled-no-reaction','not-modeled']);
   assert.notEqual(states[1].observation.text,states[2].observation.text);
   assert.doesNotMatch(states[2].observation.text,/reaksiya bormaydi \(/,'NOT_MODELED is never rendered as "no reaction"');
+  const unreviewed=evaluateIonicMixing({...d,reviewedReactionIds:new Set()},{shelf:CONFIG.reagentShelf,targetReactionId:CONFIG.reactionId,actions:pair('species.nacl','species.nano3')});
+  assert.equal(toIonicPrecipitationRendererModel({finalState:{ionic:unreviewed},evidence:[]}).reactionState,'not-modeled','an unreviewed no-reaction record is never shown as "no reaction"');
 });
 
 test('net-ionic comparator corpus: no false positives, no false negatives',()=>{

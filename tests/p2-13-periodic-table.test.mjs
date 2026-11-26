@@ -30,7 +30,8 @@ const REG=parseSourceRegistry(json('content-src/source-registry.json')).registry
 // decision — used to exercise the governance mechanics, not to claim anything about real chemistry
 const H=(c)=>c.repeat(64);
 const FIX_REGISTRY={schema:'kimyolab.source-registry.v1',sources:[...json('content-src/source-registry.json').sources,
-  {id:'src.test.accepted',category:'AUTHORITATIVE_REFERENCE',title:'Test fixture reference',classification:'HUMAN_ACCEPTED',acceptedBy:'Test Reviewer',acceptedAt:'2026-01-01T00:00:00.000Z',reviewedHash:H('a')},
+  // TT 4.2.4: an eligible source now also needs complete bibliography (fixture values, not a real source)
+  {id:'src.test.accepted',category:'AUTHORITATIVE_REFERENCE',title:'Test fixture reference',classification:'HUMAN_ACCEPTED',acceptedBy:'Test Reviewer',acceptedAt:'2026-01-01T00:00:00.000Z',reviewedHash:H('a'),authority:'Fixture publisher',edition:'1',bibliographic:{authors:['Fixture Author'],isbn:'fixture-isbn'},license:'fixture-licence',effectiveDate:'2026-01-01'},
   {id:'src.test.proposal',category:'INTERNAL_PROPOSAL',title:'Test fixture proposal',classification:'PROPOSED'}]};
 const FIX_REG=parseSourceRegistry(FIX_REGISTRY).registry;
 const META=(entries,ruleRefs=[])=>({schema:'kimyolab.element-metadata.v1',rules:{periodGroup:{sourceRefs:ruleRefs}},entries});
@@ -76,17 +77,22 @@ test('layout: the rule places cells only; display row is never a period; period/
 
 test('names: never invented, never copied from legacy; a missing name is the symbol',()=>{
   const names=json('content-src/locales/uz-latn/chemistry-elements.json');
-  assert.equal(Object.keys(names.names).length,20); assert.equal(names.reviewStatus,'pending');
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names)
+  assert.equal(Object.keys(names.names).length,118); assert.equal(names.reviewStatus,'pending');
   // the hub carries no names at all; the page reads the locale catalog, the search entry falls back to the symbol
   assert.ok(hub.elements.every(e=>!('name' in e)&&!('names' in e)));
   const entries=elementSearchEntries(hub,s=>names.names[s]??null,{kicker:'Element',description:z=>`Z ${z}`},'');
   assert.equal(entries.find(e=>e.href==='/periodic/Na').title,'Natriy (Na)');
-  assert.equal(entries.find(e=>e.href==='/periodic/Fe').title,'Fe');
-  assert.equal(entries.find(e=>e.href==='/periodic/Fe').searchText,'');
+  // a missing name is still the symbol (checked with a catalog without Fe, now that Fe has a pending name)
+  assert.equal(entries.find(e=>e.href==='/periodic/Fe').title,'Temir (Fe)');
+  assert.equal(elementSearchEntries(hub,s=>s==='Fe'?null:names.names[s]??null,{kicker:'Element',description:z=>`Z ${z}`},'').find(e=>e.href==='/periodic/Fe').title,'Fe');
   // legacy names are audited (20 match the catalog, 98 have no catalog source) and none was copied
   const p=legacyParity(root).summary.name;
   // P2.13 closeout: the locale catalog is pending review, so a matching legacy name is UNREVIEWED_MATCH, not canonical
-  assert.deepEqual([p.CANONICAL_MATCH,p.UNREVIEWED_MATCH,p.SOURCE_REQUIRED,p.CONFLICT],[0,20,98,0]);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names). They were written from the Uzbek school terminology, not copied: 113 equal the legacy page, 5 differ in spelling
+  // (As Margimush/Mishyak, Y, Lu, Hs, Nh) and are listed for the expert to decide
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): the expert decided the spelling of the 5 conflicts — Y, Lu, Hs approved as written; As → Mishyak and Nh → Nihoniy (change_required, applied), which now equal the legacy page (113 → 115 matches, 5 → 3 conflicts)
+  assert.deepEqual([p.CANONICAL_MATCH,p.UNREVIEWED_MATCH,p.SOURCE_REQUIRED,p.CONFLICT],[0,115,0,3]);
 });
 
 test('electron configuration: computed only inside the engine range; known gaps and beyond are unavailable',()=>{
@@ -143,8 +149,10 @@ test('route, deep link and feature flag: /periodic and /periodic/<symbol>; off b
   assert.deepEqual(parseAppRoute('/periodic/Xx'),{name:'periodic',symbol:'Xx'});      // the page shows a notice
   assert.equal(parseAppRoute('/periodic/na').name,'not-found');
   assert.equal(parseAppRoute('/periodic/Na/x').name,'not-found');
-  assert.equal(FEATURE_FLAGS.periodicTableV1.default,false);
-  assert.equal(isFeatureEnabled('periodicTableV1',new URLSearchParams('')),false);
+  // owner decision 2026-11-23 ("Mendeleyev jadvali … ko'rinadigan joyga chiqar"): the flag is ON by default and the
+  // header links /periodic; the flag check in the route stays, so it can be switched off again in one place
+  assert.equal(FEATURE_FLAGS.periodicTableV1.default,true);
+  assert.equal(isFeatureEnabled('periodicTableV1',new URLSearchParams('')),true);
   assert.equal(isFeatureEnabled('periodicTableV1',new URLSearchParams('ff=periodicTableV1')),true);
   const boot=read('src/app/bootstrap.ts');
   const block=boot.slice(boot.indexOf("route.name==='periodic'"),boot.indexOf('renderNotFound(main);\n}'));
@@ -182,7 +190,8 @@ test('filters and search: derived from the hub; elements match by Z, symbol and 
   assert.equal(searchStudentContent('Na',index)[0].href,'/periodic/Na?ff=periodicTableV1');
   assert.equal(searchStudentContent('kislorod',index)[0].href,'/periodic/O?ff=periodicTableV1');
   assert.equal(searchStudentContent('26',index)[0].href,'/periodic/Fe?ff=periodicTableV1');
-  assert.equal(searchStudentContent('Fe',index)[0].title,'Fe');
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names)
+  assert.equal(searchStudentContent('Fe',index)[0].title,'Temir (Fe)');
   // a word that is not an element name never brings element results
   assert.ok(!searchStudentContent('alanga',index).some(r=>r.kind==='element'));
 });
@@ -203,7 +212,8 @@ test('reports: generator-equal; coverage dimensions separate; statuses from the 
   assert.deepEqual(Object.keys(out).sort(),Object.values(PERIODIC_REPORTS).sort());
   const r=JSON.parse(out[PERIODIC_REPORTS.readiness]);
   assert.equal(r.identity.elements,118); assert.equal(r.coverage.canonicalIdentity,118);
-  assert.equal(r.coverage.localizedNames,20); assert.equal(r.coverage.reviewedLocalizedNames,0); assert.equal(r.coverage.effectiveHumanReviewedMetadata,0); assert.equal(r.coverage.humanReviewedAuthoredRelations,0);
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names)
+  assert.equal(r.coverage.localizedNames,118); assert.equal(r.coverage.reviewedLocalizedNames,0); assert.equal(r.coverage.effectiveHumanReviewedMetadata,0); assert.equal(r.coverage.humanReviewedAuthoredRelations,0);
   assert.ok(!('percent' in r.coverage)&&!JSON.stringify(r.coverage).includes('%'),'no merged percentage');
   assert.deepEqual([r.formalMetrics.learningProduct,r.formalMetrics.overall],[12.189,47.313]);
   const parity=JSON.parse(out[PERIODIC_REPORTS.parity]);
@@ -307,5 +317,12 @@ test('closeout 10–13: the repository state fabricates nothing; identity, e-con
   assert.ok(h.elements.slice(36).every(e=>e.electronConfiguration.status==='GAP'));
   // 13. formula-derived participation and explicit chains unchanged
   const rel=JSON.parse(periodicOutputs(root)[PERIODIC_REPORTS.relationships]);
-  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[261,154,19,16]);
+  // TT 4.2 expert review (2026-11-04): three reaction records were removed, so formula-derived element ↔ reaction links 261 → 251
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99): formula-derived links 251 → 328; Hg now has a substance (19 → 20)
+  // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + HCl and Fe + HCl steps: iron now appears in a lab (labs 16 → 17, explicit links 154 → 157)
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): Cu, H and Cl each gain one formula-derived link (328 → 331)
+  // Step 4 (b) of the owner's sequence (2026-11-23): 8.8 (halide tests) became a profiled lab, so one more explicit
+  // element ↔ lab link (157 → 158)
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): their formulas add formula-derived element links (331 → 358)
+  assert.deepEqual([rel.formulaDerived,rel.explicit,rel.elementsWith.substances,rel.elementsWith.labs],[358,158,20,17]);
 });

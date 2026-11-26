@@ -4,29 +4,36 @@
 
 ## Holat
 
-- Assertion’lar: **134** — approved: 0, pending: 134, stale: 0, rejected: 0, change_required: 0
-- Gate: **PENDING** (FAIL: 0, PENDING: 292)
+- Assertion’lar: **287** — approved: 0, pending: 287, stale: 0, rejected: 0, change_required: 0
+- Gate: **PENDING** (FAIL: 0, PENDING: 572)
 - Har assertion’ning hash’i o‘zgarsa, eski qaror **stale** bo‘ladi va hisobga olinmaydi.
 
 ## Kategoriyalar
 
 | Kategoriya | Soni | Review talab (flag) |
 |---|---|---|
-| reaction | 28 | 0 |
-| no-reaction | 0 | 0 |
-| condition | 20 | 0 |
-| observation | 28 | 6 |
+| reaction | 47 | 0 |
+| no-reaction | 1 | 0 |
+| condition | 35 | 0 |
+| observation | 48 | 13 |
 | solubility | 20 | 0 |
 | hydrolysis | 4 | 0 |
 | indicator | 3 | 0 |
-| species-name | 30 | 0 |
+| species-name | 128 | 0 |
 | electrolysis | 1 | 0 |
 
 ## Alohida e’tibor (CHEMISTRY_REVIEW_REQUIRED)
 
 - `observation:rxn.br2-ki` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
+- `observation:rxn.caoh2-co2` — OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid
 - `observation:rxn.cl2-kbr` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
+- `observation:rxn.co-combustion` — OBSERVATION_MISSING
 - `observation:rxn.h2-combustion` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
+- `observation:rxn.koh-hcl` — OBSERVATION_MISSING
+- `observation:rxn.koh-hno3` — OBSERVATION_MISSING
+- `observation:rxn.mg-combustion` — OBSERVATION_MISSING
+- `observation:rxn.mgo-water` — OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid
+- `observation:rxn.na-cl2` — OBSERVATION_MISSING
 - `observation:rxn.nacl-h2so4` — OBSERVATION_PRODUCT_MISMATCH: gas observed but no product is a gas
 - `observation:rxn.naoh-hcl` — OBSERVATION_NONSPECIFIC: colour change without a stated colour
 - `observation:rxn.znoh2-hcl` — OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid

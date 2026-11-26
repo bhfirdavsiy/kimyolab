@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T04:33:39.664Z",
+  "generatedAt": "2026-11-23T05:41:17.835Z",
   "classification": "engineering-audit-not-expert-approval",
   "coverageTargetVersion": "1.0.0-rc.1",
   "summary": {
@@ -7,8 +7,8 @@
     "proceduralGuided": 8,
     "chemistryBaselined": 19,
     "chemistryBaselineMissing": 0,
-    "chemistryGroundedSteps": 47,
-    "reactionGroundedSteps": 19,
+    "chemistryGroundedSteps": 49,
+    "reactionGroundedSteps": 21,
     "modelGroundedSteps": 30,
     "chemistryTargetSteps": 47,
     "chemistryTargetGrounded": 47,
@@ -77,8 +77,8 @@
       "grade": 7,
       "status": "CHEMISTRY_BASELINED_REACTION",
       "reason": "At least one authored chemistry step is grounded in curated Reaction KB evidence; deeper step coverage can continue without inventing chemistry.",
-      "groundedSteps": 3,
-      "reactionGroundedSteps": 2,
+      "groundedSteps": 5,
+      "reactionGroundedSteps": 4,
       "modelGroundedSteps": 1,
       "safety": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin."
     },

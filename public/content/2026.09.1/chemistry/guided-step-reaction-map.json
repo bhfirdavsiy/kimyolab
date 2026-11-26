@@ -7,7 +7,9 @@
   },
   "practice.experiment.7.10": {
     "1": "rxn.mg-h2so4",
-    "2": "rxn.zn-hcl"
+    "2": "rxn.zn-hcl",
+    "4": "rxn.mg-hcl",
+    "5": "rxn.fe-hcl"
   },
   "practice.experiment.7.11": {
     "1": "rxn.cao-water",

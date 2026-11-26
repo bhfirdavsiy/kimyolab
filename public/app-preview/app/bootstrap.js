@@ -19,9 +19,15 @@ import {renderCurriculum} from '../features/curriculum/render.js';
 import {renderExternalLab} from '../features/labs/external-render.js';
 import {renderDynamicLab,renderDynamicLabUnavailable} from '../features/dynamic-lab/render.js';
 import {isFeatureEnabled} from './feature-flags.js';
+import {findScorm12Api,scormPackageConfig,Scorm12Session} from './scorm12.js';
 import {renderPeriodicTable} from '../features/periodic/render.js';
 import {elementSearchEntries} from '../features/periodic/model.js';
 import {createLocalizer} from '../features/localization/element-names.js';
+import {knowledgeDomain,reactionExplorerHref,reactionSearchEntries,substanceHref,substanceSearchEntries} from '../features/chemistry-knowledge/explorer.js';
+import {renderSubstancePassport} from '../features/chemistry-knowledge/passport.js';
+import {renderReactionExplorer} from '../features/chemistry-knowledge/explorer-render.js';
+import {createLabeler} from '../features/practice/form-question.js';
+import {el,link} from '../ui/components/dom.js';
 
 const mainElement=document.getElementById('app-main');
 if(!(mainElement instanceof HTMLElement)) throw new Error('APP_MAIN_MISSING');
@@ -39,6 +45,12 @@ function currentLocation(){ return host.currentLocation(); }
 function navigateInternal(href       ){ host.navigate(href); }
 /** the feature-flag part of the current query, kept on in-page links of a flagged page */
 function flagQuery(params                ){ const ff=params.getAll('ff'); return ff.length?`?${ff.map(v=>`ff=${encodeURIComponent(v)}`).join('&')}`:''; }
+/** P2.14: which knowledge pages exist on this request (their flags) */
+function knowledgeLinks(params                ){ return {query:flagQuery(params),periodic:isFeatureEnabled('periodicTableV1',params),passport:isFeatureEnabled('substancePassportV1',params),explorer:isFeatureEnabled('reactionExplorerV1',params)}; }
+/** P2.14: the knowledge pack and the browser-local canonical domain (registry, matcher) built from its records */
+async function loadKnowledge(){ const k=await client.loadChemistryKnowledge(); const localize=createLocalizer({elementNames:k.elementNames,speciesNames:k.speciesNames,interaction:k.interaction}); return {...k,...knowledgeDomain(k),localize}; }
+/** a content error's learner message, or the generic error page (no new literal) */
+function renderLoadError(error        ){ const m=contentErrorMessage(error,''); if(m) renderError(main,m); else renderError(main); }
 
 // static shell links (header navigation) and the brand logo resolve through the host as well
 for(const anchor of document.querySelectorAll                   ('a[data-kl-route]')) anchor.setAttribute('href',host.href(anchor.dataset.klRoute??'/'));
@@ -46,6 +58,12 @@ for(const image of document.querySelectorAll                  ('img[data-kl-asse
 
 // one learner sentence for "the activity could not be loaded" (classic practice page and dynamic lab)
 const ACTIVITY_LOAD_ERROR='Faoliyatni yuklab bo‘lmadi.';
+// SCORM 1.2 package (scripts/build-scorm.ts): the page is ONE lab, delivered as one SCO. The route is locked to that
+// lab, the site navigation is hidden, and the lab's progress goes to the LMS through scorm12.ts (never a score).
+const scorm=scormPackageConfig(globalThis);
+const scormHref=scorm?`/dynamic-lab/${scorm.activityId}`:null;
+let scormSession                         ;
+if(scorm) document.body.dataset.klScorm=scorm.standard;
 let activePractice                                 ;
 let activeAssessment                                 ;
 
@@ -54,10 +72,13 @@ async function renderCurrent(){
   if(activePractice){const previous=activePractice;activePractice=undefined;void progressService.leavePracticeSession(previous).catch(()=>undefined);}
   if(activeAssessment){progressService.leaveAssessment(activeAssessment);activeAssessment=undefined;}
   const active=currentLocation();
+  if(scormHref&&active.pathname!==scormHref){ navigateInternal(scormHref); return; }
+  // the packaged lab is rendered once per page; a bounced navigation must not wipe the learner's work
+  if(scormHref&&scormSession) return;
   const route=parseAppRoute(active.pathname);
   if(route.name==='home'){renderHome(main);return;}
   if(route.name==='curriculum'){renderLoading(main);try{renderCurriculum(main,await client.loadCurriculum());}catch(error){renderError(main,contentErrorMessage(error,'Mavzularni yuklab bo‘lmadi.'));}return;}
-  if(route.name==='labs'){renderLoading(main);try{renderLabs(main,await client.loadLabCatalog());}catch(error){renderError(main,contentErrorMessage(error,'Virtual laboratoriyalarni yuklab bo‘lmadi.'));}return;}
+  if(route.name==='labs'){renderLoading(main);try{const [catalog,dynamicIds]=await Promise.all([client.loadLabCatalog(),isFeatureEnabled('guidedDynamicLabV1',active.searchParams)?client.listDynamicLabActivityIds():Promise.resolve([]            )]);renderLabs(main,{...catalog,dynamicLabIds:new Set(dynamicIds)});}catch(error){renderError(main,contentErrorMessage(error,'Virtual laboratoriyalarni yuklab bo‘lmadi.'));}return;}
   if(route.name==='external-lab'){renderLoading(main);try{const binding=await client.getExternalLabBinding(route.bindingId);const lu=active.searchParams.get('lu')??binding.learningUnitIds[0];if(!binding.learningUnitIds.includes(lu))throw new Error('EXTERNAL_LAB_LEARNING_UNIT_MISMATCH');await renderExternalLab(main,binding,lu,progressService.storage);}catch(error){renderError(main,contentErrorMessage(error,'Tashqi laboratoriya integratsiyasini yuklab bo‘lmadi.'));}return;}
   if(route.name==='worksheet'){
     renderLoading(main);
@@ -72,7 +93,10 @@ async function renderCurrent(){
       const attemptSession=progressService.beginPracticeSession(page,practiceEngine);activePractice=attemptSession;
       let persistError        ;
       // P1.4 strangler seam: a rendererRequirement → RendererRegistry; otherwise the legacy practice renderer.
-      renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result(),retry:()=>{void renderCurrent();}},rendererRegistry,async()=>{if(persistError)throw persistError;});}
+      renderPracticePage(main,page,{apply:async(command)=>{const out=await progressService.applyPracticeCommand(attemptSession,command);persistError=out.persistError;return out.result;},current:()=>practiceEngine.result(),retry:()=>{void renderCurrent();}},rendererRegistry,async()=>{if(persistError)throw persistError;});
+      // owner decision 2026-11-23: where a guided dynamic lab exists for this experiment, the classic page offers it
+      if(page.type==='experiment'&&isFeatureEnabled('guidedDynamicLabV1',active.searchParams)){ void client.loadTopicLabProfile(page.id).then(profile=>{ if(!profile||currentLocation().pathname!==active.pathname) return; const t=createLabeler(createLocalizer(page.localization       )); const card=el('p',{className:'kl-notice kl-dlab-offer',attrs:{'data-dlab-offer':''}}); card.append(document.createTextNode(`${t.ui('ui.dlab-offer')} `),link(t.ui('ui.dlab-offer-open'),`/dynamic-lab/${encodeURIComponent(page.id)}`,'kl-button kl-button--primary')); main.querySelector('.kl-practice-workspace')?.prepend(card); }).catch(()=>undefined); }
+    }
     catch(error){renderError(main,contentErrorMessage(error,ACTIVITY_LOAD_ERROR));}
     return;
   }
@@ -81,10 +105,23 @@ async function renderCurrent(){
     renderLoading(main);
     try{
       const page=await client.loadPractice(route.practiceActivityId);
-      if(!isFeatureEnabled('guidedDynamicLabV1',active.searchParams)){ renderDynamicLabUnavailable(main,page,'flag-off'); return; }
+      // a SCORM package is built for exactly one lab: building it is the decision to show that lab (like a flag)
+      const packaged=scorm?.activityId===route.practiceActivityId;
+      if(!packaged&&!isFeatureEnabled('guidedDynamicLabV1',active.searchParams)){ renderDynamicLabUnavailable(main,page,'flag-off'); return; }
       const profile=await client.loadTopicLabProfile(route.practiceActivityId);
       if(!profile){ renderDynamicLabUnavailable(main,page,'no-profile'); return; }
-      renderDynamicLab(main,page,profile);
+      if(!packaged){ renderDynamicLab(main,page,profile); return; }
+      if(!scormSession){
+        scormSession=new Scorm12Session(findScorm12Api(globalThis       ),{profileId:profile.profileId,activityVersion:profile.activityVersion,configVersion:profile.configVersion});
+        const session=scormSession;
+        const suspended=session.start();
+        const end=()=>session.finish();
+        globalThis.addEventListener('pagehide',end); globalThis.addEventListener('beforeunload',end);
+        const noticeKey=session.connection==='connected'?'ui.dlab-scorm-saved':session.connection==='failed'?'ui.dlab-scorm-failed':'ui.dlab-scorm-no-lms';
+        const lab=renderDynamicLab(main,page,profile,{mode:'scorm',noticeKey,onChange:(p)=>session.save({actions:[...p.accepted],complete:p.complete})});
+        if(suspended?.actions.length) lab.replay(suspended.actions       );
+        main.dataset.scormConnection=session.connection;
+      }
     }
     catch(error){renderError(main,contentErrorMessage(error,ACTIVITY_LOAD_ERROR));}
     return;
@@ -135,14 +172,39 @@ async function renderCurrent(){
       const index=await client.loadSearchIndex();
       // P2.13: with periodicTableV1 the elements join the same search index (symbol, atomic number, localized name)
       if(isFeatureEnabled('periodicTableV1',active.searchParams)){ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub(); const localize=createLocalizer({elementNames,speciesNames,interaction}); index.push(...elementSearchEntries(hub,s=>localize(`element.${s}`),{kicker:localize('ui.periodic-search-kicker')??'',description:z=>(localize('ui.periodic-search-description')??'').replace('{z}',String(z))},flagQuery(active.searchParams))); }
+      // P2.14: substances (substancePassportV1) and reactions (reactionExplorerV1) join the same index
+      const kl=knowledgeLinks(active.searchParams);
+      if(kl.passport||kl.explorer){ const k=await loadKnowledge(); const t=createLabeler(k.localize);
+        if(kl.passport) index.push(...substanceSearchEntries(k.index,k.registry,k.localize,{kicker:t.ui('ui.substance-search-kicker'),description:phase=>t.ui(`ui.substance-phase-${phase}`)},kl.query));
+        if(kl.explorer) index.push(...reactionSearchEntries(k.index,k.reactions,{kicker:t.ui('ui.reactions-search-kicker'),description:type=>t.ui(`ui.reactions-type-${type}`)},kl.query)); }
       renderSearch(main,index,active.searchParams.get('q')??'');
     }catch(error){renderError(main,contentErrorMessage(error,'Qidiruv ma’lumotlarini yuklab bo‘lmadi.'));}return;}
   if(route.name==='periodic'){
     // P2.13: behind periodicTableV1 — with the flag off the route does not exist (the learner app is unchanged)
     if(!isFeatureEnabled('periodicTableV1',active.searchParams)){renderNotFound(main);return;}
     renderLoading(main);
-    try{ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub(); renderPeriodicTable(main,hub,{localize:createLocalizer({elementNames,speciesNames,interaction}),selected:route.symbol,query:flagQuery(active.searchParams),navigate:navigateInternal}); }
+    try{ const {hub,elementNames,speciesNames,interaction}=await client.loadElementHub();
+      // P2.14: a related substance / reaction opens its page when that page's flag is on (one canonical graph)
+      const kl=knowledgeLinks(active.searchParams); const k=kl.explorer?await loadKnowledge():null;
+      const links={...(kl.passport?{substance:(id       )=>substanceHref(id,kl.query)}:{}),...(k?{reaction:(id       )=>reactionExplorerHref(k.index,id,kl.query)}:{})};
+      renderPeriodicTable(main,hub,{localize:createLocalizer({elementNames,speciesNames,interaction}),selected:route.symbol,query:flagQuery(active.searchParams),navigate:navigateInternal,links}); }
     catch(error){renderError(main,contentErrorMessage(error,'Davriy jadvalni yuklab bo‘lmadi.'));}
+    return;
+  }
+  if(route.name==='substance'){
+    // P2.14: behind substancePassportV1 — with the flag off the route does not exist (the learner app is unchanged)
+    if(!isFeatureEnabled('substancePassportV1',active.searchParams)){renderNotFound(main);return;}
+    renderLoading(main);
+    try{ const k=await loadKnowledge(); renderSubstancePassport(main,{index:k.index,registry:k.registry,reactions:k.reactions,localize:k.localize},route.key,knowledgeLinks(active.searchParams)); }
+    catch(error){renderLoadError(error);}
+    return;
+  }
+  if(route.name==='reactions'){
+    // P2.14: behind reactionExplorerV1 — the existing ReactionMatcher runs in the page over the pack records
+    if(!isFeatureEnabled('reactionExplorerV1',active.searchParams)){renderNotFound(main);return;}
+    renderLoading(main);
+    try{ const k=await loadKnowledge(); renderReactionExplorer(main,{index:k.index,registry:k.registry,reactions:k.reactions,localize:k.localize,matcher:k.matcher,vocabulary:k.vocabulary},active.searchParams,{...knowledgeLinks(active.searchParams),navigate:navigateInternal}); }
+    catch(error){renderLoadError(error);}
     return;
   }
   renderNotFound(main);

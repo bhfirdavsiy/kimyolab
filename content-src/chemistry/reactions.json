@@ -1021,131 +1021,6 @@
     "version": "1.0.0"
   },
   {
-    "id": "rxn.na2s-hcl",
-    "reactants": [
-      {
-        "formula": "Na2S"
-      },
-      {
-        "formula": "HCl"
-      }
-    ],
-    "products": [
-      {
-        "formula": "H2S"
-      },
-      {
-        "formula": "NaCl"
-      }
-    ],
-    "conditions": {
-      "tags": []
-    },
-    "direction": "forward",
-    "reactionType": "gas_evolution",
-    "molecularEquation": "Na2S + 2HCl → H2S + 2NaCl",
-    "observations": [
-      {
-        "type": "gas",
-        "descriptionKey": "rxn.na2s-hcl.observation"
-      }
-    ],
-    "safety": [
-      "toxic gas"
-    ],
-    "curriculumRefs": [],
-    "sourceRefs": [
-      {
-        "id": "src.beta1.migration",
-        "type": "internal",
-        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
-      }
-    ],
-    "version": "1.0.0"
-  },
-  {
-    "id": "rxn.cuso4-na2s",
-    "reactants": [
-      {
-        "formula": "CuSO4"
-      },
-      {
-        "formula": "Na2S"
-      }
-    ],
-    "products": [
-      {
-        "formula": "CuS"
-      },
-      {
-        "formula": "Na2SO4"
-      }
-    ],
-    "conditions": {
-      "tags": []
-    },
-    "direction": "forward",
-    "reactionType": "precipitation",
-    "molecularEquation": "CuSO4 + Na2S → CuS + Na2SO4",
-    "observations": [
-      {
-        "type": "precipitate",
-        "color": "black"
-      }
-    ],
-    "safety": [],
-    "curriculumRefs": [],
-    "sourceRefs": [
-      {
-        "id": "src.beta1.migration",
-        "type": "internal",
-        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
-      }
-    ],
-    "version": "1.0.0"
-  },
-  {
-    "id": "rxn.p-combustion",
-    "reactants": [
-      {
-        "formula": "P"
-      },
-      {
-        "formula": "O2"
-      }
-    ],
-    "products": [
-      {
-        "formula": "P2O5"
-      }
-    ],
-    "conditions": {
-      "tags": [
-        "ignition"
-      ]
-    },
-    "direction": "forward",
-    "reactionType": "combustion",
-    "molecularEquation": "4P + 5O2 → 2P2O5",
-    "observations": [
-      {
-        "type": "no-visible-change"
-      }
-    ],
-    "safety": [
-      "flammable"
-    ],
-    "curriculumRefs": [],
-    "sourceRefs": [
-      {
-        "id": "src.beta1.migration",
-        "type": "internal",
-        "title": "KimyoLab v20 Beta1 migrated curated reaction set"
-      }
-    ],
-    "version": "1.0.0"
-  },
-  {
     "id": "rxn.c-combustion-limited",
     "reactants": [
       {
@@ -1184,6 +1059,1011 @@
         "id": "src.beta1.migration",
         "type": "internal",
         "title": "KimyoLab v20 Beta1 migrated curated reaction set"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.mg-combustion",
+    "reactants": [
+      {
+        "formula": "Mg"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "MgO"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "ignition"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combustion",
+    "molecularEquation": "2Mg + O2 → 2MgO",
+    "observations": [],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "46"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.no-o2",
+    "reactants": [
+      {
+        "formula": "NO"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NO2"
+      }
+    ],
+    "conditions": {},
+    "direction": "forward",
+    "reactionType": "combination",
+    "molecularEquation": "2NO + O2 → 2NO2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.no-o2.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "47"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.co-combustion",
+    "reactants": [
+      {
+        "formula": "CO"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CO2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "ignition"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combustion",
+    "molecularEquation": "2CO + O2 → 2CO2",
+    "observations": [],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "47"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.na-cl2",
+    "reactants": [
+      {
+        "formula": "Na"
+      },
+      {
+        "formula": "Cl2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NaCl"
+      }
+    ],
+    "conditions": {},
+    "direction": "forward",
+    "reactionType": "combination",
+    "molecularEquation": "2Na + Cl2 → 2NaCl",
+    "observations": [],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "45"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.ag2o-decomposition",
+    "reactants": [
+      {
+        "formula": "Ag2O"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Ag"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "decomposition",
+    "molecularEquation": "2Ag2O → 4Ag + O2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.ag2o-decomposition.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "45"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.caco3-decomposition",
+    "reactants": [
+      {
+        "formula": "CaCO3"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CaO"
+      },
+      {
+        "formula": "CO2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "decomposition",
+    "molecularEquation": "CaCO3 → CaO + CO2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.caco3-decomposition.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "50"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.mgo-water",
+    "reactants": [
+      {
+        "formula": "MgO"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Mg(OH)2"
+      }
+    ],
+    "conditions": {},
+    "direction": "forward",
+    "reactionType": "combination",
+    "molecularEquation": "MgO + H2O → Mg(OH)2",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "white"
+      },
+      {
+        "type": "temperature-change",
+        "direction": "up"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "50"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.hgo-decomposition",
+    "reactants": [
+      {
+        "formula": "HgO"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Hg"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "decomposition",
+    "molecularEquation": "2HgO → 2Hg + O2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.hgo-decomposition.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "50"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.h2o-electrolysis",
+    "reactants": [
+      {
+        "formula": "H2O"
+      }
+    ],
+    "products": [
+      {
+        "formula": "H2"
+      },
+      {
+        "formula": "O2"
+      }
+    ],
+    "conditions": {
+      "electricalCurrent": true
+    },
+    "direction": "forward",
+    "reactionType": "decomposition",
+    "molecularEquation": "2H2O → 2H2 + O2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.h2o-electrolysis.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "28"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.fe-s",
+    "reactants": [
+      {
+        "formula": "Fe"
+      },
+      {
+        "formula": "S"
+      }
+    ],
+    "products": [
+      {
+        "formula": "FeS"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "combination",
+    "molecularEquation": "Fe + S → FeS",
+    "observations": [
+      {
+        "type": "light",
+        "descriptionKey": "rxn.fe-s.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "46, 99"
+      },
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "34–35"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.hno3-caco3",
+    "reactants": [
+      {
+        "formula": "HNO3"
+      },
+      {
+        "formula": "CaCO3"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Ca(NO3)2"
+      },
+      {
+        "formula": "H2O"
+      },
+      {
+        "formula": "CO2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "gas_evolution",
+    "molecularEquation": "2HNO3 + CaCO3 → Ca(NO3)2 + H2O + CO2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.hno3-caco3.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "79"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.koh-hno3",
+    "reactants": [
+      {
+        "formula": "KOH"
+      },
+      {
+        "formula": "HNO3"
+      }
+    ],
+    "products": [
+      {
+        "formula": "KNO3"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "neutralization",
+    "molecularEquation": "KOH + HNO3 → KNO3 + H2O",
+    "observations": [],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "82"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.koh-hcl",
+    "reactants": [
+      {
+        "formula": "KOH"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "KCl"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {},
+    "direction": "forward",
+    "reactionType": "neutralization",
+    "molecularEquation": "KOH + HCl → KCl + H2O",
+    "observations": [],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "56"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.mg-hcl",
+    "reactants": [
+      {
+        "formula": "Mg"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "MgCl2"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "Mg + 2HCl → MgCl2 + H2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.mg-hcl.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "49–50"
+      },
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "79"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.fe-hcl",
+    "reactants": [
+      {
+        "formula": "Fe"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "FeCl2"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "Fe + 2HCl → FeCl2 + H2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.fe-hcl.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "49–50"
+      },
+      {
+        "id": "src.textbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun darslik",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "79"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.malachite-decomposition",
+    "reactants": [
+      {
+        "formula": "Cu2(OH)2CO3"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CuO"
+      },
+      {
+        "formula": "H2O"
+      },
+      {
+        "formula": "CO2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "heating"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "decomposition",
+    "molecularEquation": "Cu2(OH)2CO3 → 2CuO + H2O + CO2",
+    "observations": [
+      {
+        "type": "gas",
+        "descriptionKey": "rxn.malachite-decomposition.observation"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "33"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cu-hcl",
+    "reactants": [
+      {
+        "formula": "Cu"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "no-reaction",
+    "molecularEquation": "Cu + HCl → reaksiya bormaydi",
+    "observations": [
+      {
+        "type": "no-visible-change"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.workbook.kimyo7-2026",
+        "type": "textbook",
+        "title": "J. Randhava, N. Mehta. Kimyo. 7-sinf. Umumiy o‘rta ta’lim maktablari uchun mashq daftari",
+        "publisher": "Novda Edutainment",
+        "year": 2026,
+        "page": "50"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.fe-h2so4",
+    "reactants": [
+      {
+        "formula": "Fe"
+      },
+      {
+        "formula": "H2SO4"
+      }
+    ],
+    "products": [
+      {
+        "formula": "FeSO4"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "Fe + H2SO4 → FeSO4 + H2",
+    "observations": [
+      {
+        "type": "gas"
+      }
+    ],
+    "safety": [
+      "corrosive"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.al-hcl",
+    "reactants": [
+      {
+        "formula": "Al"
+      },
+      {
+        "formula": "HCl"
+      }
+    ],
+    "products": [
+      {
+        "formula": "AlCl3"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "2Al + 6HCl → 2AlCl3 + 3H2",
+    "observations": [
+      {
+        "type": "gas"
+      }
+    ],
+    "safety": [
+      "corrosive"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.al-h2so4",
+    "reactants": [
+      {
+        "formula": "Al"
+      },
+      {
+        "formula": "H2SO4"
+      }
+    ],
+    "products": [
+      {
+        "formula": "Al2(SO4)3"
+      },
+      {
+        "formula": "H2"
+      }
+    ],
+    "conditions": {
+      "tags": [
+        "dilute acid"
+      ]
+    },
+    "direction": "forward",
+    "reactionType": "single_displacement",
+    "molecularEquation": "2Al + 3H2SO4 → Al2(SO4)3 + 3H2",
+    "observations": [
+      {
+        "type": "gas"
+      }
+    ],
+    "safety": [
+      "corrosive"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.caoh2-co2",
+    "reactants": [
+      {
+        "formula": "Ca(OH)2"
+      },
+      {
+        "formula": "CO2"
+      }
+    ],
+    "products": [
+      {
+        "formula": "CaCO3"
+      },
+      {
+        "formula": "H2O"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "precipitation",
+    "molecularEquation": "Ca(OH)2 + CO2 → CaCO3 + H2O",
+    "observations": [
+      {
+        "type": "precipitate",
+        "color": "white"
+      }
+    ],
+    "safety": [],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cl2-nabr",
+    "reactants": [
+      {
+        "formula": "Cl2"
+      },
+      {
+        "formula": "NaBr"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NaCl"
+      },
+      {
+        "formula": "Br2"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "redox",
+    "molecularEquation": "Cl2 + 2NaBr → 2NaCl + Br2",
+    "observations": [
+      {
+        "type": "color-change",
+        "from": "colorless",
+        "to": "brown"
+      }
+    ],
+    "safety": [
+      "toxic halogen"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo8",
+        "type": "textbook",
+        "title": "Kimyo. 8-sinf darsligi (muallif, nashriyot va yil hali kiritilmagan)",
+        "page": "94"
+      },
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "id": "rxn.cl2-nai",
+    "reactants": [
+      {
+        "formula": "Cl2"
+      },
+      {
+        "formula": "NaI"
+      }
+    ],
+    "products": [
+      {
+        "formula": "NaCl"
+      },
+      {
+        "formula": "I2"
+      }
+    ],
+    "conditions": {
+      "tags": []
+    },
+    "direction": "forward",
+    "reactionType": "redox",
+    "molecularEquation": "Cl2 + 2NaI → 2NaCl + I2",
+    "observations": [
+      {
+        "type": "color-change",
+        "from": "colorless",
+        "to": "brown"
+      }
+    ],
+    "safety": [
+      "toxic halogen"
+    ],
+    "curriculumRefs": [],
+    "sourceRefs": [
+      {
+        "id": "src.textbook.kimyo8",
+        "type": "textbook",
+        "title": "Kimyo. 8-sinf darsligi (muallif, nashriyot va yil hali kiritilmagan)",
+        "page": "94"
+      },
+      {
+        "id": "src.expert-review.tt-4.2-stage5",
+        "type": "expert-review",
+        "title": "Kimyo eksperti tekshiruvi, 5-bosqich (2026-11-24): laboratoriya uchun taklif qilingan reaksiyalar"
       }
     ],
     "version": "1.0.0"

@@ -921,12 +921,14 @@
     "version": "2026.09.1",
     "legacyContent": {
       "equipment": "Probirkalar, shtativ, gaz yig‘ish vositasi, gugurt.",
-      "materials": "Mg, Zn, Cu; suyultirilgan H2SO4 va HCl.",
+      "materials": "Mg, Zn, Fe, Cu; suyultirilgan H2SO4 va HCl.",
       "safety": "Vodorod miqdori probirka hajmining 1/3 qismidan oshmasin.",
       "steps": [
         "Magniy ustiga suyultirilgan H2SO4 quying, ajralgan gazni yig‘ing va gugurt alangasi bilan tekshiring.",
         "Rux granulalari ustiga HCl quying. Reaksiyani kuzating, zarur bo‘lsa biroz qizdiring, gazni yig‘ing va tekshiring.",
         "Mis qirindilari ustiga suyultirilgan HCl quying. Qizdirilganda ham sezilarli o‘zgarish bo‘lmasligini kuzating.",
+        "Magniy bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+        "Temir bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
         "Metallarning kislotalar bilan reaksiyaga kirishish qobiliyatini faollik qatori bilan izohlang."
       ],
       "tasks": [
@@ -5573,8 +5575,8 @@
   {
     "id": "practice.case.7.01.planned",
     "type": "case",
-    "title": "Kimyoning kundalik hayot va kasblardagi roli bo‘yicha interaktiv case",
-    "goal": "Kimyoning kundalik hayot va kasblardagi roli bo‘yicha interaktiv case",
+    "title": "Kimyoning kundalik hayot va kasblardagi roli bo‘yicha interaktiv amaliy vaziyat",
+    "goal": "Kimyoning kundalik hayot va kasblardagi roli bo‘yicha interaktiv amaliy vaziyat",
     "conceptIds": [
       "concept.c001",
       "concept.c002",
@@ -5628,7 +5630,7 @@
     "version": "2026.09.1",
     "legacyContent": {
       "migrationReason": "required primary activity not represented by matching legacy practice",
-      "legacyRecommendation": "Kimyoning kundalik hayot va kasblardagi roli bo‘yicha interaktiv case"
+      "legacyRecommendation": "Kimyoning kundalik hayot va kasblardagi roli bo‘yicha interaktiv amaliy vaziyat"
     }
   },
   {
@@ -7533,8 +7535,8 @@
   {
     "id": "practice.simulation.9.07.planned",
     "type": "simulation",
-    "title": "Uglerod guruhi trendi va materiallar case’i",
-    "goal": "Uglerod guruhi trendi va materiallar case’i",
+    "title": "Uglerod guruhi trendi va materiallar amaliy vaziyati",
+    "goal": "Uglerod guruhi trendi va materiallar amaliy vaziyati",
     "conceptIds": [
       "concept.c158",
       "concept.c159",
@@ -7590,7 +7592,7 @@
     "version": "2026.09.1",
     "legacyContent": {
       "migrationReason": "required primary activity not represented by matching legacy practice",
-      "legacyRecommendation": "Uglerod guruhi trendi va materiallar case’i"
+      "legacyRecommendation": "Uglerod guruhi trendi va materiallar amaliy vaziyati"
     }
   },
   {
@@ -7658,8 +7660,8 @@
   {
     "id": "practice.case.9.11.planned",
     "type": "case",
-    "title": "Ruda→metall olish usuli tanlash case’i",
-    "goal": "Ruda→metall olish usuli tanlash case’i",
+    "title": "Ruda→metall olish usuli tanlash amaliy vaziyati",
+    "goal": "Ruda→metall olish usuli tanlash amaliy vaziyati",
     "conceptIds": [
       "concept.c176",
       "concept.c177",
@@ -7713,7 +7715,7 @@
     "version": "2026.09.1",
     "legacyContent": {
       "migrationReason": "required primary activity not represented by matching legacy practice",
-      "legacyRecommendation": "Ruda→metall olish usuli tanlash case’i"
+      "legacyRecommendation": "Ruda→metall olish usuli tanlash amaliy vaziyati"
     }
   },
   {
@@ -7900,8 +7902,8 @@
   {
     "id": "practice.case.9.26.planned",
     "type": "case",
-    "title": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi case’i",
-    "goal": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi case’i",
+    "title": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi amaliy vaziyati",
+    "goal": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi amaliy vaziyati",
     "conceptIds": [
       "concept.c220",
       "concept.c221",
@@ -7956,7 +7958,7 @@
     "version": "2026.09.1",
     "legacyContent": {
       "migrationReason": "required primary activity not represented by matching legacy practice",
-      "legacyRecommendation": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi case’i"
+      "legacyRecommendation": "Kimyoviy ishlab chiqarishda ifloslanish manbai–tozalash yechimi amaliy vaziyati"
     }
   },
   {
@@ -8508,8 +8510,8 @@
   {
     "id": "practice.simulation.10.15.planned",
     "type": "simulation",
-    "title": "Benzol/stiren/polistirol 3D model va qo‘llanish case’i",
-    "goal": "Benzol/stiren/polistirol 3D model va qo‘llanish case’i",
+    "title": "Benzol/stiren/polistirol 3D model va qo‘llanish amaliy vaziyati",
+    "goal": "Benzol/stiren/polistirol 3D model va qo‘llanish amaliy vaziyati",
     "conceptIds": [
       "concept.c254",
       "concept.c255",
@@ -8563,7 +8565,7 @@
     "version": "2026.09.1",
     "legacyContent": {
       "migrationReason": "required primary activity not represented by matching legacy practice",
-      "legacyRecommendation": "Benzol/stiren/polistirol 3D model va qo‘llanish case’i"
+      "legacyRecommendation": "Benzol/stiren/polistirol 3D model va qo‘llanish amaliy vaziyati"
     }
   },
   {
@@ -9728,8 +9730,8 @@
   {
     "id": "practice.simulation.11.18.planned",
     "type": "simulation",
-    "title": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat case’i",
-    "goal": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat case’i",
+    "title": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat amaliy vaziyati",
+    "goal": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat amaliy vaziyati",
     "conceptIds": [
       "concept.c132",
       "concept.c321",
@@ -9784,7 +9786,7 @@
     "version": "2026.09.1",
     "legacyContent": {
       "migrationReason": "required primary activity not represented by matching legacy practice",
-      "legacyRecommendation": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat case’i"
+      "legacyRecommendation": "Le-Shatele: sharoit o‘zgarishi bo‘yicha muvozanat amaliy vaziyati"
     }
   },
   {
@@ -10157,7 +10159,7 @@
   {
     "id": "practice.case.9.25.steel-process",
     "type": "case",
-    "title": "Cho‘yan va po‘lat ishlab chiqarish texnologik case’i",
+    "title": "Cho‘yan va po‘lat ishlab chiqarish texnologik amaliy vaziyati",
     "goal": "Xomashyo, qaytarilish, uglerod miqdori va mahsulot xossalari asosida ishlab chiqarish zanjirini tahlil qiling.",
     "conceptIds": [
       "concept.c217",

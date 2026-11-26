@@ -95,7 +95,7 @@
 .kl-molecule{position:absolute;padding:.55rem .8rem;border-radius:999px;background:#fff;border:1px solid #dce8f4;box-shadow:0 12px 30px rgba(2,52,128,.10);font-weight:900;color:#00469f}.kl-molecule.m1{left:4%;top:18%}.kl-molecule.m2{right:0;top:35%}.kl-molecule.m3{left:13%;bottom:10%}
 .kl-home-stats{position:relative;z-index:2;margin-top:-44px;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.kl-stat{background:#fff;border:1px solid #e7eef7;border-radius:21px;padding:1.35rem 1.4rem;box-shadow:0 18px 50px rgba(2,52,128,.09)}.kl-stat strong{font-size:2rem;color:#08224a;display:block}.kl-stat span{display:block;color:#6b7c92;font-size:.86rem;margin-top:.15rem}
 .kl-home-section{padding-block:5.5rem}.kl-home-section+.kl-home-section{padding-top:1rem}.kl-section-title{font-size:clamp(2rem,4.5vw,3.45rem);letter-spacing:-.045em;line-height:1.08;color:#071b3c;margin:.4rem 0 .7rem}.kl-section-copy{color:#716b86;max-width:760px;font-size:1.04rem}
-.kl-feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.3rem}.kl-feature-card{background:#fff;border:1px solid var(--kl-line-blue);border-radius:24px;padding:1.8rem;text-decoration:none;min-height:270px;display:flex;flex-direction:column;align-items:flex-start;transition:.22s;box-shadow:0 10px 28px rgba(2,52,128,.03)}.kl-feature-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(2,52,128,.12);border-color:#9fbde0}.kl-feature-card h2{font-size:1.45rem;margin:.9rem 0 .6rem;color:#0b254f}.kl-feature-card p{color:#6b7c92;line-height:1.7;flex:1}.kl-feature-icon{width:72px;height:72px;border-radius:19px;background:linear-gradient(145deg,#eef6ff,#dcecff);display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,78,184,.06)}.kl-feature-icon__image{display:block;width:62px;height:62px;object-fit:contain;filter:drop-shadow(0 7px 10px rgba(2,52,128,.12))}.kl-arrow{font-weight:850;color:#0051b8}
+.kl-feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.3rem}.kl-feature-card{background:#fff;border:1px solid var(--kl-line-blue);border-radius:24px;padding:1.8rem;text-decoration:none;min-height:270px;display:flex;flex-direction:column;align-items:flex-start;transition:.22s;box-shadow:0 10px 28px rgba(2,52,128,.03)}.kl-feature-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(2,52,128,.12);border-color:#9fbde0}.kl-feature-card h2{font-size:1.45rem;margin:.9rem 0 .6rem;color:#0b254f}.kl-feature-card p{color:#6b7c92;line-height:1.7;flex:1}.kl-feature-icon{width:72px;height:72px;border-radius:19px;background:linear-gradient(145deg,#eef6ff,#dcecff);display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,78,184,.06)}.kl-feature-icon__image{display:block;width:62px;height:62px;object-fit:contain;filter:drop-shadow(0 7px 10px rgba(2,52,128,.12))}.kl-arrow{font-weight:850;color:#0051b8}
 .kl-home-grades{padding-bottom:6rem}.kl-grade-grid{grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem}.kl-grade-card{border-color:#dae5f1;border-radius:20px;padding:1.35rem;background:linear-gradient(145deg,#fff,#f7fafd);box-shadow:0 10px 28px rgba(2,52,128,.04);transition:.2s}.kl-grade-card:hover{transform:translateY(-4px);border-color:#92b3dc;box-shadow:0 18px 35px rgba(2,52,128,.09)}
 .kl-page-hero{padding:7rem 0 4rem;background:linear-gradient(135deg,#f4f8fd 0%,#fff 55%,#f2f7fc 100%);position:relative;overflow:hidden;border-bottom:1px solid #dce6f1}.kl-page-hero:after{content:"";position:absolute;width:430px;height:430px;border-radius:50%;right:-130px;top:10px;background:radial-gradient(circle,#d4e4f6,transparent 68%)}.kl-page-hero .kl-shell{position:relative;z-index:1}.kl-page-hero h1{font-size:clamp(2.5rem,5vw,4rem);line-height:1.08;letter-spacing:-.045em;margin:.5rem 0 1rem;color:#071b3c}.kl-page-hero .kl-hero__body{margin:0;max-width:760px;text-align:left}
 .kl-curriculum-toolbar{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:.8rem;background:#fff;border:1px solid #d8e3ef;border-radius:18px;padding:1rem;box-shadow:0 10px 28px rgba(2,52,128,.05);margin-bottom:1rem}.kl-curriculum-toolbar input,.kl-curriculum-toolbar select{min-height:50px;border:1px solid #d4dfeb;border-radius:12px;padding:0 .9rem;font:inherit;background:#fff}.kl-curriculum-summary{font-weight:800;color:#004baf;margin:1rem 0}.kl-curriculum-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.kl-curriculum-card{background:#fff;border:1px solid #d8e3ef;border-radius:20px;padding:1.35rem;text-decoration:none;display:flex;flex-direction:column;gap:.55rem;min-height:215px;box-shadow:0 10px 26px rgba(2,52,128,.04);transition:.2s}.kl-curriculum-card:hover{transform:translateY(-4px);border-color:#9dbbe0;box-shadow:0 18px 38px rgba(2,52,128,.09)}.kl-curriculum-card h2{font-size:1.17rem;line-height:1.35;margin:.2rem 0;color:#071b3c}.kl-curriculum-card p{color:#6b7c92;flex:1}.kl-grade-pill{align-self:flex-start;display:inline-flex;padding:.3rem .65rem;border-radius:999px;background:#e7eff8;color:#004baf;font-size:.75rem;font-weight:900}.kl-empty-card{grid-column:1/-1}
@@ -202,3 +202,236 @@
 .kl-element-profile__note{display:block;font-size:.85rem;color:var(--kl-muted)}
 .kl-element-profile__group h4{margin:.75rem 0 .25rem}.kl-element-profile__group ul{margin:.25rem 0;padding-left:1.25rem}
 @media (max-width:480px){.kl-element-profile__facts{grid-template-columns:1fr}.kl-element-profile__facts dd{margin-bottom:.5rem}}
+/* P2.14 — Substance Passport + Reaction Explorer (ADR-P2-015). Native controls only (no drag); 44/48px targets; the
+   reagent list wraps to one column at 320px; observations and outcomes are text, never colour alone. */
+.kl-knowledge{display:grid;gap:1rem}.kl-knowledge .kl-card{padding:1.25rem}.kl-knowledge h2{font-size:1.15rem;margin:0 0 .5rem}
+.kl-knowledge__inline-list{display:flex;flex-wrap:wrap;gap:.25rem 1rem;margin:0;padding:0;list-style:none}
+.kl-knowledge__inline-list a,.kl-knowledge__group a,.kl-knowledge__reaction a{display:inline-flex;align-items:center;min-height:44px}
+.kl-knowledge__group ul{margin:.25rem 0;padding-left:1.25rem}.kl-knowledge__group h3{font-size:1rem;margin:.75rem 0 .25rem}
+.kl-knowledge__relations{display:grid;gap:1rem}
+.kl-knowledge__form{display:grid;gap:1rem}
+.kl-knowledge__typed-row{display:flex;flex-wrap:wrap;gap:.5rem}.kl-knowledge__typed-row input{min-height:44px;flex:1 1 10rem;min-width:0;font-size:1rem}
+.kl-knowledge__choice fieldset{display:flex;flex-wrap:wrap;gap:.5rem;border:1px solid var(--kl-border);border-radius:.5rem;padding:.75rem}
+.kl-knowledge__reagents,.kl-knowledge__conditions{border:1px solid var(--kl-border);border-radius:.5rem;padding:.75rem;margin:0;min-width:0}
+.kl-knowledge__reagents legend,.kl-knowledge__conditions legend{font-weight:700;padding:0 .25rem}
+.kl-knowledge__reagent-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.25rem .75rem;max-height:24rem;overflow-y:auto}
+.kl-knowledge__reagent label{display:flex;align-items:center;gap:.5rem;min-height:44px;cursor:pointer;overflow-wrap:anywhere}.kl-knowledge__reagent input{width:1.25rem;height:1.25rem;flex:none}
+.kl-knowledge__conditions{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:flex-end}.kl-knowledge__conditions .kl-field__hint{flex-basis:100%;margin:0}.kl-knowledge__conditions .kl-field{min-width:10rem}.kl-knowledge__conditions select{min-height:44px;width:100%}
+.kl-knowledge__errors:not(:empty){border-left:4px solid var(--kl-danger);padding:.5rem .75rem;background:var(--kl-surface-soft)}
+.kl-knowledge__status{min-height:1.5em;font-weight:700}
+.kl-knowledge__asked{color:var(--kl-muted)}
+.kl-knowledge__result .kl-element-profile__facts{margin-top:.5rem}
+@media (max-width:480px){.kl-knowledge__reagent-list{grid-template-columns:1fr;max-height:none}}
+@media (prefers-reduced-motion:reduce){.kl-knowledge *{transition:none!important;animation:none!important}}
+
+/* SCORM 1.2 package: one lab per SCO, so the site navigation is not part of the page */
+body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
+
+/* home: the periodic-table card's element tile */
+.kl-feature-element{display:grid;place-items:center;width:52px;height:52px;border-radius:10px;background:#fff;border:2px solid var(--kl-primary);line-height:1;position:relative}.kl-feature-element b{font-size:1.45rem;color:var(--kl-primary)}.kl-feature-element small{position:absolute;top:4px;left:6px;font-size:.62rem;color:var(--kl-muted,#5b6b84);font-weight:700}
+
+/* guided dynamic lab: the bench picture (scene.ts). Decoration only; motion stops under reduced motion. */
+.kl-scene{grid-column:1/-1;background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border:1px solid var(--kl-line-blue,#d6e4f5);border-radius:20px;padding:16px 8px 4px;overflow-x:auto}
+.kl-scene__svg{display:block;width:100%;min-width:300px;max-height:320px;height:auto;margin-inline:auto}
+.kl-scene__bench{fill:#c9d6e6}.kl-scene__hit{fill:transparent;pointer-events:all}
+.kl-scene__glass{fill:none;stroke:#7d93ad;stroke-width:2.4;stroke-linejoin:round}
+.kl-scene__vessel{transition:opacity .2s}.kl-scene__vessel.is-idle{opacity:.45}
+.kl-scene__vessel[cursor=pointer]:hover .kl-scene__glass{stroke:var(--kl-primary,#0b5bd3);stroke-width:3}
+.kl-scene__liquid{opacity:.85}.kl-scene__meniscus{fill:#ffffff;opacity:.55}
+.kl-scene__solid--0{fill:#8a929c}.kl-scene__solid--1{fill:#6f7782}.kl-scene__solid--2{fill:#a4abb4}
+.kl-scene__precipitate{stroke:#7f8fa3;stroke-width:1.2}.kl-scene__turbid{opacity:.45}.kl-scene__grain{stroke:#6f8096;stroke-width:.8}
+.kl-scene__bubble{fill:#ffffff;stroke:#6fa8dc;stroke-width:1;animation:kl-scene-rise 1.6s ease-in infinite}
+.kl-scene__bubble--1{animation-delay:.5s}.kl-scene__bubble--2{animation-delay:1s}
+.kl-scene__gas{fill:#cfe6ff;opacity:.75}
+.kl-scene__gas-label{font:700 13px/1 system-ui,sans-serif;fill:#0b4aa8}
+.kl-scene__formula{font:700 11.5px/1 system-ui,sans-serif;fill:#0d2547;paint-order:stroke;stroke:#ffffffcc;stroke-width:3px}
+.kl-scene__label{font:600 11.5px/1 system-ui,sans-serif;fill:#38506e}
+.kl-scene__haze{fill:none;stroke:#f08a24;stroke-width:2;stroke-linecap:round;opacity:.8;animation:kl-scene-haze 1.8s ease-in-out infinite}
+.kl-scene__stopper{fill:#9b6b43}
+.kl-scene__deposit{fill:#b5651d}
+.kl-scene__electrode{fill:#55606e}.kl-scene__wire{fill:none;stroke:#55606e;stroke-width:2}.kl-scene__wire.is-on{stroke:#e0a100}
+.kl-scene__lamp{fill:#7a8899}
+.kl-scene__flame{fill:#ffb12b;stroke:#ff7a00;stroke-width:1.2;transform-box:fill-box;transform-origin:50% 100%;animation:kl-scene-flicker .9s ease-in-out infinite alternate}
+.kl-scene__flame--strongly-heated{fill:#ff8f1f}
+@keyframes kl-scene-rise{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(-70px);opacity:0}}
+@keyframes kl-scene-haze{0%,100%{opacity:.2}50%{opacity:.85}}
+@keyframes kl-scene-flicker{from{transform:scaleY(.9)}to{transform:scaleY(1.08)}}
+@media (prefers-reduced-motion:reduce){.kl-scene__bubble,.kl-scene__haze,.kl-scene__flame{animation:none}}
+.kl-dlab-offer{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-bottom:1rem}
+
+/* classic experiment page (owner review 2026-11-23): the stage shows the instruction's apparatus, not a generic beaker */
+.kl-experiment-stage .kl-experiment-vessel--apparatus{position:static;transform:none;width:auto;height:auto;border:0;border-radius:0;background:none;overflow:visible;margin:1rem 0 7.5rem}
+.kl-apparatus-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:.8rem}
+.kl-apparatus{margin:0;display:grid;justify-items:center;gap:.45rem;padding:.8rem .5rem;background:#fff;border:1px solid #d7e4f2;border-radius:16px;box-shadow:0 6px 16px rgba(2,52,128,.05)}
+.kl-apparatus svg{width:56px;height:56px}
+.kl-apparatus figcaption{font-size:.82rem;line-height:1.25;text-align:center;color:#24405f;font-weight:600}
+.kl-apparatus.is-text-only{align-content:center;min-height:96px;background:#f6f9fd;border-style:dashed}
+.kl-experiment-stage{min-height:auto}
+.kl-experiment-step strong{font-weight:600;font-size:.95rem;line-height:1.4;display:block;margin-bottom:.55rem}
+.kl-experiment-step.is-done strong{color:#3d6b52}
+.kl-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.kl-apparatus-block+.kl-apparatus-block{margin-top:1rem}
+.kl-apparatus-heading{margin:0 0 .5rem;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4a6584}
+.kl-apparatus[data-apparatus=bottle] svg{width:44px;height:44px}
+
+/* dynamic lab, card style (owner reference 2026-11-24: raqamlitalim.trm.uz laboratory) */
+.kl-dlab__flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem}
+.kl-dlab__flow ol{gap:0;align-items:center}
+.kl-dlab__flow li{display:flex;align-items:center}
+.kl-dlab__flow li+li::before{content:"";width:clamp(18px,4vw,56px);height:2px;background:#cddbeb;margin:0 .35rem}
+.kl-dlab__flow a{border:0;background:none;padding:.3rem .35rem;gap:.45rem;font-size:.92rem;color:#38506e}
+.kl-dlab__flow a::before{content:counter(dlab);display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#e8f0fa;color:#1d5fa8;font-weight:800;font-size:.8rem}
+.kl-dlab__flow a[aria-current]{background:none;color:#0b4aa8;text-decoration:none}
+.kl-dlab__flow a[aria-current]::before{background:#0b5bd3;color:#fff}
+.kl-dlab__tally{margin:0;font-size:.85rem;font-weight:700;color:#1d5fa8;background:#eef5ff;border:1px solid #cfe0f5;border-radius:999px;padding:.35rem .8rem}
+.kl-dlab__group{display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:.65rem}
+.kl-dlab__group-title{grid-column:1/-1;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#4a6584}
+.kl-dlab__object{display:grid;justify-items:center;align-content:center;gap:.3rem;min-height:96px;padding:.7rem .5rem;border-radius:16px;background:#fff;border:1px solid #d7e4f2;box-shadow:0 6px 16px rgba(2,52,128,.05);text-align:center;white-space:normal;line-height:1.25}
+.kl-dlab__object svg{width:40px;height:40px}
+.kl-dlab__formula{font-size:1.35rem;font-weight:800;color:#0d2547;letter-spacing:.01em}
+.kl-dlab__object-name{font-size:.78rem;font-weight:600;color:#4a6584}
+.kl-dlab__object--substance .kl-dlab__object-name{font-size:.74rem}
+.kl-dlab__object:hover{border-color:#8fb4e0;transform:translateY(-1px)}
+.kl-dlab__object[aria-pressed=true]{outline:none;border:2px solid #0b5bd3;background:#f2f7ff}
+.kl-dlab__object[aria-pressed=true]::after{content:none}
+@media (prefers-reduced-motion:reduce){.kl-dlab__object:hover{transform:none}}
+
+/* chemical formulas in running text: a face whose capital I has serifs, so NaI / KI are never read as "Nal" / "Kl" */
+.kl-formula{font-family:"Cambria Math",Cambria,"STIX Two Text","Noto Serif","DejaVu Serif","Times New Roman",serif;font-size:1.04em;letter-spacing:.01em;white-space:nowrap}
+.kl-dlab__why-list{margin:0 0 1rem;padding-left:1.2rem}
+.kl-dlab__why-list li{margin:.35rem 0}
+.kl-dlab__teacher{margin-top:1rem;border-top:1px solid var(--kl-border,#d8e1ec);padding-top:.6rem;font-size:.92em;color:var(--kl-muted,#4a5b70)}
+.kl-dlab__teacher summary{cursor:pointer;font-weight:600}
+.kl-dlab__formula,.kl-scene__formula,.kl-scene__gas-label{font-family:"Cambria Math",Cambria,"STIX Two Text","Noto Serif","DejaVu Serif","Times New Roman",serif}
+/* lab review stage 2 (2026-11-24): the bench — the picture is the workspace, the reagents stand next to it */
+.kl-bench{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,2.2fr) minmax(220px,1fr);gap:16px;align-items:start}
+.kl-bench__stage{background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border:1px solid var(--kl-line-blue,#d6e4f5);border-radius:20px;padding:12px 12px 14px;display:grid;gap:10px}
+.kl-bench__stage .kl-scene{border:0;background:none;padding:0}
+.kl-bench__stage .kl-scene__svg{max-height:400px}
+.kl-bench__hint{margin:0;font-weight:600;color:#0d2547}
+.kl-bench__vessels,.kl-bench__tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.kl-bench__vessel.is-focus{border-color:var(--kl-primary,#0b5bd3);box-shadow:0 0 0 2px #0b5bd333}
+.kl-bench__tools-title,.kl-bench__none{margin:0;font-weight:600}
+.kl-bench__side{background:#fff;border:1px solid var(--kl-border,#d8e1ec);border-radius:20px;padding:14px}
+.kl-bench__side h3{margin:0 0 10px}
+.kl-bench__shelf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kl-bench__bottle{display:grid;justify-items:center;gap:4px;padding:10px 6px;min-height:44px;border:1px solid var(--kl-border,#d8e1ec);border-radius:16px;background:#fff;cursor:grab;font:inherit;color:#0d2547;text-align:center}
+.kl-bench__bottle svg{width:34px;height:34px}
+.kl-bench__bottle:hover{border-color:#9cbbe6}
+.kl-bench__bottle.is-in-hand{border-color:var(--kl-primary,#0b5bd3);background:#eef5ff;box-shadow:0 0 0 3px #0b5bd333;transform:translateY(-3px)}
+.kl-bench__bottle-name{font-size:.8rem;line-height:1.25;color:#38506e}
+.kl-bench .kl-dlab__result{margin:0}
+.kl-dlab__list-toggle>summary{cursor:pointer;font-weight:600;margin-bottom:.6rem}
+.kl-scene__svg.is-armed .kl-scene__vessel.is-target .kl-scene__glass{stroke:var(--kl-primary,#0b5bd3);stroke-width:3;stroke-dasharray:6 4}
+.kl-scene__vessel.is-over .kl-scene__glass{stroke:#1e9e5a;stroke-width:3.5;stroke-dasharray:none}
+.kl-scene__vessel.is-focus .kl-scene__glass{stroke:var(--kl-primary,#0b5bd3);stroke-width:3.2}
+.kl-scene__rack-bar{fill:#c79a64;stroke:#8d6537;stroke-width:1.2}.kl-scene__rack-leg{fill:#b2865a}
+.kl-scene__bottle{fill:#eaf4ff;stroke:#5d7895;stroke-width:2}.kl-scene__bottle-neck{fill:#7a8899}
+.kl-scene__stream{fill:none;stroke:#7fb6f2;stroke-width:4;stroke-linecap:round;stroke-dasharray:60;stroke-dashoffset:60;animation:kl-pour-stream 1s ease-out forwards}
+.kl-scene__pour{animation:kl-pour-fade 1.4s ease-in-out forwards}
+.kl-scene__liquid.is-filling{transform-box:fill-box;transform-origin:50% 100%;animation:kl-fill .9s ease-out}
+.kl-scene__bubble--d1{animation-duration:1.2s}.kl-scene__bubble--d2{animation-duration:2s;animation-delay:.3s}.kl-scene__bubble--d3{animation-duration:1.4s;animation-delay:.8s}.kl-scene__bubble--d4{animation-duration:1.8s;animation-delay:1.2s}
+@keyframes kl-pour-stream{to{stroke-dashoffset:0}}
+@keyframes kl-pour-fade{0%{opacity:0}15%{opacity:1}75%{opacity:1}100%{opacity:0}}
+@keyframes kl-fill{from{transform:scaleY(.55)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.kl-scene__pour{display:none}.kl-scene__liquid.is-filling{animation:none}}
+@media (max-width:760px){
+  .kl-bench{grid-template-columns:1fr}
+  .kl-bench__shelf{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.kl-bench__vessel{min-height:36px;padding:4px 12px;font-size:.85rem}
+.kl-bench__vessel.is-target{border-style:dashed;border-color:var(--kl-primary,#0b5bd3)}
+@media (max-width:760px){
+  .kl-bench__stage{position:static}
+  .kl-bench__stage .kl-scene{overflow-x:auto;background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border-radius:14px}
+  .kl-bench__stage .kl-scene__svg{min-width:600px;max-height:none}
+  .kl-bench__vessels{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+  .kl-bench__vessel{flex:0 0 auto}
+}
+.kl-scene__bottle-label{fill:#fff;opacity:.9}
+.kl-bench__hint.is-result{background:#fff;border:1px solid #bcd6f5;border-left:4px solid var(--kl-primary,#0b5bd3);border-radius:12px;padding:8px 12px;font-size:1.05rem}
+@media (max-width:760px){.kl-bench__stage .kl-scene__svg{min-width:520px}}
+.kl-scene__rack{pointer-events:none}
+@media (max-width:760px){
+  /* phone: picture → what happened → reagents (one swipeable row) → vessels → the vessel's actions */
+  .kl-bench{display:flex;flex-direction:column;gap:10px}
+  .kl-bench__stage{display:contents}
+  .kl-bench__stage>.kl-scene{order:1;background:linear-gradient(180deg,#f3f8ff 0%,#e8f1fc 100%);border:1px solid var(--kl-line-blue,#d6e4f5);border-radius:16px;padding:8px}
+  .kl-bench__hint{order:2}
+  .kl-bench__side{order:3;padding:10px}
+  .kl-bench__vessels{order:4}
+  .kl-bench__tools{order:5}
+  .kl-bench__shelf{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}
+  .kl-bench__bottle{flex:0 0 104px}
+}
+@media (max-width:760px){
+  .kl-bench,.kl-bench__stage>*,.kl-bench__side{min-width:0;max-width:100%}
+  .kl-dlab{overflow-x:clip}
+}
+/* stage 2b: the bench with pictures */
+.kl-scene__glass--img{stroke:transparent}
+.kl-scene__bench--table{fill:#dfe7f1}
+.kl-scene__rack-number{font:800 9px/1 system-ui,sans-serif;fill:#7a4f22;opacity:.85}
+.kl-scene__rack-img,.kl-scene__glass-img{pointer-events:none}
+.kl-scene__vessel.is-focus .kl-scene__glass--img,.kl-scene__vessel:hover .kl-scene__glass--img{stroke:var(--kl-primary,#0b5bd3);stroke-width:2;stroke-opacity:.7}
+.kl-bench__bottle-img{height:64px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 4px 6px #0d254722)}
+.kl-bench__bottle .kl-dlab__formula{margin-top:-4px}
+.kl-bench__stage .kl-scene__svg--rack{max-height:460px}
+/* the glass picture lies over the contents: multiply keeps its edges and highlights and lets the liquid show through */
+.kl-scene__glass-img{mix-blend-mode:multiply}
+.kl-scene__vessel--gas-collection-vessel .kl-scene__glass{fill:#ffffff55;stroke:#8aa0b8;stroke-width:2.6}
+/* stage 2c: the stand and the collector's trip; a real pour */
+.kl-scene__stand-base{fill:#5f6b78}.kl-scene__stand-rod{fill:#8d99a6}.kl-scene__stand-arm{fill:#7a8693}.kl-scene__stand-clamp{fill:none;stroke:#5f6b78;stroke-width:3}
+.kl-scene__collector.is-collecting{animation:kl-collect 2.4s ease-in-out both}
+@keyframes kl-collect{0%{transform:translate(0,0)}30%,70%{transform:translate(var(--kl-dx),var(--kl-dy))}100%{transform:translate(0,0)}}
+.kl-scene__pour{animation:none}
+.kl-scene__pour--liquid .kl-scene__pour-move{animation:kl-pour-in 1.9s ease-in-out both}
+@keyframes kl-pour-in{0%{transform:translate(46px,-40px);opacity:0}18%{transform:translate(0,0);opacity:1}80%{transform:translate(0,0);opacity:1}100%{transform:translate(46px,-40px);opacity:0}}
+.kl-scene__pour--liquid .kl-scene__stream{stroke-dasharray:240;stroke-dashoffset:240;animation:kl-pour-stream2 1.9s linear both}
+@keyframes kl-pour-stream2{0%,18%{stroke-dashoffset:240;opacity:1}45%{stroke-dashoffset:0;opacity:1}78%{stroke-dashoffset:0;opacity:1}90%,100%{stroke-dashoffset:0;opacity:0}}
+.kl-scene__stream{stroke:#9cc9f5;stroke-width:3.5;opacity:.9}
+.kl-scene__drop{animation:kl-drop .9s cubic-bezier(.55,0,1,.45) both}
+@keyframes kl-drop{0%{transform:translateY(-24px);opacity:0}20%{opacity:1}85%{transform:translateY(var(--kl-drop));opacity:1}100%{transform:translateY(var(--kl-drop));opacity:0}}
+.kl-scene__liquid.is-filling{animation:kl-fill 1.2s ease-out .45s both}
+@media (prefers-reduced-motion:reduce){.kl-scene__pour,.kl-scene__drop{display:none}.kl-scene__collector.is-collecting{animation:none}}
+.kl-bench__tasks{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.kl-bench__task{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--kl-border,#d8e1ec);border-radius:14px;background:#fff}
+.kl-bench__task-mark{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#eef3f9;color:#38506e;font-weight:800}
+.kl-bench__task-text{margin:0;line-height:1.45}
+.kl-bench__task-status{display:inline-block;margin-top:4px;font-size:.82rem;font-weight:700}
+.kl-bench__task.is-done{border-color:#b9e2c8;background:#f3fbf6}.kl-bench__task.is-done .kl-bench__task-mark{background:#1e9e5a;color:#fff}.kl-bench__task.is-done .kl-bench__task-status{color:#177a46}
+.kl-bench__task.is-now{border-color:var(--kl-primary,#0b5bd3);box-shadow:0 0 0 3px #0b5bd31f}.kl-bench__task.is-now .kl-bench__task-mark{background:var(--kl-primary,#0b5bd3);color:#fff}.kl-bench__task.is-now .kl-bench__task-status{color:var(--kl-primary,#0b5bd3)}
+.kl-bench__task.is-outside{opacity:.62}.kl-bench__task.is-outside .kl-bench__task-status{color:#5b6b7d;font-weight:600}
+.kl-bench__task.is-todo .kl-bench__task-text{color:#38506e}
+.kl-bench__task.is-partial{border-color:#f1d08a;background:#fffaf0}.kl-bench__task.is-partial .kl-bench__task-mark{background:#e0a100;color:#fff}.kl-bench__task.is-partial .kl-bench__task-status{color:#946200}
+.kl-bench__task-missing{margin:6px 0 0;font-size:.85rem;color:#6b5420;background:#fff3d6;border-radius:8px;padding:6px 8px}
+/* the spirit lamp and a layered flame (stage 2d) */
+.kl-scene__flame{fill:url(#kl-flame-outer);stroke:none;transform-box:fill-box;transform-origin:50% 100%;animation:kl-flame-flicker 1.1s ease-in-out infinite alternate}
+.kl-scene__flame--strongly-heated{filter:saturate(1.3)}
+.kl-scene__flame-core{transform-box:fill-box;transform-origin:50% 100%;animation:kl-flame-core 1.4s ease-in-out infinite alternate}
+.kl-scene__flame-glow{animation:kl-flame-glow 1.6s ease-in-out infinite alternate}
+@keyframes kl-flame-flicker{0%{transform:scale(.94,.92) skewX(-2deg)}40%{transform:scale(1.03,1.05) skewX(1.5deg)}100%{transform:scale(.98,1.1) skewX(-1deg)}}
+@keyframes kl-flame-core{from{transform:scaleY(.92)}to{transform:scaleY(1.06)}}
+@keyframes kl-flame-glow{from{opacity:.7}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.kl-scene__flame,.kl-scene__flame-core,.kl-scene__flame-glow{animation:none}}
+/* Nega? as cards (2026-11-26) */
+.kl-dlab__why-list{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:10px}
+.kl-why-card{border:1px solid var(--kl-border,#d8e1ec);border-radius:14px;padding:12px 14px;background:#fff;display:grid;gap:4px}
+.kl-why-card__head{margin:0;font-weight:800;color:#0d2547}
+.kl-why-card__seen{margin:0;color:#38506e}
+.kl-why-card__label{margin:6px 0 0;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5b6b7d}
+.kl-why-card__eq{margin:0;padding:8px 12px;border-radius:10px;background:#f1f6fd;font-size:1.15rem;color:#0d2547;text-align:center}
+.kl-why-card__pill{justify-self:start;margin-top:4px;font-size:.78rem;font-weight:700;color:#946200;background:#fff3d6;border-radius:999px;padding:2px 10px}
+.kl-why-hint{margin-top:4px}
+.kl-dlab__stage--why h3{margin:6px 0 8px}
+/* drag and drop on the bench (2026-11-26) */
+.kl-drag-ghost{position:fixed;left:0;top:0;width:60px;height:60px;pointer-events:none;z-index:60;display:grid;place-items:center;filter:drop-shadow(0 8px 14px #0d254755)}
+.kl-drag-ghost img,.kl-drag-ghost svg{max-width:60px;max-height:60px;width:auto;height:60px;object-fit:contain}
+.kl-dlab.is-dragging,.kl-dlab.is-dragging *{cursor:grabbing!important;user-select:none}
+.kl-bench__bottle{touch-action:pan-x;cursor:grab}
+.kl-scene__vessel.is-draggable{cursor:grab;touch-action:none}
+.kl-scene__vessel.is-drop-over .kl-scene__glass{stroke:#1e9e5a;stroke-width:3.5;stroke-opacity:1;stroke-dasharray:none}
+.kl-scene__vessel.is-drop-no .kl-scene__glass{stroke:#c0392b;stroke-width:3;stroke-opacity:.8;stroke-dasharray:4 3}
+.kl-bench__vessel.is-drop-over{border-color:#1e9e5a;box-shadow:0 0 0 3px #1e9e5a33}
+.kl-bench__vessel.is-drop-no{border-color:#c0392b}
+.kl-bench__bottle--tool svg{width:44px;height:44px}

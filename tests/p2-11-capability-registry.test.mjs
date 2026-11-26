@@ -29,6 +29,8 @@ const add=(substance,container)=>({family:'ADD_SUBSTANCE',params:{substance,cont
 const on=(family,params)=>({family,params});
 const MG=[add('mg','tube-1'),add('h2so4-dilute','tube-1')];
 const ZN=[add('zn','tube-2'),add('hcl-dilute','tube-2')];
+// 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (pp. 49–50; owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are two new trials (steps 3 and 4, records rxn.mg-hcl / rxn.fe-hcl), so completion needs them too
+const MGHCL=[add('mg','tube-4'),add('hcl-dilute','tube-4')], FEHCL=[add('fe','tube-5'),add('hcl-dilute','tube-5')];
 const NH3=[add('nh4cl','reaction-tube'),add('slaked-lime','reaction-tube'),on('SEAL',{container:'reaction-tube'}),on('HEAT',{container:'reaction-tube'}),on('COLLECT_GAS',{container:'collector-tube'})];
 
 test('registry: versioned, derived from catalog + runtime + engine data, consistent, deterministic',()=>{
@@ -110,16 +112,23 @@ test('7.10: ReactionMatcher under the actual conditions; gas collected from its 
   const c=rt.applyLabAction(two.state,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),p);
   assert.equal(c.observations[0].kind,'gas-collected'); assert.equal(c.observations[0].grounding,'PROCEDURE');
   assert.equal(rt.applyLabAction(c.nextState,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),p).error.detail,'NO_GAS_IN_SOURCE');
-  // Cu + dilute HCl: no record → no observation, no product. (Closeout: heating this trial is not in the instruction's
+  // Cu + dilute HCl: no reviewed record → no observation, no product. (Closeout: heating this trial is not in the instruction's
   // scope, so it is rejected before chemistry — see the instruction-scope test.)
+  // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50); the lab shows a no-reaction record only when it is reviewed, so the pair still fails closed (NO_REACTION_NOT_REVIEWED / NO_REACTION_REVIEW_GAP_CU_HCL)
   const cu=run(p,[add('cu','tube-3'),add('hcl-dilute','tube-3')]);
-  assert.equal(cu.results[1].status,'unsupported'); assert.equal(cu.results[1].unsupported.detail,'REACTION_NOT_MODELED');
+  assert.equal(cu.results[1].status,'unsupported'); assert.equal(cu.results[1].unsupported.detail,'NO_REACTION_NOT_REVIEWED');
   assert.equal(cu.state.observations.filter(o=>o.container==='tube-3').length,0);
   assert.equal(cu.state.containers['tube-3'].gases.length,0);
-  // completion: both bound reactions observed and a modeled gas collected
-  const full=run(p,[...MG,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),...ZN]);
+  // completion: every bound reaction observed and a modeled gas collected
+  // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (pp. 49–50; owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are two new trials (steps 3 and 4, records rxn.mg-hcl / rxn.fe-hcl), so completion needs them too
+  const full=run(p,[...MG,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),...ZN,...MGHCL,...FEHCL]);
   assert.equal(full.state.complete,true);
-  assert.equal(run(p,[...MG,...ZN]).state.complete,false,'no gas collected yet');
+  assert.equal(run(p,[...MG,...ZN,...MGHCL,...FEHCL]).state.complete,false,'no gas collected yet');
+  assert.equal(run(p,[...MG,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),...ZN]).state.complete,false,'the workbook trials are part of the goal');
+  // the new trials come from their own records, through the matcher
+  const mgfe=run(p,[...MGHCL,...FEHCL]);
+  assert.deepEqual([mgfe.results[1].status,mgfe.results[3].status],['accepted','accepted']);
+  assert.deepEqual(['tube-4','tube-5'].map(t=>mgfe.state.containers[t].gases.map(g=>[g.product,g.reactionId])),[[['H2','rxn.mg-hcl']],[['H2','rxn.fe-hcl']]]);
   // replay is deterministic
   assert.deepEqual(rt.replay(p,full.state.actionLog),full.state);
 });
@@ -227,9 +236,12 @@ test('reports: generator-equal; readiness P2.11; no migration; human decisions o
   assert.equal(b.cumulativeSince,'P2.9');
   // P2.12: the cumulative delta now also carries P2.12's own growth (the learner excerpt renderer), recorded as its own phase
   // P2.13: P2.12's share is now a recorded constant and the P2.13 growth (periodic table) is its own phase
-  for(const k of ['learnerModules','learnerModuleBytes','standaloneBytes']) assert.equal(b.phases['P2.10'][k]+b.phases['P2.11'][k]+(b.phases['P2.12']?.[k]??0)+(b.phases['P2.13']?.[k]??0),b.delta[k],k);
+  // P2.14 changed this sum: P2.13's share is now a recorded constant and the P2.14 growth (Substance Passport + Reaction
+  // Explorer) is its own phase; the phases still add up to the cumulative delta exactly
+  for(const k of ['learnerModules','learnerModuleBytes','standaloneBytes']) assert.equal(b.phases['P2.10'][k]+b.phases['P2.11'][k]+(b.phases['P2.12']?.[k]??0)+(b.phases['P2.13']?.[k]??0)+(b.phases['P2.14']?.[k]??0),b.delta[k],k);
   const cov=json(LAB_REPORTS.coverage);
-  assert.equal(cov.p211.before.summary.PROFILED,3); assert.equal(cov.p211.after.summary.PROFILED,5);
+  // Step 4 of the owner's sequence (2026-11-23): 7.11 (water + oxides) was profiled as a guided dynamic lab: the current tree has 6 profiled (P2.11 itself added 7.10 and 8.14 to the P2.10 three)
+  assert.equal(cov.p211.before.summary.PROFILED,3); assert.equal(cov.p211.after.summary.PROFILED,8); // Step 4 (b) of the owner's sequence (2026-11-23): 7.9 (acid properties) and 8.8 (halide tests) were profiled as guided dynamic labs
 });
 
 // ------------------------------------------------------------------ P2.11 closeout
@@ -237,7 +249,8 @@ test('reports: generator-equal; readiness P2.11; no migration; human decisions o
 test('closeout scope: 7.10 Cu + HCl HEAT is rejected by the instruction scope, before chemistry; Zn + HCl HEAT works',()=>{
   const p=P['7.10'];
   assert.equal(p.procedure.scope,'INSTRUCTION_TRIALS');
-  assert.deepEqual(p.procedure.trials.map(t=>[t.id,t.families]),[['mg-h2so4',['ADD_SUBSTANCE','COLLECT_GAS']],['zn-hcl',['ADD_SUBSTANCE','HEAT','COLLECT_GAS']],['cu-hcl',['ADD_SUBSTANCE']]]);
+  // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): the Mg + HCl and Fe + HCl trials state no heating and no gas collection
+  assert.deepEqual(p.procedure.trials.map(t=>[t.id,t.families]),[['mg-h2so4',['ADD_SUBSTANCE','COLLECT_GAS']],['zn-hcl',['ADD_SUBSTANCE','HEAT','COLLECT_GAS']],['cu-hcl',['ADD_SUBSTANCE']],['mg-hcl',['ADD_SUBSTANCE']],['fe-hcl',['ADD_SUBSTANCE']]]);
   const cu=run(p,[add('cu','tube-3'),add('hcl-dilute','tube-3')]).state;
   const h=rt.applyLabAction(cu,on('HEAT',{container:'tube-3'}),p);
   assert.equal(h.status,'rejected'); assert.equal(h.error.code,'ACTION_NOT_IN_INSTRUCTION_SCOPE'); assert.equal(h.error.detail,'NOT_STATED_FOR_THIS_TRIAL');
@@ -258,8 +271,9 @@ test('closeout scope: 7.10 Cu + HCl HEAT is rejected by the instruction scope, b
 
 test('closeout scope: arbitrary reagent/container pairings are rejected; trials stay as the instruction fixes them',()=>{
   const p=P['7.10'];
-  // Mg + HCl, Cu + H2SO4, Zn + H2SO4: not a trial of this instruction (some have records — still not in scope)
-  for(const [a,b] of [['mg','hcl-dilute'],['cu','h2so4-dilute'],['zn','h2so4-dilute'],['mg','zn']]){
+  // Cu + H2SO4, Zn + H2SO4: not a trial of this instruction (some have records — still not in scope)
+  // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (pp. 49–50; owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are two new trials (steps 3 and 4, records rxn.mg-hcl / rxn.fe-hcl), so completion needs them too: Mg + HCl is now a trial of the instruction and is accepted; Fe + H2SO4 is not one
+  for(const [a,b] of [['cu','h2so4-dilute'],['zn','h2so4-dilute'],['mg','zn'],['fe','h2so4-dilute']]){
     const r=rt.applyLabAction(run(p,[add(a,'tube-1')]).state,add(b,'tube-1'),p);
     assert.equal(r.error?.code,'ACTION_NOT_IN_INSTRUCTION_SCOPE',`${a}+${b}`); assert.equal(r.error.detail,'COMBINATION_NOT_IN_INSTRUCTION');
   }
@@ -316,7 +330,8 @@ test('closeout completion: partial instruction is never shown as the whole lab; 
   const bad=clone(P['7.10']); bad.completionScope.kind='FULL_INSTRUCTION';
   assert.ok(topicLabProfileProblems(bad).includes('COMPLETION_SCOPE'));
   // the completion evidence carries the scope
-  const full=run(P['7.10'],[...MG,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),...ZN]);
+  // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (pp. 49–50; owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are two new trials (steps 3 and 4, records rxn.mg-hcl / rxn.fe-hcl), so completion needs them too
+  const full=run(P['7.10'],[...MG,on('COLLECT_GAS',{container:'gas-collector',from:'tube-1'}),...ZN,...MGHCL,...FEHCL]);
   assert.equal(full.state.complete,true);
   assert.equal(full.results.at(-1).evidenceCandidate.detail.completionScope,'PARTIAL_INSTRUCTION');
   const labels=json('content-src/locales/uz-latn/learner-interaction.json').labels;
@@ -330,7 +345,8 @@ test('closeout completion: partial instruction is never shown as the whole lab; 
 test('closeout decisions: Cu + HCl is a model/source gap (fail closed), 8.14 a source conflict review; no new choices',()=>{
   const r=json(LAB_REPORTS.readiness);
   assert.ok(!r.humanDecisions.some(d=>/Cu \+ dilute HCl|oq tutun/.test(d.question)),'neither is a human choice');
-  assert.deepEqual(r.sourceGaps.map(g=>[g.activityId,g.code,g.behaviour]),[['practice.experiment.7.10','MODEL_SOURCE_GAP_CU_HCL','FAIL_CLOSED']]);
+  // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50); the lab shows a no-reaction record only when it is reviewed, so the pair still fails closed (NO_REACTION_NOT_REVIEWED / NO_REACTION_REVIEW_GAP_CU_HCL)
+  assert.deepEqual(r.sourceGaps.map(g=>[g.activityId,g.code,g.behaviour]),[['practice.experiment.7.10','NO_REACTION_REVIEW_GAP_CU_HCL','FAIL_CLOSED']]);
   assert.deepEqual(r.sourceConflictReviews.map(c=>[c.activityId,c.status,c.resolution]),[['practice.experiment.8.14','SOURCE_CONFLICT_REVIEW_REQUIRED',null]]);
   // the six order decisions stay open; nothing preselected anywhere
   const order=r.humanDecisions.filter(d=>d.question.startsWith('experiment step order'));
@@ -351,7 +367,8 @@ test('final consistency: P2.11 generated summaries describe the closeout semanti
   assert.doesNotMatch(j.contactReactionGas,/even when heated/i);
   assert.match(j.contactReactionGas,/only the trial combinations the instruction permits/);
   assert.match(j.contactReactionGas,/rejected before chemistry evaluation \(ACTION_NOT_IN_INSTRUCTION_SCOPE\)/);
-  assert.match(j.contactReactionGas,/MODEL_SOURCE_GAP_CU_HCL/);
+  // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50); the lab shows a no-reaction record only when it is reviewed, so the pair still fails closed (NO_REACTION_NOT_REVIEWED / NO_REACTION_REVIEW_GAP_CU_HCL)
+  assert.match(j.contactReactionGas,/NO_REACTION_REVIEW_GAP_CU_HCL/);
   // 8.14: a source conflict review, never a human decision
   assert.doesNotMatch(j.heatingGate,/is a recorded human decision/);
   assert.match(j.heatingGate,/SOURCE_CONFLICT_REVIEW_REQUIRED/);
@@ -361,3 +378,23 @@ test('final consistency: P2.11 generated summaries describe the closeout semanti
   for(const t of texts){ assert.doesNotMatch(t,/whatever the learner puts together/i); assert.doesNotMatch(t,/fails closed,? even when heated/i); assert.doesNotMatch(t,/nh3-hcl[^.\n]*(?<!not )\b(is|as) (a |the )?(recorded )?human decision/i); }
 });
 
+
+test('TT 4.2.6 lab gate: a no-reaction record is shown only when it is REVIEWED (fail closed otherwise), in both lab paths',()=>{
+  // reaction-matcher path (7.10, Cu + dilute HCl, the record rxn.cu-hcl)
+  const p=P['7.10'], acts=[add('cu','tube-3'),add('hcl-dilute','tube-3')];
+  const play=(runtime)=>{ let s=createLabState(p), last; for(const a of acts){ last=runtime.applyLabAction(s,a,p); s=last.nextState; } return {last,s}; };
+  const closed=play(createLabRuntime(createLabDomain({...chemistry})));
+  assert.equal(closed.last.unsupported.detail,'NO_REACTION_NOT_REVIEWED'); assert.equal(closed.s.observations.length,0);
+  const reviewed=play(createLabRuntime(createLabDomain({...chemistry,reviewedReactionIds:['rxn.cu-hcl']})));
+  assert.equal(reviewed.last.status,'accepted');
+  assert.deepEqual(reviewed.s.observations.map(o=>[o.kind,o.source]),[['no-reaction','chemistry/reactions.json#rxn.cu-hcl']]);
+  // the learner text for the closed case exists and does not say "does not react"
+  const labels=json('content-src/locales/uz-latn/learner-interaction.json').labels;
+  assert.ok(labels['ui.dlab-reason-NO_REACTION_NOT_REVIEWED']&&/tasdiqlamagan/.test(labels['ui.dlab-reason-NO_REACTION_NOT_REVIEWED']));
+  // ionic-mixing path: the same rule (a fixture no-reaction record for a shelf pair)
+  const fixture={id:'rxn.fixture.no-reaction-ionic',reactants:[{formula:'AgNO3'},{formula:'NaNO3'}],products:[],conditions:{},direction:'forward',reactionType:'no-reaction',molecularEquation:'AgNO3 + NaNO3 → (fixture)',observations:[{type:'no-visible-change'}],safety:[],curriculumRefs:[],sourceRefs:[{id:'src.beta1.migration',type:'internal',title:'fixture'}],version:'1.0.0'};
+  const d0=createLabDomain({...chemistry,reactions:[...chemistry.reactions,fixture]}), d1=createLabDomain({...chemistry,reactions:[...chemistry.reactions,fixture],reviewedReactionIds:[fixture.id]});
+  const mix=(d)=>{ const m=d.matcher.match({reactants:[{formula:'AgNO3',phase:'aq'},{formula:'NaNO3',phase:'aq'}],conditions:d.ionic.mixingConditions??{},conditionPolicy:'require-record-conditions'}); return m.modeled; };
+  assert.equal(mix(d0),true,'the record matches');
+  assert.equal(d0.reviewedReactionIds.has(fixture.id),false); assert.equal(d1.ionic.reviewedReactionIds.has(fixture.id),true);
+});

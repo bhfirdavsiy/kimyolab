@@ -152,7 +152,7 @@
     "mountDir": "kimyolab"
   },
   "scanned": {
-    "files": 191,
+    "files": 200,
     "roots": [
       "src/**",
       "server/**",
@@ -166,6 +166,18 @@
       "literal": "kimyolab.invalid",
       "allowed": true,
       "reason": "reserved .invalid parse base for new URL() — never fetched"
+    },
+    {
+      "file": "src/features/dynamic-lab/scene.ts",
+      "literal": "www.w3.org",
+      "allowed": true,
+      "reason": "the SVG XML namespace identifier for document.createElementNS (dynamic-lab scene) — a name, never fetched"
+    },
+    {
+      "file": "src/features/practice/apparatus-icons.ts",
+      "literal": "www.w3.org",
+      "allowed": true,
+      "reason": "the SVG XML namespace identifier for document.createElementNS (dynamic-lab scene) — a name, never fetched"
     },
     {
       "file": "src/integrations/external-labs/url-policy.ts",

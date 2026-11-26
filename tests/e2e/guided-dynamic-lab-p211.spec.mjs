@@ -18,6 +18,9 @@ test.afterAll(async () => { await hosts?.close(); });
 
 async function object(page, ref) { await page.locator(`${LAB} [data-object="${ref}"]`).click(); }
 async function addTo(page, substance, container) {
+  // lab review stage 2 (2026-11-24): 7.10 is the bench prototype; its full action list sits in a closed <details> (opened here)
+  const toggle = page.locator('.kl-dlab__list-toggle:not([open]) > summary');
+  if (await toggle.count()) await toggle.click();
   await object(page, `substance:${substance}`);
   await list(page).locator('[data-action-family=ADD_SUBSTANCE]').click();
   await page.locator('#dlab-param-container').selectOption(container);
@@ -32,7 +35,8 @@ for (const name of ['portal', 'standalone']) {
     await expect(page.locator(`${LAB}[data-dynamic-lab="lab-profile.7.10.metal-acid-gas"]`)).toBeVisible();
     await addTo(page, 'mg', 'tube-1'); await addTo(page, 'h2so4-dilute', 'tube-1');
     await expect(result(page)).toHaveAttribute('data-status', 'accepted');
-    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('H2 gazi ajraldi');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('H₂ gazi ajraldi');
     await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.mg-h2so4');
     await addTo(page, 'zn', 'tube-2'); await addTo(page, 'hcl-dilute', 'tube-2');
     await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toHaveCount(2);
@@ -42,7 +46,17 @@ for (const name of ['portal', 'standalone']) {
     await expect(collect).toHaveCount(2);
     await expect(list(page).locator('[data-action-family=COLLECT_GAS][data-action-from=tube-1]')).toContainText('qayerdan: 1-probirka');
     await list(page).locator('[data-action-family=COLLECT_GAS][data-action-from=tube-1]').click();
-    await expect(result(page)).toContainText('H2 gazi yig‘ildi (manba: 1-probirka)');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(result(page)).toContainText('H₂ gazi yig‘ildi (manba: 1-probirka)');
+    // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are trials of the instruction: the lab is not complete before them
+    await expect(page.locator(`${LAB}[data-complete=true]`)).toHaveCount(0);
+    await addTo(page, 'mg', 'tube-4'); await addTo(page, 'hcl-dilute', 'tube-4');
+    await expect(result(page)).toHaveAttribute('data-status', 'accepted');
+    await addTo(page, 'fe', 'tube-5'); await addTo(page, 'hcl-dilute', 'tube-5');
+    await expect(result(page)).toHaveAttribute('data-status', 'accepted');
+    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toHaveCount(4);
+    await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.mg-hcl');
+    await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.fe-hcl');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
     // closeout: the profile carries only part of the instruction — never announced as the whole lab
     await expect(page.locator(`${LAB}[data-completion-scope=PARTIAL_INSTRUCTION]`)).toBeVisible();
@@ -50,10 +64,11 @@ for (const name of ['portal', 'standalone']) {
     await expect(result(page)).not.toContainText('maqsadiga erishildi');
     await expect(page.locator(`${LAB} .kl-dlab__scope`)).toContainText('faqat bir qismini');
     await expect(page.locator(`${LAB} .kl-dlab__observations li[data-observation-kind=gas-collected]`)).toHaveAttribute('data-grounding', 'PROCEDURE');
-    // Cu + dilute HCl: no reaction record → no observation is invented, also after heating
+    // Cu + dilute HCl: no reviewed reaction record → no observation is invented, also after heating
     await addTo(page, 'cu', 'tube-3'); await addTo(page, 'hcl-dilute', 'tube-3');
     await expect(result(page)).toHaveAttribute('data-status', 'unsupported');
-    await expect(result(page)).toContainText('reaksiya yozuvi yo‘q');
+    // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has a no-reaction record (rxn.cu-hcl) that is not reviewed yet: the lab says so and shows nothing
+    await expect(result(page)).toContainText('hali tasdiqlamagan');
     // closeout: the Cu trial states no heating — HEAT is refused by the instruction scope, before any chemistry
     await object(page, 'apparatus:tube-3');
     await expect(list(page).locator('[data-action-family=HEAT]')).toHaveAttribute('data-category', 'unavailable');
@@ -61,11 +76,12 @@ for (const name of ['portal', 'standalone']) {
     await expect(result(page)).toHaveAttribute('data-status', 'rejected');
     await expect(result(page)).toHaveAttribute('data-code', 'ACTION_NOT_IN_INSTRUCTION_SCOPE');
     await expect(result(page)).toContainText('Yo‘riqnoma bu amalni shu tajriba uchun ko‘rsatmagan');
-    // an arbitrary pairing is refused too (Mg is not a partner of HCl in this instruction)
+    // an arbitrary pairing is refused too (Mg is not part of the Cu trial; 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are trials of the instruction only in a tube of its own)
     await addTo(page, 'mg', 'tube-3');
     await expect(result(page)).toHaveAttribute('data-code', 'ACTION_NOT_IN_INSTRUCTION_SCOPE');
     await expect(result(page)).toContainText('bir idishda birga ishlatilmaydi');
-    await expect(page.locator(`${LAB} .kl-dlab__observations li`)).toHaveCount(3);
+    // 7.10 aligned with the 2026 grade-7 workbook, practical work 5.2 (owner decision 2026-11-21): Mg + dilute HCl and Fe + dilute HCl are trials of the instruction: 4 reaction observations + 1 collected gas (was 3)
+    await expect(page.locator(`${LAB} .kl-dlab__observations li`)).toHaveCount(5);
     await expect(page.locator(`${LAB} .kl-dlab__state`)).toContainText('3-probirka');
     // learner-facing text names no engine and leaks no developer term
     expect(await page.locator(LAB).innerText()).not.toMatch(DEV_TERMS);
@@ -93,11 +109,13 @@ for (const name of ['portal', 'standalone']) {
     await expect(page.locator(`${LAB} .kl-dlab__state`)).toContainText('tiqin bilan yopilgan');
     await object(page, 'apparatus:reaction-tube');
     await list(page).locator('[data-action-family=HEAT]').click();
-    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('NH3 gazi ajraldi');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ReactionMatcher]`)).toContainText('NH₃ gazi ajraldi');
     await expect(page.locator(`${LAB} .kl-dlab__sources`)).toContainText('rxn.nh4cl-caoh2');
     await object(page, 'apparatus:collector-tube');
     await list(page).locator('[data-action-family=COLLECT_GAS]').click();
-    await expect(result(page)).toContainText('NH3 gazi yig‘ildi');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(result(page)).toContainText('NH₃ gazi yig‘ildi');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
     await expect(result(page)).toContainText('qo‘llab-quvvatlanadigan qismi bajarildi');
     await expect(result(page)).not.toContainText('maqsadiga erishildi');

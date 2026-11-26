@@ -15,6 +15,10 @@ import {LAB_ACTION_FAMILIES,                    } from '../../domain/lab/action-
 import {availableActions,createLabRuntime,createLabState,                                                                                       } from '../../domain/lab/lab-runtime.js';
                                                                                          
 import {createLabDomain} from '../../domain/lab/lab-domain.js';
+import {renderLabScene,subscriptFormula} from './scene.js';
+import {iconSvg,iconForKind} from '../practice/apparatus-icons.js';
+import {setChemText} from '../../ui/chem-text.js';
+import {BENCH_IMAGES} from './bench-assets.js';
 
                                                                  
 
@@ -27,18 +31,37 @@ export function renderDynamicLabUnavailable(root            ,page               
   root.append(shell);
 }
 
-                                                                                                             
+                                                                                                            
+                                                                                                                                           
+                                               
+/** How the lab is embedded. `trial` (default): nothing is persisted. `scorm`: the page runs as one SCORM 1.2 SCO — the
+ *  host persists the accepted actions and the completed status in the LMS (never a score); there is no link to the
+ *  classic practice route, because that route keeps its own browser-local attempt outside the LMS. */
+                                    
+                        
+                                                                         
+                    
+                                                                                                                
+                                                                     
+                                                                                                                
+                                                                                                                
+                 
+ 
+/** lab review 2026-11-24, stage 2: the bench is first tried on 7.10 (owner decision), the other labs keep the list */
+export const BENCH_PROTOTYPE                    =new Set(['practice.experiment.7.10']);
 
-export function renderDynamicLab(root            ,page                         ,profile                )                 {
+export function renderDynamicLab(root            ,page                         ,profile                ,options                  ={})                 {
   if(profile.activityId!==page.id) throw new Error('DYNAMIC_LAB_PROFILE_MISMATCH');
   const localize         =createLocalizer(page.localization);
   const t        =createLabeler(localize);
   const runtime=createLabRuntime(createLabDomain(page.chemistry       ));
   let state=createLabState(profile);
+  const accepted            =[];
   let selected               =null;
   let pending               =null;
   let level              =profile.guidance.defaultLevel;
   let stage                                ='goal';
+  const benchModeEarly=options.bench??BENCH_PROTOTYPE.has(profile.activityId);
 
   const opt=(key       ,vars                              )=>{ const v=localize(key); return v===null?null:v.replace(/\{(\w+)\}/g,(_,k)=>String(vars?.[k]??'')); };
   const label=(key       )=>t.text(key,key.split('.').pop() );
@@ -65,7 +88,8 @@ export function renderDynamicLab(root            ,page                         ,
   clear(root);
   const head=el('header',{className:'kl-unit-hero'}); const hi=el('div',{className:'kl-shell'});
   const title=el('h1',{text:page.title,attrs:{tabindex:'-1'}});
-  hi.append(link(t.ui('ui.dlab-open-classic'),`/practice/${page.id}`,'kl-back-link'),el('p',{className:'kl-kicker',text:t.ui('ui.dlab-kicker')}),title,el('p',{className:'kl-notice',text:t.ui('ui.dlab-not-saved')}));
+  if(options.mode!=='scorm') hi.append(link(t.ui('ui.dlab-open-classic'),`/practice/${page.id}`,'kl-back-link'));
+  hi.append(el('p',{className:'kl-kicker',text:t.ui('ui.dlab-kicker')}),title,el('p',{className:'kl-notice',text:t.ui(options.noticeKey??'ui.dlab-not-saved'),attrs:{'data-dlab-notice':options.mode??'trial'}}));
   head.append(hi);
   const shell=el('div',{className:'kl-shell kl-practice-workspace kl-dlab',attrs:{'data-dynamic-lab':profile.profileId,'data-order-mode':profile.procedure.mode,'data-completion-scope':profile.completionScope.kind}});
 
@@ -80,14 +104,16 @@ export function renderDynamicLab(root            ,page                         ,
 
   // Maqsad: the goal, the instruction (its own sentences), the order rule and the safety notes
   const goal=section('goal','ui.dlab-stage-goal');
-  goal.append(el('p',{className:'kl-unit-outcome',text:profile.instruction.goal}));
+  // the legacy goal is often step 1 copied; then the instruction (below) already says it
+  if(profile.instruction.goal.trim()!==profile.instruction.steps[0]?.text.trim()) goal.append(el('p',{className:'kl-unit-outcome',text:profile.instruction.goal}));
   const instruction=el('details',{className:'kl-dlab__instruction'}); instruction.append(el('summary',{text:t.ui('ui.dlab-instruction')}));
-  const steps=el('ol'); for(const s of profile.instruction.steps) steps.append(el('li',{text:s.text})); instruction.append(steps);
+  const steps=el('ol'); for(const s of profile.instruction.steps){ const li=el('li'); setChemText(li,s.text); steps.append(li); } instruction.append(steps);
   if(profile.instruction.equipmentText) instruction.append(el('p',{text:t.ui('ui.lab-equipment',{text:profile.instruction.equipmentText})}));
   if(profile.instruction.materialsText) instruction.append(el('p',{text:t.ui('ui.lab-materials',{text:profile.instruction.materialsText})}));
   goal.append(instruction,el('p',{className:'kl-dlab__order',text:t.ui(`ui.dlab-order-${profile.procedure.mode}`)}));
   if(profile.completionScope.kind==='PARTIAL_INSTRUCTION') goal.append(el('p',{className:'kl-notice kl-dlab__scope',text:t.ui('ui.dlab-partial-notice')}));
-  for(const n of profile.safety.notes) goal.append(el('p',{className:'kl-notice kl-dlab__safety',text:t.ui('ui.lab-safety',{text:n.text})}));
+  // the same note can come from two instruction steps: it is shown once
+  for(const text of [...new Set(profile.safety.notes.map(n=>n.text.trim()))]) goal.append(el('p',{className:'kl-notice kl-dlab__safety',text:t.ui('ui.lab-safety',{text})}));
 
   // Amal: object → action → parameters
   const action=section('action','ui.dlab-stage-action');
@@ -96,7 +122,177 @@ export function renderDynamicLab(root            ,page                         ,
   const paramsBox=el('div',{className:'kl-dlab__params'});
   const result=el('p',{className:'kl-feedback kl-dlab__result',attrs:{role:'status','aria-live':'polite','aria-atomic':'true',tabindex:'-1'}});
   const reset=el('button',{className:'kl-button kl-button--secondary',text:t.ui('ui.dlab-reset'),attrs:{type:'button','data-dlab-reset':''}});
-  action.append(objectsBox,actionsBox,paramsBox,result,reset);
+  // the bench: a picture of the state (decoration — the same facts are in the text state and the observations)
+  const scene=el('div',{className:'kl-scene',attrs:{'data-dlab-scene':''}});
+  const speciesList      =Array.isArray((page.chemistry       )?.species)?(page.chemistry       ).species:((page.chemistry       )?.species?.species??[]);
+  const formulaBySpecies=new Map               (speciesList.map((x    )=>[x.id,x.formula]));
+  const formulaOf=(substanceId       )=>{ const sub=profile.substances.find(x=>x.id===substanceId); const sp=sub?.speciesId??sub?.soluteSpeciesId??null; return sp?formulaBySpecies.get(sp)??null:null; };
+  const benchMode=options.bench??BENCH_PROTOTYPE.has(profile.activityId);
+  // the bench: a reagent "in hand", the vessel being worked with, and the pour that just happened (motion only)
+  let inHand            =null, focusVessel            =null, pourFx            =null, pourImageFx            =null, pourLiquidFx=false, collectFx                             =null, lastNote            =null;
+  const containers=profile.apparatus.filter(a=>a.isContainer);
+  // pictures for the bench (decoration): a metal sample by its formula; a solution in a clear bottle, a solid in a brown jar
+  const METAL_IMAGE                      ={Mg:BENCH_IMAGES.mg,Zn:BENCH_IMAGES.zn,Fe:BENCH_IMAGES.fe,Cu:BENCH_IMAGES.cu};
+  const isLiquid=(id       )=>{ const s=profile.substances.find(x=>x.id===id)       ; const f=s?.declaredForm?.form; return f==='liquid'||f==='solution'||/solution|dilute|water|suv/.test(id); };
+  const sampleImage=(id       )=>{ const f=formulaOf(id); return f&&!isLiquid(id)?METAL_IMAGE[f]??null:null; };
+  const shelfImage=(id       )=>sampleImage(id)??(isLiquid(id)?BENCH_IMAGES['bottle-clear']:BENCH_IMAGES['bottle-amber']);
+  const drawScene=()=>renderLabScene(scene,benchMode
+    ?{profile,state,formulaOf,labelOf:apparatusName,large:true,sampleImage,armed:inHand!==null,focus:focusVessel,pour:pourFx,pourImage:pourImageFx,pourLiquid:pourLiquidFx,collect:collectFx,onSelect:(id)=>{ if(!suppressClick) vesselClick(id); }}
+    :{profile,state,formulaOf,labelOf:apparatusName,onSelect:(id)=>{ objectsBox.querySelector                   (`[data-object="apparatus:${id}"]`)?.click(); }});
+  const bench=el('section',{className:'kl-bench',attrs:{'aria-labelledby':'dlab-bench-title','data-dlab-bench':''}});
+  const benchHint=el('p',{className:'kl-bench__hint',attrs:{'aria-live':'polite'}});
+  const benchStage=el('div',{className:'kl-bench__stage'});
+  const vesselRow=el('div',{className:'kl-bench__vessels',attrs:{role:'group','aria-label':t.ui('ui.bench-vessels')}});
+  const shelf=el('div',{className:'kl-bench__shelf',attrs:{role:'group','aria-label':t.ui('ui.bench-shelf')}});
+  const tools=el('div',{className:'kl-bench__tools'});
+  const tasksBox=el('ol',{className:'kl-bench__tasks'});
+  if(benchMode){
+    bench.append(el('h2',{className:'kl-sr-only',text:t.ui('ui.bench-title'),attrs:{id:'dlab-bench-title'}}));
+    result.classList.add('kl-sr-only');
+    benchStage.append(scene,benchHint,vesselRow,tools,result);
+    const side=el('div',{className:'kl-bench__side'}); side.append(el('h3',{text:t.ui('ui.bench-shelf')}),shelf);
+    bench.append(benchStage,side);
+    // the list of every action stays — for the keyboard and screen readers, and for what the bench does not show
+    const list=el('details',{className:'kl-dlab__list-toggle'}); list.append(el('summary',{text:t.ui('ui.bench-list')}),objectsBox,actionsBox,paramsBox);
+    action.append(el('h3',{text:t.ui('ui.bench-tasks')}),tasksBox,reset,list);
+  }
+  else action.append(objectsBox,actionsBox,paramsBox,result,reset);
+
+  /** an instruction step against a state: outside the lab, still to do, done, or done as far as the lab goes */
+  function stepStatus(i       ,st         )                                  {
+    const own=profile.procedure.steps.filter(p=>p.instructionStep===i&&p.required!==false);
+    if(!own.length) return 'outside';
+    if(!own.every(p=>st.completedSteps.includes(p.id))) return 'todo';
+    return profile.completionScope.uncovered.some(u=>u.instructionStep===i)?'partial':'done';
+  }
+  // the bench's task list: the instruction's own steps, each with what the lab state says about it
+  function drawTasks(){
+    if(!benchMode) return;
+    clear(tasksBox);
+    let nowGiven=false;
+    profile.instruction.steps.forEach((s,i)=>{
+      const base=stepStatus(i,state);
+      const status=base==='todo'?(nowGiven?'todo':'now'):base;
+      if(status==='now') nowGiven=true;
+      const li=el('li',{className:`kl-bench__task is-${status}`,attrs:{'data-bench-task':status}});
+      li.append(el('span',{className:'kl-bench__task-mark',text:status==='done'?'✓':status==='partial'?'◐':status==='now'?'➜':status==='outside'?'–':String(i+1),attrs:{'aria-hidden':'true'}}));
+      const body=el('div'); const txt=el('p',{className:'kl-bench__task-text'}); setChemText(txt,s.text); body.append(txt);
+      if(status!=='todo') body.append(el('span',{className:'kl-bench__task-status',text:t.ui(`ui.bench-task-${status}`)}));
+      // what of this step the lab does not do (and therefore never marks as done)
+      if(status!=='outside') for(const u of profile.completionScope.uncovered.filter(x=>x.instructionStep===i)){ const m=opt(`ui.bench-missing-${u.family}`); if(m) body.append(el('p',{className:'kl-bench__task-missing',text:m})); }
+      li.append(body); tasksBox.append(li);
+    });
+  }
+  // ---- drag and drop (owner, 2026-11-26: "surib soladigan qilolmaymizmi?"): pointer events, so a mouse and a finger
+  // both work. A reagent is dragged onto a vessel (pour), the collector onto the tube giving off a gas (collect), the
+  // spirit lamp under a tube (heat). Each drop builds the same LabAction the buttons build; the buttons stay for keys.
+  let suppressClick=false;
+  const vesselAt=(x       ,y       )=>{ const hit=document.elementFromPoint(x,y); const v=hit?.closest('[data-scene-object^="apparatus:"],[data-bench-vessel]'); if(!v) return null; const id=v.getAttribute('data-bench-vessel')??(v.getAttribute('data-scene-object')??'').slice('apparatus:'.length); return containers.some(c=>c.id===id)?id:null; };
+  const markOver=(id            ,ok        )=>{ root.querySelectorAll('.is-drop-over,.is-drop-no').forEach(n=>n.classList.remove('is-drop-over','is-drop-no')); if(id) root.querySelectorAll(`[data-scene-object="apparatus:${id}"],[data-bench-vessel="${id}"]`).forEach(n=>n.classList.add(ok?'is-drop-over':'is-drop-no')); };
+  function dragSource(node        ,ghost         ,canDrop                         ,onDrop                      ){
+    node.addEventListener('pointerdown',(ev)=>{
+      const e=ev                ; if(e.button!==0) return;
+      const sx=e.clientX, sy=e.clientY; let g                 =null; let over            =null;
+      const move=(mv      )=>{ const m=mv                ;
+        if(!g&&Math.hypot(m.clientX-sx,m.clientY-sy)<6) return;
+        if(!g){ g=el('div',{className:'kl-drag-ghost',attrs:{'aria-hidden':'true'}}); g.append(ghost()); document.body.append(g); root.classList.add('is-dragging'); }
+        g.style.transform=`translate(${m.clientX-30}px,${m.clientY-30}px)`;
+        over=vesselAt(m.clientX,m.clientY); markOver(over,over!==null&&canDrop(over)); m.preventDefault(); };
+      const up=()=>{ document.removeEventListener('pointermove',move); document.removeEventListener('pointerup',up); document.removeEventListener('pointercancel',up);
+        if(!g) return; g.remove(); root.classList.remove('is-dragging'); markOver(null,false);
+        suppressClick=true; setTimeout(()=>{ suppressClick=false; },0);
+        if(over) onDrop(over); };
+      document.addEventListener('pointermove',move); document.addEventListener('pointerup',up); document.addEventListener('pointercancel',up);
+    });
+  }
+  const imgNode=(src       ,flip=false)=>{ const i=el('img',{attrs:{src,alt:''}}); if(flip) i.style.transform='scaleY(-1)'; return i; };
+  const gasSourcesNow=()=>containers.map(c=>c.id).filter(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom));
+  const collectOptionFor=(source       )=>{ const srcs=gasSourcesNow(); return availableActions(state,profile).find(o=>o.action.family==='COLLECT_GAS'&&(o.category==='recommended'||o.category==='possible')&&(o.action.params?.from===source||(!o.action.params?.from&&srcs.length===1&&srcs[0]===source)))??null; };
+  const heatOptionFor=(vessel       )=>availableActions(state,profile).find(o=>o.action.family==='HEAT'&&(o.category==='recommended'||o.category==='possible')&&touches(o,{kind:'apparatus',id:vessel}))??null;
+  function collectInto(source       ){
+    const o=collectOptionFor(source);
+    if(!o){ lastNote=t.ui('ui.bench-drop-no-gas',{vessel:apparatusName(source)}); draw(); return; }
+    const to=String(o.action.params?.container??containers.find(c=>c.kind==='gas-collection-vessel')?.id??'');
+    focusVessel=source; collectFx={to,from:source}; run(o.action); collectFx=null;
+  }
+  function heatTube(vessel       ){
+    const o=heatOptionFor(vessel);
+    if(!o){ lastNote=t.ui('ui.bench-drop-no-heat',{vessel:apparatusName(vessel)}); draw(); return; }
+    focusVessel=vessel; run(o.action);
+  }
+  function wireSceneDrags(){
+    if(!benchMode) return;
+    for(const c of containers.filter(x=>x.kind==='gas-collection-vessel')){
+      const node=scene.querySelector(`[data-scene-object="apparatus:${c.id}"]`); if(!node) continue;
+      node.classList.add('is-draggable');
+      dragSource(node,()=>imgNode(BENCH_IMAGES.tube,true),(v)=>collectOptionFor(v)!==null,(v)=>collectInto(v));
+    }
+  }
+  function vesselClick(id       ){
+    if(inHand&&containers.some(c=>c.id===id)){ pour(inHand,id); return; }
+    focusVessel=focusVessel===id?null:id; selected={kind:'apparatus',id}; draw();
+  }
+  function pour(substance       ,container       ){
+    const limit=profile.limits.quantities.find(q=>q.substanceId===substance);
+    inHand=null; focusVessel=container; pourFx=container; pourImageFx=isLiquid(substance)?BENCH_IMAGES['bottle-clear']:sampleImage(substance)??BENCH_IMAGES['bottle-amber']; pourLiquidFx=isLiquid(substance);
+    run({family:'ADD_SUBSTANCE',params:{substance,container,...(limit?{quantity:limit.value}:{})}});
+    pourFx=null;
+  }
+  function drawBench(){
+    if(!benchMode) return;
+    clear(shelf); clear(vesselRow); clear(tools);
+    setChemText(benchHint,inHand?t.ui('ui.bench-hint-in-hand',{name:substanceName(inHand)}):lastNote?lastNote:focusVessel?t.ui('ui.bench-hint-vessel',{vessel:apparatusName(focusVessel)}):t.ui('ui.bench-hint-start'));
+    benchHint.classList.toggle('is-result',!inHand&&!!lastNote); lastNote=null;
+    for(const sub of profile.substances){
+      const b=el('button',{className:`kl-bench__bottle${inHand===sub.id?' is-in-hand':''}`,attrs:{type:'button','aria-pressed':String(inHand===sub.id),'data-bench-substance':sub.id}});
+      const f=formulaOf(sub.id);
+      b.append(el('img',{className:'kl-bench__bottle-img',attrs:{src:shelfImage(sub.id),alt:'',draggable:'false'}}));
+      if(f) b.append(el('span',{className:'kl-dlab__formula',text:subscriptFormula(f),attrs:{'aria-hidden':'true'}}));
+      const nm=el('span',{className:'kl-bench__bottle-name'}); setChemText(nm,substanceName(sub.id)); b.append(nm);
+      b.addEventListener('click',()=>{ if(suppressClick) return; inHand=inHand===sub.id?null:sub.id; focusVessel=null; draw(); });
+      dragSource(b,()=>imgNode(shelfImage(sub.id)),()=>true,(v)=>pour(sub.id,v));
+      shelf.append(b);
+    }
+    // the spirit lamp on the shelf, where the instruction heats: drag it under a tube
+    if(profile.allowedFamilies.includes('HEAT')){
+      const b=el('button',{className:'kl-bench__bottle kl-bench__bottle--tool',attrs:{type:'button','data-bench-tool':'lamp'}});
+      const ic=iconSvg('spirit-lamp'); if(ic){ ic.classList.add('kl-bench__bottle-img'); b.append(ic); }
+      b.append(el('span',{className:'kl-bench__bottle-name',text:t.ui('ui.bench-lamp')}));
+      b.addEventListener('click',()=>{ if(suppressClick) return; lastNote=t.ui('ui.bench-lamp-hint'); draw(); });
+      dragSource(b,()=>{ const s=iconSvg('spirit-lamp'); return s??document.createTextNode(''); },(v)=>heatOptionFor(v)!==null,(v)=>heatTube(v));
+      shelf.append(b);
+    }
+    for(const c of containers){
+      const b=el('button',{className:`kl-button kl-button--secondary kl-bench__vessel${focusVessel===c.id?' is-focus':''}`,attrs:{type:'button','data-bench-vessel':c.id}});
+      setChemText(b,apparatusName(c.id)); if(inHand){ b.classList.add('is-target'); b.setAttribute('aria-label',t.ui('ui.bench-pour-into',{vessel:apparatusName(c.id)})); }
+      b.addEventListener('click',()=>vesselClick(c.id));
+      vesselRow.append(b);
+    }
+    if(inHand){ const cancel=el('button',{className:'kl-button kl-button--secondary',text:t.ui('ui.bench-cancel'),attrs:{type:'button'}}); cancel.addEventListener('click',()=>{ inHand=null; draw(); }); tools.append(cancel); return; }
+    if(!focusVessel) return;
+    // the vessel's own actions (heat, collect its gas, …): what the runtime offers for it, the instruction's next first
+    const ref={kind:'apparatus'         ,id:focusVessel};
+    const seen=new Set        ();
+    const all=availableActions(state,profile).filter(o=>o.category==='recommended'||o.category==='possible');
+    // a vessel giving off a gas also offers collecting it (the collector's action, named by this source): the learner
+    // looks at the tube with the bubbles, not at the empty collector
+    const gasHere=state.containers[focusVessel]?.gases.some(g=>!g.collected&&!g.collectedFrom)??false;
+    const sources=containers.map(c=>c.id).filter(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom));
+    const collectHere=gasHere?all.filter(o=>o.action.family==='COLLECT_GAS'&&(o.action.params?.from===focusVessel||(!o.action.params?.from&&sources.length===1&&sources[0]===focusVessel))):[];
+    const opts=[...collectHere,...all.filter(o=>o.action.family!=='ADD_SUBSTANCE'&&touches(o,ref)&&!collectHere.includes(o))];
+    if(!opts.length){ tools.append(el('p',{className:'kl-bench__none',text:t.ui('ui.bench-no-tools')})); return; }
+    tools.append(el('p',{className:'kl-bench__tools-title',text:t.ui('ui.bench-tools',{vessel:apparatusName(focusVessel)})}));
+    for(const o of opts){
+      const key=JSON.stringify(o.action); if(seen.has(key)) continue; seen.add(key);
+      const b=el('button',{className:`kl-button ${o.category==='recommended'?'kl-button--primary':'kl-button--secondary'}`,attrs:{type:'button','data-bench-action':String(o.action.family)}});
+      // collecting: name the gas's source tube ("1-probirkadagi gazni yig'ish"), not the collector twice
+      let label=actionText(o.action);
+      if(o.action.family==='COLLECT_GAS'){ const from=o.action.params?.from?String(o.action.params.from):(containers.map(c=>c.id).filter(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom)).length===1?containers.map(c=>c.id).find(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom)) :null); if(from) label=t.ui('ui.bench-collect-from',{from:apparatusName(from)}); }
+      setChemText(b,label);
+      b.addEventListener('click',()=>{ if(o.action.family==='COLLECT_GAS'){ const src=o.action.params?.from?String(o.action.params.from):containers.map(c=>c.id).find(id=>state.containers[id]?.gases.some(g=>!g.collected&&!g.collectedFrom))??null; const to=String(o.action.params?.container??containers.find(c=>c.kind==='gas-collection-vessel')?.id??focusVessel??''); if(src&&to){ collectFx={to,from:src}; run(o.action); collectFx=null; return; } } if(o.action.family==='RECORD'){ selected=ref; (action.querySelector('details')                           )?.setAttribute('open',''); choose(o.action); return; } run(o.action); });
+      tools.append(b);
+    }
+  }
 
   // Kuzatish: the observations (text, never colour alone) and the state
   const observe=section('observe','ui.dlab-stage-observe');
@@ -104,10 +300,14 @@ export function renderDynamicLab(root            ,page                         ,
   const obsEmpty=el('p',{text:t.ui('ui.dlab-no-observations')});
   const stateBox=el('div',{className:'kl-dlab__state'});
   observe.append(obsEmpty,obsList,el('h3',{text:t.ui('ui.dlab-state')}),stateBox);
+  // Stage 1 of the 2026-11-24 review: record ids, source paths and model names are for the teacher, behind one summary
 
   // Nega?: where each observation comes from + guidance levels 1–4 (never the answer)
   const why=section('why','ui.dlab-stage-why');
-  const sources=el('ul',{className:'kl-dlab__sources'});
+  const whyList=el('ul',{className:'kl-dlab__why-list'});
+  const whyEmpty=el('p',{text:t.ui('ui.dlab-why-empty')});
+  const teacher=el('details',{className:'kl-dlab__teacher'}); teacher.append(el('summary',{text:t.ui('ui.dlab-teacher')}));
+  const sources=el('ul',{className:'kl-dlab__sources'}); teacher.append(sources);
   const guidanceFs=el('fieldset',{className:'kl-choice-group kl-dlab__guidance'}); guidanceFs.append(el('legend',{text:t.ui('ui.dlab-guidance')}));
   for(const l of profile.guidance.levels){
     const id=`dlab-guidance-${l}`; const input=el('input',{attrs:{type:'radio',name:'dlab-guidance',id,value:String(l)}}); if(l===level) input.checked=true;
@@ -115,9 +315,12 @@ export function renderDynamicLab(root            ,page                         ,
     const lab=el('label',{attrs:{for:id}}); lab.append(input,document.createTextNode(` ${t.ui(`ui.dlab-guidance-${l}`)}`)); guidanceFs.append(lab);
   }
   const guidanceOut=el('div',{className:'kl-dlab__guidance-text',attrs:{'aria-live':'polite'}});
-  why.append(sources,guidanceFs,guidanceOut);
+  // the bench asks for a hint with one button (each press opens the next level); other labs keep the level choice
+  const hintBtn=el('button',{className:'kl-button kl-button--secondary kl-why-hint',attrs:{type:'button','data-dlab-hint':''}});
+  if(benchModeEarly){ hintBtn.addEventListener('click',()=>{ if(level<4){ level=(level+1)                 ; draw(); hintBtn.focus(); } }); why.append(whyEmpty,whyList,el('h3',{text:t.ui('ui.why-hint-title')}),hintBtn,guidanceOut,teacher); }
+  else why.append(whyEmpty,whyList,guidanceFs,guidanceOut,teacher);
 
-  shell.append(flow,goal,action,observe,why);
+  shell.append(flow,benchMode?bench:scene,goal,action,observe,why);
   root.append(head,shell);
 
   function categoryText(o             ){
@@ -142,7 +345,11 @@ export function renderDynamicLab(root            ,page                         ,
       const g=el('div',{className:'kl-dlab__group',attrs:{role:'group','aria-label':t.ui(key)}});
       g.append(el('p',{className:'kl-dlab__group-title',text:t.ui(key),attrs:{'aria-hidden':'true'}}));
       for(const ref of refs){
-        const b=el('button',{className:'kl-button kl-button--secondary kl-dlab__object',text:objectName(ref),attrs:{type:'button','aria-pressed':String(selected?.kind===ref.kind&&selected.id===ref.id),'data-object':`${ref.kind}:${ref.id}`}});
+        // a card: apparatus with its icon, a substance with its formula above the name (the accessible name is the name)
+        const b=el('button',{className:`kl-button kl-button--secondary kl-dlab__object kl-dlab__object--${ref.kind}`,attrs:{type:'button','aria-pressed':String(selected?.kind===ref.kind&&selected.id===ref.id),'data-object':`${ref.kind}:${ref.id}`}});
+        if(ref.kind==='apparatus'){ const ic=iconForKind(profile.apparatus.find(a=>a.id===ref.id)?.kind??''); const svg=ic?iconSvg(ic):null; if(svg) b.append(svg); }
+        if(ref.kind==='substance'){ const f=formulaOf(ref.id); if(f) b.append(el('span',{className:'kl-dlab__formula',text:subscriptFormula(f),attrs:{'aria-hidden':'true'}})); }
+        { const nm=el('span',{className:'kl-dlab__object-name'}); setChemText(nm,objectName(ref)); b.append(nm); }
         b.addEventListener('click',()=>{ selected=ref; pending=null; draw(); actionsBox.querySelector             ('h3')?.focus(); });
         g.append(b);
       }
@@ -239,12 +446,20 @@ export function renderDynamicLab(root            ,page                         ,
       const detail=opt(`ui.dlab-reason-${r.error.detail}`);
       return detail?`${base} ${detail}`:base;
     }
+    // a no-reaction record that is not reviewed yet: the reason alone says it ("the model does not model this" first
+    // would contradict it — there IS a record)
+    // heating with no modelled effect: the lamp is lit, the lab just does not show what heat changes
+    if(r.unsupported?.detail==='HEATING_EFFECT_NOT_MODELED'){ const d=opt('ui.bench-heated-no-effect'); if(d) return t.ui('ui.bench-heated-no-effect',{vessel:apparatusName(String(a.params?.container??a.params?.apparatus??''))}); }
+    if(r.unsupported?.detail==='NO_REACTION_NOT_REVIEWED'){ const d=opt('ui.dlab-reason-NO_REACTION_NOT_REVIEWED'); if(d) return d; }
     if(r.unsupported){ const detail=opt(`ui.dlab-reason-${r.unsupported.detail}`); const key=r.unsupported.code==='UNSUPPORTED_CHEMISTRY'?'ui.dlab-unsupported-chemistry':r.unsupported.code==='LEARNER_RESPONSE_CHECKER_MISSING'?'ui.dlab-unsupported-response':'ui.dlab-unsupported-action'; return `${t.ui(key)}${detail?` ${detail}`:''}`; }
     const parts=[t.ui('ui.dlab-accepted',{action:actionText(a)})];
     const consequence=opt(`ui.dlab-reason-${r.guidance.code}`); if(consequence) parts.push(consequence);
-    for(const o of r.observations) parts.push(observationText(o));
+    for(const o of r.observations) parts.push(observationText(o,r.nextState));
     const eq=r.chemistryEvents.find(e=>e.type==='equation'); if(eq) parts.push(t.ui(eq.detail.correct?'ui.dlab-equation-correct':'ui.dlab-equation-incorrect'));
-    if(r.procedural.completedStep){ const s=profile.procedure.steps.find(x=>x.id===r.procedural.completedStep); if(s?.instructionStep!==null&&s?.instructionStep!==undefined) parts.push(t.ui('ui.dlab-step-done',{n:s.instructionStep+1})); }
+    // an instruction step is "done" only when all its required lab steps are; when the instruction asks for something
+    // the lab does not offer (completionScope.uncovered, e.g. the flame test), only the lab's part of it is done
+    if(r.procedural.completedStep){ const s=profile.procedure.steps.find(x=>x.id===r.procedural.completedStep); const n=s?.instructionStep;
+      if(n!==null&&n!==undefined&&stepStatus(n,r.nextState)!=='todo') parts.push(t.ui(stepStatus(n,r.nextState)==='partial'?'ui.dlab-step-done-partial':'ui.dlab-step-done',{n:n+1})); }
     // P2.11 closeout: “the lab's goal is reached” only when the profile carries the WHOLE instruction
     if(r.nextState.complete&&!state.complete) parts.push(t.ui(profile.completionScope.kind==='FULL_INSTRUCTION'?'ui.dlab-complete':'ui.dlab-complete-partial'));
     return parts.join(' ');
@@ -252,18 +467,22 @@ export function renderDynamicLab(root            ,page                         ,
 
   function run(a          ){
     const r=runtime.applyLabAction(state,a,profile);
+    // the bench says what happened next to the picture: the observations of this action (or that nothing visible did)
+    if(benchMode) lastNote=r.status==='accepted'?(r.observations.length?r.observations.map(o=>observationText(o,r.nextState)).join(' · '):t.ui('ui.bench-nothing-seen')):resultText(r,a);
     pending=null; clear(paramsBox);
-    result.textContent=resultText(r,a);
+    setChemText(result,resultText(r,a));
     result.dataset.status=r.status;
     result.dataset.code=r.error?.code??r.unsupported?.code??r.guidance.code;
     state=r.nextState;
-    if(r.status==='accepted') stage=r.observations.length?'observe':'action';
+    if(r.status==='accepted'){ stage=r.observations.length?'observe':'action'; accepted.push(a); options.onChange?.({accepted:[...accepted],complete:state.complete}); }
     draw();
-    result.focus();
+    // the bench keeps the picture in view: focus moves to the result without scrolling (it is announced politely)
+    result.focus(benchMode?{preventScroll:true}:undefined);
     return r;
   }
 
-  function observationText(o               ){
+  // st: the state the observation belongs to (an action's result text is written before `state` moves on)
+  function observationCore(o               ,st         =state){
     const d=(o.data??{})       ;
     const electrode=o.target==='cathode'||o.target==='anode'?targetName(o.target):'';
     let text       ;
@@ -273,11 +492,12 @@ export function renderDynamicLab(root            ,page                         ,
         if(o.producedBy==='ElectrolysisModel'){ text=t.ui('ui.dlab-obs-electrode-gas',{electrode,product:String(d.product)}); break; }
         // ReactionMatcher: the gas is the record's gaseous product in that container (never named from the observation alone)
         const rid=o.source.split('#')[1];
-        const g=o.container?state.containers[o.container]?.gases.find(x=>x.reactionId===rid)??Object.values(state.containers).flatMap(c=>c.gases).find(x=>x.reactionId===rid&&x.collectedFrom===o.container):undefined;
+        const g=o.container?st.containers[o.container]?.gases.find(x=>x.reactionId===rid)??Object.values(st.containers).flatMap(c=>c.gases).find(x=>x.reactionId===rid&&x.collectedFrom===o.container):undefined;
         text=g?t.ui('ui.dlab-obs-reaction-gas',{product:g.product}):t.ui('ui.dlab-obs-gas'); break;
       }
       case 'gas-collected': text=t.ui('ui.dlab-obs-gas-collected',{product:String(d.product),source:apparatusName(String(d.from))}); break;
       case 'no-visible-change': text=t.ui('ui.dlab-obs-no-visible-change'); break;
+      case 'indicator-response': { const c=d.color?opt(`ui.dlab-color-${d.color}`):null; const m=d.medium?opt(`ui.dlab-medium-${d.medium}`):null; text=c&&m?t.ui('ui.dlab-obs-indicator',{color:c,medium:m}):t.ui('ui.dlab-obs-other'); break; }
       case 'temperature-change': text=t.ui('ui.dlab-obs-temperature-change'); break;
       case 'deposit': text=t.ui('ui.dlab-obs-deposit',{electrode,product:String(d.product)}); break;
       case 'color-change': text=t.ui('ui.dlab-obs-color-change'); break;
@@ -288,60 +508,150 @@ export function renderDynamicLab(root            ,page                         ,
       case 'state-change': text=o.target==='crystals'?t.ui('ui.dlab-obs-crystals'):t.ui('ui.dlab-obs-other'); break;
       default: text=t.ui('ui.dlab-obs-other');
     }
+    return text;
+  }
+  function observationText(o               ,st         =state){
     const where=o.container?apparatusName(o.container):targetName(o.target);
-    return t.ui('ui.dlab-obs-line',{target:where,text});
+    return t.ui('ui.dlab-obs-line',{target:where,text:observationCore(o,st)});
   }
   function sourceText(o               ){
     if(o.producedBy==='ReactionMatcher') return t.ui('ui.dlab-src-reaction',{id:o.source.split('#')[1]??''});
     if(o.producedBy==='ElectrolysisModel') return t.ui('ui.dlab-src-electrolysis',{query:o.source.split('#')[1]??''});
     if(o.producedBy==='IonicEngine') return t.ui('ui.dlab-src-solubility');
+    if(o.producedBy==='SchoolLabModel') return t.ui('ui.dlab-src-school-model',{id:o.source.split('#')[1]??''});
     const m=o.source.match(/steps\[(\d+)\]/);
     return `${t.ui('ui.dlab-src-instruction')}${m?`, ${t.ui('ui.dlab-step-n',{n:Number(m[1])+1})}`:''}. ${t.ui('ui.dlab-why-instruction-note')}`;
   }
 
+  // Nega?: the learner reads the reason in plain words — the record's equation, the indicator's colours, the instruction
+  // itself — never a record id (those are in the teacher's summary). An unreviewed record says so.
+  const chem=page.chemistry       ;
+  const reactionList      =Array.isArray(chem?.reactions)?chem.reactions:(chem?.reactions?.reactions??[]);
+  const reactionById=new Map            (reactionList.map((r    )=>[r.id,r]));
+  const reviewed=new Set        (Array.isArray((page       ).reviewedReactionIds)?(page       ).reviewedReactionIds:Array.isArray(chem?.reviewedReactionIds)?chem.reviewedReactionIds:[]);
+  function whyText(o               ){
+    const seen=observationText(o);
+    if(o.producedBy==='ReactionMatcher'){
+      const id=o.source.split('#')[1]??''; const rec=reactionById.get(id);
+      if(!rec?.molecularEquation) return `${seen}. ${t.ui('ui.dlab-why-record')}`;
+      return `${seen}. ${t.ui('ui.dlab-why-equation',{equation:rec.molecularEquation})}${reviewed.has(id)?'':` ${t.ui('ui.dlab-why-unreviewed')}`}`;
+    }
+    if(o.producedBy==='SchoolLabModel'){
+      const colors=(chem?.hydrolysis?.indicator?.colors??{})                         ;
+      const list=(['acidic','basic','neutral']         ).filter(m=>colors[m]).map(m=>`${opt(`ui.dlab-medium-${m}`)??m} — ${opt(`ui.dlab-color-${colors[m]}`)??colors[m]}`).join(', ');
+      return `${seen}. ${t.ui('ui.dlab-why-indicator',{list})} ${t.ui('ui.dlab-why-unreviewed')}`;
+    }
+    if(o.producedBy==='IonicEngine') return `${seen}. ${t.ui('ui.dlab-why-solubility')}`;
+    if(o.producedBy==='ElectrolysisModel') return `${seen}. ${t.ui('ui.dlab-why-electrolysis')}`;
+    return `${seen}. ${t.ui('ui.dlab-why-instruction')}`;
+  }
+
   function drawObservations(){
-    clear(obsList); clear(sources);
-    obsEmpty.hidden=state.observations.length>0;
+    clear(obsList); clear(sources); clear(whyList);
+    obsEmpty.hidden=state.observations.length>0; whyEmpty.hidden=state.observations.length>0;
     for(const o of state.observations){
-      obsList.append(el('li',{text:observationText(o),attrs:{'data-observation-kind':o.kind,'data-produced-by':o.producedBy,'data-grounding':o.grounding}}));
+      const li=el('li',{attrs:{'data-observation-kind':o.kind,'data-produced-by':o.producedBy,'data-grounding':o.grounding}}); setChemText(li,observationText(o)); obsList.append(li);
       sources.append(el('li',{text:`${observationText(o)} — ${t.ui('ui.dlab-why-source',{source:sourceText(o)})}`,attrs:{'data-grounding':o.grounding}}));
+    }
+    drawWhyCards();
+  }
+
+  // Nega? as cards (owner, 2026-11-26: "buniyam tushunarliroq qilish kerak"): one card per reaction in a vessel — what
+  // was seen there (and where its gas was collected), the record's equation set large, and a small pill when the
+  // expert has not reviewed the record; other observations get a card each with their reason.
+  const phaseByFormula=new Map               (speciesList.map((x    )=>[x.formula,x.phase]));
+  function equationText(rec    ){
+    const [lhs='',rhs]=String(rec.molecularEquation).split('→');
+    if(rhs===undefined) return String(rec.molecularEquation);
+    // a gaseous product gets ↑, a precipitate ↓ (from the species' phase in the registry)
+    const prods=rhs.trim().split(' + ').map(p=>{ const f=p.replace(/^\d+/,''); const ph=phaseByFormula.get(f); return p+(ph==='g'?'↑':ph==='s'&&rec.reactionType==='precipitation'?'↓':''); });
+    return `${lhs.trim()} → ${prods.join(' + ')}`;
+  }
+  function drawWhyCards(){
+    clear(whyList);
+    const used=new Set                ();
+    const obs=state.observations;
+    for(const o of obs){
+      if(used.has(o)) continue;
+      const li=el('li',{className:'kl-why-card',attrs:{'data-produced-by':o.producedBy}});
+      if(o.producedBy==='ReactionMatcher'){
+        const id=o.source.split('#')[1]??''; const rec=reactionById.get(id);
+        const same=obs.filter(x=>x.producedBy==='ReactionMatcher'&&x.container===o.container&&x.source===o.source);
+        same.forEach(x=>used.add(x));
+        // the gas of this reaction collected elsewhere belongs to the same card
+        const collected=obs.filter(x=>x.kind==='gas-collected'&&String((x.data       )?.from)===o.container&&!used.has(x)); collected.forEach(x=>used.add(x));
+        const head=el('p',{className:'kl-why-card__head'}); setChemText(head,`${o.container?apparatusName(o.container):targetName(o.target)}${rec?`: ${(rec.reactants??[]).map((r    )=>r.formula).join(' + ')}`:''}`); li.append(head);
+        const seen=el('p',{className:'kl-why-card__seen'}); setChemText(seen,`${t.ui('ui.why-seen')}: ${[...same,...collected].map(x=>observationCore(x)).join('; ')}`); li.append(seen);
+        if(rec?.molecularEquation){ const eq=el('p',{className:'kl-why-card__eq',attrs:{'aria-label':t.ui('ui.why-equation')}}); setChemText(eq,equationText(rec)); li.append(el('p',{className:'kl-why-card__label',text:t.ui('ui.why-equation')}),eq); }
+        else li.append(el('p',{text:t.ui('ui.dlab-why-record')}));
+        if(!reviewed.has(id)) li.append(el('span',{className:'kl-why-card__pill',text:t.ui('ui.why-unreviewed-pill')}));
+      } else {
+        used.add(o);
+        const head=el('p',{className:'kl-why-card__head'}); setChemText(head,o.container?apparatusName(o.container):targetName(o.target)); li.append(head);
+        const body=el('p',{className:'kl-why-card__seen'}); setChemText(body,whyText(o).replace(`${observationText(o)}. `,`${t.ui('ui.why-seen')}: ${observationCore(o)}. `)); li.append(body);
+      }
+      whyList.append(li);
     }
   }
 
   function drawState(){
     clear(stateBox);
     stateBox.append(el('p',{text:t.ui('ui.dlab-state-setup',{list:state.setUp.length?state.setUp.map(apparatusName).join(', '):t.ui('ui.dlab-state-none')})}));
-    const ul=el('ul');
+    // the text twin of the bench picture: only what is in a vessel (an empty vessel and an unmodelled pH or
+    // temperature are not listed — "not modelled" is a fact for the teacher, not an observation)
+    const ul=el('ul'); let empty=0;
     for(const c of profile.apparatus.filter(a=>a.isContainer)){
       const cs=state.containers[c.id] ;
       const items=cs.contents.map(e=>substanceName(e.substanceId)+(e.amount?` (${e.amount.value} ${e.amount.unit})`:''));
-      const temp=cs.heating||(cs.temperature.modeled&&cs.temperature.state==='heated')?t.ui('ui.dlab-heated'):t.ui('ui.dlab-not-modeled');
       const gases=cs.gases.filter(g=>!g.collected).map(g=>g.product);
-      const extra=[...(gases.length?[t.ui('ui.dlab-gas-in',{list:[...new Set(gases)].join(', ')})]:[]),...(cs.sealed?[t.ui('ui.dlab-sealed')]:[])];
-      ul.append(el('li',{text:`${t.ui('ui.dlab-contents',{container:apparatusName(c.id),list:items.length?items.join(', '):t.ui('ui.dlab-state-empty')})}; ${extra.length?`${extra.join('; ')}; `:''}${t.ui('ui.dlab-temperature',{value:temp})}; ${t.ui('ui.dlab-ph',{value:t.ui('ui.dlab-not-modeled')})}`}));
+      const heated=cs.heating||(cs.temperature.modeled&&cs.temperature.state==='heated');
+      if(!items.length&&!gases.length&&!cs.sealed&&!heated){ empty++; continue; }
+      const extra=[...(gases.length?[t.ui('ui.dlab-gas-in',{list:[...new Set(gases)].join(', ')})]:[]),...(cs.sealed?[t.ui('ui.dlab-sealed')]:[]),...(heated?[t.ui('ui.dlab-temperature',{value:t.ui('ui.dlab-heated')})]:[])];
+      const li=el('li'); setChemText(li,[t.ui('ui.dlab-contents',{container:apparatusName(c.id),list:items.length?items.join(', '):t.ui('ui.dlab-state-empty')}),...extra].join('; ')); ul.append(li);
     }
-    stateBox.append(ul);
+    if(ul.children.length) stateBox.append(ul);
+    if(empty) stateBox.append(el('p',{text:t.ui(ul.children.length?'ui.dlab-state-rest-empty':'ui.dlab-state-all-empty')}));
     if(state.current.on) stateBox.append(el('p',{text:t.ui('ui.dlab-current-on')}));
   }
 
   function drawGuidance(){
     clear(guidanceOut);
     const g=runtime.guidance(state,profile,level);
-    const lines=[t.ui('ui.dlab-guidance-goal',{goal:g.goal})];
+    if(benchModeEarly) hintBtn.textContent=t.ui(level>=4?'ui.why-hint-last':level===1?'ui.why-hint-first':'ui.why-hint-more');
+    if(benchModeEarly) hintBtn.toggleAttribute('disabled',level>=4);
+    // the bench shows only what the hints add (the goal is the Maqsad section)
+    const lines=benchModeEarly?[]:[t.ui('ui.dlab-guidance-goal',{goal:g.goal})];
     if(level>=2) lines.push(t.ui('ui.dlab-guidance-possible',{list:g.possibleFamilies.map(familyName).join(', ')||t.ui('ui.dlab-state-none')}));
-    if(level>=3) lines.push(g.recommended.length?t.ui(g.ordered?'ui.dlab-guidance-next':'ui.dlab-guidance-next-unordered',{list:g.recommended.map(r=>actionText(r.action)).join('; ')}):t.ui('ui.dlab-guidance-none'));
+    // the bench names ONE next action: the first of the current task's step (a list of every open action is noise)
+    const nowStep=profile.instruction.steps.findIndex((_,i)=>stepStatus(i,state)==='todo');
+    const firstNow=g.recommended.find(r=>profile.procedure.steps.some(p=>p.instructionStep===nowStep&&!state.completedSteps.includes(p.id)&&p.family===r.action.family&&Object.entries(p.match??{}).every(([k,v])=>String(r.action.params?.[k]??'')===String(v))))??g.recommended[0];
+    if(level>=3) lines.push(benchModeEarly?(firstNow?t.ui('ui.why-hint-next',{action:actionText(firstNow.action)}):t.ui('ui.dlab-guidance-none')):g.recommended.length?t.ui(g.ordered?'ui.dlab-guidance-next':'ui.dlab-guidance-next-unordered',{list:g.recommended.map(r=>actionText(r.action)).join('; ')}):t.ui('ui.dlab-guidance-none'));
     if(level>=4){ for(const x of g.instructionText) lines.push(t.ui('ui.dlab-guidance-text',{text:x})); for(const b of g.blocked.slice(0,1)) lines.push(t.ui('ui.dlab-guidance-blocked',{step:stepLabel(b.step),list:b.blockedBy.map(stepLabel).join(', ')})); }
-    lines.push(t.ui('ui.dlab-guidance-no-answer'));
-    for(const l of lines) guidanceOut.append(el('p',{text:l}));
+    if(!benchModeEarly||level>1) lines.push(t.ui('ui.dlab-guidance-no-answer'));
+    for(const l of lines){ const p=el('p'); setChemText(p,l); guidanceOut.append(p); }
   }
 
+  // a tally like a stepper's counter: how many of the goal's reactions the learner has observed (from the state)
+  const tally=el('p',{className:'kl-dlab__tally',attrs:{'data-dlab-tally':''}}); flow.append(tally);
+  function drawTally(){
+    const goal=profile.completionGoal.kind==='reactions'?profile.completionGoal.reactionIds:[];
+    if(!goal.length){ tally.hidden=true; return; }
+    const seen=goal.filter(id=>state.observations.some(o=>o.producedBy==='ReactionMatcher'&&o.source.endsWith(`#${id}`))).length;
+    tally.hidden=false; tally.textContent=t.ui('ui.dlab-tally',{done:seen,total:goal.length});
+  }
   function draw(){
     for(const [id,a] of flowLinks){ if(id===stage) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); }
     shell.dataset.complete=String(state.complete);
-    drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
+    drawScene(); wireSceneDrags(); drawBench(); drawTasks(); drawTally(); drawObjects(); drawActions(); drawObservations(); drawState(); drawGuidance();
   }
 
-  reset.addEventListener('click',()=>{ state=runtime.reset(profile); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });
+  reset.addEventListener('click',()=>{ state=runtime.reset(profile); accepted.length=0; inHand=null; focusVessel=null; options.onChange?.({accepted:[],complete:state.complete}); selected=null; pending=null; stage='goal'; clear(paramsBox); draw(); result.textContent=t.ui('ui.dlab-reset-done'); result.dataset.status='reset'; result.dataset.code='RESET'; title.focus(); });
   draw();
-  return {state:()=>state,apply:(a)=>run(a),reset:()=>reset.click()};
+  const replay=(actions                     )=>{
+    let n=0;
+    for(const a of actions){ const r=runtime.applyLabAction(state,a,profile); if(r.status!=='accepted') break; state=r.nextState; accepted.push(a); n++; }
+    if(n){ stage='observe'; draw(); result.textContent=t.ui('ui.dlab-resumed',{count:n}); result.dataset.status='resumed'; result.dataset.code='RESUMED'; }
+    return n;
+  };
+  return {state:()=>state,apply:(a)=>run(a),reset:()=>reset.click(),replay};
 }

@@ -174,7 +174,7 @@ test('round trip: 7.10 and 8.14 through the Studio derive the same semantics and
     for(const [k,d] of Object.entries(row.dimensions)) assert.equal(d.equal,true,`${row.activityId}: ${k}`);
     assert.equal(row.canonicalUntouched,true);
   }
-  assert.ok(r.rows.find(x=>x.activityId==='practice.experiment.7.10').recordedGaps.includes('MODEL_SOURCE_GAP_CU_HCL'));
+  assert.ok(r.rows.find(x=>x.activityId==='practice.experiment.7.10').recordedGaps.includes('NO_REACTION_REVIEW_GAP_CU_HCL')); // TT 4.2.6 (2026-11-23): Cu + dilute HCl now has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50); the lab shows a no-reaction record only when it is reviewed, so the pair still fails closed (NO_REACTION_NOT_REVIEWED / NO_REACTION_REVIEW_GAP_CU_HCL)
 });
 
 test('boundary: the learner build never contains the Studio; the Studio carries no learner progress; flag off by default',()=>{
@@ -374,7 +374,8 @@ test('P2.12 closeout — lab candidate: re-analysed from the repository by studi
   const instruction=instructionFromLegacy(src.goal,src.legacy);
   let d=createDraft('LAB_INSTRUCTION',{kind:'LAB_INSTRUCTION',instruction},src.learningUnitId);
   d={...d,provenance:{...d.provenance,basis:'CANONICAL_INSTRUCTION',canonicalActivityId:src.practiceActivityId}};
-  const canonical=ctx.profileFor(src.learningUnitId); assert.ok(canonical);
+  // step 4 (2026-11-23): lu.7.15 has two profiled labs (7.9, 7.10); the profile is the one the draft was started from
+  const canonical=ctx.profileFor(src.learningUnitId,src.practiceActivityId); assert.ok(canonical); assert.equal(canonical.activityId,'practice.experiment.7.10');
   d=markPreviewed(withValidation(d,labFindings(instruction,d.target,ctx.registry,canonical)),{kind:'LAB_PREVIEW_SHOWN'});
   const c=buildPublishCandidate(d,{labDerived:labDerived(instruction,ctx.registry,canonical)}).candidate;
   assert.ok(c);

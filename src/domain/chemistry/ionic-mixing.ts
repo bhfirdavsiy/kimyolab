@@ -72,6 +72,9 @@ export interface IonicDomain {
   /** P1.7: the actual conditions of mixing two solutions (condition vocabulary context 'solution-mixing'); absent →
    *  no condition is assumed to hold (strict: any record with a requirement does not apply) */
   mixingConditions?:ReactionConditions;
+  /** TT 4.2.6: the ids of REVIEWED reaction records. A no-reaction record ("these do not react") is shown only when it is
+   *  reviewed; otherwise it is NO_REACTION_NOT_REVIEWED (nothing shown). Absent → empty: fail closed. */
+  reviewedReactionIds?:ReadonlySet<string>;
 }
 
 /** Validates the shelf and the target against the domain (content errors fail closed). */
@@ -122,6 +125,11 @@ export function evaluateIonicMixing(d:IonicDomain,input:{shelf:readonly string[]
       // do not apply (REACTION_CONDITIONS_NOT_MET → not modeled for this situation)
       const m=d.matcher.match({reactants:[{formula:A.formula,phase:'aq'},{formula:B.formula,phase:'aq'}],conditions:d.mixingConditions??{},conditionPolicy:'require-record-conditions'});
       const cls=classifyMatch(m);
+      // TT 4.2.6: an unreviewed no-reaction record is never shown as "no reaction" (fail closed, nothing observed)
+      if(m.modeled&&cls==='MODELED_NO_REACTION'&&!(d.reviewedReactionIds??new Set()).has(m.reaction.id)){
+        const result:MixResult={n:mixes.length+1,reagents:[A.speciesId,B.speciesId],outcome:'not-modeled',reactionId:null,observations:null,coverageCode:'NO_REACTION_NOT_REVIEWED'};
+        mixes.push(result); current=result; continue;
+      }
       const result:MixResult=m.modeled
         ?{n:mixes.length+1,reagents:[A.speciesId,B.speciesId],outcome:cls==='MODELED_NO_REACTION'?'no-reaction':'reaction',reactionId:m.reaction.id,observations:(m.reaction.observations??[]).map(o=>({...o})),coverageCode:null}
         :{n:mixes.length+1,reagents:[A.speciesId,B.speciesId],outcome:'not-modeled',reactionId:null,observations:null,coverageCode:m.code};

@@ -68,15 +68,19 @@ test('surfaces: chemistry assertions, candidates, assessment items and pilot sig
   assert.ok(m.pilot.every(p=>/^[a-f0-9]{64}$/.test(p.basisHash)&&p.canSignOff===false),'no pilot can be signed off while reviews are pending');
 });
 
-test('priority queue: A = the six flagged observations, B foundational, C golden slice, D terminology (convenience, not approval)',()=>{
+test('priority queue: A = the flagged observations, B foundational, C golden slice, D terminology (convenience, not approval)',()=>{
   const m=buildWorkbenchModel(root);
   const ids=(p)=>m.chemistry.filter(a=>a.priority===p).map(a=>a.id).sort();
-  assert.deepEqual(ids('A'),['rxn.br2-ki','rxn.cl2-kbr','rxn.h2-combustion','rxn.nacl-h2so4','rxn.naoh-hcl','rxn.znoh2-hcl'].map(r=>`observation:${r}`));
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); the 9 of them without a textbook observation are flagged OBSERVATION_MISSING and join queue A
+  // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated: three of them are no longer flagged; MgO + H2O stays in A (a white precipitate the solubility rules cannot confirm, flagged for the expert)
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): rxn.caoh2-co2 (precipitate observation) joins the flagged observations
+  assert.deepEqual(ids('A'),['rxn.br2-ki','rxn.caoh2-co2','rxn.cl2-kbr','rxn.co-combustion','rxn.h2-combustion','rxn.koh-hcl','rxn.koh-hno3','rxn.mg-combustion','rxn.mgo-water','rxn.na-cl2','rxn.nacl-h2so4','rxn.naoh-hcl','rxn.znoh2-hcl'].map(r=>`observation:${r}`));
   const B=ids('B');
   for(const id of ['indicator:litmus:acidic','indicator:litmus:basic','indicator:litmus:neutral','hydrolysis:AlCl3','hydrolysis:Na2CO3','hydrolysis:NaCl','hydrolysis:NH4Cl','condition-context:solution-mixing','reaction:rxn.agno3-nacl']) assert.ok(B.includes(id),id);
   assert.ok(B.some(id=>id.startsWith('condition-term:')));
   assert.deepEqual(ids('C'),['electrolysis:CuCl2|aq|inert']);
-  assert.ok(ids('D').length===30&&ids('D').every(id=>/^(element|species)-name:/.test(id)));
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names; 98 more review items) (D: 30 → 128)
+  assert.ok(ids('D').length===128&&ids('D').every(id=>/^(element|species)-name:/.test(id)));
   assert.ok(m.chemistry.every(a=>a.reviewStatus==='pending'),'the queue orders work; it approves nothing');
 });
 
@@ -266,7 +270,13 @@ test('workbench page: offline (CSP, no network), DOM-safe rendering, accessible 
   assert.equal(report.workbench.registerWrites,false); assert.equal(report.workbench.networkRequests,false);
   // P1.9 adds the authoring (read-only) and release-decision surfaces to the same workbench; the P1.8 four are unchanged
   const {authoring:_a,release:_r,...p18}=report.workbench.surfaces;
-  assert.deepEqual(p18,{chemistry:134,candidates:18,assessment:5,pilot:4});
+  // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99) (127 → 172 review items).
+  // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated (one condition claim fewer: 172 → 171).
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): it adds 3 review items (no-reaction, condition, observation; 171 → 174).
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names; 98 more review items) (174 → 272)
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): 15 more review items, and As / Nh names changed as the expert asked (272 → 287)
+  assert.deepEqual(p18,{chemistry:287,candidates:18,assessment:5,pilot:4});
   assert.equal(report.approveAllAvailable,false);
 });
 
@@ -288,7 +298,8 @@ test('review reports are deterministic, derived from registers, and report 0 hum
   assert.deepEqual(read(REVIEW_REPORTS.goldenSlice),goldenSliceDependencies(m,root));
   const s=read(REVIEW_REPORTS.status);
   assert.equal(s.humanDecisionsImported.total,0,'0 human decisions imported — nothing fabricated');
-  assert.deepEqual([s.chemistry.total,s.chemistry.pending,s.chemistry.approved,s.chemistry.rejected,s.chemistry.stale],[134,134,0,0,0]);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101) (272 → 287)
+  assert.deepEqual([s.chemistry.total,s.chemistry.pending,s.chemistry.approved,s.chemistry.rejected,s.chemistry.stale],[287,287,0,0,0]); // owner decision 2026-11-23 (Mendeleyev jadvali visible to every learner): the 98 missing Uzbek element names were added as PENDING display translations with name-provenance entries and no source yet (20 → 118 names; 98 more review items) (174 → 272) // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions): it adds 3 review items (no-reaction, condition, observation; 171 → 174). // TT 4.2 expert review (2026-11-23, docs/reviews/tt-4.2-expert-review-2026-11-23.md): the expert asked for 5 changes; rxn.na-cl2 lost its heating condition (room temperature) and caco3/hgo/malachite decomposition and MgO + H2O got the observation the expert stated (172 → 171). // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99) (127 → 172). // TT 4.2 expert review (2026-11-04): rxn.na2s-hcl, rxn.cuso4-na2s and rxn.p-combustion were removed by user decision (unused by any lab; 28 → 25 reactions), so the derived chemistry review items drop by 7 (134 → 127).
   assert.deepEqual([s.assessment.total,s.assessment.chemistryApproved,s.assessment.didacticApproved,s.assessment.fullyApproved],[5,0,0,0]);
   assert.deepEqual([s.pilot.pendingSignoff,s.pilot.signedOff],[4,0]);
   assert.equal(s.globalStrictEnforcement,false);
@@ -301,7 +312,8 @@ test('review reports are deterministic, derived from registers, and report 0 hum
   assert.ok(impact.activities.remainNotReleaseReady.some(a=>a.reasons.includes('ACTIVITY_NOT_RELEASED')));
   assert.deepEqual(impact.assessment.masteredReachable,{now:false,ifApproved:true});
   assert.ok(impact.pilots.every(p=>p.ifApproved==='SIGNOFF_PENDING'),'even with every review, a pilot still waits for a person’s sign-off');
-  assert.equal(impact.chemistry.wouldRemainBlocked.count,30,'source-less name assertions cannot be approved yet');
+  // owner decision 2026-11-23 (Mendeleyev jadvali visible): 98 Uzbek element names were added as PENDING display translations with no source yet (30 → 128)
+  assert.equal(impact.chemistry.wouldRemainBlocked.count,128,'source-less name assertions cannot be approved yet');
 });
 
 test('golden slice lu.9.15: technical PASS; every human dependency is visible and pending; the electrolysis KB record is part of the chemistry check',()=>{

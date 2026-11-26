@@ -192,7 +192,9 @@ test('hub model: MINIMAL units keep their legacy blocks; a structured entry adds
   const data={units:json('content-src/learning-units.json'),theories:json('content-src/theory-activities.json'),practices:json('content-src/practice-activities.json'),mappings:json('content-src/mapping-links.json'),concepts:json('content-src/concepts.json')};
   const before=buildLearningHubModel(FIXTURE_UNIT_ID,data);
   assert.equal(before.theory.structured,undefined);
-  assert.deepEqual(before.theory.blocks,legacy.explanationBlocks.map(b=>({type:b.type,text:b.text})));
+  // owner review 2026-11-23: a legacy-mapping-note is an internal curriculum-mapping remark ("a new case is needed"), so the
+  // learner hub drops it; every other legacy block is kept as before
+  assert.deepEqual(before.theory.blocks,legacy.explanationBlocks.filter(b=>b.type!=='legacy-mapping-note').map(b=>({type:b.type,text:b.text})));
   const pack=structuredTheoryPack(root,collectStructuredTheory(root,withEntries({[`${FIXTURE_THEORY_ID}.json`]:structuredFixture()})));
   const after=buildLearningHubModel(FIXTURE_UNIT_ID,{...data,structuredTheory:pack});
   assert.ok(after.theory.structured); assert.deepEqual(after.theory.blocks,before.theory.blocks,'legacy blocks stay available');

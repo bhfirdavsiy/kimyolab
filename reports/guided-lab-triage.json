@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T04:33:39.471Z",
+  "generatedAt": "2026-11-23T05:41:18.053Z",
   "classification": "engineering-triage-not-expert-approval",
   "summary": {
     "total": 27,
@@ -11,9 +11,9 @@
     "candidateReactionRefs": 23,
     "missingReactionRefs": 0,
     "reactionGroundedLabs": 10,
-    "reactionGroundedSteps": 19,
+    "reactionGroundedSteps": 21,
     "chemistryGroundedLabs": 19,
-    "chemistryGroundedSteps": 47,
+    "chemistryGroundedSteps": 49,
     "modelGroundedSteps": 30
   },
   "rows": [

@@ -118,7 +118,11 @@ test('routes unchanged: no candidate was re-routed, the only reaction-mixing she
   for(const f of fs.readdirSync(path.join(root,'content-src/activity-configs'))) for(const [id,c] of Object.entries(json(`content-src/activity-configs/${f}`))) if(Array.isArray(c?.reagentShelf)) shelves.push(id);
   assert.deepEqual(shelves,['practice.experiment.8.1']);
   assert.equal(ref['practice.experiment.8.1'].rendererRequirement.capability,'ionic-precipitation');
-  assert.equal(d.reactions.length,28,'reaction records unchanged');
+  // TT 4.2 expert review (2026-11-04): three records no lab uses were removed (28 → 25); no record was added
+  // TT 4.2 expert review (2026-11-20, docs/reviews/tt-4.2-expert-review-2026-11-20.md): the owner decided to add 16 reactions from the 2026 grade-7 textbook and workbook as UNREVIEWED records (25 → 41) with 15 new species (84 → 99); P2.5's own work still added none
+  // TT 4.2.6 (2026-11-23, owner decision): the lab shows a no-reaction record only once it is REVIEWED, so rxn.cu-hcl (Cu + dilute HCl, workbook p. 50) was added as an UNREVIEWED explicit no-reaction record (41 → 42 reactions)
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101)
+  assert.equal(d.reactions.length,48,'reaction records: only owner-decided changes');
   const rules=json('content-src/chemistry/solubility.json').dissociation.map(x=>x.formula);
   for(const f of ['NaBr','NaI','KBr','KI']) assert.ok(!rules.includes(f),`no dissociation rule was added for ${f} to unlock a candidate`);
 });
@@ -126,6 +130,7 @@ test('routes unchanged: no candidate was re-routed, the only reaction-mixing she
 test('unlock facts are facts about existing records, framed as human chemistry work — never as data the agent added',()=>{
   assert.match(report.unlockSemantics,/human chemistry work/);
   const u=report.unlockSummary.find(x=>x.activityId==='practice.experiment.8.8');
-  assert.deepEqual(u.unlockFacts.map(f=>[f.formula,f.existingRecordsWithThisSpecies]),[['NaBr',['rxn.agno3-nabr']],['NaI',['rxn.agno3-nai']]]);
+  // TT 4.2 stage 5 (2026-11-24, docs/reviews/tt-4.2-expert-review-2026-11-24.md): 6 reactions the expert approved (4) or approved with an applied change (2) were added as UNREVIEWED records (42 → 48) with 2 new species (99 → 101): 8.8's Al now has an existing record (rxn.al-hcl) — a fact about a record, not an unlock
+  assert.deepEqual(u.unlockFacts.map(f=>[f.formula,f.existingRecordsWithThisSpecies]),[['NaBr',['rxn.agno3-nabr']],['NaI',['rxn.agno3-nai']],['Al',['rxn.al-hcl']]]);
   for(const f of report.unlockSummary.flatMap(x=>x.unlockFacts)) for(const id of f.existingRecordsWithThisSpecies) assert.ok(d.reactions.some(r=>r.id===id),`${id} exists`);
 });

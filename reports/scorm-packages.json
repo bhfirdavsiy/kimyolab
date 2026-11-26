@@ -1,0 +1,130 @@
+{
+  "schema": "kimyolab.scorm-packages.v1",
+  "standard": "SCORM 1.2",
+  "contentVersion": "2026.09.1",
+  "standaloneSha256": "b58b8ff493d8e9501a06a577c57dcac530e3bc49fe4178a61931d8adf4671d98",
+  "granularity": "one package (one SCO) per guided dynamic lab profile",
+  "runtime": {
+    "apiDiscovery": "window.API in this window, its parents (max 7) and the opener chain (SCORM 1.2 RTE)",
+    "writes": {
+      "cmi.core.lesson_status": [
+        "incomplete (on open, unless already completed)",
+        "completed (once the lab runtime reports the lab complete)"
+      ],
+      "cmi.suspend_data": "accepted lab actions, bound to profile + activity/config version, ≤ 4096 characters (never truncated)",
+      "cmi.core.session_time": "on exit",
+      "cmi.core.exit": "suspend while incomplete, empty once completed"
+    },
+    "neverWritten": [
+      "cmi.core.score.raw",
+      "passed",
+      "failed"
+    ],
+    "neverWrittenReason": "the guided dynamic lab is not an assessment: no score exists, so none is reported",
+    "withoutLms": "the lab runs; the page says nothing is saved"
+  },
+  "knownGaps": [
+    {
+      "code": "SCHEMA_XSD_NOT_BUNDLED",
+      "detail": "imsmanifest.xml names the ADL/IMS SCORM 1.2 XSD files in xsi:schemaLocation but the package does not carry them; most LMSs accept this, a strictly validating importer may not."
+    },
+    {
+      "code": "TARGET_LMS_NOT_TESTED",
+      "detail": "Tested against a SCORM 1.2 API stub in Chromium (tests/e2e/scorm12-package.spec.mjs), not yet in the target LMS."
+    },
+    {
+      "code": "PACKAGE_CARRIES_FULL_CONTENT_PACK",
+      "detail": "Each package embeds the whole standalone build (all content), not only its lab."
+    }
+  ],
+  "packages": [
+    {
+      "activityId": "practice.experiment.7.2",
+      "profileId": "lab-profile.7.2.salt-purification",
+      "title": "Aralashmalar tarkibidan sof moddani ajratish: ifloslangan osh tuzini tozalash",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-7.2-scorm12.zip",
+      "sizeBytes": 3219558,
+      "sha256": "8cd2167425dd30c0496ca94f532ae624975ed0bba17bef19fc606ebf99084923",
+      "indexSha256": "2f815fc23a33d8c0c106d77e05dc53dc96bbe9fd7f22913d8159e3b5c7c8ed07",
+      "manifestSha256": "0fa82190a5f60a687e0c8b122f397b52dd9ca34276cc7992cb34ae3fa6309908"
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "profileId": "lab-profile.7.9.acid-properties",
+      "title": "Kislotalarning olinishi va xossalari",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-7.9-scorm12.zip",
+      "sizeBytes": 3219516,
+      "sha256": "e991bce9e5c8c5a22e8a3d62eb9bbc4923c24fa293eee48f102f6323e927b9fb",
+      "indexSha256": "0eeaf4701452c9e233b4fae61c94b4b2cdac8ce030a1975e70ca3089a53b94ed",
+      "manifestSha256": "49180d1c03b31f38826a7ddd80e3ef45bad9d8541fe6b5ae311443c71555f60e"
+    },
+    {
+      "activityId": "practice.experiment.7.10",
+      "profileId": "lab-profile.7.10.metal-acid-gas",
+      "title": "Kislotalarning metallar bilan o‘zaro ta’siri",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-7.10-scorm12.zip",
+      "sizeBytes": 3219539,
+      "sha256": "2d1eaf7fab98e43d5b3e6c39559716a639f9c3a47a057185390895138d274c63",
+      "indexSha256": "9bc9f3fdbba052982d16f1f4e3f467ec3cbffca1afdf1d3b47de3bcae83f5aa9",
+      "manifestSha256": "9198f4376ba11ba9a54805b018926d5de4fbcb92338c0e3efc929c1389051bb5"
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "profileId": "lab-profile.7.11.water-oxides",
+      "title": "Suvning oksidlar bilan o‘zaro ta’siri",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-7.11-scorm12.zip",
+      "sizeBytes": 3219534,
+      "sha256": "e0fa0348544a88c063c8c847257c22d68e22252ae13db63d8c99b6120453a46a",
+      "indexSha256": "126bdb1432222ea198fe12d5a455afb6bcdb1460e89cce0e73a0d1e249b1c394",
+      "manifestSha256": "66e6770690d2a2961ffe607f61ad6630025644357541743a09638b1976ea336f"
+    },
+    {
+      "activityId": "practice.experiment.8.1",
+      "profileId": "lab-profile.8.1.chloride-precipitation",
+      "title": "“Galogenlar” mavzusi bo‘yicha tajribaviy masalalar yechish",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-8.1-scorm12.zip",
+      "sizeBytes": 3219563,
+      "sha256": "3e35b2afe816515229ea01e03c935ac6cab2b1f02f3dac96500e18b3dcd0b86a",
+      "indexSha256": "dce9cca894394999e3d2df53271bcb906af90d619eb103374292de457231b703",
+      "manifestSha256": "bea4ee762182de4083007bf867c1ffa04c1fa453ce6c6f07c5f95eaba82f82cc"
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "profileId": "lab-profile.8.8.halide-tests",
+      "title": "Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-8.8-scorm12.zip",
+      "sizeBytes": 3219545,
+      "sha256": "dbff5b0dc4b061a5d97191fc274e3d6cab76c02945d58223e878ad433973616a",
+      "indexSha256": "9aa76267bcfe2877cc701f37b16dcfa1a42c2e394e37f52f2cc1ed37bbbc055c",
+      "manifestSha256": "19dcebfdad4039a789c2ae23712cd48a29708e320fbec2e8e08e06ec019babae"
+    },
+    {
+      "activityId": "practice.experiment.8.14",
+      "profileId": "lab-profile.8.14.ammonia-heating",
+      "title": "Ammoniy tuziga so‘ndirilgan ohak ta’sir ettirib ammiak olish",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-8.14-scorm12.zip",
+      "sizeBytes": 3219555,
+      "sha256": "485f38fbb3b8afdd1906ad753461e9c554f8179bfe5c83eb9b76666d23b70aaa",
+      "indexSha256": "b35d897a70c6d868722e21541a733a87c6949aa7fe0da220aa2e5d85118acb9d",
+      "manifestSha256": "3c4c7df30be836b0f5e4410cb16a26bf60bbd5bdc55368b021a7e255da9a3976"
+    },
+    {
+      "activityId": "practice.experiment.11.2",
+      "profileId": "lab-profile.11.2.electrolysis",
+      "title": "Platforma uchun demonstratsion tajriba nomzodi: elektroliz",
+      "completionScope": "PARTIAL_INSTRUCTION",
+      "file": "dist-scorm/kimyolab-11.2-scorm12.zip",
+      "sizeBytes": 3219541,
+      "sha256": "ac5030b45c60c15fe9b8db9a995f48aaf593476bebc4065979777a3f538a645c",
+      "indexSha256": "ea4e2fd4f8a7cee94fe1ad4985881b2d85902d8e99926024c5637b45f86c979c",
+      "manifestSha256": "7700c8bb80887250a3a7c2f80ab08d323d27f2692c3f3a4e2f05100322786954"
+    }
+  ]
+}

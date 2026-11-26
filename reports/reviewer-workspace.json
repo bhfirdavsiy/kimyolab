@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T07:37:45.631Z",
+  "generatedAt": "2026-11-26T13:52:56.169Z",
   "schema": "kimyolab.reviewer-workspace.v1",
   "workspaceFingerprint": "e764c28a15d5c51310d8fabb922a5c46abed3f9a6002c4f047065e082ff5961e",
   "status": "READY",
@@ -34,13 +34,13 @@
   "output": "review-packets/reviewer-workspace.html",
   "workbench": {
     "schema": "kimyolab.review-workbench.v1",
-    "fingerprint": "bc5318fe52be37eceee4c5e351d0b5886b2d9842139745f7902c2f4c14333d2b",
+    "fingerprint": "bc3c44d8d212cc80d98d04e8b2a718e104785a8642f59cd06702690839da6855",
     "surfaces": {
-      "chemistry": 134,
+      "chemistry": 287,
       "candidates": 18,
       "assessment": 5,
       "pilot": 4,
-      "authoring": 130,
+      "authoring": 232,
       "release": 31
     },
     "decisionsSchema": "kimyolab.review-decisions.v1",
@@ -50,14 +50,14 @@
   },
   "contentWorkbench": {
     "schema": "kimyolab.content-workbench.v1",
-    "fingerprint": "0a0df71a9499cf0c7c7172c8cd700b83bce8600eb3526ba2f14a6e84e99af54e",
+    "fingerprint": "c9093ed1dcc4c4faacfdae7b49474eb92259503caaab545ccb1b7443350b630b",
     "tabs": [
       "theory",
       "sources",
       "optionsets"
     ],
     "units": 122,
-    "acceptableSources": 1,
+    "acceptableSources": 4,
     "sourceIntake": 0,
     "optionFields": 32,
     "prefilledContent": false,

@@ -422,8 +422,8 @@
       "interaction": {
         "guidedLabStatus": "REACTION_KB_PARTIAL",
         "hardeningStatus": "CHEMISTRY_BASELINED_REACTION",
-        "groundedSteps": 3,
-        "totalSteps": 4,
+        "groundedSteps": 5,
+        "totalSteps": 6,
         "chemistryTargetSteps": 3,
         "chemistryTargetsGrounded": 3,
         "readiness": "guided-protocol",

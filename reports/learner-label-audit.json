@@ -2,11 +2,11 @@
   "schema": "kimyolab.learner-label-audit.v1",
   "semantics": "Every learner-facing label that is keyed by an id. source: locale (learner-interaction catalog), content (authored label), fallback (numbered generic label; gap LOCALIZATION_MISSING). rawIdLearnerFacing: the label is the id or its mechanical humanization (must be 0).",
   "counts": {
-    "labels": 432,
+    "labels": 434,
     "rawIdLearnerFacing": 0,
     "localizationMissing": 0,
     "bySource": {
-      "content": 180,
+      "content": 182,
       "locale": 252
     }
   },
@@ -463,6 +463,26 @@
     },
     {
       "rawId": "guided.step.4",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.10",
+      "learningUnitId": "lu.7.15",
+      "label": "Magniy bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.5",
+      "shownAs": "action",
+      "activityId": "practice.experiment.7.10",
+      "learningUnitId": "lu.7.15",
+      "label": "Temir bo‘laklari ustiga suyultirilgan HCl quying. Probirka issiqmi, unda nima sodir bo‘lganini kuzating.",
+      "source": "content",
+      "category": "action",
+      "rawIdLearnerFacing": false
+    },
+    {
+      "rawId": "guided.step.6",
       "shownAs": "action",
       "activityId": "practice.experiment.7.10",
       "learningUnitId": "lu.7.15",

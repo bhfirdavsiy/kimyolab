@@ -35,7 +35,8 @@ const approveAll=(e)=>({...e,explanation:approveBlock(e.explanation),workedExamp
 // helper runs that real path in a sandbox (intake file → human decision → applySourceIntake); repository data is untouched.
 const ACCEPTED_SOURCE='src.fixture.curriculum';
 function acceptFixtureSource(t,{id=ACCEPTED_SOURCE,category='CURRICULUM'}={}){
-  const e={schema:'kimyolab.source-intake.v1',sourceId:id,category,title:`Fixture ${category.toLowerCase()} ${id}`,authority:'Fixture authority',year:2021,language:'uz-Latn',bibliographic:{},locator:{kind:'section'},submittedBy:'fixture.submitter',status:'ready-for-review',reviews:[]};
+  // TT 4.2.4: the fixture intake carries complete (fixture) bibliography, which canonical eligibility now requires
+  const e={schema:'kimyolab.source-intake.v1',sourceId:id,category,title:`Fixture ${category.toLowerCase()} ${id}`,authority:'Fixture authority',edition:'1',year:2021,language:'uz-Latn',bibliographic:{authors:['Fixture Author'],identifier:`fixture-id-${id}`},license:'fixture-licence',effectiveDate:'2026-01-01',locator:{kind:'section'},submittedBy:'fixture.submitter',status:'ready-for-review',reviews:[]};
   const ok={...e,reviews:[{reviewerId:'fixture.source-reviewer',decision:'approved',acceptedCategory:category,reviewedAt:'2026-10-01T00:00:00.000Z',reviewedHash:sourceEntryHash(e)}]};
   fs.mkdirSync(path.join(t,'content-src/source-intake'),{recursive:true});
   fs.writeFileSync(path.join(t,`content-src/source-intake/${id}.json`),JSON.stringify(ok,null,2));
@@ -116,11 +117,39 @@ test('source apply: only an APPROVED, duplicate-free entry joins the registry, w
   assert.equal(applySourceIntake(t,ok).applied,false,'applying twice is a duplicate');
 });
 
+test('source apply: a human-approved intake upgrades a PROPOSED record of the same id and category in place (2026-11-23)',()=>{
+  // The 2026 grade-7 textbook was registered as PROPOSED first (2026-11-20) so the reactions citing it pass the KB gate; the
+  // governed intake must be able to accept it without changing its id. Only PROPOSED + same category upgrades.
+  const t=sandbox();
+  const before=json('content-src/source-registry.json',t);
+  const id='src.textbook.kimyo7-2026';
+  assert.deepEqual(before.sources.filter(s=>s.id===id).map(s=>[s.category,s.classification]),[['TEXTBOOK','PROPOSED']]);
+  const e=intake({sourceId:id});
+  assert.equal(applySourceIntake(t,e).applied,false,'not reviewed → not applied');
+  assert.equal(applySourceIntake(t,{...e,reviews:[sourceReview(e,'claude')]}).applied,false,'machine approval → not applied');
+  const ok={...e,reviews:[sourceReview(e,'fixture.source-reviewer')]};
+  assert.deepEqual(applySourceIntake(t,ok),{applied:true,issues:[]});
+  const reg=json('content-src/source-registry.json',t);
+  assert.equal(reg.sources.length,before.sources.length,'replaced, not appended');
+  assert.equal(reg.sources.findIndex(s=>s.id===id),before.sources.findIndex(s=>s.id===id),'same position');
+  const rec=reg.sources.find(s=>s.id===id);
+  assert.deepEqual([rec.classification,rec.acceptedBy,rec.reviewedHash],['HUMAN_ACCEPTED','fixture.source-reviewer',sourceEntryHash(e)]);
+  assert.match(rec.evidence,/replaces the PROPOSED record/);
+  assert.ok(applySourceIntake(t,ok).issues.some(i=>i.startsWith('DUPLICATE_ID')),'a HUMAN_ACCEPTED record is never replaced');
+  // a PROPOSED record of another category stays a duplicate
+  const other=intake({sourceId:'src.curriculum.9.06'});
+  assert.ok(applySourceIntake(t,{...other,reviews:[sourceReview(other,'fixture.source-reviewer')]}).issues.some(i=>i.startsWith('DUPLICATE_ID')));
+});
+
 test('source queue: repository intake is empty; no source was declared authoritative by a machine',()=>{
   assert.deepEqual(sourceReviewQueue(root),[]);
   const reg=json('content-src/source-registry.json');
   assert.equal(reg.sources.filter(s=>s.classification==='HUMAN_ACCEPTED').length,0,'P2.4 accepts no source itself');
-  assert.equal(reg.sources.length,5,'registry unchanged by P2.4');
+  // TT 4.2 expert review (2026-11-20): the textbook and workbook behind the owner-added reactions were registered as PROPOSED (not accepted, no licence or effective date) in a pull request the owner reviews (SOURCE_POLICY: a new source is registered by a person in a reviewed pull request)
+  // TT 4.2 stage 5 (2026-11-24): the expert named the grade-8 textbook (p. 94) for the halogen reactions; it and the stage-5 expert review were registered as PROPOSED sources (not accepted) in this pull request
+  assert.equal(reg.sources.length,9,'registry unchanged by P2.4; +2 PROPOSED textbook sources (2026-11-20)');
+  // TT 4.2 stage 5 (2026-11-24): the grade-8 textbook the expert named and the stage-5 expert review were registered as PROPOSED sources (not accepted)
+  assert.deepEqual(reg.sources.slice(5).map(s=>[s.id,s.category,s.classification]),[['src.textbook.kimyo7-2026','TEXTBOOK','PROPOSED'],['src.workbook.kimyo7-2026','TEXTBOOK','PROPOSED'],['src.textbook.kimyo8','TEXTBOOK','PROPOSED'],['src.expert-review.tt-4.2-stage5','INTERNAL_PROPOSAL','PROPOSED']]);
   const q=json('review-packets/source-intake/queue.json');
   assert.equal(q.counts.entries,0);
 });
@@ -129,11 +158,12 @@ test('source acceptance (P2.4 closeout A1/A2): category-compatible ≠ human-acc
   const {registry}=loadGovernedSourceRegistry(root);
   const cur=registry.byId.get('src.curriculum.9.06');
   assert.equal(cur.classification,'PROPOSED','no existing source was reclassified');
-  assert.deepEqual(sourceAcceptance(cur),{registered:true,categoryCompatible:true,humanAccepted:false,canonicalAuthoringEligible:false},'PROPOSED CURRICULUM');
-  assert.deepEqual(sourceAcceptance(registry.byId.get('src.beta1.migration')),{registered:true,categoryCompatible:false,humanAccepted:false,canonicalAuthoringEligible:false},'INTERNAL_PROPOSAL');
+  // TT 4.2.4: sourceAcceptance also reports bibliographic completeness; the legacy records carry no bibliography at all
+  assert.deepEqual(sourceAcceptance(cur),{registered:true,categoryCompatible:true,humanAccepted:false,bibliographicComplete:false,bibliographyMissing:['authority','edition','authors','isbnOrUrl','license','effectiveDate'],canonicalAuthoringEligible:false},'PROPOSED CURRICULUM');
+  assert.deepEqual(sourceAcceptance(registry.byId.get('src.beta1.migration')),{registered:true,categoryCompatible:false,humanAccepted:false,bibliographicComplete:false,bibliographyMissing:['authority','edition','authors','isbnOrUrl','license','effectiveDate'],canonicalAuthoringEligible:false},'INTERNAL_PROPOSAL');
   assert.deepEqual(canonicalSourceIssues(['src.curriculum.9.06','src.beta1.migration','src.not.registered'],registry).map(i=>i.code),['SOURCE_NOT_HUMAN_ACCEPTED','SOURCE_CATEGORY_NOT_ACCEPTABLE','SOURCE_UNREGISTERED']);
   // a hand-written HUMAN_ACCEPTED record: an automation acceptor or missing pin facts never count
-  const reg=(over)=>parseSourceRegistry({schema:'kimyolab.source-registry.v1',sources:[{id:'src.x',category:'CURRICULUM',title:'x',classification:'HUMAN_ACCEPTED',acceptedBy:'fixture.person',acceptedAt:'2026-10-01T00:00:00Z',reviewedHash:'a'.repeat(64),...over}]}).registry;
+  const reg=(over)=>parseSourceRegistry({schema:'kimyolab.source-registry.v1',sources:[{id:'src.x',category:'CURRICULUM',title:'x',classification:'HUMAN_ACCEPTED',acceptedBy:'fixture.person',acceptedAt:'2026-10-01T00:00:00Z',reviewedHash:'a'.repeat(64),authority:'Fixture publisher',edition:'1',bibliographic:{authors:['Fixture Author'],isbn:'fixture-isbn'},license:'fixture-licence',effectiveDate:'2026-01-01',...over}]}).registry;
   assert.equal(sourceAcceptance(reg({}).byId.get('src.x')).humanAccepted,true,'well-formed record (still subject to the intake pin below)');
   for(const acceptedBy of ['claude','github-actions','kimyolab-bot']) assert.equal(sourceAcceptance(reg({acceptedBy}).byId.get('src.x')).humanAccepted,false,`automation may not accept: ${acceptedBy}`);
   assert.equal(sourceAcceptance(reg({reviewedHash:undefined}).byId.get('src.x')).humanAccepted,false,'unpinned');
@@ -276,7 +306,8 @@ test('theory authoring status: current, facts only, 122 units not started, no pr
   assert.deepEqual(s.totals,{units:122,notStarted:122,draft:0,readyForReview:0,chemistryReviewed:0,didacticReviewed:0,approved:0,changesRequested:0,missingSource:0,staleReview:0});
   assert.deepEqual([s.canonicalEntries,s.workingDrafts],[0,0]);
   // P2.4 closeout (A4): source readiness is reported as four separate facts; nothing is eligible before a human acts
-  assert.deepEqual([s.sources.registeredSources,s.sources.categoryCompatibleSources,s.sources.humanAcceptedSources,s.sources.canonicalTheoryEligibleSources],[5,1,0,0]);
+  // TT 4.2 stage 5 (2026-11-24): the expert named the grade-8 textbook (p. 94) for the halogen reactions; it and the stage-5 expert review were registered as PROPOSED sources (not accepted) in this pull request: registered 7 → 9, category-compatible 3 → 4 (the textbook), still none human-accepted or eligible
+  assert.deepEqual([s.sources.registeredSources,s.sources.categoryCompatibleSources,s.sources.humanAcceptedSources,s.sources.canonicalTheoryEligibleSources],[9,4,0,0]); // TT 4.2 expert review (2026-11-20): the textbook and workbook behind the owner-added reactions were registered as PROPOSED (not accepted, no licence or effective date) in a pull request the owner reviews (SOURCE_POLICY: a new source is registered by a person in a reviewed pull request): registered 5 → 7, category-compatible 1 → 3, still none human-accepted or eligible
   assert.deepEqual(s.sources.eligibleSourceIds,[]);
   const {semantics:_b,...blocked}=s.blocked;
   assert.deepEqual(blocked,{unitsNotYetInAuthoring:122,unitsInAuthoring:0,canonicalApplyImpossibleForAllUnits:true,inAuthoringBySources:0,inAuthoringByAuthoring:0,inAuthoringByChemistryReview:0,inAuthoringByDidacticReview:0},'0 in-authoring source blockers only because 122 units have not entered authoring');

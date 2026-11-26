@@ -1,0 +1,561 @@
+{
+  "schema": "kimyolab.freeze-manifest.v1",
+  "decision": "NOT_A_RELEASE_OR_PILOT_DECISION",
+  "semantics": "What a frozen commit consists of. The commit SHA is recorded where the freeze is declared; `npm run freeze:manifest -- --check` proves the tree equals this manifest. A freeze is not an approval: chemistry, pedagogy, rights and release decisions stay with the named humans.",
+  "toolchain": {
+    "node": "22",
+    "packageJson": "41a3da03e9bcfc41e9b8595696d985c743f36afe74775469fef04ba00c89fc88",
+    "packageLock": "ef1beb2df410810fabb038db4a13eb86cf50c4e247ef507209140234617c9c8e"
+  },
+  "source": {
+    "src": {
+      "fileCount": 196,
+      "sha256": "9c870712f56e4eba6148fbc0256c4ef9fdb8064c47bb6cf19b8b8a094d70a35c"
+    },
+    "scripts": {
+      "fileCount": 143,
+      "sha256": "18d72f65c3fefbdafcfb1e481406b790b84df9ba1432eea824d7caa2a0524a45"
+    },
+    "server": {
+      "fileCount": 4,
+      "sha256": "24e7d837ad7ed6f4da613de58a4327fad468aa92e1f3553369cd5f79599dad4e"
+    },
+    "contentSrc": {
+      "fileCount": 58,
+      "sha256": "04e85625ab8afad6a958455779dbde7b539036680beed15db24f44ad7929f0aa"
+    },
+    "tests": {
+      "fileCount": 222,
+      "sha256": "ac6aeafeb2f14d75152d8cb512d3c0c434fa7c22cdb003c269ec64d163384c17"
+    }
+  },
+  "generated": {
+    "note": "committed build outputs; npm run verify proves they equal a fresh build (generated-files-committed)",
+    "publicContent": {
+      "fileCount": 50,
+      "sha256": "2aa2f310f4745e594c16cc3da6d7042fbac40c5fd4013868596b73b6242005c6"
+    },
+    "publicAppPreview": {
+      "fileCount": 184,
+      "sha256": "8c29ce3ed46c66c18f0bb4829d1ed59dc3de6e0b6b30213d98895d65d1ebf651"
+    }
+  },
+  "contentPack": {
+    "activeVersion": "2026.09.1",
+    "checksum": "4d83bd004ba24aff46d3f093003f9cb181cc668ece04e8fb1dbb6d30425bc85e",
+    "manifest": "ceb711af9845b124f21387446b9507ff5e70c77ac5db6659b7b2cfa10deff2e2"
+  },
+  "config": {
+    "deployConfig": "d4ec8cae93a049e84d5bf5f232ed8b79ed9d317c70029efccc8a931bab289779",
+    "envExample": "7a63df15527fe2601a4f8963c2db309041765a38f1c9c7dd376f6b7b859af239",
+    "typecheckRatchet": "8c21bb3371c250cb479a96219a591114b44bc07fe1056f2e9b4a368504205ede",
+    "featureFlags": {
+      "guidedDynamicLabV1": {
+        "default": true
+      },
+      "contentStudioV1": {
+        "default": false
+      },
+      "periodicTableV1": {
+        "default": true
+      },
+      "substancePassportV1": {
+        "default": false
+      },
+      "reactionExplorerV1": {
+        "default": false
+      }
+    }
+  },
+  "reports": [
+    {
+      "file": "reports/accessibility-browser-evidence.json",
+      "sha256": "c7ffc9789f04ad69fa0d4ec24663e52dee4329e4ddd14a924886ffde6f7ce4c8"
+    },
+    {
+      "file": "reports/accessibility-gap-summary.json",
+      "sha256": "558e362367e850bb5e03c33eef2c4c5361aa5369593b5beafc742692878109e6"
+    },
+    {
+      "file": "reports/accessibility-verification.json",
+      "sha256": "be72dc839d92367eee7bb21b305b8e9b152407b7539f50897d7d1e57bf623738"
+    },
+    {
+      "file": "reports/activity-routing.json",
+      "sha256": "328b2103a08dc5ca1b62b2d0708467fd0d474f847bf975ce8a8a821f151af2d4"
+    },
+    {
+      "file": "reports/approval-pipeline.json",
+      "sha256": "6305b6b6282913d4c3d2961809d00d99a2c0d65a25c16cb25ef0c2886f491d5f"
+    },
+    {
+      "file": "reports/assessment-bank-validation.json",
+      "sha256": "be921b45c2baac6c4ed75fa9a89482b7cb95429d79427b151dfe40aab5b49014"
+    },
+    {
+      "file": "reports/assessment-runtime-readiness.json",
+      "sha256": "37be6c410843f9a9078e85d69e62a2363b8cc4414e84f1bdd0041e9a6a711858"
+    },
+    {
+      "file": "reports/authoring-status.json",
+      "sha256": "5955d18e7a390016731f633be46cf54fba23bf32a77ac2bd57be531d8dbd97ef"
+    },
+    {
+      "file": "reports/beta1-readiness.json",
+      "sha256": "6f8ab34a1332a1a2a853bb5d68ca6ebf1dee7f767282c524fafbd497662c5dab"
+    },
+    {
+      "file": "reports/beta2-capability-summary.json",
+      "sha256": "e6dc20a369fecfb9a2e1f60a9f1dc0d80230e3290780ed53d3aa8de44b335298"
+    },
+    {
+      "file": "reports/beta2-readiness.json",
+      "sha256": "ba236ac6659b0e0ccd67e78cbdab85642ee24312a4d10da5f6f22ac7f2c577f4"
+    },
+    {
+      "file": "reports/beta3-readiness.json",
+      "sha256": "964c3b25276ab8a1dbaa0fd28991091b5022e588ac0351edaaa45bdd28d92514"
+    },
+    {
+      "file": "reports/brand-integration.json",
+      "sha256": "ea83f3081f6ce32764da070e650e6ffa1e2a7863f40a5a455641928242a89d01"
+    },
+    {
+      "file": "reports/browser-gates.json",
+      "sha256": "d79aae5fb25b68af24f3fb9a266796aacf5288680b83973625c693d497a7684b"
+    },
+    {
+      "file": "reports/capability-registry-coverage.json",
+      "sha256": "436d6d88db3d3421d8d2c0aa1957d4f67529be1eef85cd9012d46ebb3eb1b3f5"
+    },
+    {
+      "file": "reports/chemistry-authoring-candidates.json",
+      "sha256": "f06182b4d5d680ddc8e293a87e94f676aa41448e1f7f15da77c2242973b392f3"
+    },
+    {
+      "file": "reports/chemistry-expert-approval.json",
+      "sha256": "b12579b16a7accae5814b85a966b901805c921617ce21ac2a37be6ed22094007"
+    },
+    {
+      "file": "reports/chemistry-expert-review-packet.json",
+      "sha256": "5611827a86d261c027aa259a540124b0ab45e102adb82b2c44ecb8a198537a9f"
+    },
+    {
+      "file": "reports/chemistry-kb-coverage.json",
+      "sha256": "5cdbf61dbac11cb0e34a5ef41b105d89b3c7125153fb14e65d32bc5f17188b5c"
+    },
+    {
+      "file": "reports/chemistry-kb-inventory.json",
+      "sha256": "81af29b509567a9c648960e3d8ef519b133e82139b5e62501c75f2eab5873fb5"
+    },
+    {
+      "file": "reports/chemistry-knowledge-relations.json",
+      "sha256": "e3699efafff153502dfa28b44f070c478017a47aeabe58c0d36c890ea833eb87"
+    },
+    {
+      "file": "reports/chemistry-validation.json",
+      "sha256": "a3d2eb2511a6d889e3782f3a9166bad8dc624a8df615c55221aec97dce6037c4"
+    },
+    {
+      "file": "reports/ci-reproducibility.json",
+      "sha256": "47c9e4a8173e8817f6fcdce30df6b00827f93acc05e8aabc3edaf67e42d0a936"
+    },
+    {
+      "file": "reports/computed-model-interaction-audit.json",
+      "sha256": "6f37b3b1648d58fe8d05623d2de706ef76b1b56e5859c8b0334f28344d702426"
+    },
+    {
+      "file": "reports/computed-model-interaction-expansion.json",
+      "sha256": "71ed897cf08aef0b5d40a7a8889cdf7d37fb18e0e89edec12be40a4ab2bcb651"
+    },
+    {
+      "file": "reports/content-pack-integrity.json",
+      "sha256": "ef43b0bc6092267f1be737777a2a9b9e3c4d6f42a1b9727d8a85102c54bbb45c"
+    },
+    {
+      "file": "reports/content-studio-lab-roundtrip.json",
+      "sha256": "bf26268cdc643b79fbe125cc756b0eefd428fa8ada9f42c020b37b074891176c"
+    },
+    {
+      "file": "reports/content-studio-readiness.json",
+      "sha256": "1cfeedee3c38526c31f657d3a443478afec17a4aafc459234ce710e87d6ade76"
+    },
+    {
+      "file": "reports/content-validation.json",
+      "sha256": "0344ef736c0eb481032c22884dc4cd0ff96513edea82491d993056fb0f8fefc3"
+    },
+    {
+      "file": "reports/deployment-artifacts.json",
+      "sha256": "b70a078d4d51e4a53a654bd9d2086f3d52c7198c5ceb079ce6b8bf1b0392f657"
+    },
+    {
+      "file": "reports/deployment-clean-drill.json",
+      "sha256": "db41affa42a470c4e21a033d1f7668d7790397793b09265e3b9e42c03cbd816a"
+    },
+    {
+      "file": "reports/deployment-config-audit.json",
+      "sha256": "81cc8d9e9220f9c79e18e6ff221ba0d2e6fef052eeece21311483c4a756523d2"
+    },
+    {
+      "file": "reports/deployment-preflight.json",
+      "sha256": "0f909a997c461a8eb7beb6c3391831ae2ec71a94e2f167efb751fdd6d18936f3"
+    },
+    {
+      "file": "reports/deployment-rollback-drill.json",
+      "sha256": "1c312653479bc51d4d525bb79d03cdabd79d47b6dbf72907971b39217784db04"
+    },
+    {
+      "file": "reports/deployment-smoke.json",
+      "sha256": "ed286d00b0f8d872a14735febae3b34f06ae56c879f63bbfec58d42a870a0ed5"
+    },
+    {
+      "file": "reports/electrolysis-model-readiness.json",
+      "sha256": "db02afe5d72062e95d47eaf72360f684894cf164278683a08412fd069d2ff028"
+    },
+    {
+      "file": "reports/element-localization-coverage.json",
+      "sha256": "9381648bee37ecfef456c062404adbc3a44b4dbdd8d7159a4c658ac72c894abb"
+    },
+    {
+      "file": "reports/element-metadata-coverage.json",
+      "sha256": "eb4c2181aca53c76896af3824a2debb8f8f97d42ffe11e5c961ed2980a43ac57"
+    },
+    {
+      "file": "reports/element-relationship-coverage.json",
+      "sha256": "37e9a1a7d905ecd9929e46c16b8f1ba51d66c72bcd8a3e53e1a1f12aee819a99"
+    },
+    {
+      "file": "reports/external-lab-integration.json",
+      "sha256": "ea541b9f0d1bb28b559e563072154dd904f9fe6de2c4990b3c98432703811b49"
+    },
+    {
+      "file": "reports/external-provider-readiness.json",
+      "sha256": "1370a37122ae493d2200a44e3f553aa6ec5a19c38345d0c7fa112742d8672dd3"
+    },
+    {
+      "file": "reports/feedback-semantics-expansion.json",
+      "sha256": "5085d0273d55978d2a3d2198ca7d87823cdbca468b69bb48803a14ed3af3c9bf"
+    },
+    {
+      "file": "reports/finalization-roadmap.json",
+      "sha256": "354f3ddea83d4461d6195d33217bf1cfff142b77291463fd8ac57028a21fd8a8"
+    },
+    {
+      "file": "reports/freeze-manifest.json",
+      "sha256": null,
+      "reason": "this manifest"
+    },
+    {
+      "file": "reports/golden-slice-dependencies.json",
+      "sha256": "e53ddbddbb23f62e79db8585e97256dcc499afcb5c18d90979a469f0d0e38856"
+    },
+    {
+      "file": "reports/golden-slice-dependency-graph.json",
+      "sha256": "fc33d1c7182cc9fb4742c87b861471dcd7e845c81a324013dc2c1dc590c21258"
+    },
+    {
+      "file": "reports/guided-dynamic-lab-inventory.json",
+      "sha256": "28f3a4f3de369d9dc34cc4cf3318bcf563d1f4e67e505ef92da3f49e28c2181d"
+    },
+    {
+      "file": "reports/guided-dynamic-lab-readiness.json",
+      "sha256": "a11d25034bf65037e6c237b2e5d114ca6fdb0a43d5966bd028a652b269b3281b"
+    },
+    {
+      "file": "reports/guided-lab-hardening.json",
+      "sha256": "63f09947e08261401487e9063a7822ec5e1059c67c6d4131c1a8bbd4658657cc"
+    },
+    {
+      "file": "reports/guided-lab-triage.json",
+      "sha256": "436a385cb7578dd7db3646311b507c24106e1a5c237c4691c38585e6366995b9"
+    },
+    {
+      "file": "reports/host-architecture-audit.json",
+      "sha256": "e5bd95d2b1eee4093bbb4be0d0df44ee41a6fbc3427c98504dac1af327d52439"
+    },
+    {
+      "file": "reports/host-parity.json",
+      "sha256": "764be2715978e61e7f3916eee0de2b8e47e965a4ec4ffa100e8eb65d322fe727"
+    },
+    {
+      "file": "reports/http-smoke.json",
+      "sha256": "6a13990eb20ddc2f017091680dbc1dffc26ab1dd04047d4ad4413f012039a0e1"
+    },
+    {
+      "file": "reports/human-action-queue.json",
+      "sha256": "e66e5855bdcd5f5695ba80c8f24477d72ec9c144c89542e3a1538d2b07907dd4"
+    },
+    {
+      "file": "reports/human-review-status.json",
+      "sha256": "11265d4c04a15dd41b683d49fc23d12088581b9c0ac0aac88bc911981e7d2e59"
+    },
+    {
+      "file": "reports/installation-readiness.json",
+      "sha256": "2e4d64fe370f86e038d7dec553316388de75cd67c6a00b597076444e3ddcb577"
+    },
+    {
+      "file": "reports/interaction-reliability.json",
+      "sha256": "6d2684e6da1ab017f03835cd50e14636a455b45b853044579957e4a8d13be33c"
+    },
+    {
+      "file": "reports/ionic-pair-coverage.json",
+      "sha256": "09f057bf757b7a6e84a737278c127fda396fcca2e4a049131755fb8496c9f493"
+    },
+    {
+      "file": "reports/lab-action-catalog.json",
+      "sha256": "eeaf467ae2984530b52547bb1a567cd066d556d674b33dcecb0e7c27545e73b2"
+    },
+    {
+      "file": "reports/lab-migration-equivalence.json",
+      "sha256": "59e838f4a1343cf66252c63f0e3b7e65fe00abb304243d7926d61f7005b5e892"
+    },
+    {
+      "file": "reports/learner-answer-input-audit.json",
+      "sha256": "69105c3c44a337048823673da9043e63c9ddcf06f63308de5ef190a844bc3a10"
+    },
+    {
+      "file": "reports/learner-feedback-semantics.json",
+      "sha256": "e67adda87db58504b8c279bf4498de3c4b108e4f7ea419c3034a84a2ef48bcb1"
+    },
+    {
+      "file": "reports/learner-label-audit.json",
+      "sha256": "6a3bb021efc1b0e7a02d1d0707bb5a1597fbc501fd224fd0d8fa5c7eb0f2f955"
+    },
+    {
+      "file": "reports/learning-depth-baseline.json",
+      "sha256": "deb80968ed8d3667949686cc05caf1143357809e0d4f44a1320991b2325f0d1b"
+    },
+    {
+      "file": "reports/learning-depth-summary.json",
+      "sha256": "d1fb203c9ce7efce5a30e999443364cfbac13087748d5a91a42c2768e616c7cc"
+    },
+    {
+      "file": "reports/learning-unit-gap-map.json",
+      "sha256": "6dd4e938b229a87ab8bde3b336fd5a9f0a6d0aaf6dfe31ed302119d82d8f5306"
+    },
+    {
+      "file": "reports/legacy-periodic-parity.json",
+      "sha256": "2215b105fe5150042694260c9cc9428c71e5ece9330f497137a135e08db2bba8"
+    },
+    {
+      "file": "reports/licensing.json",
+      "sha256": "33aa163d4376208f067662ceffd23b023b9e99475b9b0aab563223c2e19554e6"
+    },
+    {
+      "file": "reports/mapping-validation.json",
+      "sha256": "c23f8cbe985656a09e82a40edd8612ae15289ef2178c23725053fdfcedd51200"
+    },
+    {
+      "file": "reports/mastery-ux-coverage.json",
+      "sha256": "b28b96acfbe5ca01dcbcda45819483abe1795cd47e6f70c258763cc51244aca9"
+    },
+    {
+      "file": "reports/model-interaction-expansion.json",
+      "sha256": "d8d8c0fcfd6895289c8f11d247449a2478e0faf159ae3f02ec7408c207b8ec3e"
+    },
+    {
+      "file": "reports/p0-acceptance.json",
+      "sha256": "f333d7881c9ec081057b28cc505fd4f162dff816440927466050963b301a079d"
+    },
+    {
+      "file": "reports/p2-work-packages.json",
+      "sha256": "9e733c53ddfe3ad3d8e9295accdeebfc58a784f2d8d4662f5e7cb61a2c2daf00"
+    },
+    {
+      "file": "reports/pending-activity-triage.json",
+      "sha256": "a283e97722b95fc4109b92f2b16309da642d50f7bbeccc2762a96355ba2d1282"
+    },
+    {
+      "file": "reports/periodic-table-inventory.json",
+      "sha256": "66f6100c269ef2d9474c085e89ed98be77f6532a6711234ca423958009568fb1"
+    },
+    {
+      "file": "reports/periodic-table-readiness.json",
+      "sha256": "ef48fedd10378b4a167cb6f0f76513afeeef4efbf16958e0f4ddb33b6dee2d74"
+    },
+    {
+      "file": "reports/phase10-verification.json",
+      "sha256": "134adef0cb9b27ebb7b08c8b63e9f8dec71727d8fd615aa3fd99116338d3e485"
+    },
+    {
+      "file": "reports/phase11-progress.json",
+      "sha256": "24be2f1b4016befc4df360f197900ad1091b54af1cea23d45a3b8fe8b0c3f0cb"
+    },
+    {
+      "file": "reports/phase12-progress.json",
+      "sha256": "4fcd744c6efc3a0d683ddb087a5f3e8bc4889cafea9b78dabefb28ec6959b910"
+    },
+    {
+      "file": "reports/phase9-verification.json",
+      "sha256": "e3601d8d003fce669a096a7780959a6b5d91f16113db1e31ae458603806d1b8d"
+    },
+    {
+      "file": "reports/pilot-acceptance-matrix.json",
+      "sha256": "42a41f24e2064f21df5bcda232c2aced4e82119a72055cf8527b255d8147dbe2"
+    },
+    {
+      "file": "reports/portal-subpath-readiness.json",
+      "sha256": "16a081b03bc3565891c4657862cfc799b311b7e02131d47200bee4da85c918a6"
+    },
+    {
+      "file": "reports/product-didactic-approval.json",
+      "sha256": "a53bdc25536c79a8cdcd74ecbffe686354e8b52998bfe81a85da6be4bffdc22e"
+    },
+    {
+      "file": "reports/production-build.json",
+      "sha256": "4878125993609f9f924733fac03a92eb4f5b627d618f9e1dcc1b49931d7bb9b9"
+    },
+    {
+      "file": "reports/project-progress.json",
+      "sha256": "f9e1c6318f95532220e26e484a168b29f124616a4d478df6c3adca827c3d70a3"
+    },
+    {
+      "file": "reports/rc-preflight.json",
+      "sha256": "c7c74d589d7c668bfb1f16c98cdecea6112e15d398faa4839186335ff1814815"
+    },
+    {
+      "file": "reports/rc-traceability.json",
+      "sha256": "636fe87606fa86d4c2e45034c3b27fb5dadebc726c9f7bd1254b4040b478a2a5"
+    },
+    {
+      "file": "reports/reaction-explorer-coverage.json",
+      "sha256": "4af970b76224a0ad48dc8cfd4e97d5c6c5abb4239607a376a73dd8577e5299ef"
+    },
+    {
+      "file": "reports/reaction-governance-coverage.json",
+      "sha256": "f36d20e0f2e6e93e48f2c39e72f7c38f57a42e1c8473073e2ac5be4fb35ef728"
+    },
+    {
+      "file": "reports/readiness-enforcement-impact.json",
+      "sha256": "01d9730924bf598c2603a1975761a68a0aabf77669d8f138db5989a6e1bdc859"
+    },
+    {
+      "file": "reports/reference-renderer-atom.json",
+      "sha256": "b8579c21e987b78deff0db7cc4c9f8bd6f0ba6baf38aa8bbb6d9a51c76231cae"
+    },
+    {
+      "file": "reports/reference-renderer-condition-prediction.json",
+      "sha256": "bf3f144bd6b8e34e9d77b1114645197516663d7629293e22a8a45a94ad5e8a83"
+    },
+    {
+      "file": "reports/reference-renderer-hydrolysis.json",
+      "sha256": "1db72a10d0490ba8d4afc36649410ff9f64389e06f0bbd53bd1e27b4106b0b14"
+    },
+    {
+      "file": "reports/reference-renderer-ionic-precipitation.json",
+      "sha256": "25ad2fa5b846d01c3b38d4ee80c7f51ff6e5a70149fa1d6550d631c7d0f754a1"
+    },
+    {
+      "file": "reports/release-bundle-integrity.json",
+      "sha256": "ef43b0bc6092267f1be737777a2a9b9e3c4d6f42a1b9727d8a85102c54bbb45c"
+    },
+    {
+      "file": "reports/release-decision-status.json",
+      "sha256": "824c403c0c438e6de657a5ff75bfe8983b4ebc92a217ba692e39f6923eb416f9"
+    },
+    {
+      "file": "reports/release-gate.json",
+      "sha256": "1067c9eaf5bf63dbbae14910fec4345583551db68b449a9748d0e0e77979e65d"
+    },
+    {
+      "file": "reports/release-licensing.json",
+      "sha256": "49757ff66910341cc6ca802d9773a8e313bae86bc497a13d500fcdf0f02746a8"
+    },
+    {
+      "file": "reports/release-rollback-drill.json",
+      "sha256": "4b35f290a5b5f9c299eae185b312905b571c2df3d3a8deef9cbe4815f056e516"
+    },
+    {
+      "file": "reports/renderer-foundation-readiness.json",
+      "sha256": "c752a11fb95819053f3fcb5cd80e23ab9668a31553735f09843fbcc2f233ea59"
+    },
+    {
+      "file": "reports/renderer-migration.json",
+      "sha256": "a95bff4a82b1158fdb13f9b06e8e9117040381521f060aa6ce75bfd7d256e4be"
+    },
+    {
+      "file": "reports/renderer-registry.json",
+      "sha256": "514a6a5ddaec491747591b276a1a186d3f80af65dd2210fbf49098e14097a668"
+    },
+    {
+      "file": "reports/review-change-queue.json",
+      "sha256": "652da198ea96974db621247a36b2af3cedff40d9a75f9da1a80393e02ba19d74"
+    },
+    {
+      "file": "reports/review-promotion-impact.json",
+      "sha256": "a0976ab36f12fa5ff63cb6abe8c44fe0cf843faf61ea0498576c27e8c89c1808"
+    },
+    {
+      "file": "reports/reviewer-workspace.json",
+      "sha256": "05ce18c25842a53aa9f4f423dcf485cb53550aaa6238ede1bec5781d9a9ba7fd"
+    },
+    {
+      "file": "reports/scorm-packages.json",
+      "sha256": "9291d9220f9ba63abb9be1a89794ba2e898f35a1827bcec31fcb4a58f6be61fb"
+    },
+    {
+      "file": "reports/stable-preflight.json",
+      "sha256": "c7e2f6dc60566bcb499aaa481221d9c09c5393ef6c70893208c54de1682d7c03"
+    },
+    {
+      "file": "reports/stable-signoff-targets.json",
+      "sha256": "7f607d19906a2192d34074522a7821d4b7e471f0577ee3da930136511bde8625"
+    },
+    {
+      "file": "reports/standalone-browser-smoke.json",
+      "sha256": "3ae067ad5e09f52254f90737a48703fc0995fd22d576a117fa2057c4f20b4436"
+    },
+    {
+      "file": "reports/standalone-build.json",
+      "sha256": "90a88a451040dcce2be23ec76d96680172be389a8a5c65dcda6c970b465ca90c"
+    },
+    {
+      "file": "reports/standalone-mobile-smoke.json",
+      "sha256": "058833cc03d5b963021cfacfd0617ad5d8f0c4ab8e1c06391837e8aed5f3f3df"
+    },
+    {
+      "file": "reports/standalone-parity.json",
+      "sha256": "2e81a935da0e6b0a04cd2df08b9c3ab06d44375093b9c92f74f78790639cdcb7"
+    },
+    {
+      "file": "reports/substance-inventory.json",
+      "sha256": "f193d1be44e3fd4407413a7a4d2ece33dcee82f8fd01cfd07c24dd6cf985938d"
+    },
+    {
+      "file": "reports/substance-model-coverage.json",
+      "sha256": "9dee65b23bd91d730ed9935f6a0b8912be80a18d57088810bbe1fa9eb02b058b"
+    },
+    {
+      "file": "reports/substance-passport-coverage.json",
+      "sha256": "1eea82aac10ffa19fec0e9ced554930bf3cfd93a02d3ae015a130bdf4b533b7b"
+    },
+    {
+      "file": "reports/substance-reaction-readiness.json",
+      "sha256": "081df06e9109843ffff95a2d6093674443cce2f01de973ed56e98ad56457b231"
+    },
+    {
+      "file": "reports/test-summary.json",
+      "sha256": "1e642f1f7cf7e7b7a2e88a5e7b11e2e820e9c3f16cb71e8cb1f8e5f8db38c102"
+    },
+    {
+      "file": "reports/theory-authoring-status.json",
+      "sha256": "99e95d98fe5a1899d328edb424e9b315aeb06c9db36890906c5800505856c0ce"
+    },
+    {
+      "file": "reports/theory-depth-audit.json",
+      "sha256": "0beafc2a62fe1e40f93c48f44270c517b73cbe2550139394af6a99fa26ef7a2a"
+    },
+    {
+      "file": "reports/topic-lab-profile-coverage.json",
+      "sha256": "68f2fce2a1c5916525ac93471d58679e845ed2002e70ed7cd60d483dc3b6bf35"
+    },
+    {
+      "file": "reports/visual-review-approval.json",
+      "sha256": "47373542c8535c8d6aeac9dd5809b81192836b9593c1b5195055280d8c04a120"
+    },
+    {
+      "file": "reports/xlsx-import-snapshot.json",
+      "sha256": "454aa06875d6d5c72d6016742d12e73971ebe5bb881bac8f6e6fd32b635fc56c"
+    }
+  ]
+}

@@ -16,17 +16,18 @@
   "canonicalEntries": 0,
   "workingDrafts": 0,
   "sources": {
-    "registeredSources": 5,
-    "categoryCompatibleSources": 1,
+    "registeredSources": 9,
+    "categoryCompatibleSources": 4,
     "humanAcceptedSources": 0,
     "canonicalTheoryEligibleSources": 0,
     "eligibleSourceIds": [],
     "semantics": "categoryCompatible = the category is acceptable for chemistry claims (SOURCE_POLICY). humanAccepted = a person accepted the source through governed intake (HUMAN_ACCEPTED, pinned to the reviewed intake hash). Only sources that are both are canonical-theory eligible; a PROPOSED source never satisfies theory:apply.",
-    "proposedClassification": 5,
+    "proposedClassification": 9,
     "unpinnedHumanAccepted": [],
     "categories": {
       "CURRICULUM": 1,
-      "INTERNAL_PROPOSAL": 4
+      "INTERNAL_PROPOSAL": 5,
+      "TEXTBOOK": 3
     },
     "intake": {
       "entries": 0,

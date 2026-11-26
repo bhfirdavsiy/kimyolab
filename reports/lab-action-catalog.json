@@ -52,9 +52,9 @@
       "RECORD"
     ],
     "derivedFromRepository": 30,
-    "operations": 350,
+    "operations": 354,
     "unmappedOperations": 0,
-    "genericStepActionTypes": 176,
+    "genericStepActionTypes": 178,
     "unknownConfigActionTypes": []
   },
   "families": [
@@ -162,7 +162,7 @@
         "no drag required"
       ],
       "coverage": {
-        "instructionOperations": 60,
+        "instructionOperations": 62,
         "ambiguousOperations": 0,
         "configActionTypes": [
           "addBromineWater",
@@ -987,7 +987,7 @@
         "observation as text, never colour alone"
       ],
       "coverage": {
-        "instructionOperations": 67,
+        "instructionOperations": 69,
         "ambiguousOperations": 0,
         "configActionTypes": [
           "observe",
@@ -1807,7 +1807,7 @@
       "family": "OBSERVE",
       "ambiguous": false,
       "contextFamilies": [],
-      "occurrences": 64,
+      "occurrences": 66,
       "unresolved": 0
     },
     {
@@ -1950,7 +1950,7 @@
       "family": "ADD_SUBSTANCE",
       "ambiguous": false,
       "contextFamilies": [],
-      "occurrences": 17,
+      "occurrences": 19,
       "unresolved": 0
     },
     {

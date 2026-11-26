@@ -26,10 +26,11 @@ async function addTo(page, substance, container) {
 async function on(page, ref, family) { await object(page, ref); await action(page, family); }
 
 for (const name of ['portal', 'standalone']) {
-  test(`${name}: flag off → notice and the classic route; the classic practice page is unchanged`, async ({page}) => {
+  // owner decision 2026-11-23 ("rejang ma'qul"): the dynamic lab is ON by default (was: "flag off → notice"). Without any
+  // ?ff= the lab opens; its link still leads to the classic practice page, which keeps its own renderer
+  test(`${name}: on by default → the lab opens without ?ff; the classic practice page stays reachable`, async ({page}) => {
     await hosts[name].open(page, '/dynamic-lab/practice.experiment.8.1');
-    await expect(page.locator('.kl-practice-workspace .kl-notice[role=status]')).toContainText('yoqilmagan');
-    await expect(page.locator(LAB)).toHaveCount(0);
+    await expect(page.locator(LAB)).toHaveCount(1);
     await page.getByRole('link', {name: 'Odatdagi amaliy mashg‘ulotni ochish'}).click();
     await expect(page.locator('.kl-practice-workspace [data-renderer^="ionic-precipitation"]')).toBeVisible();
   });
@@ -94,7 +95,8 @@ for (const name of ['portal', 'standalone']) {
     await on(page, 'target:cathode', 'OBSERVE'); await on(page, 'target:anode', 'OBSERVE');
     const obs = page.locator(`${LAB} .kl-dlab__observations li[data-produced-by=ElectrolysisModel]`);
     await expect(obs).toHaveCount(2);
-    await expect(obs.nth(0)).toContainText('Cu'); await expect(obs.nth(1)).toContainText('Cl2'); await expect(obs.nth(1)).toContainText('hidlab ko‘rmang');
+    // Stage 1 of the 2026-11-24 lab review: formulas in the learner text are typeset (H2 → H₂, so NaI is never read as "Nal")
+    await expect(obs.nth(0)).toContainText('Cu'); await expect(obs.nth(1)).toContainText('Cl₂'); await expect(obs.nth(1)).toContainText('hidlab ko‘rmang');
     await expect(page.locator(`${LAB}[data-complete=true]`)).toBeVisible();
   });
 
@@ -112,7 +114,10 @@ for (const name of ['portal', 'standalone']) {
     await expect(setup).toHaveAttribute('data-category', 'recommended');
     await setup.focus(); await page.keyboard.press('Enter');
     await expect(result(page)).toBeFocused();
-    await expect(result(page)).toContainText('1-qadami bajarildi');
+    // owner, 2026-11-26 ("gaz yig'ish vositasini qo'yganimda bajarildi dedi"): an instruction step is announced as done
+    // only when ALL its required lab steps are. Step 1 of 7.2 is setup + water + mixture + dissolving, so setting up the
+    // beaker alone no longer says "1-qadami bajarildi" (it did before, which was wrong)
+    await expect(result(page)).not.toContainText('qadami bajarildi');
     // the 20 ml limit comes from the instruction
     await object(page, 'substance:water'); await action(page, 'ADD_SUBSTANCE');
     await page.locator('#dlab-param-container').selectOption('beaker');
@@ -125,6 +130,7 @@ for (const name of ['portal', 'standalone']) {
     await on(page, 'apparatus:glass-rod', 'SETUP_APPARATUS');
     await addTo(page, 'contaminated-salt', 'beaker');
     await on(page, 'apparatus:beaker', 'MIX');
+    await expect(result(page)).toContainText(/1-qadam(i|idagi laboratoriya qismi) bajarildi/);
     await expect(page.locator(`${LAB} .kl-dlab__sources li[data-grounding=INSTRUCTION_TEXT]`)).toContainText('ko‘rsatmaning o‘z jumlasidan');
     await expect(page.locator(`${LAB} .kl-dlab__sources li[data-grounding=MODEL_BASED]`)).toContainText('eruvchanlik');
     // guidance level 4 shows the instruction sentence and never an outcome

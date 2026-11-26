@@ -115,7 +115,8 @@ export function buildLearningHubModel(learningUnitId       ,data                
     theory:{
       id:theory.id,
       title:theory.title,
-      blocks:theory.explanationBlocks.map(block=>({type:block.type,text:block.text})),
+      // a legacy-mapping-note is an internal curriculum-mapping remark (e.g. "a new case is needed"), not learner content
+      blocks:theory.explanationBlocks.filter(block=>block.type!=='legacy-mapping-note').map(block=>({type:block.type,text:block.text})),
       representationModes:[...theory.representationModes],
       ...(()=>{ const view=structuredTheoryView(data.structuredTheory,theory.id,createLocalizer(data.interaction?{interaction:data.interaction}:undefined)); return view?{structured:view}:{}; })(),
     },

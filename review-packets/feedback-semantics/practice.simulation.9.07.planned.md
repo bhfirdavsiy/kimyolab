@@ -1,7 +1,7 @@
 # Feedback semantics review — practice.simulation.9.07.planned
 
-- **Title:** Uglerod guruhi trendi va materiallar case’i
-- **Goal:** Uglerod guruhi trendi va materiallar case’i
+- **Title:** Uglerod guruhi trendi va materiallar amaliy vaziyati
+- **Goal:** Uglerod guruhi trendi va materiallar amaliy vaziyati
 - **Config:** `content-src/activity-configs/beta2-safe.json` (version 1.0.0)
 - **Engine:** TARGET_STATE_ONLY — content-src/activity-configs/beta2-safe.json: the reducer sets fields; evidence only when the whole state equals targetState (src/runtime/beta1/router.ts simulationAdapter). No option set, no incorrect states, no field dependencies are declared.
 

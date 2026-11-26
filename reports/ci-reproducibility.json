@@ -43,7 +43,7 @@
   },
   "toolchain": {
     "applicationNode": {
-      "source": "kimyolab/.nvmrc",
+      "source": ".nvmrc",
       "major": "22"
     },
     "npmLockfileVersion": 3,
@@ -56,45 +56,6 @@
   },
   "jobs": [
     {
-      "workflow": "build-installers.yml",
-      "job": "build-arm64",
-      "runsOn": "macos-15",
-      "uses": [
-        "actions/checkout@v4",
-        "actions/setup-python@v5",
-        "actions/upload-artifact@v4"
-      ],
-      "nodeVersionFile": [],
-      "nodeVersion": [],
-      "owner": "other-project (diagnostic only)"
-    },
-    {
-      "workflow": "build-installers.yml",
-      "job": "build-intel",
-      "runsOn": "macos-15-intel",
-      "uses": [
-        "actions/checkout@v4",
-        "actions/setup-python@v5",
-        "actions/upload-artifact@v4"
-      ],
-      "nodeVersionFile": [],
-      "nodeVersion": [],
-      "owner": "other-project (diagnostic only)"
-    },
-    {
-      "workflow": "build-installers.yml",
-      "job": "package",
-      "runsOn": "macos-15",
-      "uses": [
-        "actions/download-artifact@v4",
-        "actions/download-artifact@v4",
-        "actions/upload-artifact@v4"
-      ],
-      "nodeVersionFile": [],
-      "nodeVersion": [],
-      "owner": "other-project (diagnostic only)"
-    },
-    {
       "workflow": "kimyolab-release-freeze.yml",
       "job": "freeze",
       "runsOn": "ubuntu-24.04",
@@ -104,7 +65,7 @@
         "actions/upload-artifact@v7"
       ],
       "nodeVersionFile": [
-        "kimyolab/.nvmrc"
+        ".nvmrc"
       ],
       "nodeVersion": [],
       "owner": "kimyolab"
@@ -120,7 +81,7 @@
         "actions/upload-artifact@v7"
       ],
       "nodeVersionFile": [
-        "kimyolab/.nvmrc"
+        ".nvmrc"
       ],
       "nodeVersion": [],
       "owner": "kimyolab"
@@ -136,7 +97,7 @@
         "actions/upload-artifact@v7"
       ],
       "nodeVersionFile": [
-        "kimyolab/.nvmrc"
+        ".nvmrc"
       ],
       "nodeVersion": [],
       "owner": "kimyolab"
@@ -152,7 +113,7 @@
         "actions/download-artifact@v8"
       ],
       "nodeVersionFile": [
-        "kimyolab/.nvmrc"
+        ".nvmrc"
       ],
       "nodeVersion": [],
       "owner": "kimyolab"
@@ -164,9 +125,7 @@
       "kimyolab-release-freeze.yml",
       "kimyolab-verify.yml"
     ],
-    "otherRepositoryWorkflows": [
-      "build-installers.yml"
-    ],
+    "otherRepositoryWorkflows": [],
     "linuxPinned": true,
     "windowsPinned": true,
     "noFloatingRunner": true,

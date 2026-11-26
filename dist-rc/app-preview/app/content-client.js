@@ -6,6 +6,7 @@ import { buildLearningHubModel,                       } from '../features/learni
 import { buildPracticePageModel,                               } from '../features/practice/model.js';
 import { DEFAULT_LOCALE, elementNamesPackPath, interactionPackPath, parseElementNameCatalog, parseInteractionCatalog, parseSpeciesNameCatalog, speciesNamesPackPath,                                                                           } from '../features/localization/element-names.js';
 import { assertElementHub, ELEMENT_HUB_PACK_PATH,                 } from '../features/periodic/hub.js';
+import { assertKnowledgeIndex, CHEMISTRY_KNOWLEDGE_PACK_PATH,                     } from '../features/chemistry-knowledge/knowledge.js';
 import {validateExternalLabBindings,bindingsForLearningUnit} from '../integrations/external-labs/registry.js';
                                                                                
                                                                
@@ -219,8 +220,15 @@ export class ContentClient {
     const units=await this.packJson(version,`learning-units/grade-${gradeMatch[1]}.json`);
     const unit=units.find((x    )=>x.id===mapping.learningUnitId);
     if(!unit) throw new ContentLoadError('LEARNING_UNIT_NOT_FOUND',{resource:mapping.learningUnitId});
+    // TT 4.2.6: which reaction records are REVIEWED (the knowledge index flag). The lab shows a no-reaction record only
+    // when it is reviewed; without the index (older packs) the set is empty, so every such record fails closed.
+    let reviewedReactionIds         =[];
+    if(this.files.has(CHEMISTRY_KNOWLEDGE_PACK_PATH)){
+      try{ reviewedReactionIds=assertKnowledgeIndex(await this.packJson(version,CHEMISTRY_KNOWLEDGE_PACK_PATH)).reactions.filter(r=>r.review==='REVIEWED').map(r=>r.id); }
+      catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('CHEMISTRY_KNOWLEDGE_INVALID',{resource:CHEMISTRY_KNOWLEDGE_PACK_PATH}); }
+    }
     return buildPracticePageModel({
-      activity,mapping,unit,executionPlan,readiness:readiness ,referenceConfig,contentVersion:version,
+      activity,mapping,unit,executionPlan,readiness:readiness ,referenceConfig,contentVersion:version,reviewedReactionIds,
       schemaVersion:String(packManifest.schemaVersion??'0'),
       scoringVersion:String(packManifest.scoringVersion??'0'),
       ...(packManifest.curriculumVersion?{curriculumVersion:String(packManifest.curriculumVersion)}:{}),
@@ -232,6 +240,14 @@ export class ContentClient {
   /** P2.10: the guided dynamic lab profile of an activity, or null when the pack has none for it (or no profile
    *  file at all — older packs). A listed file is integrity-checked like every pack file; an invalid profile fails
    *  closed (TOPIC_LAB_PROFILE_INVALID), it is never repaired. */
+  /** the activities that have a guided dynamic lab (their catalogue card opens the lab itself) */
+  async listDynamicLabActivityIds()                  {
+    const version=await this.version();
+    if(!this.files.has(TOPIC_LAB_PROFILE_PACK_PATH)) return [];
+    const pack=await this.packJson(version,TOPIC_LAB_PROFILE_PACK_PATH);
+    return Array.isArray(pack?.profiles)?pack.profiles.map((p    )=>String(p?.activityId??'')).filter(Boolean):[];
+  }
+
   async loadTopicLabProfile(practiceActivityId       )                              {
     const version=await this.version();
     if(!this.files.has(TOPIC_LAB_PROFILE_PACK_PATH)) return null;
@@ -258,6 +274,29 @@ export class ContentClient {
       interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));
     }catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:'locales'}); }
     return {hub,elementNames,speciesNames,interaction};
+  }
+
+  /** P2.14: the Substance / Reaction knowledge index plus the canonical records it is derived from (species,
+   *  reactions, condition vocabulary — the browser-local ReactionMatcher reads them) and the catalogs. Every file is
+   *  integrity-checked like every pack file; an invalid index fails closed, it is never repaired. */
+  async loadChemistryKnowledge()                                                                                                                                                                                                 {
+    const version=await this.version();
+    if(!this.files.has(CHEMISTRY_KNOWLEDGE_PACK_PATH)) throw new ContentLoadError('CHEMISTRY_KNOWLEDGE_MISSING',{resource:CHEMISTRY_KNOWLEDGE_PACK_PATH});
+    let index               ;
+    try{ index=assertKnowledgeIndex(await this.packJson(version,CHEMISTRY_KNOWLEDGE_PACK_PATH)); }
+    catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('CHEMISTRY_KNOWLEDGE_INVALID',{resource:CHEMISTRY_KNOWLEDGE_PACK_PATH}); }
+    const [species,reactions,conditionVocabulary]=await Promise.all([
+      this.packJson(version,`chemistry/species.json`),
+      this.packJson(version,`chemistry/reactions.json`),
+      this.packJson(version,`chemistry/condition-vocabulary.json`),
+    ]);
+    let elementNames                   , speciesNames                   , interaction                   ;
+    try{
+      elementNames=parseElementNameCatalog(await this.packJson(version,elementNamesPackPath(DEFAULT_LOCALE)));
+      speciesNames=parseSpeciesNameCatalog(await this.packJson(version,speciesNamesPackPath(DEFAULT_LOCALE)));
+      interaction=parseInteractionCatalog(await this.packJson(version,interactionPackPath(DEFAULT_LOCALE)));
+    }catch(error){ throw error instanceof ContentLoadError?error:new ContentLoadError('LOCALIZATION_INVALID',{resource:'locales'}); }
+    return {index,species,reactions,conditionVocabulary,elementNames,speciesNames,interaction};
   }
 
   async loadCurriculum(){

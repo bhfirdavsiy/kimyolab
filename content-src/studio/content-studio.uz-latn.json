@@ -58,6 +58,7 @@
     "studio.excerpt.rights": "Bu qismni o‘quvchilarga ko‘rsatish huquqi hujjatlashtirilgan",
     "studio.excerpt.rights-basis": "Huquq asosi (shartnoma, ruxsatnoma yoki boshqa hujjat)",
     "studio.lab.start-from-existing": "Mavjud yo‘riqnomadan boshlash",
+    "studio.lab.choose": "Mavzudagi laboratoriya",
     "studio.lab.started-from-existing": "Mavzuning mavjud yo‘riqnomasi nusxalandi. Asl matn o‘zgarmaydi.",
     "studio.lab.no-existing": "Bu mavzu uchun saqlangan yo‘riqnoma yo‘q. Yo‘riqnomani o‘zingiz kiriting.",
     "studio.lab.goal": "Tajriba maqsadi",

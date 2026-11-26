@@ -59,7 +59,7 @@ export function buildRoundTrip(root=ROOT){
 export function labCheckContext(root=ROOT):LabCheckContext{
   const {profiles}=compileTopicLabProfiles(root);
   const sources=studioData(root).labSources;
-  return {registry:loadRegistry(root),profileFor:lu=>{ const src=sources.find(x=>x.learningUnitId===lu); return src?profiles.find(p=>p.activityId===src.practiceActivityId)??null:null; }};
+  return {registry:loadRegistry(root),profileFor:(lu,activityId)=>{ const src=sources.find(x=>x.learningUnitId===lu&&(!activityId||x.practiceActivityId===activityId))??sources.find(x=>x.learningUnitId===lu); return src?profiles.find(p=>p.activityId===src.practiceActivityId)??null:null; }};
 }
 
 /** `npm run studio:check -- <file>` — writes nothing */

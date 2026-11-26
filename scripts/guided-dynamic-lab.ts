@@ -483,6 +483,9 @@ async function equivalence72(root:string,profile:TopicLabProfile){
 /** P2.11 — the new slices' scripts: the instruction's own sequence, expressed as lab actions */
 export const REACTION_SCRIPTS:Record<string,LabAction[]>={
   'practice.experiment.7.10':[{family:'ADD_SUBSTANCE',params:{substance:'mg',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'h2so4-dilute',container:'tube-1'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'zn',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-2'}},{family:'COLLECT_GAS',params:{container:'gas-collector',from:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'cu',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-dilute',container:'tube-3'}}],
+  'practice.experiment.7.11':[{family:'ADD_SUBSTANCE',params:{substance:'cao',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'water',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'carbonated-water',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'distilled-water',container:'tube-3'}}],
+  'practice.experiment.7.9':[{family:'ADD_SUBSTANCE',params:{substance:'cuo',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-solution',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'naoh-solution',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-solution',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'caco3',container:'tube-4'}},{family:'ADD_SUBSTANCE',params:{substance:'hcl-solution',container:'tube-4'}}],
+  'practice.experiment.8.8':[{family:'ADD_SUBSTANCE',params:{substance:'hcl-solution',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'agno3-solution',container:'tube-1'}},{family:'ADD_SUBSTANCE',params:{substance:'nacl-solution',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'agno3-solution',container:'tube-2'}},{family:'ADD_SUBSTANCE',params:{substance:'nabr-solution',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'agno3-solution',container:'tube-3'}},{family:'ADD_SUBSTANCE',params:{substance:'nai-solution',container:'tube-4'}},{family:'ADD_SUBSTANCE',params:{substance:'agno3-solution',container:'tube-4'}}],
   'practice.experiment.8.14':[{family:'ADD_SUBSTANCE',params:{substance:'nh4cl',container:'reaction-tube'}},{family:'ADD_SUBSTANCE',params:{substance:'slaked-lime',container:'reaction-tube'}},{family:'SEAL',params:{container:'reaction-tube'}},{family:'HEAT',params:{container:'reaction-tube'}},{family:'COLLECT_GAS',params:{container:'collector-tube'}}],
 };
 
@@ -539,25 +542,27 @@ export async function buildEquivalence(root=ROOT,profiles:TopicLabProfile[]=comp
 }
 
 /** The guided lab's bundle growth since the P2.9 closing build (reports/feedback-semantics-expansion.json#bundleDelta.after
- *  @ 22e5687) vs the current build. `delta` stays CUMULATIVE since P2.9 (P2.10 + … + P2.13), because the earlier phases'
+ *  @ 22e5687) vs the current build. `delta` stays CUMULATIVE since P2.9 (P2.10 + … + P2.14), because the earlier phases'
  *  bound checks subtract exactly this recorded delta instead of absorbing it; `phases` splits it per phase. */
 export const P29_BUNDLE_AFTER={learnerModules:162,learnerModuleBytes:714004,standaloneBytes:5704269};
 /** P2.10's recorded growth (reports/guided-dynamic-lab-readiness.json#bundleDelta.delta @ a6f959e) */
 export const P210_BUNDLE_DELTA={learnerModules:6,learnerModuleBytes:102503,standaloneBytes:153878};
 /** P2.11's recorded growth (bundleDelta.phases['P2.11'] @ b4de365, the P2.11 merge) */
 export const P211_BUNDLE_DELTA={learnerModules:1,learnerModuleBytes:43684,standaloneBytes:67213};
-/** P2.12's recorded growth (bundleDelta.phases['P2.12'] @ 641ccb9, the P2.12 merge); anything beyond is P2.13's */
+/** P2.12's recorded growth (bundleDelta.phases['P2.12'] @ 641ccb9, the P2.12 merge) */
 export const P212_BUNDLE_DELTA={learnerModules:1,learnerModuleBytes:4082,standaloneBytes:1255};
+/** P2.13's recorded growth (bundleDelta.phases['P2.13'] @ d88bd65, the P2.13 merge); anything beyond is P2.14's */
+export const P213_BUNDLE_DELTA={learnerModules:4,learnerModuleBytes:31692,standaloneBytes:175322};
 export function bundleDelta(root:string,now:{learnerModules:number;learnerModuleBytes:number;standaloneBytes:number}){
   void root;
   const before=P29_BUNDLE_AFTER;
   const after={learnerModules:now.learnerModules,learnerModuleBytes:now.learnerModuleBytes,standaloneBytes:now.standaloneBytes};
   const delta={learnerModules:after.learnerModules-before.learnerModules,learnerModuleBytes:after.learnerModuleBytes-before.learnerModuleBytes,standaloneBytes:after.standaloneBytes-before.standaloneBytes};
   const k=['learnerModules','learnerModuleBytes','standaloneBytes'] as const;
-  const p213=Object.fromEntries(k.map(x=>[x,delta[x]-P210_BUNDLE_DELTA[x]-P211_BUNDLE_DELTA[x]-P212_BUNDLE_DELTA[x]])) as typeof delta;
+  const p214=Object.fromEntries(k.map(x=>[x,delta[x]-P210_BUNDLE_DELTA[x]-P211_BUNDLE_DELTA[x]-P212_BUNDLE_DELTA[x]-P213_BUNDLE_DELTA[x]])) as typeof delta;
   return {before,after,delta,cumulativeSince:'P2.9',
-    phases:{'P2.10':P210_BUNDLE_DELTA,'P2.11':P211_BUNDLE_DELTA,'P2.12':P212_BUNDLE_DELTA,'P2.13':p213},
-    newModules:'P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner "Darslikdan o‘qish" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file'};
+    phases:{'P2.10':P210_BUNDLE_DELTA,'P2.11':P211_BUNDLE_DELTA,'P2.12':P212_BUNDLE_DELTA,'P2.13':P213_BUNDLE_DELTA,'P2.14':p214},
+    newModules:'P2.10: src/app/feature-flags.ts, src/domain/lab/{action-catalog,topic-lab-profile,lab-runtime,lab-domain}.ts, src/features/dynamic-lab/render.ts; P2.11: src/domain/lab/capability-registry.ts (compiled with the app modules, imported by no learner route and absent from the standalone file; the standalone growth is the new handlers, catalog strings and two profiles); P2.12: src/features/textbook-excerpt/render.ts (the learner "Darslikdan o‘qish" renderer, not yet linked from a learner route) — the Content Studio itself is a separate build (dist-studio/) and adds nothing to the learner bundle; P2.13: src/features/periodic/{hub,model,render}.ts and src/domain/chemistry/periodic-layout.ts (the layout module is compiled with the domain but read only by the content build), plus the Element Hub pack file and its catalog strings in the standalone file; P2.14: src/features/chemistry-knowledge/{knowledge,explorer,passport,explorer-render}.ts, plus the chemistry knowledge pack file and its catalog strings in the standalone file'};
 }
 
 export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalence:any,profiles:TopicLabProfile[],bundle?:unknown,capability?:any,substances?:any){
@@ -581,7 +586,7 @@ export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalenc
       precipitation:'8.1: the only experiment whose config is a learner-chosen reagent shelf over ReactionMatcher records (ionic-mixing); a precipitate forms while FILTER is not in its instruction (ACTION_NOT_ALLOWED_IN_TOPIC).',
       gas:'11.2: the gas slice the chemistry supports. ElectrolysisModel holds exactly one record (CuCl2, aq, inert), which 11.2’s config queries, and its instruction does not contradict it. 9.10 is NOT used: its instruction connects a copper anode (active) and electrolyses KI, neither of which is modeled.',
       multiStep:'7.2: the only experiment with DECLARED step dependencies (reference slice), seven steps over dissolution, filtration and evaporation (thermal), with an instruction quantity (20 ml).',
-      contactReactionGas:'7.10 (P2.11): a new capability — ReactionMatcher evaluates only the trial combinations the instruction permits (Mg + dilute H2SO4, Zn + dilute HCl, Cu + dilute HCl), under the conditions the instruction declares (dilute acids; room temperature, or the gentle heating stated for the Zn + HCl trial only); out-of-scope combinations and actions are rejected before chemistry evaluation (ACTION_NOT_IN_INSTRUCTION_SCOPE); gas is collected from the tube it formed in. Cu + HCl itself has no record: when the pair is evaluated it fails closed (MODEL_SOURCE_GAP_CU_HCL); HEAT is not stated for that trial, so it is rejected by the instruction scope and never reaches chemistry.',
+      contactReactionGas:'7.10 (P2.11): a new capability — ReactionMatcher evaluates only the trial combinations the instruction permits (Mg + dilute H2SO4, Zn + dilute HCl, Cu + dilute HCl), under the conditions the instruction declares (dilute acids; room temperature, or the gentle heating stated for the Zn + HCl trial only); out-of-scope combinations and actions are rejected before chemistry evaluation (ACTION_NOT_IN_INSTRUCTION_SCOPE); gas is collected from the tube it formed in. Cu + HCl has an UNREVIEWED no-reaction record (rxn.cu-hcl, workbook p. 50): the lab shows a no-reaction record only when it is reviewed (TT 4.2.6), so the pair still fails closed (NO_REACTION_REVIEW_GAP_CU_HCL); HEAT is not stated for that trial, so it is rejected by the instruction scope and never reaches chemistry.',
       heatingGate:'8.14 (P2.11): a new capability — the reaction record requires heating, so nothing forms until the learner heats (HEAT is the gate, not a button); the tube is sealed and the gas collected. The school lab model stays step-bound. The instruction’s “oq tutun” and rxn.nh3-hcl (no-visible-change) conflict: SOURCE_CONFLICT_REVIEW_REQUIRED (sourceConflictReviews, resolution: null) — not a human decision, and neither source is chosen.',
     },
     counts:{experimentsInventoried:inventory.summary.experiments,operations:inventory.summary.operations,mappedOperations:inventory.summary.mapped,ambiguousOperations:inventory.summary.ambiguous,unmappedOperations:inventory.summary.unmapped,families:catalog.summary.families,familiesWithHandler:catalog.summary.withDomainHandler,profiled:coverage.summary.PROFILED??0,profileCandidates:coverage.summary.PROFILE_CANDIDATE??0,blocked:coverage.summary.BLOCKED??0,migrationEquivalent:equivalence.summary.migrationEquivalent},
@@ -609,7 +614,7 @@ export function buildReadiness(inventory:any,catalog:any,coverage:any,equivalenc
     ],
     // P2.11 closeout: not choices. A missing model/source fails closed; a conflict between two sources waits for a source
     // review and neither side is chosen as correct
-    sourceGaps:profiles.flatMap(p=>p.gaps.filter(g=>g.code.startsWith('MODEL_SOURCE_GAP')).map(g=>({activityId:p.activityId,code:g.code,behaviour:'FAIL_CLOSED',detail:g.detail}))),
+    sourceGaps:profiles.flatMap(p=>p.gaps.filter(g=>/^(MODEL_SOURCE_GAP|NO_REACTION_REVIEW_GAP)/.test(g.code)).map(g=>({activityId:p.activityId,code:g.code,behaviour:'FAIL_CLOSED',detail:g.detail}))),
     sourceConflictReviews:profiles.flatMap(p=>p.gaps.filter(g=>g.code==='SOURCE_CONFLICT_REVIEW_REQUIRED').map(g=>({activityId:p.activityId,status:'SOURCE_CONFLICT_REVIEW_REQUIRED',detail:g.detail,resolution:null}))),
     futureGates:[
       {gate:'P2.11 migration gate',question:'migrate a slice from the classic runtime',condition:'every equivalence dimension EQUIVALENT (incl. persisted evidence), then a human migration decision',currentlyEquivalentSlices:equivalence.summary.migrationEquivalent,decision:null},

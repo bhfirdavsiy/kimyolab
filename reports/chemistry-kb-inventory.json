@@ -1,23 +1,23 @@
 {
   "schema": "kimyolab.chemistry-kb-inventory.v1",
   "counts": {
-    "species": 84,
-    "reactions": 28,
+    "species": 101,
+    "reactions": 48,
     "solubilityRecords": {
       "dissociation": 12,
       "insoluble": 8
     },
     "hydrolysisSalts": 4,
     "electrolysisRecords": 1,
-    "conditionedReactions": 11,
-    "explicitNoReactionRecords": 0,
-    "assertions": 134,
+    "conditionedReactions": 25,
+    "explicitNoReactionRecords": 1,
+    "assertions": 287,
     "reviewed": 0,
-    "pending": 134,
+    "pending": 287,
     "rejected": 0,
     "stale": 0,
-    "sourceBacked": 104,
-    "missingSource": 30
+    "sourceBacked": 159,
+    "missingSource": 128
   },
   "reactions": [
     {
@@ -893,108 +893,6 @@
       "observationFlags": []
     },
     {
-      "reactionId": "rxn.na2s-hcl",
-      "reactants": [
-        "Na2S",
-        "HCl"
-      ],
-      "products": [
-        "H2S",
-        "NaCl"
-      ],
-      "reactionType": "gas_evolution",
-      "conditions": {
-        "tags": [],
-        "dimensions": {}
-      },
-      "observation": [
-        {
-          "type": "gas",
-          "descriptionKey": "rxn.na2s-hcl.observation"
-        }
-      ],
-      "netIonicDerivable": false,
-      "netIonicUnsupported": [
-        "Na2S",
-        "H2S"
-      ],
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "reviewStatus": "pending",
-      "usedByActivities": [],
-      "observationFlags": []
-    },
-    {
-      "reactionId": "rxn.cuso4-na2s",
-      "reactants": [
-        "CuSO4",
-        "Na2S"
-      ],
-      "products": [
-        "CuS",
-        "Na2SO4"
-      ],
-      "reactionType": "precipitation",
-      "conditions": {
-        "tags": [],
-        "dimensions": {}
-      },
-      "observation": [
-        {
-          "type": "precipitate",
-          "color": "black"
-        }
-      ],
-      "netIonicDerivable": false,
-      "netIonicUnsupported": [
-        "CuSO4",
-        "Na2S"
-      ],
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "reviewStatus": "pending",
-      "usedByActivities": [],
-      "observationFlags": []
-    },
-    {
-      "reactionId": "rxn.p-combustion",
-      "reactants": [
-        "P",
-        "O2"
-      ],
-      "products": [
-        "P2O5"
-      ],
-      "reactionType": "combustion",
-      "conditions": {
-        "tags": [
-          "ignition"
-        ],
-        "dimensions": {
-          "ignition": "present"
-        }
-      },
-      "observation": [
-        {
-          "type": "no-visible-change"
-        }
-      ],
-      "netIonicDerivable": false,
-      "netIonicUnsupported": [
-        "P",
-        "O2",
-        "P2O5"
-      ],
-      "sourceRefs": [
-        "src.beta1.migration"
-      ],
-      "reviewStatus": "pending",
-      "usedByActivities": [],
-      "observationFlags": []
-    },
-    {
       "reactionId": "rxn.c-combustion-limited",
       "reactants": [
         "C",
@@ -1032,10 +930,842 @@
       "reviewStatus": "pending",
       "usedByActivities": [],
       "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.mg-combustion",
+      "reactants": [
+        "Mg",
+        "O2"
+      ],
+      "products": [
+        "MgO"
+      ],
+      "reactionType": "combustion",
+      "conditions": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "observation": [],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Mg",
+        "O2",
+        "MgO"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ]
+    },
+    {
+      "reactionId": "rxn.no-o2",
+      "reactants": [
+        "NO",
+        "O2"
+      ],
+      "products": [
+        "NO2"
+      ],
+      "reactionType": "combination",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.no-o2.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "NO",
+        "O2",
+        "NO2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.co-combustion",
+      "reactants": [
+        "CO",
+        "O2"
+      ],
+      "products": [
+        "CO2"
+      ],
+      "reactionType": "combustion",
+      "conditions": {
+        "tags": [
+          "ignition"
+        ],
+        "dimensions": {
+          "ignition": "present"
+        }
+      },
+      "observation": [],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "CO",
+        "O2",
+        "CO2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ]
+    },
+    {
+      "reactionId": "rxn.na-cl2",
+      "reactants": [
+        "Na",
+        "Cl2"
+      ],
+      "products": [
+        "NaCl"
+      ],
+      "reactionType": "combination",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Na",
+        "Cl2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ]
+    },
+    {
+      "reactionId": "rxn.ag2o-decomposition",
+      "reactants": [
+        "Ag2O"
+      ],
+      "products": [
+        "Ag",
+        "O2"
+      ],
+      "reactionType": "decomposition",
+      "conditions": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.ag2o-decomposition.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Ag2O",
+        "Ag",
+        "O2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.caco3-decomposition",
+      "reactants": [
+        "CaCO3"
+      ],
+      "products": [
+        "CaO",
+        "CO2"
+      ],
+      "reactionType": "decomposition",
+      "conditions": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.caco3-decomposition.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "CaCO3",
+        "CaO",
+        "CO2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.mgo-water",
+      "reactants": [
+        "MgO",
+        "H2O"
+      ],
+      "products": [
+        "Mg(OH)2"
+      ],
+      "reactionType": "combination",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "white"
+        },
+        {
+          "type": "temperature-change",
+          "direction": "up"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "MgO",
+        "Mg(OH)2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
+      ]
+    },
+    {
+      "reactionId": "rxn.hgo-decomposition",
+      "reactants": [
+        "HgO"
+      ],
+      "products": [
+        "Hg",
+        "O2"
+      ],
+      "reactionType": "decomposition",
+      "conditions": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.hgo-decomposition.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "HgO",
+        "Hg",
+        "O2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.h2o-electrolysis",
+      "reactants": [
+        "H2O"
+      ],
+      "products": [
+        "H2",
+        "O2"
+      ],
+      "reactionType": "decomposition",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.h2o-electrolysis.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "H2",
+        "O2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.fe-s",
+      "reactants": [
+        "Fe",
+        "S"
+      ],
+      "products": [
+        "FeS"
+      ],
+      "reactionType": "combination",
+      "conditions": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "light",
+          "descriptionKey": "rxn.fe-s.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Fe",
+        "S",
+        "FeS"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.hno3-caco3",
+      "reactants": [
+        "HNO3",
+        "CaCO3"
+      ],
+      "products": [
+        "Ca(NO3)2",
+        "H2O",
+        "CO2"
+      ],
+      "reactionType": "gas_evolution",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.hno3-caco3.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "HNO3",
+        "CaCO3",
+        "Ca(NO3)2",
+        "CO2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.koh-hno3",
+      "reactants": [
+        "KOH",
+        "HNO3"
+      ],
+      "products": [
+        "KNO3",
+        "H2O"
+      ],
+      "reactionType": "neutralization",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "KOH",
+        "HNO3",
+        "KNO3"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ]
+    },
+    {
+      "reactionId": "rxn.koh-hcl",
+      "reactants": [
+        "KOH",
+        "HCl"
+      ],
+      "products": [
+        "KCl",
+        "H2O"
+      ],
+      "reactionType": "neutralization",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "KOH",
+        "KCl"
+      ],
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_MISSING"
+      ]
+    },
+    {
+      "reactionId": "rxn.mg-hcl",
+      "reactants": [
+        "Mg",
+        "HCl"
+      ],
+      "products": [
+        "MgCl2",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.mg-hcl.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Mg",
+        "MgCl2",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.10"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.fe-hcl",
+      "reactants": [
+        "Fe",
+        "HCl"
+      ],
+      "products": [
+        "FeCl2",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.fe-hcl.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Fe",
+        "FeCl2",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.textbook.kimyo7-2026",
+        "src.workbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [
+        "practice.experiment.7.10"
+      ],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.malachite-decomposition",
+      "reactants": [
+        "Cu2(OH)2CO3"
+      ],
+      "products": [
+        "CuO",
+        "H2O",
+        "CO2"
+      ],
+      "reactionType": "decomposition",
+      "conditions": {
+        "tags": [
+          "heating"
+        ],
+        "dimensions": {
+          "temperature": "heated"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas",
+          "descriptionKey": "rxn.malachite-decomposition.observation"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Cu2(OH)2CO3",
+        "CuO",
+        "CO2"
+      ],
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.cu-hcl",
+      "reactants": [
+        "Cu",
+        "HCl"
+      ],
+      "products": [],
+      "reactionType": "no-reaction",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "no-visible-change"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "NO_REACTION"
+      ],
+      "sourceRefs": [
+        "src.workbook.kimyo7-2026"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.fe-h2so4",
+      "reactants": [
+        "Fe",
+        "H2SO4"
+      ],
+      "products": [
+        "FeSO4",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Fe",
+        "FeSO4",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.expert-review.tt-4.2-stage5"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.al-hcl",
+      "reactants": [
+        "Al",
+        "HCl"
+      ],
+      "products": [
+        "AlCl3",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Al",
+        "AlCl3",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.expert-review.tt-4.2-stage5"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.al-h2so4",
+      "reactants": [
+        "Al",
+        "H2SO4"
+      ],
+      "products": [
+        "Al2(SO4)3",
+        "H2"
+      ],
+      "reactionType": "single_displacement",
+      "conditions": {
+        "tags": [
+          "dilute acid"
+        ],
+        "dimensions": {
+          "acid-concentration": "dilute"
+        }
+      },
+      "observation": [
+        {
+          "type": "gas"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Al",
+        "Al2(SO4)3",
+        "H2"
+      ],
+      "sourceRefs": [
+        "src.expert-review.tt-4.2-stage5"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.caoh2-co2",
+      "reactants": [
+        "Ca(OH)2",
+        "CO2"
+      ],
+      "products": [
+        "CaCO3",
+        "H2O"
+      ],
+      "reactionType": "precipitation",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "precipitate",
+          "color": "white"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Ca(OH)2",
+        "CO2",
+        "CaCO3"
+      ],
+      "sourceRefs": [
+        "src.expert-review.tt-4.2-stage5"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": [
+        "CHEMISTRY_REVIEW_REQUIRED",
+        "OBSERVATION_PRODUCT_MISMATCH: precipitate observed but no product is insoluble (solubility rules) or solid"
+      ]
+    },
+    {
+      "reactionId": "rxn.cl2-nabr",
+      "reactants": [
+        "Cl2",
+        "NaBr"
+      ],
+      "products": [
+        "NaCl",
+        "Br2"
+      ],
+      "reactionType": "redox",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "color-change",
+          "from": "colorless",
+          "to": "brown"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Cl2",
+        "NaBr",
+        "Br2"
+      ],
+      "sourceRefs": [
+        "src.expert-review.tt-4.2-stage5",
+        "src.textbook.kimyo8"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
+    },
+    {
+      "reactionId": "rxn.cl2-nai",
+      "reactants": [
+        "Cl2",
+        "NaI"
+      ],
+      "products": [
+        "NaCl",
+        "I2"
+      ],
+      "reactionType": "redox",
+      "conditions": {
+        "tags": [],
+        "dimensions": {}
+      },
+      "observation": [
+        {
+          "type": "color-change",
+          "from": "colorless",
+          "to": "brown"
+        }
+      ],
+      "netIonicDerivable": false,
+      "netIonicUnsupported": [
+        "Cl2",
+        "NaI",
+        "I2"
+      ],
+      "sourceRefs": [
+        "src.expert-review.tt-4.2-stage5",
+        "src.textbook.kimyo8"
+      ],
+      "reviewStatus": "pending",
+      "usedByActivities": [],
+      "observationFlags": []
     }
   ],
   "speciesIdentity": {
-    "registered": 84,
+    "registered": 101,
     "formulasUnique": true,
     "unregisteredIons": []
   },
@@ -1044,36 +1774,61 @@
     "fail": [],
     "pending": [
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.br2-ki",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.caoh2-co2",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.cl2-kbr",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.co-combustion",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.h2-combustion",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.koh-hcl",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.koh-hno3",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.mg-combustion",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.mgo-water",
+      "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.na-cl2",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.nacl-h2so4",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.naoh-hcl",
       "CHEMISTRY_REVIEW_REQUIRED:observation:rxn.znoh2-hcl",
       "LOCALIZATION_PENDING",
+      "NET_IONIC_UNSUPPORTED:rxn.ag2o-decomposition:Ag2O,Ag,O2",
       "NET_IONIC_UNSUPPORTED:rxn.agno3-nabr:NaBr",
       "NET_IONIC_UNSUPPORTED:rxn.agno3-nai:NaI",
+      "NET_IONIC_UNSUPPORTED:rxn.al-h2so4:Al,Al2(SO4)3,H2",
+      "NET_IONIC_UNSUPPORTED:rxn.al-hcl:Al,AlCl3,H2",
       "NET_IONIC_UNSUPPORTED:rxn.br2-ki:Br2,KI,KBr,I2",
       "NET_IONIC_UNSUPPORTED:rxn.c-combustion-limited:C,O2,CO",
       "NET_IONIC_UNSUPPORTED:rxn.c-combustion:C,O2,CO2",
+      "NET_IONIC_UNSUPPORTED:rxn.caco3-decomposition:CaCO3,CaO,CO2",
       "NET_IONIC_UNSUPPORTED:rxn.caco3-hcl:CaCO3,CO2",
       "NET_IONIC_UNSUPPORTED:rxn.cao-water:CaO,Ca(OH)2",
+      "NET_IONIC_UNSUPPORTED:rxn.caoh2-co2:Ca(OH)2,CO2,CaCO3",
       "NET_IONIC_UNSUPPORTED:rxn.cl2-kbr:Cl2,KBr,KCl,Br2",
+      "NET_IONIC_UNSUPPORTED:rxn.cl2-nabr:Cl2,NaBr,Br2",
+      "NET_IONIC_UNSUPPORTED:rxn.cl2-nai:Cl2,NaI,I2",
+      "NET_IONIC_UNSUPPORTED:rxn.co-combustion:CO,O2,CO2",
       "NET_IONIC_UNSUPPORTED:rxn.co2-water:CO2,H2CO3",
       "NET_IONIC_UNSUPPORTED:rxn.cuo-hcl:CuO,CuCl2",
-      "NET_IONIC_UNSUPPORTED:rxn.cuso4-na2s:CuSO4,Na2S",
       "NET_IONIC_UNSUPPORTED:rxn.fe-combustion:Fe,O2,Fe3O4",
+      "NET_IONIC_UNSUPPORTED:rxn.fe-h2so4:Fe,FeSO4,H2",
+      "NET_IONIC_UNSUPPORTED:rxn.fe-hcl:Fe,FeCl2,H2",
+      "NET_IONIC_UNSUPPORTED:rxn.fe-s:Fe,S,FeS",
       "NET_IONIC_UNSUPPORTED:rxn.h2-combustion:H2,O2",
       "NET_IONIC_UNSUPPORTED:rxn.h2-cuo:H2,CuO,Cu",
+      "NET_IONIC_UNSUPPORTED:rxn.h2o-electrolysis:H2,O2",
+      "NET_IONIC_UNSUPPORTED:rxn.hgo-decomposition:HgO,Hg,O2",
+      "NET_IONIC_UNSUPPORTED:rxn.hno3-caco3:HNO3,CaCO3,Ca(NO3)2,CO2",
+      "NET_IONIC_UNSUPPORTED:rxn.koh-hcl:KOH,KCl",
+      "NET_IONIC_UNSUPPORTED:rxn.koh-hno3:KOH,HNO3,KNO3",
+      "NET_IONIC_UNSUPPORTED:rxn.malachite-decomposition:Cu2(OH)2CO3,CuO,CO2",
+      "NET_IONIC_UNSUPPORTED:rxn.mg-combustion:Mg,O2,MgO",
       "NET_IONIC_UNSUPPORTED:rxn.mg-h2so4:Mg,MgSO4,H2",
-      "NET_IONIC_UNSUPPORTED:rxn.na2s-hcl:Na2S,H2S",
+      "NET_IONIC_UNSUPPORTED:rxn.mg-hcl:Mg,MgCl2,H2",
+      "NET_IONIC_UNSUPPORTED:rxn.mgo-water:MgO,Mg(OH)2",
+      "NET_IONIC_UNSUPPORTED:rxn.na-cl2:Na,Cl2",
       "NET_IONIC_UNSUPPORTED:rxn.nacl-h2so4:NaHSO4",
       "NET_IONIC_UNSUPPORTED:rxn.nh3-hcl:NH3",
       "NET_IONIC_UNSUPPORTED:rxn.nh4cl-caoh2:Ca(OH)2,NH3",
-      "NET_IONIC_UNSUPPORTED:rxn.p-combustion:P,O2,P2O5",
+      "NET_IONIC_UNSUPPORTED:rxn.no-o2:NO,O2,NO2",
       "NET_IONIC_UNSUPPORTED:rxn.s-combustion:S,O2,SO2",
       "NET_IONIC_UNSUPPORTED:rxn.zn-h2so4:Zn,ZnSO4,H2",
       "NET_IONIC_UNSUPPORTED:rxn.zn-hcl:Zn,H2",
-      "NO_REACTION_RECORDS_MISSING",
       "REVIEW_PENDING:condition-context:solution-mixing",
       "REVIEW_PENDING:condition-term:concentrated acid",
       "REVIEW_PENDING:condition-term:dilute acid",
@@ -1083,15 +1838,30 @@
       "REVIEW_PENDING:condition-term:oxygen-excess",
       "REVIEW_PENDING:condition-term:oxygen-limited",
       "REVIEW_PENDING:condition-term:strong heating",
+      "REVIEW_PENDING:condition:rxn.ag2o-decomposition",
+      "REVIEW_PENDING:condition:rxn.al-h2so4",
+      "REVIEW_PENDING:condition:rxn.al-hcl",
       "REVIEW_PENDING:condition:rxn.c-combustion",
       "REVIEW_PENDING:condition:rxn.c-combustion-limited",
+      "REVIEW_PENDING:condition:rxn.caco3-decomposition",
+      "REVIEW_PENDING:condition:rxn.co-combustion",
+      "REVIEW_PENDING:condition:rxn.cu-hcl",
       "REVIEW_PENDING:condition:rxn.fe-combustion",
+      "REVIEW_PENDING:condition:rxn.fe-h2so4",
+      "REVIEW_PENDING:condition:rxn.fe-hcl",
+      "REVIEW_PENDING:condition:rxn.fe-s",
       "REVIEW_PENDING:condition:rxn.h2-combustion",
       "REVIEW_PENDING:condition:rxn.h2-cuo",
+      "REVIEW_PENDING:condition:rxn.h2o-electrolysis",
+      "REVIEW_PENDING:condition:rxn.hgo-decomposition",
+      "REVIEW_PENDING:condition:rxn.hno3-caco3",
+      "REVIEW_PENDING:condition:rxn.koh-hno3",
+      "REVIEW_PENDING:condition:rxn.malachite-decomposition",
+      "REVIEW_PENDING:condition:rxn.mg-combustion",
       "REVIEW_PENDING:condition:rxn.mg-h2so4",
+      "REVIEW_PENDING:condition:rxn.mg-hcl",
       "REVIEW_PENDING:condition:rxn.nacl-h2so4",
       "REVIEW_PENDING:condition:rxn.nh4cl-caoh2",
-      "REVIEW_PENDING:condition:rxn.p-combustion",
       "REVIEW_PENDING:condition:rxn.s-combustion",
       "REVIEW_PENDING:condition:rxn.zn-h2so4",
       "REVIEW_PENDING:dissociation:AgNO3",
@@ -1107,26 +1877,124 @@
       "REVIEW_PENDING:dissociation:NaOH",
       "REVIEW_PENDING:dissociation:ZnCl2",
       "REVIEW_PENDING:electrolysis:CuCl2|aq|inert",
+      "REVIEW_PENDING:element-name:Ac",
+      "REVIEW_PENDING:element-name:Ag",
       "REVIEW_PENDING:element-name:Al",
+      "REVIEW_PENDING:element-name:Am",
       "REVIEW_PENDING:element-name:Ar",
+      "REVIEW_PENDING:element-name:As",
+      "REVIEW_PENDING:element-name:At",
+      "REVIEW_PENDING:element-name:Au",
       "REVIEW_PENDING:element-name:B",
+      "REVIEW_PENDING:element-name:Ba",
       "REVIEW_PENDING:element-name:Be",
+      "REVIEW_PENDING:element-name:Bh",
+      "REVIEW_PENDING:element-name:Bi",
+      "REVIEW_PENDING:element-name:Bk",
+      "REVIEW_PENDING:element-name:Br",
       "REVIEW_PENDING:element-name:C",
       "REVIEW_PENDING:element-name:Ca",
+      "REVIEW_PENDING:element-name:Cd",
+      "REVIEW_PENDING:element-name:Ce",
+      "REVIEW_PENDING:element-name:Cf",
       "REVIEW_PENDING:element-name:Cl",
+      "REVIEW_PENDING:element-name:Cm",
+      "REVIEW_PENDING:element-name:Cn",
+      "REVIEW_PENDING:element-name:Co",
+      "REVIEW_PENDING:element-name:Cr",
+      "REVIEW_PENDING:element-name:Cs",
+      "REVIEW_PENDING:element-name:Cu",
+      "REVIEW_PENDING:element-name:Db",
+      "REVIEW_PENDING:element-name:Ds",
+      "REVIEW_PENDING:element-name:Dy",
+      "REVIEW_PENDING:element-name:Er",
+      "REVIEW_PENDING:element-name:Es",
+      "REVIEW_PENDING:element-name:Eu",
       "REVIEW_PENDING:element-name:F",
+      "REVIEW_PENDING:element-name:Fe",
+      "REVIEW_PENDING:element-name:Fl",
+      "REVIEW_PENDING:element-name:Fm",
+      "REVIEW_PENDING:element-name:Fr",
+      "REVIEW_PENDING:element-name:Ga",
+      "REVIEW_PENDING:element-name:Gd",
+      "REVIEW_PENDING:element-name:Ge",
       "REVIEW_PENDING:element-name:H",
       "REVIEW_PENDING:element-name:He",
+      "REVIEW_PENDING:element-name:Hf",
+      "REVIEW_PENDING:element-name:Hg",
+      "REVIEW_PENDING:element-name:Ho",
+      "REVIEW_PENDING:element-name:Hs",
+      "REVIEW_PENDING:element-name:I",
+      "REVIEW_PENDING:element-name:In",
+      "REVIEW_PENDING:element-name:Ir",
       "REVIEW_PENDING:element-name:K",
+      "REVIEW_PENDING:element-name:Kr",
+      "REVIEW_PENDING:element-name:La",
       "REVIEW_PENDING:element-name:Li",
+      "REVIEW_PENDING:element-name:Lr",
+      "REVIEW_PENDING:element-name:Lu",
+      "REVIEW_PENDING:element-name:Lv",
+      "REVIEW_PENDING:element-name:Mc",
+      "REVIEW_PENDING:element-name:Md",
       "REVIEW_PENDING:element-name:Mg",
+      "REVIEW_PENDING:element-name:Mn",
+      "REVIEW_PENDING:element-name:Mo",
+      "REVIEW_PENDING:element-name:Mt",
       "REVIEW_PENDING:element-name:N",
       "REVIEW_PENDING:element-name:Na",
+      "REVIEW_PENDING:element-name:Nb",
+      "REVIEW_PENDING:element-name:Nd",
       "REVIEW_PENDING:element-name:Ne",
+      "REVIEW_PENDING:element-name:Nh",
+      "REVIEW_PENDING:element-name:Ni",
+      "REVIEW_PENDING:element-name:No",
+      "REVIEW_PENDING:element-name:Np",
       "REVIEW_PENDING:element-name:O",
+      "REVIEW_PENDING:element-name:Og",
+      "REVIEW_PENDING:element-name:Os",
       "REVIEW_PENDING:element-name:P",
+      "REVIEW_PENDING:element-name:Pa",
+      "REVIEW_PENDING:element-name:Pb",
+      "REVIEW_PENDING:element-name:Pd",
+      "REVIEW_PENDING:element-name:Pm",
+      "REVIEW_PENDING:element-name:Po",
+      "REVIEW_PENDING:element-name:Pr",
+      "REVIEW_PENDING:element-name:Pt",
+      "REVIEW_PENDING:element-name:Pu",
+      "REVIEW_PENDING:element-name:Ra",
+      "REVIEW_PENDING:element-name:Rb",
+      "REVIEW_PENDING:element-name:Re",
+      "REVIEW_PENDING:element-name:Rf",
+      "REVIEW_PENDING:element-name:Rg",
+      "REVIEW_PENDING:element-name:Rh",
+      "REVIEW_PENDING:element-name:Rn",
+      "REVIEW_PENDING:element-name:Ru",
       "REVIEW_PENDING:element-name:S",
+      "REVIEW_PENDING:element-name:Sb",
+      "REVIEW_PENDING:element-name:Sc",
+      "REVIEW_PENDING:element-name:Se",
+      "REVIEW_PENDING:element-name:Sg",
       "REVIEW_PENDING:element-name:Si",
+      "REVIEW_PENDING:element-name:Sm",
+      "REVIEW_PENDING:element-name:Sn",
+      "REVIEW_PENDING:element-name:Sr",
+      "REVIEW_PENDING:element-name:Ta",
+      "REVIEW_PENDING:element-name:Tb",
+      "REVIEW_PENDING:element-name:Tc",
+      "REVIEW_PENDING:element-name:Te",
+      "REVIEW_PENDING:element-name:Th",
+      "REVIEW_PENDING:element-name:Ti",
+      "REVIEW_PENDING:element-name:Tl",
+      "REVIEW_PENDING:element-name:Tm",
+      "REVIEW_PENDING:element-name:Ts",
+      "REVIEW_PENDING:element-name:U",
+      "REVIEW_PENDING:element-name:V",
+      "REVIEW_PENDING:element-name:W",
+      "REVIEW_PENDING:element-name:Xe",
+      "REVIEW_PENDING:element-name:Y",
+      "REVIEW_PENDING:element-name:Yb",
+      "REVIEW_PENDING:element-name:Zn",
+      "REVIEW_PENDING:element-name:Zr",
       "REVIEW_PENDING:hydrolysis:AlCl3",
       "REVIEW_PENDING:hydrolysis:NH4Cl",
       "REVIEW_PENDING:hydrolysis:Na2CO3",
@@ -1142,57 +2010,97 @@
       "REVIEW_PENDING:insoluble:CuS",
       "REVIEW_PENDING:insoluble:Zn(OH)2",
       "REVIEW_PENDING:insoluble:ZnS",
+      "REVIEW_PENDING:no-reaction:rxn.cu-hcl",
+      "REVIEW_PENDING:observation:rxn.ag2o-decomposition",
       "REVIEW_PENDING:observation:rxn.agno3-nabr",
       "REVIEW_PENDING:observation:rxn.agno3-nacl",
       "REVIEW_PENDING:observation:rxn.agno3-nai",
+      "REVIEW_PENDING:observation:rxn.al-h2so4",
+      "REVIEW_PENDING:observation:rxn.al-hcl",
       "REVIEW_PENDING:observation:rxn.bacl2-h2so4",
       "REVIEW_PENDING:observation:rxn.br2-ki",
       "REVIEW_PENDING:observation:rxn.c-combustion",
       "REVIEW_PENDING:observation:rxn.c-combustion-limited",
+      "REVIEW_PENDING:observation:rxn.caco3-decomposition",
       "REVIEW_PENDING:observation:rxn.caco3-hcl",
       "REVIEW_PENDING:observation:rxn.cao-water",
+      "REVIEW_PENDING:observation:rxn.caoh2-co2",
       "REVIEW_PENDING:observation:rxn.cl2-kbr",
+      "REVIEW_PENDING:observation:rxn.cl2-nabr",
+      "REVIEW_PENDING:observation:rxn.cl2-nai",
+      "REVIEW_PENDING:observation:rxn.co-combustion",
       "REVIEW_PENDING:observation:rxn.co2-water",
+      "REVIEW_PENDING:observation:rxn.cu-hcl",
       "REVIEW_PENDING:observation:rxn.cuo-hcl",
-      "REVIEW_PENDING:observation:rxn.cuso4-na2s",
       "REVIEW_PENDING:observation:rxn.fe-combustion",
+      "REVIEW_PENDING:observation:rxn.fe-h2so4",
+      "REVIEW_PENDING:observation:rxn.fe-hcl",
+      "REVIEW_PENDING:observation:rxn.fe-s",
       "REVIEW_PENDING:observation:rxn.h2-combustion",
       "REVIEW_PENDING:observation:rxn.h2-cuo",
+      "REVIEW_PENDING:observation:rxn.h2o-electrolysis",
+      "REVIEW_PENDING:observation:rxn.hgo-decomposition",
+      "REVIEW_PENDING:observation:rxn.hno3-caco3",
+      "REVIEW_PENDING:observation:rxn.koh-hcl",
+      "REVIEW_PENDING:observation:rxn.koh-hno3",
+      "REVIEW_PENDING:observation:rxn.malachite-decomposition",
+      "REVIEW_PENDING:observation:rxn.mg-combustion",
       "REVIEW_PENDING:observation:rxn.mg-h2so4",
-      "REVIEW_PENDING:observation:rxn.na2s-hcl",
+      "REVIEW_PENDING:observation:rxn.mg-hcl",
+      "REVIEW_PENDING:observation:rxn.mgo-water",
+      "REVIEW_PENDING:observation:rxn.na-cl2",
       "REVIEW_PENDING:observation:rxn.nacl-h2so4",
       "REVIEW_PENDING:observation:rxn.naoh-hcl",
       "REVIEW_PENDING:observation:rxn.nh3-hcl",
       "REVIEW_PENDING:observation:rxn.nh4cl-caoh2",
-      "REVIEW_PENDING:observation:rxn.p-combustion",
+      "REVIEW_PENDING:observation:rxn.no-o2",
       "REVIEW_PENDING:observation:rxn.s-combustion",
       "REVIEW_PENDING:observation:rxn.zn-h2so4",
       "REVIEW_PENDING:observation:rxn.zn-hcl",
       "REVIEW_PENDING:observation:rxn.zncl2-naoh",
       "REVIEW_PENDING:observation:rxn.znoh2-hcl",
+      "REVIEW_PENDING:reaction:rxn.ag2o-decomposition",
       "REVIEW_PENDING:reaction:rxn.agno3-nabr",
       "REVIEW_PENDING:reaction:rxn.agno3-nacl",
       "REVIEW_PENDING:reaction:rxn.agno3-nai",
+      "REVIEW_PENDING:reaction:rxn.al-h2so4",
+      "REVIEW_PENDING:reaction:rxn.al-hcl",
       "REVIEW_PENDING:reaction:rxn.bacl2-h2so4",
       "REVIEW_PENDING:reaction:rxn.br2-ki",
       "REVIEW_PENDING:reaction:rxn.c-combustion",
       "REVIEW_PENDING:reaction:rxn.c-combustion-limited",
+      "REVIEW_PENDING:reaction:rxn.caco3-decomposition",
       "REVIEW_PENDING:reaction:rxn.caco3-hcl",
       "REVIEW_PENDING:reaction:rxn.cao-water",
+      "REVIEW_PENDING:reaction:rxn.caoh2-co2",
       "REVIEW_PENDING:reaction:rxn.cl2-kbr",
+      "REVIEW_PENDING:reaction:rxn.cl2-nabr",
+      "REVIEW_PENDING:reaction:rxn.cl2-nai",
+      "REVIEW_PENDING:reaction:rxn.co-combustion",
       "REVIEW_PENDING:reaction:rxn.co2-water",
       "REVIEW_PENDING:reaction:rxn.cuo-hcl",
-      "REVIEW_PENDING:reaction:rxn.cuso4-na2s",
       "REVIEW_PENDING:reaction:rxn.fe-combustion",
+      "REVIEW_PENDING:reaction:rxn.fe-h2so4",
+      "REVIEW_PENDING:reaction:rxn.fe-hcl",
+      "REVIEW_PENDING:reaction:rxn.fe-s",
       "REVIEW_PENDING:reaction:rxn.h2-combustion",
       "REVIEW_PENDING:reaction:rxn.h2-cuo",
+      "REVIEW_PENDING:reaction:rxn.h2o-electrolysis",
+      "REVIEW_PENDING:reaction:rxn.hgo-decomposition",
+      "REVIEW_PENDING:reaction:rxn.hno3-caco3",
+      "REVIEW_PENDING:reaction:rxn.koh-hcl",
+      "REVIEW_PENDING:reaction:rxn.koh-hno3",
+      "REVIEW_PENDING:reaction:rxn.malachite-decomposition",
+      "REVIEW_PENDING:reaction:rxn.mg-combustion",
       "REVIEW_PENDING:reaction:rxn.mg-h2so4",
-      "REVIEW_PENDING:reaction:rxn.na2s-hcl",
+      "REVIEW_PENDING:reaction:rxn.mg-hcl",
+      "REVIEW_PENDING:reaction:rxn.mgo-water",
+      "REVIEW_PENDING:reaction:rxn.na-cl2",
       "REVIEW_PENDING:reaction:rxn.nacl-h2so4",
       "REVIEW_PENDING:reaction:rxn.naoh-hcl",
       "REVIEW_PENDING:reaction:rxn.nh3-hcl",
       "REVIEW_PENDING:reaction:rxn.nh4cl-caoh2",
-      "REVIEW_PENDING:reaction:rxn.p-combustion",
+      "REVIEW_PENDING:reaction:rxn.no-o2",
       "REVIEW_PENDING:reaction:rxn.s-combustion",
       "REVIEW_PENDING:reaction:rxn.zn-h2so4",
       "REVIEW_PENDING:reaction:rxn.zn-hcl",
@@ -1217,15 +2125,17 @@
       "SOURCE_NOT_ACCEPTABLE:condition-term:oxygen-excess",
       "SOURCE_NOT_ACCEPTABLE:condition-term:oxygen-limited",
       "SOURCE_NOT_ACCEPTABLE:condition-term:strong heating",
+      "SOURCE_NOT_ACCEPTABLE:condition:rxn.al-h2so4",
+      "SOURCE_NOT_ACCEPTABLE:condition:rxn.al-hcl",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.c-combustion",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.c-combustion-limited",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.fe-combustion",
+      "SOURCE_NOT_ACCEPTABLE:condition:rxn.fe-h2so4",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.h2-combustion",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.h2-cuo",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.mg-h2so4",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.nacl-h2so4",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.nh4cl-caoh2",
-      "SOURCE_NOT_ACCEPTABLE:condition:rxn.p-combustion",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.s-combustion",
       "SOURCE_NOT_ACCEPTABLE:condition:rxn.zn-h2so4",
       "SOURCE_NOT_ACCEPTABLE:dissociation:AgNO3",
@@ -1241,26 +2151,124 @@
       "SOURCE_NOT_ACCEPTABLE:dissociation:NaOH",
       "SOURCE_NOT_ACCEPTABLE:dissociation:ZnCl2",
       "SOURCE_NOT_ACCEPTABLE:electrolysis:CuCl2|aq|inert",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ac",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ag",
       "SOURCE_NOT_ACCEPTABLE:element-name:Al",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Am",
       "SOURCE_NOT_ACCEPTABLE:element-name:Ar",
+      "SOURCE_NOT_ACCEPTABLE:element-name:As",
+      "SOURCE_NOT_ACCEPTABLE:element-name:At",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Au",
       "SOURCE_NOT_ACCEPTABLE:element-name:B",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ba",
       "SOURCE_NOT_ACCEPTABLE:element-name:Be",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Bh",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Bi",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Bk",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Br",
       "SOURCE_NOT_ACCEPTABLE:element-name:C",
       "SOURCE_NOT_ACCEPTABLE:element-name:Ca",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Cd",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ce",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Cf",
       "SOURCE_NOT_ACCEPTABLE:element-name:Cl",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Cm",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Cn",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Co",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Cr",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Cs",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Cu",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Db",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ds",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Dy",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Er",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Es",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Eu",
       "SOURCE_NOT_ACCEPTABLE:element-name:F",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Fe",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Fl",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Fm",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Fr",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ga",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Gd",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ge",
       "SOURCE_NOT_ACCEPTABLE:element-name:H",
       "SOURCE_NOT_ACCEPTABLE:element-name:He",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Hf",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Hg",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ho",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Hs",
+      "SOURCE_NOT_ACCEPTABLE:element-name:I",
+      "SOURCE_NOT_ACCEPTABLE:element-name:In",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ir",
       "SOURCE_NOT_ACCEPTABLE:element-name:K",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Kr",
+      "SOURCE_NOT_ACCEPTABLE:element-name:La",
       "SOURCE_NOT_ACCEPTABLE:element-name:Li",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Lr",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Lu",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Lv",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Mc",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Md",
       "SOURCE_NOT_ACCEPTABLE:element-name:Mg",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Mn",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Mo",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Mt",
       "SOURCE_NOT_ACCEPTABLE:element-name:N",
       "SOURCE_NOT_ACCEPTABLE:element-name:Na",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Nb",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Nd",
       "SOURCE_NOT_ACCEPTABLE:element-name:Ne",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Nh",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ni",
+      "SOURCE_NOT_ACCEPTABLE:element-name:No",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Np",
       "SOURCE_NOT_ACCEPTABLE:element-name:O",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Og",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Os",
       "SOURCE_NOT_ACCEPTABLE:element-name:P",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Pa",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Pb",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Pd",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Pm",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Po",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Pr",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Pt",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Pu",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ra",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Rb",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Re",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Rf",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Rg",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Rh",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Rn",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ru",
       "SOURCE_NOT_ACCEPTABLE:element-name:S",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Sb",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Sc",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Se",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Sg",
       "SOURCE_NOT_ACCEPTABLE:element-name:Si",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Sm",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Sn",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Sr",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ta",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Tb",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Tc",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Te",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Th",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ti",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Tl",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Tm",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Ts",
+      "SOURCE_NOT_ACCEPTABLE:element-name:U",
+      "SOURCE_NOT_ACCEPTABLE:element-name:V",
+      "SOURCE_NOT_ACCEPTABLE:element-name:W",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Xe",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Y",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Yb",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Zn",
+      "SOURCE_NOT_ACCEPTABLE:element-name:Zr",
       "SOURCE_NOT_ACCEPTABLE:insoluble:AgBr",
       "SOURCE_NOT_ACCEPTABLE:insoluble:AgCl",
       "SOURCE_NOT_ACCEPTABLE:insoluble:AgI",
@@ -1272,26 +2280,27 @@
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.agno3-nabr",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.agno3-nacl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.agno3-nai",
+      "SOURCE_NOT_ACCEPTABLE:observation:rxn.al-h2so4",
+      "SOURCE_NOT_ACCEPTABLE:observation:rxn.al-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.bacl2-h2so4",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.br2-ki",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.c-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.c-combustion-limited",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.caco3-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.cao-water",
+      "SOURCE_NOT_ACCEPTABLE:observation:rxn.caoh2-co2",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.cl2-kbr",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.co2-water",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.cuo-hcl",
-      "SOURCE_NOT_ACCEPTABLE:observation:rxn.cuso4-na2s",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.fe-combustion",
+      "SOURCE_NOT_ACCEPTABLE:observation:rxn.fe-h2so4",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.h2-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.h2-cuo",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.mg-h2so4",
-      "SOURCE_NOT_ACCEPTABLE:observation:rxn.na2s-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.nacl-h2so4",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.naoh-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.nh3-hcl",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.nh4cl-caoh2",
-      "SOURCE_NOT_ACCEPTABLE:observation:rxn.p-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.s-combustion",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.zn-h2so4",
       "SOURCE_NOT_ACCEPTABLE:observation:rxn.zn-hcl",
@@ -1300,26 +2309,27 @@
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.agno3-nabr",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.agno3-nacl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.agno3-nai",
+      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.al-h2so4",
+      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.al-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.bacl2-h2so4",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.br2-ki",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.c-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.c-combustion-limited",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.caco3-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.cao-water",
+      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.caoh2-co2",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.cl2-kbr",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.co2-water",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuo-hcl",
-      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.cuso4-na2s",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.fe-combustion",
+      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.fe-h2so4",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.h2-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.h2-cuo",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.mg-h2so4",
-      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.na2s-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.nacl-h2so4",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.naoh-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.nh3-hcl",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.nh4cl-caoh2",
-      "SOURCE_NOT_ACCEPTABLE:reaction:rxn.p-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.s-combustion",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.zn-h2so4",
       "SOURCE_NOT_ACCEPTABLE:reaction:rxn.zn-hcl",

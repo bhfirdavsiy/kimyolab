@@ -21,4 +21,7 @@ export interface ExternalLabCatalogItem {
 export interface LabCatalogModel {
   native:NativeLabCatalogItem[];
   external:ExternalLabCatalogItem[];
+  /** lab review 2026-11-24: activities whose card opens the interactive lab directly (the classic page stays
+   *  reachable from the lab's own header link) */
+  dynamicLabIds?:ReadonlySet<string>;
 }

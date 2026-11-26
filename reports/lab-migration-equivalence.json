@@ -3,14 +3,17 @@
   "phase": "P2.11",
   "semantics": "Old vs new on the SAME built content pack, per dimension. MIGRATION_EQUIVALENT only when every dimension is EQUIVALENT; otherwise the old runtime stays the canonical one. Even an equivalent slice is only ELIGIBLE: a migration is a human decision, never taken here.",
   "summary": {
-    "slices": 5,
+    "slices": 8,
     "migrationEquivalent": 0,
     "keepOldRuntime": [
       "practice.experiment.8.1",
       "practice.experiment.11.2",
       "practice.experiment.7.2",
       "practice.experiment.7.10",
-      "practice.experiment.8.14"
+      "practice.experiment.8.14",
+      "practice.experiment.7.11",
+      "practice.experiment.7.9",
+      "practice.experiment.8.8"
     ]
   },
   "slices": [
@@ -232,8 +235,8 @@
           "evidence": "runs both"
         },
         "observations": {
-          "status": "EQUIVALENT",
-          "detail": "the record observation for each completion reaction: rxn.mg-h2so4 equal, rxn.zn-hcl equal",
+          "status": "DIFFERENT",
+          "detail": "the record observation for each completion reaction: rxn.mg-h2so4 equal, rxn.zn-hcl equal, rxn.mg-hcl differs, rxn.fe-hcl differs",
           "evidence": "runs both"
         },
         "safety": {
@@ -243,7 +246,7 @@
         },
         "completion": {
           "status": "DIFFERENT",
-          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true), and that is PARTIAL_INSTRUCTION: 4 instruction operation(s) are not offered",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=false), and that is PARTIAL_INSTRUCTION: 4 instruction operation(s) are not offered",
           "evidence": "runs both"
         },
         "evidence": {
@@ -286,18 +289,37 @@
             "descriptionKey": "rxn.zn-hcl.observation"
           },
           "equal": true
+        },
+        {
+          "reactionId": "rxn.mg-hcl",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.mg-hcl.observation"
+          },
+          "new": null,
+          "equal": false
+        },
+        {
+          "reactionId": "rxn.fe-hcl",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.fe-hcl.observation"
+          },
+          "new": null,
+          "equal": false
         }
       ],
       "newOnly": {
         "replayDeterministic": true,
         "unsupportedOutcomes": [
-          "REACTION_NOT_MODELED"
+          "NO_REACTION_NOT_REVIEWED"
         ]
       },
       "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
       "blockingDimensions": [
         "instruction",
         "chemistryResult",
+        "observations",
         "completion",
         "evidence",
         "accessibility"
@@ -379,6 +401,292 @@
       "blockingDimensions": [
         "instruction",
         "chemistryResult",
+        "completion",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    },
+    {
+      "activityId": "practice.experiment.7.11",
+      "profileId": "lab-profile.7.11.water-oxides",
+      "oldRuntime": {
+        "runtime": "generic",
+        "capability": "generic.experiment",
+        "renderer": "legacy"
+      },
+      "scenario": "old: every guided step button in config order; new: the instruction sequence as lab actions (REACTION_SCRIPTS)",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "old: every instruction sentence is a button (including the flame test, the step-bound school-model steps and the explanation); new: only the operations the registry can execute are offered, the rest are recorded profile gaps",
+          "evidence": "profile.gaps"
+        },
+        "chemistryResult": {
+          "status": "DIFFERENT",
+          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container — only combinations the instruction’s trials permit can get there — under the actual conditions (declared acid concentration, the heating stated for the trial) and fails closed when no record applies",
+          "evidence": "runs both"
+        },
+        "observations": {
+          "status": "EQUIVALENT",
+          "detail": "the record observation for each completion reaction: rxn.cao-water equal",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "EQUIVALENT",
+          "detail": "the same legacy safety text (or none) in both",
+          "evidence": "profile.safety.notes ← legacyContent.safety"
+        },
+        "completion": {
+          "status": "DIFFERENT",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true), and that is PARTIAL_INSTRUCTION: 3 instruction operation(s) are not offered",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: candidates only (persisted:false)",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "covered by the route’s own e2e checks, not by the P2.7 sweep",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both hosts",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs"
+        }
+      },
+      "observationComparisons": [
+        {
+          "reactionId": "rxn.cao-water",
+          "old": {
+            "type": "temperature-change",
+            "direction": "up"
+          },
+          "new": {
+            "type": "temperature-change",
+            "direction": "up"
+          },
+          "equal": true
+        }
+      ],
+      "newOnly": {
+        "replayDeterministic": true,
+        "unsupportedOutcomes": []
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "chemistryResult",
+        "completion",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    },
+    {
+      "activityId": "practice.experiment.7.9",
+      "profileId": "lab-profile.7.9.acid-properties",
+      "oldRuntime": {
+        "runtime": "generic",
+        "capability": "generic.experiment",
+        "renderer": "legacy"
+      },
+      "scenario": "old: every guided step button in config order; new: the instruction sequence as lab actions (REACTION_SCRIPTS)",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "old: every instruction sentence is a button (including the flame test, the step-bound school-model steps and the explanation); new: only the operations the registry can execute are offered, the rest are recorded profile gaps",
+          "evidence": "profile.gaps"
+        },
+        "chemistryResult": {
+          "status": "DIFFERENT",
+          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container — only combinations the instruction’s trials permit can get there — under the actual conditions (declared acid concentration, the heating stated for the trial) and fails closed when no record applies",
+          "evidence": "runs both"
+        },
+        "observations": {
+          "status": "EQUIVALENT",
+          "detail": "the record observation for each completion reaction: rxn.cuo-hcl equal, rxn.naoh-hcl equal, rxn.caco3-hcl equal",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "EQUIVALENT",
+          "detail": "the same legacy safety text (or none) in both",
+          "evidence": "profile.safety.notes ← legacyContent.safety"
+        },
+        "completion": {
+          "status": "DIFFERENT",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true), and that is PARTIAL_INSTRUCTION: 6 instruction operation(s) are not offered",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: candidates only (persisted:false)",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "covered by the route’s own e2e checks, not by the P2.7 sweep",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both hosts",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs"
+        }
+      },
+      "observationComparisons": [
+        {
+          "reactionId": "rxn.cuo-hcl",
+          "old": {
+            "type": "no-visible-change"
+          },
+          "new": {
+            "type": "no-visible-change"
+          },
+          "equal": true
+        },
+        {
+          "reactionId": "rxn.naoh-hcl",
+          "old": {
+            "type": "color-change",
+            "to": "changed"
+          },
+          "new": {
+            "type": "color-change",
+            "to": "changed"
+          },
+          "equal": true
+        },
+        {
+          "reactionId": "rxn.caco3-hcl",
+          "old": {
+            "type": "gas",
+            "descriptionKey": "rxn.caco3-hcl.observation"
+          },
+          "new": {
+            "type": "gas",
+            "descriptionKey": "rxn.caco3-hcl.observation"
+          },
+          "equal": true
+        }
+      ],
+      "newOnly": {
+        "replayDeterministic": true,
+        "unsupportedOutcomes": []
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "chemistryResult",
+        "completion",
+        "evidence",
+        "accessibility"
+      ],
+      "decision": "KEEP_OLD_RUNTIME"
+    },
+    {
+      "activityId": "practice.experiment.8.8",
+      "profileId": "lab-profile.8.8.halide-tests",
+      "oldRuntime": {
+        "runtime": "generic",
+        "capability": "generic.experiment",
+        "renderer": "legacy"
+      },
+      "scenario": "old: every guided step button in config order; new: the instruction sequence as lab actions (REACTION_SCRIPTS)",
+      "dimensions": {
+        "instruction": {
+          "status": "DIFFERENT",
+          "detail": "old: every instruction sentence is a button (including the flame test, the step-bound school-model steps and the explanation); new: only the operations the registry can execute are offered, the rest are recorded profile gaps",
+          "evidence": "profile.gaps"
+        },
+        "chemistryResult": {
+          "status": "DIFFERENT",
+          "detail": "old: the step’s configured observation appears on a click, whatever was added; new: ReactionMatcher evaluates the substances actually in the container — only combinations the instruction’s trials permit can get there — under the actual conditions (declared acid concentration, the heating stated for the trial) and fails closed when no record applies",
+          "evidence": "runs both"
+        },
+        "observations": {
+          "status": "DIFFERENT",
+          "detail": "the record observation for each completion reaction: rxn.agno3-nacl equal, rxn.agno3-nabr differs, rxn.agno3-nai differs",
+          "evidence": "runs both"
+        },
+        "safety": {
+          "status": "EQUIVALENT",
+          "detail": "the same legacy safety text (or none) in both",
+          "evidence": "profile.safety.notes ← legacyContent.safety"
+        },
+        "completion": {
+          "status": "DIFFERENT",
+          "detail": "old: every step clicked (complete=true); new: the bound reactions observed and a modeled gas collected (complete=true), and that is PARTIAL_INSTRUCTION: 5 instruction operation(s) are not offered",
+          "evidence": "runs both"
+        },
+        "evidence": {
+          "status": "DIFFERENT",
+          "detail": "new: candidates only (persisted:false)",
+          "evidence": "LabActionResult.evidenceCandidate"
+        },
+        "accessibility": {
+          "status": "NOT_PROVEN",
+          "detail": "covered by the route’s own e2e checks, not by the P2.7 sweep",
+          "evidence": "e2e"
+        },
+        "portalStandaloneParity": {
+          "status": "EQUIVALENT",
+          "detail": "both hosts",
+          "evidence": "tests/e2e/guided-dynamic-lab.spec.mjs"
+        }
+      },
+      "observationComparisons": [
+        {
+          "reactionId": "rxn.agno3-nacl",
+          "old": {
+            "type": "precipitate",
+            "color": "white"
+          },
+          "new": {
+            "type": "precipitate",
+            "color": "white"
+          },
+          "equal": true
+        },
+        {
+          "reactionId": "rxn.agno3-nabr",
+          "old": {
+            "type": "precipitate",
+            "color": "white"
+          },
+          "new": {
+            "type": "precipitate",
+            "color": "yellow"
+          },
+          "equal": false
+        },
+        {
+          "reactionId": "rxn.agno3-nai",
+          "old": {
+            "type": "precipitate",
+            "color": "white"
+          },
+          "new": {
+            "type": "precipitate",
+            "color": "yellow"
+          },
+          "equal": false
+        }
+      ],
+      "newOnly": {
+        "replayDeterministic": true,
+        "unsupportedOutcomes": [
+          "REACTION_NOT_MODELED"
+        ]
+      },
+      "migrationStatus": "NOT_MIGRATION_EQUIVALENT",
+      "blockingDimensions": [
+        "instruction",
+        "chemistryResult",
+        "observations",
         "completion",
         "evidence",
         "accessibility"

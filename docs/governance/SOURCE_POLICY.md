@@ -50,11 +50,13 @@ A new textbook, standard or reference is registered through intake, not by editi
 2. Tooling validates the metadata, computes the document hash and detects duplicates (same id, same document hash, same title + authority + edition + year). It never declares a source authoritative.
 3. A human reviewer who is not the submitter records a decision (`approved` / `changes-requested` / `rejected`) on the entry's **current hash** and names the category they accept. Approval counts only if the accepted category equals the claimed one. Any metadata edit makes the decision stale. Automation identities cannot decide.
 4. A person runs `npm run source:apply -- <intake.json>`. It is refused in CI and agent environments, and it refuses anything not APPROVED or duplicated. The registry record carries `classification: HUMAN_ACCEPTED`, `submittedBy`, `acceptedBy`, `acceptedAt` and the reviewed hash.
+   If the registry already holds a **PROPOSED** record with the same id and the same category (a source first registered as a proposal in a reviewed pull request), the approved intake replaces that record in place, keeping its id so every `sourceRef` keeps working. A HUMAN_ACCEPTED record, or a PROPOSED one of another category, is still a duplicate.
 
 The five existing entries keep `classification: PROPOSED`. Reclassifying them is still a reviewed human change.
 
 ### Canonical structured theory needs a human-accepted source (P2.4 closeout)
 
 - A category-compatible source is **not** enough for canonical structured theory. A cited source must be registered, category-compatible **and** human-accepted (`HUMAN_ACCEPTED`, with `acceptedBy`, `acceptedAt` and `reviewedHash`, pinned to an intake file that is still APPROVED and still hashes to `reviewedHash`).
-- `theory:check`, `theory:apply` and the build guard report `SOURCE_UNREGISTERED`, `SOURCE_CATEGORY_NOT_ACCEPTABLE` or `SOURCE_NOT_HUMAN_ACCEPTED` per block and source.
+- TT 4.2.4: it must also be **bibliographically complete** — title, publisher/authority, edition (version), at least one author, an ISBN, URL or identifier, a licence (`license`) and a parseable effective date (`effectiveDate`, `YYYY-MM-DD`); the reviewer is `acceptedBy`. The intake schema accepts `license` and `effectiveDate` as optional while drafting; a source without them is never eligible (`missingBibliography` names what is missing, nothing is filled in by a machine). Until such a source exists, a value it would back (e.g. a molar mass) stays unknown.
+- `theory:check`, `theory:apply` and the build guard report `SOURCE_UNREGISTERED`, `SOURCE_CATEGORY_NOT_ACCEPTABLE`, `SOURCE_NOT_HUMAN_ACCEPTED` or `SOURCE_BIBLIOGRAPHY_INCOMPLETE` per block and source.
 - PROPOSED sources keep working for legacy content, the chemistry KB gates and reports. They never satisfy the governed theory apply.

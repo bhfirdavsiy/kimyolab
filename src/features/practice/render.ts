@@ -1,4 +1,5 @@
 import type {StudentPracticePageModel} from './model.ts';
+import {setChemText} from '../../ui/chem-text.ts';
 import {buildPracticeUiModel} from './ui-model.ts';
 import {isPracticeResultComplete} from '../../runtime/learning-orchestrator/selectors.ts';
 import {feedbackState} from '../../runtime/shared/learner-input.ts';
@@ -7,6 +8,7 @@ import {answerValue,createLabeler,type FormQuestionModel,type Labeler} from './f
 
 /** What the page needs from a practice session: send a command, get the engine result (no persistence here). */
 export interface PracticeCommandPort { apply(command:any):Promise<any> }
+import {apparatusGallery,apparatusFromSteps,equipmentGalleryItems,materialGalleryItems} from './apparatus-icons.ts';
 import {el,clear,link} from '../../ui/components/dom.ts';
 
 // P2.1: all shared interaction text comes from the learner-interaction catalog (`ui.*`), the verdict is TEXT (never
@@ -86,7 +88,8 @@ function questionForm(t:Labeler,q:FormQuestionModel,submitText:string,primary:bo
 export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,session:PracticeCommandPort,onResult?:(result:any)=>void|Promise<void>){
   clear(root); const model=buildPracticeUiModel(page); const t=createLabeler(createLocalizer(page.localization));
   const head=el('header',{className:'kl-unit-hero'}); const hi=el('div',{className:'kl-shell'});
-  hi.append(link(t.ui('ui.back'),model.backHref,'kl-back-link'),el('p',{className:'kl-kicker',text:t.ui('ui.kicker')}),el('h1',{text:model.title}),el('p',{className:'kl-unit-outcome',text:model.goal})); head.append(hi);
+  hi.append(link(t.ui('ui.back'),model.backHref,'kl-back-link'),el('p',{className:'kl-kicker',text:t.ui('ui.kicker')}),el('h1',{text:model.title})); // the goal line is omitted when it only repeats step 1 (legacy experiments copied step 1 into the goal)
+  if(!(model.kind==='experiment'&&model.controls[0]?.label?.trim()===model.goal?.trim())) hi.append(el('p',{className:'kl-unit-outcome',text:model.goal})); head.append(hi);
   const shell=el('div',{className:'kl-shell kl-practice-workspace'}); const card=el('section',{className:'kl-card'}); const feedback=feedbackNode();
 
   const nextStage=el('div',{className:'kl-practice-next'});
@@ -99,13 +102,20 @@ export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,se
     // observation sentence below is the text equivalent, so they are hidden from screen readers
     const stage=el('div',{className:'kl-experiment-stage',attrs:{role:'group','aria-label':t.ui('ui.lab-stage')}});
     stage.append(el('div',{className:'kl-experiment-stage__title',text:t.ui('ui.lab-title')}));
-    const vessel=el('div',{className:'kl-experiment-vessel',attrs:{'aria-hidden':'true'}}); vessel.append(el('span',{className:'kl-experiment-liquid'}),el('span',{className:'kl-experiment-bubbles',text:'○ ○ ○'}));
-    const flame=el('div',{className:'kl-experiment-flame',attrs:{'aria-hidden':'true'}}); const observation=el('div',{className:'kl-experiment-observation',text:t.ui('ui.lab-start'),'attrs':{'aria-live':'polite'}} as any);
-    stage.append(vessel,flame,observation);
+    // owner review 2026-11-23: the picture is the apparatus the instruction lists (was: one generic beaker whose flame and
+    // bubbles were switched on by keywords in the step text — no chemistry behind them). Decoration: the list is also text.
+    const vessel=el('div',{className:'kl-experiment-vessel kl-experiment-vessel--apparatus',attrs:{'aria-hidden':'true'}});
+    // the apparatus: the equipment list, else the apparatus the steps name; then the materials (as labelled bottles)
+    const apparatus=model.equipment?equipmentGalleryItems(model.equipment):apparatusFromSteps(model.controls.map(c=>c.label)).map(key=>({key,label:t.ui(`ui.apparatus-${key}`)}));
+    if(apparatus.length) vessel.append(apparatusGallery(apparatus,t.ui('ui.dlab-group-apparatus')));
+    if(model.materials) vessel.append(apparatusGallery(materialGalleryItems(model.materials),t.ui('ui.dlab-group-substances')));
+    const observation=el('div',{className:'kl-experiment-observation',text:t.ui('ui.lab-start'),'attrs':{'aria-live':'polite'}} as any);
+    stage.append(vessel,observation);
     const panel=el('aside',{className:'kl-experiment-panel'});
     panel.append(el('h2',{text:t.ui('ui.lab-steps')}));
-    if(model.equipment) panel.append(el('p',{className:'kl-muted',text:t.ui('ui.lab-equipment',{text:model.equipment})}));
-    if(model.materials) panel.append(el('p',{className:'kl-muted',text:t.ui('ui.lab-materials',{text:model.materials})}));
+    // the gallery shows the same items as pictures (aria-hidden), so this sentence stays for screen readers only
+    if(model.equipment) panel.append(el('p',{className:'kl-muted kl-sr-only',text:t.ui('ui.lab-equipment',{text:model.equipment})}));
+    if(model.materials) panel.append(el('p',{className:'kl-muted kl-sr-only',text:t.ui('ui.lab-materials',{text:model.materials})}));
     if(model.safety) panel.append(el('div',{className:'kl-feedback',text:t.ui('ui.lab-safety',{text:model.safety})}));
     let equation:HTMLInputElement|undefined;
     // P2.7: the experiment's own alert lives in the page (it was a detached node: invalid input was never shown)
@@ -117,7 +127,7 @@ export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,se
     model.controls.forEach((item,index)=>{
       const row=el('div',{className:`kl-experiment-step${index===0?' is-current':''}`,attrs:index===0?{'aria-current':'step'}:{}});
       const labelId=`${stepAlert.id}-step${index}`;
-      row.append(el('strong',{text:`${index+1}. ${item.label}`,attrs:{id:labelId}}));
+      { const s=el('strong',{attrs:{id:labelId}}); setChemText(s,`${index+1}. ${item.label}`); row.append(s); }
       // P2.7: every step button is named by its step (ui.do + the step label), not only ui.do; a finished step keeps
       // focus (aria-disabled instead of disabled, so focus never falls to <body>); a REJECTED action (e.g. out of
       // order) leaves the step open so the learner can retry it.
@@ -134,10 +144,6 @@ export function renderPractice(root:HTMLElement,page:StudentPracticePageModel,se
         const rows=[...steps.children] as HTMLElement[];
         for(const r of rows){ r.classList.remove('is-current'); r.removeAttribute('aria-current'); }
         const next=rows.find(r=>!r.classList.contains('is-done')); next?.classList.add('is-current'); next?.setAttribute('aria-current','step');
-        const semantic=`${item.action} ${item.label}`.toLocaleLowerCase('uz');
-        stage.classList.toggle('is-heating',/heat|qizdir|alanga|ignite|burn|yoq/.test(semantic));
-        stage.classList.toggle('is-active',/gas|gaz|mix|aralashtir|add|qo‘sh|drop|tomiz/.test(semantic));
-        if(/filter|filtr/.test(semantic)) stage.classList.add('is-filtering');
         observation.textContent=chemistryObservationText(t,result,item.label);
         button.setAttribute('aria-disabled','true'); buttonText.textContent=t.ui('ui.done');
       }); });

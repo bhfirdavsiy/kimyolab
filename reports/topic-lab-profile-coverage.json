@@ -5,21 +5,21 @@
   "semantics": "PROFILED = a validated kimyolab.topic-lab-profile.v1 exists (vertical slice). BLOCKED = at least one BLOCKER: a state/observation action without a safe handler; a composition-changing action without a chemistry authority, or a guided step that changes composition without a reaction record or model (fail closed); an instruction substance the authority does not know; an unmapped or ambiguous operation; or missing instruction content (no steps, or a \"prove/identify by experiment\" task that names no operation while the config supplies none). PROFILE_CANDIDATE = no blocker; it may still carry GAPS that are not missing chemistry: LEARNER_RESPONSE_CHECKER_MISSING (a response with no checker is never judged), HUMAN_DECISION_REQUIRED (open order question), SAFETY_RULE (a prohibition to carry as a safety note). A candidate is NOT profiled: no profile is written by guessing and nothing is migrated.",
   "summary": {
     "experiments": 57,
-    "BLOCKED": 51,
+    "BLOCKED": 48,
     "PROFILE_CANDIDATE": 1,
-    "PROFILED": 5
+    "PROFILED": 8
   },
   "rowsPerBlockerCategory": {
     "AMBIGUOUS_OPERATION": 1,
-    "CHEMISTRY_AUTHORITY_MISSING": 35,
+    "CHEMISTRY_AUTHORITY_MISSING": 33,
     "CONTENT_REQUIRED": 7,
-    "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+    "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 6,
     "OBSERVATION_HANDLER_MISSING": 11,
-    "STATE_HANDLER_MISSING": 20
+    "STATE_HANDLER_MISSING": 19
   },
   "rowsPerGapCategory": {
     "HUMAN_DECISION_REQUIRED": 5,
-    "LEARNER_RESPONSE_CHECKER_MISSING": 30,
+    "LEARNER_RESPONSE_CHECKER_MISSING": 27,
     "SAFETY_RULE": 1
   },
   "reclassification": {
@@ -43,17 +43,17 @@
     "after": {
       "summary": {
         "experiments": 57,
-        "BLOCKED": 51,
+        "BLOCKED": 48,
         "PROFILE_CANDIDATE": 1,
-        "PROFILED": 5
+        "PROFILED": 8
       },
       "rowsPerBlockerCategory": {
         "AMBIGUOUS_OPERATION": 1,
-        "CHEMISTRY_AUTHORITY_MISSING": 35,
+        "CHEMISTRY_AUTHORITY_MISSING": 33,
         "CONTENT_REQUIRED": 7,
-        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 6,
         "OBSERVATION_HANDLER_MISSING": 11,
-        "STATE_HANDLER_MISSING": 20
+        "STATE_HANDLER_MISSING": 19
       }
     },
     "changes": [
@@ -87,17 +87,17 @@
     "after": {
       "summary": {
         "experiments": 57,
-        "BLOCKED": 51,
+        "BLOCKED": 48,
         "PROFILE_CANDIDATE": 1,
-        "PROFILED": 5
+        "PROFILED": 8
       },
       "rowsPerBlockerCategory": {
         "AMBIGUOUS_OPERATION": 1,
-        "CHEMISTRY_AUTHORITY_MISSING": 35,
+        "CHEMISTRY_AUTHORITY_MISSING": 33,
         "CONTENT_REQUIRED": 7,
-        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 7,
+        "INSTRUCTION_NOT_COVERED_BY_AUTHORITY": 6,
         "OBSERVATION_HANDLER_MISSING": 11,
-        "STATE_HANDLER_MISSING": 20
+        "STATE_HANDLER_MISSING": 19
       }
     },
     "changes": [
@@ -903,7 +903,7 @@
       "gaps": [],
       "profileGaps": [
         "TEST_NOT_OFFERED",
-        "MODEL_SOURCE_GAP_CU_HCL",
+        "NO_REACTION_REVIEW_GAP_CU_HCL",
         "RECORD_CHECKER_MISSING",
         "HEAT_SOURCE_NOT_NAMED",
         "APPARATUS_WITHOUT_OPERATION"
@@ -911,8 +911,8 @@
     },
     {
       "activityId": "practice.experiment.7.11",
-      "status": "BLOCKED",
-      "profileId": null,
+      "status": "PROFILED",
+      "profileId": "lab-profile.7.11.water-oxides",
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
@@ -952,28 +952,17 @@
         }
       ],
       "chemistryAuthority": "reaction-records",
-      "orderMode": null,
-      "blockers": [
-        {
-          "code": "STEP_NOT_GROUNDED:3",
-          "category": "CHEMISTRY_AUTHORITY_MISSING"
-        }
-      ],
-      "gaps": [
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        },
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        },
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        }
-      ],
-      "profileGaps": []
+      "orderMode": "FLEXIBLE",
+      "blockers": [],
+      "gaps": [],
+      "profileGaps": [
+        "OBSERVATION_TEXT_PARTIAL",
+        "CARBONATED_WATER_IS_A_SAMPLE",
+        "RECORD_CHECKER_MISSING",
+        "SAFETY_TEXT_EMPTY",
+        "INDICATOR_FROM_SCHOOL_MODEL",
+        "COMPARE_NOT_OFFERED"
+      ]
     },
     {
       "activityId": "practice.experiment.7.12",
@@ -1503,8 +1492,8 @@
     },
     {
       "activityId": "practice.experiment.7.9",
-      "status": "BLOCKED",
-      "profileId": null,
+      "status": "PROFILED",
+      "profileId": "lab-profile.7.9.acid-properties",
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
@@ -1545,24 +1534,17 @@
         }
       ],
       "chemistryAuthority": "reaction-records",
-      "orderMode": null,
-      "blockers": [
-        {
-          "code": "NO_DOMAIN_HANDLER:PREPARE_SUBSTANCE",
-          "category": "STATE_HANDLER_MISSING"
-        }
-      ],
-      "gaps": [
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:COMPARE",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        },
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        }
-      ],
-      "profileGaps": []
+      "orderMode": "FLEXIBLE",
+      "blockers": [],
+      "gaps": [],
+      "profileGaps": [
+        "CONDITION_NOT_STATED_NACL_H2SO4",
+        "GAS_ABSORPTION_NOT_MODELED",
+        "INDICATOR_PARTLY_MODELED",
+        "OBSERVATION_REVIEW_FLAG_CUO_HCL",
+        "RECORD_CHECKER_MISSING",
+        "SAFETY_TEXT_EMPTY"
+      ]
     },
     {
       "activityId": "practice.experiment.8.1",
@@ -2257,8 +2239,8 @@
     },
     {
       "activityId": "practice.experiment.8.8",
-      "status": "BLOCKED",
-      "profileId": null,
+      "status": "PROFILED",
+      "profileId": "lab-profile.8.8.halide-tests",
       "instructionFamilies": [
         {
           "family": "ADD_SUBSTANCE",
@@ -2300,32 +2282,16 @@
         }
       ],
       "chemistryAuthority": "reaction-records",
-      "orderMode": null,
-      "blockers": [
-        {
-          "code": "INSTRUCTION_SUBSTANCE_NOT_MODELED:HCl",
-          "category": "INSTRUCTION_NOT_COVERED_BY_AUTHORITY"
-        },
-        {
-          "code": "STEP_NOT_GROUNDED:2",
-          "category": "CHEMISTRY_AUTHORITY_MISSING"
-        },
-        {
-          "code": "STEP_NOT_GROUNDED:4",
-          "category": "CHEMISTRY_AUTHORITY_MISSING"
-        }
-      ],
-      "gaps": [
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:EXPLAIN",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        },
-        {
-          "code": "LEARNER_RESPONSE_CHECKER_MISSING:RECORD",
-          "category": "LEARNER_RESPONSE_CHECKER_MISSING"
-        }
-      ],
-      "profileGaps": []
+      "orderMode": "FLEXIBLE",
+      "blockers": [],
+      "gaps": [],
+      "profileGaps": [
+        "HCL_AGNO3_NO_RECORD",
+        "RECORD_CHECKER_MISSING",
+        "SCHOOL_MODEL_STEP_BOUND",
+        "QUANTITY_NOT_ENFORCED",
+        "SAFETY_TEXT_EMPTY"
+      ]
     },
     {
       "activityId": "practice.experiment.8.9",

@@ -163,6 +163,790 @@
       "reviewStatus": "pending"
     },
     {
+      "nameKey": "element.Sc.name",
+      "assertionId": "element-name:Sc",
+      "locale": "uz-Latn",
+      "displayName": "Skandiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ti.name",
+      "assertionId": "element-name:Ti",
+      "locale": "uz-Latn",
+      "displayName": "Titan",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.V.name",
+      "assertionId": "element-name:V",
+      "locale": "uz-Latn",
+      "displayName": "Vanadiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cr.name",
+      "assertionId": "element-name:Cr",
+      "locale": "uz-Latn",
+      "displayName": "Xrom",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Mn.name",
+      "assertionId": "element-name:Mn",
+      "locale": "uz-Latn",
+      "displayName": "Marganes",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Fe.name",
+      "assertionId": "element-name:Fe",
+      "locale": "uz-Latn",
+      "displayName": "Temir",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Co.name",
+      "assertionId": "element-name:Co",
+      "locale": "uz-Latn",
+      "displayName": "Kobalt",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ni.name",
+      "assertionId": "element-name:Ni",
+      "locale": "uz-Latn",
+      "displayName": "Nikel",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cu.name",
+      "assertionId": "element-name:Cu",
+      "locale": "uz-Latn",
+      "displayName": "Mis",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Zn.name",
+      "assertionId": "element-name:Zn",
+      "locale": "uz-Latn",
+      "displayName": "Rux",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ga.name",
+      "assertionId": "element-name:Ga",
+      "locale": "uz-Latn",
+      "displayName": "Galliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ge.name",
+      "assertionId": "element-name:Ge",
+      "locale": "uz-Latn",
+      "displayName": "Germaniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.As.name",
+      "assertionId": "element-name:As",
+      "locale": "uz-Latn",
+      "displayName": "Mishyak",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Se.name",
+      "assertionId": "element-name:Se",
+      "locale": "uz-Latn",
+      "displayName": "Selen",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Br.name",
+      "assertionId": "element-name:Br",
+      "locale": "uz-Latn",
+      "displayName": "Brom",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Kr.name",
+      "assertionId": "element-name:Kr",
+      "locale": "uz-Latn",
+      "displayName": "Kripton",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Rb.name",
+      "assertionId": "element-name:Rb",
+      "locale": "uz-Latn",
+      "displayName": "Rubidiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Sr.name",
+      "assertionId": "element-name:Sr",
+      "locale": "uz-Latn",
+      "displayName": "Stronsiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Y.name",
+      "assertionId": "element-name:Y",
+      "locale": "uz-Latn",
+      "displayName": "Ittriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Zr.name",
+      "assertionId": "element-name:Zr",
+      "locale": "uz-Latn",
+      "displayName": "Sirkoniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Nb.name",
+      "assertionId": "element-name:Nb",
+      "locale": "uz-Latn",
+      "displayName": "Niobiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Mo.name",
+      "assertionId": "element-name:Mo",
+      "locale": "uz-Latn",
+      "displayName": "Molibden",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Tc.name",
+      "assertionId": "element-name:Tc",
+      "locale": "uz-Latn",
+      "displayName": "Texnetsiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ru.name",
+      "assertionId": "element-name:Ru",
+      "locale": "uz-Latn",
+      "displayName": "Ruteniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Rh.name",
+      "assertionId": "element-name:Rh",
+      "locale": "uz-Latn",
+      "displayName": "Rodiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Pd.name",
+      "assertionId": "element-name:Pd",
+      "locale": "uz-Latn",
+      "displayName": "Palladiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ag.name",
+      "assertionId": "element-name:Ag",
+      "locale": "uz-Latn",
+      "displayName": "Kumush",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cd.name",
+      "assertionId": "element-name:Cd",
+      "locale": "uz-Latn",
+      "displayName": "Kadmiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.In.name",
+      "assertionId": "element-name:In",
+      "locale": "uz-Latn",
+      "displayName": "Indiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Sn.name",
+      "assertionId": "element-name:Sn",
+      "locale": "uz-Latn",
+      "displayName": "Qalay",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Sb.name",
+      "assertionId": "element-name:Sb",
+      "locale": "uz-Latn",
+      "displayName": "Surma",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Te.name",
+      "assertionId": "element-name:Te",
+      "locale": "uz-Latn",
+      "displayName": "Tellur",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.I.name",
+      "assertionId": "element-name:I",
+      "locale": "uz-Latn",
+      "displayName": "Yod",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Xe.name",
+      "assertionId": "element-name:Xe",
+      "locale": "uz-Latn",
+      "displayName": "Ksenon",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cs.name",
+      "assertionId": "element-name:Cs",
+      "locale": "uz-Latn",
+      "displayName": "Seziy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ba.name",
+      "assertionId": "element-name:Ba",
+      "locale": "uz-Latn",
+      "displayName": "Bariy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.La.name",
+      "assertionId": "element-name:La",
+      "locale": "uz-Latn",
+      "displayName": "Lantan",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ce.name",
+      "assertionId": "element-name:Ce",
+      "locale": "uz-Latn",
+      "displayName": "Seriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Pr.name",
+      "assertionId": "element-name:Pr",
+      "locale": "uz-Latn",
+      "displayName": "Prazeodim",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Nd.name",
+      "assertionId": "element-name:Nd",
+      "locale": "uz-Latn",
+      "displayName": "Neodim",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Pm.name",
+      "assertionId": "element-name:Pm",
+      "locale": "uz-Latn",
+      "displayName": "Prometiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Sm.name",
+      "assertionId": "element-name:Sm",
+      "locale": "uz-Latn",
+      "displayName": "Samariy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Eu.name",
+      "assertionId": "element-name:Eu",
+      "locale": "uz-Latn",
+      "displayName": "Yevropiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Gd.name",
+      "assertionId": "element-name:Gd",
+      "locale": "uz-Latn",
+      "displayName": "Gadoliniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Tb.name",
+      "assertionId": "element-name:Tb",
+      "locale": "uz-Latn",
+      "displayName": "Terbiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Dy.name",
+      "assertionId": "element-name:Dy",
+      "locale": "uz-Latn",
+      "displayName": "Disproziy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ho.name",
+      "assertionId": "element-name:Ho",
+      "locale": "uz-Latn",
+      "displayName": "Golmiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Er.name",
+      "assertionId": "element-name:Er",
+      "locale": "uz-Latn",
+      "displayName": "Erbiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Tm.name",
+      "assertionId": "element-name:Tm",
+      "locale": "uz-Latn",
+      "displayName": "Tuliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Yb.name",
+      "assertionId": "element-name:Yb",
+      "locale": "uz-Latn",
+      "displayName": "Itterbiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Lu.name",
+      "assertionId": "element-name:Lu",
+      "locale": "uz-Latn",
+      "displayName": "Lyutetsiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Hf.name",
+      "assertionId": "element-name:Hf",
+      "locale": "uz-Latn",
+      "displayName": "Gafniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ta.name",
+      "assertionId": "element-name:Ta",
+      "locale": "uz-Latn",
+      "displayName": "Tantal",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.W.name",
+      "assertionId": "element-name:W",
+      "locale": "uz-Latn",
+      "displayName": "Volfram",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Re.name",
+      "assertionId": "element-name:Re",
+      "locale": "uz-Latn",
+      "displayName": "Reniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Os.name",
+      "assertionId": "element-name:Os",
+      "locale": "uz-Latn",
+      "displayName": "Osmiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ir.name",
+      "assertionId": "element-name:Ir",
+      "locale": "uz-Latn",
+      "displayName": "Iridiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Pt.name",
+      "assertionId": "element-name:Pt",
+      "locale": "uz-Latn",
+      "displayName": "Platina",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Au.name",
+      "assertionId": "element-name:Au",
+      "locale": "uz-Latn",
+      "displayName": "Oltin",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Hg.name",
+      "assertionId": "element-name:Hg",
+      "locale": "uz-Latn",
+      "displayName": "Simob",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Tl.name",
+      "assertionId": "element-name:Tl",
+      "locale": "uz-Latn",
+      "displayName": "Talliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Pb.name",
+      "assertionId": "element-name:Pb",
+      "locale": "uz-Latn",
+      "displayName": "Qo‘rg‘oshin",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Bi.name",
+      "assertionId": "element-name:Bi",
+      "locale": "uz-Latn",
+      "displayName": "Vismut",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Po.name",
+      "assertionId": "element-name:Po",
+      "locale": "uz-Latn",
+      "displayName": "Poloniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.At.name",
+      "assertionId": "element-name:At",
+      "locale": "uz-Latn",
+      "displayName": "Astat",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Rn.name",
+      "assertionId": "element-name:Rn",
+      "locale": "uz-Latn",
+      "displayName": "Radon",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Fr.name",
+      "assertionId": "element-name:Fr",
+      "locale": "uz-Latn",
+      "displayName": "Fransiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ra.name",
+      "assertionId": "element-name:Ra",
+      "locale": "uz-Latn",
+      "displayName": "Radiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ac.name",
+      "assertionId": "element-name:Ac",
+      "locale": "uz-Latn",
+      "displayName": "Aktiniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Th.name",
+      "assertionId": "element-name:Th",
+      "locale": "uz-Latn",
+      "displayName": "Toriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Pa.name",
+      "assertionId": "element-name:Pa",
+      "locale": "uz-Latn",
+      "displayName": "Protaktiniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.U.name",
+      "assertionId": "element-name:U",
+      "locale": "uz-Latn",
+      "displayName": "Uran",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Np.name",
+      "assertionId": "element-name:Np",
+      "locale": "uz-Latn",
+      "displayName": "Neptuniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Pu.name",
+      "assertionId": "element-name:Pu",
+      "locale": "uz-Latn",
+      "displayName": "Plutoniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Am.name",
+      "assertionId": "element-name:Am",
+      "locale": "uz-Latn",
+      "displayName": "Ameritsiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cm.name",
+      "assertionId": "element-name:Cm",
+      "locale": "uz-Latn",
+      "displayName": "Kyuriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Bk.name",
+      "assertionId": "element-name:Bk",
+      "locale": "uz-Latn",
+      "displayName": "Berkliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cf.name",
+      "assertionId": "element-name:Cf",
+      "locale": "uz-Latn",
+      "displayName": "Kaliforniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Es.name",
+      "assertionId": "element-name:Es",
+      "locale": "uz-Latn",
+      "displayName": "Eynshteyniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Fm.name",
+      "assertionId": "element-name:Fm",
+      "locale": "uz-Latn",
+      "displayName": "Fermiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Md.name",
+      "assertionId": "element-name:Md",
+      "locale": "uz-Latn",
+      "displayName": "Mendeleviy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.No.name",
+      "assertionId": "element-name:No",
+      "locale": "uz-Latn",
+      "displayName": "Nobeliy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Lr.name",
+      "assertionId": "element-name:Lr",
+      "locale": "uz-Latn",
+      "displayName": "Lourensiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Rf.name",
+      "assertionId": "element-name:Rf",
+      "locale": "uz-Latn",
+      "displayName": "Rezerfordiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Db.name",
+      "assertionId": "element-name:Db",
+      "locale": "uz-Latn",
+      "displayName": "Dubniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Sg.name",
+      "assertionId": "element-name:Sg",
+      "locale": "uz-Latn",
+      "displayName": "Siborgiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Bh.name",
+      "assertionId": "element-name:Bh",
+      "locale": "uz-Latn",
+      "displayName": "Boriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Hs.name",
+      "assertionId": "element-name:Hs",
+      "locale": "uz-Latn",
+      "displayName": "Xassiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Mt.name",
+      "assertionId": "element-name:Mt",
+      "locale": "uz-Latn",
+      "displayName": "Meytneriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ds.name",
+      "assertionId": "element-name:Ds",
+      "locale": "uz-Latn",
+      "displayName": "Darmshtadtiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Rg.name",
+      "assertionId": "element-name:Rg",
+      "locale": "uz-Latn",
+      "displayName": "Rentgeniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Cn.name",
+      "assertionId": "element-name:Cn",
+      "locale": "uz-Latn",
+      "displayName": "Kopernitsiy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Nh.name",
+      "assertionId": "element-name:Nh",
+      "locale": "uz-Latn",
+      "displayName": "Nihoniy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Fl.name",
+      "assertionId": "element-name:Fl",
+      "locale": "uz-Latn",
+      "displayName": "Fleroviy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Mc.name",
+      "assertionId": "element-name:Mc",
+      "locale": "uz-Latn",
+      "displayName": "Moskoviy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Lv.name",
+      "assertionId": "element-name:Lv",
+      "locale": "uz-Latn",
+      "displayName": "Livermoriy",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Ts.name",
+      "assertionId": "element-name:Ts",
+      "locale": "uz-Latn",
+      "displayName": "Tennessin",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
+      "nameKey": "element.Og.name",
+      "assertionId": "element-name:Og",
+      "locale": "uz-Latn",
+      "displayName": "Oganesson",
+      "sourceRef": null,
+      "reviewStatus": "pending"
+    },
+    {
       "nameKey": "species.agno3.name",
       "assertionId": "species-name:species.agno3.name",
       "locale": "uz-Latn",

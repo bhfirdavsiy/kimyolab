@@ -3,13 +3,12 @@
   "phase": "P2.11",
   "semantics": "instruction substance → canonical species → supporting authority. Only formulas written in the materials text are resolved; an Uzbek name stays NAME_NOT_RESOLVED until content maps it. KNOWN_TO_OTHER_AUTHORITY means the species exists in some authority but not in the one the experiment is bound to (e.g. 9.10: KI is in a ReactionMatcher record, but ElectrolysisModel has no KI record) — it stays a blocker.",
   "summary": {
-    "materialItems": 154,
+    "materialItems": 155,
     "byStatus": {
       "COVERED_BY_BOUND_AUTHORITY": 34,
-      "KNOWN_TO_OTHER_AUTHORITY": 16,
+      "KNOWN_TO_OTHER_AUTHORITY": 19,
       "NAME_NOT_RESOLVED": 96,
-      "SPECIES_WITHOUT_AUTHORITY": 1,
-      "UNKNOWN_SUBSTANCE": 7
+      "UNKNOWN_SUBSTANCE": 6
     }
   },
   "rows": [
@@ -132,8 +131,7 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
@@ -220,17 +218,18 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
-          "status": "COVERED_BY_BOUND_AUTHORITY"
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
         {
           "text": "KOH yoki NaOH",
           "formula": "KOH",
-          "speciesId": null,
-          "authorities": [],
-          "status": "UNKNOWN_SUBSTANCE"
+          "speciesId": "species.koh",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
         },
         {
           "text": "KOH yoki NaOH",
@@ -386,10 +385,9 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
-          "status": "COVERED_BY_BOUND_AUTHORITY"
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
         {
           "text": "NaOH",
@@ -509,6 +507,15 @@
           "status": "COVERED_BY_BOUND_AUTHORITY"
         },
         {
+          "text": "Fe",
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "COVERED_BY_BOUND_AUTHORITY"
+        },
+        {
           "text": "Cu",
           "formula": "Cu",
           "speciesId": "species.cu",
@@ -559,6 +566,15 @@
           "source": "legacyContent.materials (\"Zn\") + legacyContent.steps[1] (\"Rux granulalari\")"
         },
         {
+          "id": "fe",
+          "speciesId": "species.fe",
+          "formula": "Fe",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"Fe\") + legacyContent.steps[4] (\"Temir bo‘laklari\")"
+        },
+        {
           "id": "cu",
           "speciesId": "species.cu",
           "formula": "Cu",
@@ -586,7 +602,7 @@
             "ReactionMatcher",
             "IonicEngine"
           ],
-          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2]"
+          "source": "legacyContent.materials (\"suyultirilgan … HCl\") + legacyContent.steps[1], legacyContent.steps[2], legacyContent.steps[3], legacyContent.steps[4]"
         }
       ]
     },
@@ -637,7 +653,49 @@
           "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
         }
       ],
-      "profileSubstances": null
+      "profileSubstances": [
+        {
+          "id": "cao",
+          "speciesId": "species.cao",
+          "formula": "CaO",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"CaO\") + legacyContent.steps[0]"
+        },
+        {
+          "id": "water",
+          "speciesId": "species.h2o",
+          "formula": "H2O",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"suv\") + legacyContent.steps[0] (\"CaO va suv soling\")"
+        },
+        {
+          "id": "carbonated-water",
+          "speciesId": null,
+          "formula": null,
+          "authorities": [],
+          "source": "legacyContent.materials (\"mineral suv yoki CO2 li suv\") + legacyContent.steps[1] (\"gazli mineral suv quying\")"
+        },
+        {
+          "id": "distilled-water",
+          "speciesId": "species.h2o",
+          "formula": "H2O",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"distillangan suv\") + legacyContent.steps[2]"
+        },
+        {
+          "id": "litmus",
+          "speciesId": null,
+          "formula": null,
+          "authorities": [],
+          "source": "legacyContent.materials (\"fenolftalein yoki lakmus\") + legacyContent.steps[3] (\"indikator tomizib\")"
+        }
+      ]
     },
     {
       "activityId": "practice.experiment.7.12",
@@ -1042,7 +1100,83 @@
           "status": "COVERED_BY_BOUND_AUTHORITY"
         }
       ],
-      "profileSubstances": null
+      "profileSubstances": [
+        {
+          "id": "nacl",
+          "speciesId": "species.nacl",
+          "formula": "NaCl",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"NaCl\") + legacyContent.steps[0]"
+        },
+        {
+          "id": "h2so4",
+          "speciesId": "species.h2so4",
+          "formula": "H2SO4",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine",
+            "QualitativeTest"
+          ],
+          "source": "legacyContent.materials (\"H2SO4\") + legacyContent.steps[0] (the concentration is not stated)"
+        },
+        {
+          "id": "hcl-solution",
+          "speciesId": "species.hcl",
+          "formula": "HCl",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"HCl eritmasi\") + legacyContent.steps[2–4]"
+        },
+        {
+          "id": "cuo",
+          "speciesId": "species.cuo",
+          "formula": "CuO",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"CuO\") + legacyContent.steps[2]"
+        },
+        {
+          "id": "naoh-solution",
+          "speciesId": "species.naoh",
+          "formula": "NaOH",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"NaOH\") + legacyContent.steps[3] (\"NaOH eritmasiga …\")"
+        },
+        {
+          "id": "caco3",
+          "speciesId": "species.caco3",
+          "formula": "CaCO3",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"CaCO3 yoki bo‘r\") + legacyContent.steps[4]"
+        },
+        {
+          "id": "water",
+          "speciesId": "species.h2o",
+          "formula": "H2O",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.steps[1] (\"Suv va HCl eritmalariga …\")"
+        },
+        {
+          "id": "litmus",
+          "speciesId": null,
+          "formula": null,
+          "authorities": [],
+          "source": "legacyContent.materials (\"indikatorlar\") + legacyContent.steps[1] (\"indikator tomizib\"); litmus is the only indicator with a colour record (hydrolysis.json#indicator)"
+        }
+      ]
     },
     {
       "activityId": "practice.experiment.8.1",
@@ -1246,8 +1380,7 @@
           "speciesId": "species.na2so4",
           "authorities": [
             "IonicEngine",
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
@@ -1256,8 +1389,7 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
@@ -1415,8 +1547,10 @@
           "text": "HNO3",
           "formula": "HNO3",
           "speciesId": "species.hno3",
-          "authorities": [],
-          "status": "SPECIES_WITHOUT_AUTHORITY"
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "status": "KNOWN_TO_OTHER_AUTHORITY"
         },
         {
           "text": "HCl",
@@ -1578,7 +1712,56 @@
           "note": "an Uzbek name: a canonical species needs a content decision (never guessed)"
         }
       ],
-      "profileSubstances": null
+      "profileSubstances": [
+        {
+          "id": "hcl-solution",
+          "speciesId": "species.hcl",
+          "formula": "HCl",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"HCl\") + legacyContent.steps[1]"
+        },
+        {
+          "id": "nacl-solution",
+          "speciesId": "species.nacl",
+          "formula": "NaCl",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"NaCl\") + legacyContent.steps[1]"
+        },
+        {
+          "id": "nabr-solution",
+          "speciesId": "species.nabr",
+          "formula": "NaBr",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"NaBr\") + legacyContent.steps[1]"
+        },
+        {
+          "id": "nai-solution",
+          "speciesId": "species.nai",
+          "formula": "NaI",
+          "authorities": [
+            "ReactionMatcher"
+          ],
+          "source": "legacyContent.materials (\"NaI\") + legacyContent.steps[1]"
+        },
+        {
+          "id": "agno3-solution",
+          "speciesId": "species.agno3",
+          "formula": "AgNO3",
+          "authorities": [
+            "ReactionMatcher",
+            "IonicEngine"
+          ],
+          "source": "legacyContent.materials (\"AgNO3\") + legacyContent.steps[2]"
+        }
+      ]
     },
     {
       "activityId": "practice.experiment.8.9",
@@ -1834,8 +2017,7 @@
           "formula": "CuSO4",
           "speciesId": "species.cuso4",
           "authorities": [
-            "QualitativeTest",
-            "ReactionMatcher"
+            "QualitativeTest"
           ],
           "status": "KNOWN_TO_OTHER_AUTHORITY"
         },

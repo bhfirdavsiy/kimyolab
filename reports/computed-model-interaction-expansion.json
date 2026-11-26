@@ -247,17 +247,17 @@
       "standaloneBytes": 5646313
     },
     "after": {
-      "learnerModules": 174,
-      "learnerModuleBytes": 895965,
+      "learnerModules": 183,
+      "learnerModuleBytes": 1140339,
       "rendererModules": 13,
       "rendererBytes": 71591,
-      "standaloneBytes": 6101937
+      "standaloneBytes": 6625572
     },
     "delta": {
-      "learnerModules": 16,
-      "learnerModuleBytes": 230192,
+      "learnerModules": 25,
+      "learnerModuleBytes": 474566,
       "rendererBytes": 19849,
-      "standaloneBytes": 455624
+      "standaloneBytes": 979259
     },
     "dependencies": "none added (DOM + CSS only; no canvas/WebGL/chart library)"
   },
@@ -297,8 +297,8 @@
   },
   "newChemistryRecords": 0,
   "chemistryRecordCounts": {
-    "reactions": 28,
-    "species": 84,
+    "reactions": 48,
+    "species": 101,
     "equilibrium": 2,
     "manganeseRedox": 3,
     "kinetics": 3,

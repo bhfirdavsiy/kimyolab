@@ -227,7 +227,8 @@
           "formula": "Mg",
           "speciesId": "species.mg",
           "existingRecordsWithThisSpecies": [
-            "rxn.mg-h2so4"
+            "rxn.mg-h2so4",
+            "rxn.mg-hcl"
           ]
         },
         {
@@ -236,6 +237,29 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
+          ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
           ]
         }
       ]
@@ -305,6 +329,22 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
+          ]
         }
       ]
     },
@@ -315,7 +355,9 @@
           "formula": "Cl2",
           "speciesId": "species.cl2",
           "existingRecordsWithThisSpecies": [
-            "rxn.cl2-kbr"
+            "rxn.cl2-kbr",
+            "rxn.cl2-nabr",
+            "rxn.cl2-nai"
           ]
         },
         {
@@ -338,6 +380,20 @@
           "existingRecordsWithThisSpecies": [
             "rxn.br2-ki"
           ]
+        },
+        {
+          "formula": "NaBr",
+          "speciesId": "species.nabr",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-nabr"
+          ]
+        },
+        {
+          "formula": "NaI",
+          "speciesId": "species.nai",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-nai"
+          ]
         }
       ]
     },
@@ -356,6 +412,20 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         }
       ]
@@ -395,6 +465,13 @@
           "existingRecordsWithThisSpecies": [
             "rxn.agno3-nai"
           ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
+          ]
         }
       ]
     },
@@ -413,6 +490,20 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         }
       ]
@@ -438,7 +529,22 @@
           "formula": "CO2",
           "speciesId": "species.co2",
           "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2",
             "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Ca(OH)2",
+          "speciesId": "species.camoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         }
       ]
@@ -460,6 +566,29 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
+          ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
+          ]
         }
       ]
     },
@@ -471,6 +600,34 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.8.3",
+      "unlockFacts": [
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
           ]
         }
       ]
@@ -494,10 +651,11 @@
           ]
         },
         {
-          "formula": "Na2S",
-          "speciesId": "species.na2s",
+          "formula": "Al",
+          "speciesId": "species.al",
           "existingRecordsWithThisSpecies": [
-            "rxn.na2s-hcl"
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
           ]
         }
       ]
@@ -516,7 +674,15 @@
           "formula": "CO2",
           "speciesId": "species.co2",
           "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2",
             "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Ca(OH)2",
+          "speciesId": "species.camoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2"
           ]
         },
         {
@@ -524,6 +690,27 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         },
         {
@@ -549,7 +736,27 @@
           "formula": "CO2",
           "speciesId": "species.co2",
           "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2",
             "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Ca(OH)2",
+          "speciesId": "species.camoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2"
+          ]
+        }
+      ]
+    },
+    {
+      "activityId": "practice.experiment.9.13",
+      "unlockFacts": [
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         }
       ]
@@ -653,7 +860,9 @@
       "domainModule": "reaction-matcher + ionic-engine (src/domain/chemistry/ionic-mixing.ts)",
       "ownReactionRecords": [
         "rxn.mg-h2so4",
-        "rxn.zn-hcl"
+        "rxn.zn-hcl",
+        "rxn.mg-hcl",
+        "rxn.fe-hcl"
       ],
       "availableModeledInputs": [
         "species.h2so4",
@@ -671,6 +880,12 @@
           "from": "reaction record rxn.zn-hcl",
           "reason": "NO_DISSOCIATION_RULE",
           "speciesId": "species.zn"
+        },
+        {
+          "formula": "Fe",
+          "from": "reaction record rxn.fe-hcl",
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.fe"
         },
         {
           "formula": "Al",
@@ -702,7 +917,9 @@
       "targetReactionId": null,
       "ownRecordsUnreachableInMixingModel": [
         "rxn.mg-h2so4",
-        "rxn.zn-hcl"
+        "rxn.zn-hcl",
+        "rxn.mg-hcl",
+        "rxn.fe-hcl"
       ],
       "governanceBlockers": [
         "chemistry review of the reaction records (human, pending)",
@@ -721,7 +938,8 @@
           "formula": "Mg",
           "speciesId": "species.mg",
           "existingRecordsWithThisSpecies": [
-            "rxn.mg-h2so4"
+            "rxn.mg-h2so4",
+            "rxn.mg-hcl"
           ]
         },
         {
@@ -730,6 +948,29 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
+          ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
           ]
         }
       ],
@@ -999,6 +1240,22 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
+          ]
         }
       ],
       "eligible": false,
@@ -1114,7 +1371,9 @@
           "formula": "Cl2",
           "speciesId": "species.cl2",
           "existingRecordsWithThisSpecies": [
-            "rxn.cl2-kbr"
+            "rxn.cl2-kbr",
+            "rxn.cl2-nabr",
+            "rxn.cl2-nai"
           ]
         },
         {
@@ -1136,6 +1395,20 @@
           "speciesId": "species.ki",
           "existingRecordsWithThisSpecies": [
             "rxn.br2-ki"
+          ]
+        },
+        {
+          "formula": "NaBr",
+          "speciesId": "species.nabr",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-nabr"
+          ]
+        },
+        {
+          "formula": "NaI",
+          "speciesId": "species.nai",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cl2-nai"
           ]
         }
       ],
@@ -1252,6 +1525,20 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         }
       ],
@@ -1475,6 +1762,13 @@
           "existingRecordsWithThisSpecies": [
             "rxn.agno3-nai"
           ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
+          ]
         }
       ],
       "eligible": false,
@@ -1661,6 +1955,20 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
+          ]
         }
       ],
       "eligible": false,
@@ -1758,7 +2066,22 @@
           "formula": "CO2",
           "speciesId": "species.co2",
           "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2",
             "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Ca(OH)2",
+          "speciesId": "species.camoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         }
       ],
@@ -1872,6 +2195,29 @@
             "rxn.zn-h2so4",
             "rxn.zn-hcl"
           ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
+          ]
+        },
+        {
+          "formula": "Cu",
+          "speciesId": "species.cu",
+          "existingRecordsWithThisSpecies": [
+            "rxn.cu-hcl"
+          ]
         }
       ],
       "eligible": false,
@@ -1969,6 +2315,13 @@
           "existingRecordsWithThisSpecies": [
             "rxn.zn-h2so4"
           ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4"
+          ]
         }
       ],
       "eligible": false,
@@ -2065,7 +2418,24 @@
           "species.h2so4"
         ]
       },
-      "unlockFacts": [],
+      "unlockFacts": [
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-h2so4",
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
+          ]
+        }
+      ],
       "eligible": false,
       "reasons": [
         "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) — choice cannot be shown to change the result",
@@ -2178,10 +2548,11 @@
           ]
         },
         {
-          "formula": "Na2S",
-          "speciesId": "species.na2s",
+          "formula": "Al",
+          "speciesId": "species.al",
           "existingRecordsWithThisSpecies": [
-            "rxn.na2s-hcl"
+            "rxn.al-h2so4",
+            "rxn.al-hcl"
           ]
         }
       ],
@@ -2302,7 +2673,15 @@
           "formula": "CO2",
           "speciesId": "species.co2",
           "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2",
             "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Ca(OH)2",
+          "speciesId": "species.camoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2"
           ]
         },
         {
@@ -2310,6 +2689,27 @@
           "speciesId": "species.zn",
           "existingRecordsWithThisSpecies": [
             "rxn.zn-hcl"
+          ]
+        },
+        {
+          "formula": "Mg",
+          "speciesId": "species.mg",
+          "existingRecordsWithThisSpecies": [
+            "rxn.mg-hcl"
+          ]
+        },
+        {
+          "formula": "Fe",
+          "speciesId": "species.fe",
+          "existingRecordsWithThisSpecies": [
+            "rxn.fe-hcl"
+          ]
+        },
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
           ]
         },
         {
@@ -2361,8 +2761,8 @@
         {
           "formula": "KOH",
           "from": "legacy reagent list",
-          "reason": "NOT_IN_SPECIES_REGISTRY",
-          "speciesId": null
+          "reason": "NO_DISSOCIATION_RULE",
+          "speciesId": "species.koh"
         },
         {
           "formula": "Ca(OH)2",
@@ -2429,7 +2829,15 @@
           "formula": "CO2",
           "speciesId": "species.co2",
           "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2",
             "rxn.co2-water"
+          ]
+        },
+        {
+          "formula": "Ca(OH)2",
+          "speciesId": "species.camoh2",
+          "existingRecordsWithThisSpecies": [
+            "rxn.caoh2-co2"
           ]
         }
       ],
@@ -2609,7 +3017,15 @@
         "paths": [],
         "unmodeledPair": null
       },
-      "unlockFacts": [],
+      "unlockFacts": [
+        {
+          "formula": "Al",
+          "speciesId": "species.al",
+          "existingRecordsWithThisSpecies": [
+            "rxn.al-hcl"
+          ]
+        }
+      ],
       "eligible": false,
       "reasons": [
         "BLACK_SWAN_FAIL: 0 distinct integrity-clean modeled outcome(s) (+1 whose observation the KB flags CHEMISTRY_REVIEW_REQUIRED: rxn.naoh-hcl) — choice cannot be shown to change the result",

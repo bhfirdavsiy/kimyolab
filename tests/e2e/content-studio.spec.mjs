@@ -160,13 +160,15 @@ test('lab lane: canonical 7.10 instruction → learner dynamic lab preview, part
   await choose(page, 7, 'lu.7.15', 'lab_instruction');
   await page.locator('[data-studio-start-existing]').click();
   await expect(page.locator('[data-studio-lab-source]')).toHaveText('Mavzuning mavjud yo‘riqnomasi nusxalandi. Asl matn o‘zgarmaydi.');
-  await expect(page.locator('#studio-lab-steps')).toHaveValue(/Magniy ustiga suyultirilgan H2SO4 quying/);
+  // step 4 of the owner's sequence (2026-11-23): 7.9 (acid properties) is now profiled too; the Studio takes one lab source
+  // per topic, a profiled activity first, so lu.7.15 now opens 7.9 (was 7.10)
+  await expect(page.locator('#studio-lab-steps')).toHaveValue(/NaCl ga H2SO4 ta’sir ettirib/);
   await page.locator('[data-studio-next]').click();
   const frame = page.locator('[data-studio-preview]');
-  await expect(frame.locator('[data-dynamic-lab="lab-profile.7.10.metal-acid-gas"]')).toBeVisible();
+  await expect(frame.locator('[data-dynamic-lab="lab-profile.7.9.acid-properties"]')).toBeVisible();
   await expect(frame.locator('[data-dynamic-lab]')).toHaveAttribute('data-completion-scope', 'PARTIAL_INSTRUCTION');
   await expect(page.locator('main')).toContainText('Bu laboratoriya yo‘riqnomaning faqat bir qismini qo‘llab-quvvatlaydi.');
-  await expect(page.locator('[data-studio-uncovered]')).toContainText('«tekshiring» — bu amal uchun model hali mavjud emas');
+  await expect(page.locator('[data-studio-uncovered]')).toContainText('«oling» — bu amal uchun model hali mavjud emas');
   await expect(page.locator('[data-studio-analysis]')).toContainText('Bu amal uchun model hali mavjud emas.');
   await page.locator('[data-studio-next]').click();
   await expect(page.locator('[data-studio-findings]')).toContainText('Laboratoriya yo‘riqnomaning faqat bir qismini bajaradi.');
