@@ -368,3 +368,15 @@ body[data-kl-scorm] .kl-site-header .kl-nav{display:none}
   .kl-bench,.kl-bench__stage>*,.kl-bench__side{min-width:0;max-width:100%}
   .kl-dlab{overflow-x:clip}
 }
+/* stage 2b: the bench with pictures */
+.kl-scene__glass--img{stroke:transparent}
+.kl-scene__bench--table{fill:#dfe7f1}
+.kl-scene__rack-number{font:800 9px/1 system-ui,sans-serif;fill:#7a4f22;opacity:.85}
+.kl-scene__rack-img,.kl-scene__glass-img{pointer-events:none}
+.kl-scene__vessel.is-focus .kl-scene__glass--img,.kl-scene__vessel:hover .kl-scene__glass--img{stroke:var(--kl-primary,#0b5bd3);stroke-width:2;stroke-opacity:.7}
+.kl-bench__bottle-img{height:64px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 4px 6px #0d254722)}
+.kl-bench__bottle .kl-dlab__formula{margin-top:-4px}
+.kl-bench__stage .kl-scene__svg--rack{max-height:460px}
+/* the glass picture lies over the contents: multiply keeps its edges and highlights and lets the liquid show through */
+.kl-scene__glass-img{mix-blend-mode:multiply}
+.kl-scene__vessel--gas-collection-vessel .kl-scene__glass{fill:#ffffff55;stroke:#8aa0b8;stroke-width:2.6}

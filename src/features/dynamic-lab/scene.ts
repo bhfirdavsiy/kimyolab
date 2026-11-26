@@ -12,6 +12,7 @@
 // Motion is CSS only and stops under prefers-reduced-motion.
 import type {LabState,ContainerState} from '../../domain/lab/lab-runtime.ts';
 import type {TopicLabProfile} from '../../domain/lab/topic-lab-profile.ts';
+import {BENCH_IMAGES} from './bench-assets.ts';
 
 const NS='http://www.w3.org/2000/svg';
 type Attrs=Record<string,string|number>;
@@ -49,6 +50,8 @@ export interface SceneInput {
   pour?:string|null;
   /** larger vessels and a rack (the bench layout) */
   large?:boolean;
+  /** a picture of a solid sample (a metal) drawn at the bottom of its vessel, or null for the neutral granules */
+  sampleImage?(substanceId:string):string|null;
 }
 
 const VESSEL_KINDS=new Set(['test-tube','gas-collection-vessel','beaker','receiver','electrolysis-cell','evaporating-dish']);
@@ -59,6 +62,9 @@ export function renderLabScene(host:HTMLElement,input:SceneInput){
   host.replaceChildren();
   if(!vessels.length) return;
   const large=!!input.large;
+  const tubeCount=vessels.filter(a=>a.kind==='test-tube').length;
+  // the bench with pictures: up to six test tubes stand in a wooden rack (the rack picture has six holes)
+  if(large&&tubeCount>=1&&tubeCount<=6){ renderRackBench(host,input,vessels); return; }
   const slot=large?132:124, H=large?318:262, W=Math.max(slot*vessels.length+24,280);
   const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,class:'kl-scene__svg','aria-hidden':'true',focusable:'false',preserveAspectRatio:'xMidYMid meet'}) as SVGSVGElement;
   // the bench
@@ -90,6 +96,62 @@ export function renderLabScene(host:HTMLElement,input:SceneInput){
   host.append(svg);
 }
 
+function vesselGroup(a:TopicLabProfile['apparatus'][number],input:SceneInput,extraIdle:boolean):SVGElement{
+  const g=s('g',{class:`kl-scene__vessel kl-scene__vessel--${a.kind}${extraIdle?' is-idle':''}${input.focus===a.id?' is-focus':''}${input.armed&&a.isContainer?' is-target':''}`,'data-scene-object':`apparatus:${a.id}`});
+  if(input.onSelect){ g.addEventListener('click',()=>input.onSelect!(a.id)); g.setAttribute('cursor','pointer'); }
+  if(input.onDrop&&a.isContainer){ g.addEventListener('dragover',e=>{ e.preventDefault(); g.classList.add('is-over'); }); g.addEventListener('dragleave',()=>g.classList.remove('is-over')); g.addEventListener('drop',e=>{ e.preventDefault(); g.classList.remove('is-over'); input.onDrop!(a.id); }); }
+  return g;
+}
+
+/* The rack bench (lab review 2026-11-24, stage 2b): pictures of a wooden rack and glass tubes (assets/lab-bench), with
+   the lab state drawn inside the glass exactly as before. Geometry is in the rack picture's own pixels (S scales them):
+   hole centres at x = 232 + 215·i, the top bar's front face at y 544–614, the shelf top at y 880, legs to y 1087. */
+const RACK={S:0.23,cropY:448,holeX0:232,holeDx:215,holeY:510,frontY:544,frontH:70,shelfY:880,bottomY:1087,aW:1200,bX:1376,bW:160,h:640};
+const TUBE={T:0.105,w:326,h:1468,bodyX:34,bodyW:257,rimH:60};
+function renderRackBench(host:HTMLElement,input:SceneInput,vessels:TopicLabProfile['apparatus']){
+  const {state}=input; const S=RACK.S;
+  const tubes=vessels.filter(a=>a.kind==='test-tube'), others=vessels.filter(a=>a.kind!=='test-tube');
+  const rackX=24, tubeTop=84, tubeLen=TUBE.h*TUBE.T;
+  const shelfTop=tubeTop+tubeLen+2; const rackY=shelfTop-(RACK.shelfY-RACK.cropY)*S;
+  const rackBottom=rackY+(RACK.bottomY-RACK.cropY)*S, rackW=(RACK.aW+RACK.bW)*S;
+  const otherSlot=96, W=Math.ceil(rackX+rackW+(others.length?28+others.length*otherSlot:0)+20), H=Math.ceil(rackBottom+44);
+  const svg=s('svg',{viewBox:`0 0 ${W} ${H}`,class:'kl-scene__svg kl-scene__svg--rack','aria-hidden':'true',focusable:'false',preserveAspectRatio:'xMidYMid meet'}) as SVGSVGElement;
+  if(input.armed) svg.classList.add('is-armed');
+  // the table
+  svg.append(s('rect',{x:0,y:rackBottom-6,width:W,height:H-rackBottom+6,rx:8,class:'kl-scene__bench kl-scene__bench--table'}));
+  const img=(href:string,x:number,y:number,w:number,h:number,cls:string)=>s('image',{href,x,y,width:w,height:h,class:cls,preserveAspectRatio:'none'});
+  // the rack behind the tubes (the six-hole picture shortened to the tubes it holds: piece A, then its right end)
+  const aW=RACK.aW*S, bW=RACK.bW*S, rH=RACK.h*S;
+  svg.append(img(BENCH_IMAGES['rack-a'],rackX,rackY,aW,rH,'kl-scene__rack-img'),img(BENCH_IMAGES['rack-b'],rackX+aW,rackY,bW,rH,'kl-scene__rack-img'));
+  const tw=TUBE.w*TUBE.T, bodyW=TUBE.bodyW*TUBE.T;
+  tubes.forEach((a,i)=>{
+    const cx=rackX+(RACK.holeX0+RACK.holeDx*i)*S;
+    const c=state.containers[a.id];
+    const g=vesselGroup(a,input,false);
+    const box:Box={x:cx-bodyW/2,y:tubeTop+TUBE.rimH*TUBE.T*0.6,w:bodyW,h:tubeLen-TUBE.rimH*TUBE.T*0.6-4,bottom:tubeTop+tubeLen-3,mouth:tubeTop};
+    drawVessel(g,'test-tube',cx,rackBottom,c,state,input,true,{box,glassImage:{href:BENCH_IMAGES.tube,x:cx-tw/2,y:tubeTop,w:tw,h:tubeLen}});
+    if(input.pour===a.id) drawPour(g,cx,tubeTop);
+    svg.append(g);
+  });
+  // the rack's front face in front of the tubes: they stand IN the holes; the tube numbers are stamped on it
+  const fy=rackY+(RACK.frontY-RACK.cropY)*S, fh=RACK.frontH*S;
+  const front=s('g',{class:'kl-scene__rack','aria-hidden':'true'});
+  front.append(img(BENCH_IMAGES['rack-a-front'],rackX,fy,aW,fh,'kl-scene__rack-img'),img(BENCH_IMAGES['rack-b-front'],rackX+aW,fy,bW,fh,'kl-scene__rack-img'));
+  tubes.forEach((_,i)=>front.append(s('text',{x:rackX+(RACK.holeX0+RACK.holeDx*i)*S,y:fy+fh/2+4,'text-anchor':'middle',class:'kl-scene__rack-number'},String(i+1))));
+  svg.append(front);
+  // the other vessels stand on the table to the right of the rack, with their name under them
+  others.forEach((a,i)=>{
+    const cx=rackX+rackW+28+otherSlot*i+otherSlot/2;
+    const g=vesselGroup(a,input,false);
+    drawVessel(g,a.kind,cx,rackBottom+16,state.containers[a.id],state,input,false);
+    if(input.pour===a.id) drawPour(g,cx,rackBottom+16-22-138);
+    const words=input.labelOf(a.id).split(' '); const l1=words.slice(0,Math.ceil(words.length/2)).join(' '), l2=words.slice(Math.ceil(words.length/2)).join(' ');
+    [l1,l2].filter(Boolean).forEach((l,k)=>g.append(s('text',{x:cx,y:rackBottom+22+k*12,'text-anchor':'middle',class:'kl-scene__label'},l)));
+    svg.append(g);
+  });
+  host.append(svg);
+}
+
 interface Box { x:number; y:number; w:number; h:number; bottom:number; mouth:number }
 function vesselBox(kind:string,cx:number,floor:number,large=false):Box{
   switch(kind){
@@ -101,9 +163,9 @@ function vesselBox(kind:string,cx:number,floor:number,large=false):Box{
   }
 }
 
-function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerState|undefined,state:LabState,input:SceneInput,large=false){
+function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerState|undefined,state:LabState,input:SceneInput,large=false,opts?:{box?:Box;glassImage?:{href:string;x:number;y:number;w:number;h:number}}){
   // vessels stand 22 px above the bench, leaving room for the flame of a heated container
-  const b=vesselBox(kind,cx,floor-22,large);
+  const b=opts?.box??vesselBox(kind,cx,floor-22,large);
   // an invisible hit area: the glass is only an outline, so an empty vessel must still take a click
   g.append(s('rect',{x:b.x-10,y:b.mouth-30,width:b.w+20,height:floor-b.mouth+30,class:'kl-scene__hit'}));
   const clipId=`kl-scene-clip-${Math.round(cx)}-${kind}`;
@@ -134,6 +196,9 @@ function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerS
     }
     // solid granules at the bottom (a deterministic pattern, not a measurement)
     solids.forEach((e,k)=>{
+      // a metal with its own picture lies at the bottom as that picture (Mg ribbon, Zn granules, …)
+      const href=input.sampleImage?.(e.substanceId)??null;
+      if(href){ inside.append(s('image',{href,x:b.x-3,y:b.bottom-15-k*6,width:b.w+6,height:16,preserveAspectRatio:'xMidYMax meet',class:'kl-scene__solid kl-scene__solid--img'})); return; }
       for(let j=0;j<5;j+=1){
         const px=b.x+6+((j*13+k*7)%Math.max(8,b.w-12)), py=b.bottom-5-((j+k)%3)*4;
         inside.append(s('circle',{cx:px,cy:py,r:3.4,class:`kl-scene__solid kl-scene__solid--${k%3}`}));
@@ -191,7 +256,9 @@ function drawVessel(g:SVGElement,kind:string,cx:number,floor:number,c:ContainerS
       g.append(s('path',{d:`M${cx} ${fy-34} C${cx+9} ${fy-24} ${cx+7} ${fy-12} ${cx} ${fy-9} C${cx-7} ${fy-12} ${cx-9} ${fy-24} ${cx} ${fy-34} Z`,class:`kl-scene__flame kl-scene__flame--${c.heating}`}));
     }
   }
-  g.append(s('path',{d:glass,class:'kl-scene__glass'}));
+  // the glass: a picture of a tube over its contents (the outline stays, invisible, for the hover / target ring), or the line drawing
+  if(opts?.glassImage){ const gi=opts.glassImage; g.append(s('image',{href:gi.href,x:gi.x,y:gi.y,width:gi.w,height:gi.h,preserveAspectRatio:'none',class:'kl-scene__glass-img'}),s('path',{d:glass,class:'kl-scene__glass kl-scene__glass--img'})); }
+  else g.append(s('path',{d:glass,class:'kl-scene__glass'}));
 }
 
 function colorChange(obs:LabState['observations']):string|null{

@@ -1,6 +1,6 @@
 {
   "releaseId": "rc-2026.09",
-  "createdAt": "2026-11-24T16:25:48.029Z",
+  "createdAt": "2026-11-26T07:03:07.571Z",
   "files": [
     {
       "path": "app-preview/app/app-version.js",
@@ -453,16 +453,22 @@
       "size": 2338
     },
     {
+      "path": "app-preview/features/dynamic-lab/bench-assets.js",
+      "sourcePath": "public/app-preview/features/dynamic-lab/bench-assets.js",
+      "checksum": "0b6b4936c3a789b7fbe6b3e186edf470efab02f3c3f4cc3f4ad8785008ac1693",
+      "size": 93492
+    },
+    {
       "path": "app-preview/features/dynamic-lab/render.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/render.js",
-      "checksum": "a073aa5df11865e6689ecc6c1abf78c7c5d4d93c035a5d34f0e1616ac0989b6a",
-      "size": 40625
+      "checksum": "ce7ef7f681027850cdb59eb74c52d1366d5180f042082e4b4ba79deda2875e11",
+      "size": 41431
     },
     {
       "path": "app-preview/features/dynamic-lab/scene.js",
       "sourcePath": "public/app-preview/features/dynamic-lab/scene.js",
-      "checksum": "fd7c806f77771ac13a994d4dc86a6e48bf31edf0259a06b37d4247ad4c8529df",
-      "size": 15227
+      "checksum": "d65772120de071cdec1233017c4bd3f005c0c610537af545680d7fe7e69f0545",
+      "size": 21131
     },
     {
       "path": "app-preview/features/home/copy.js",
@@ -1097,8 +1103,8 @@
     {
       "path": "app-preview/ui/tokens/kimyolab.css",
       "sourcePath": "public/app-preview/ui/tokens/kimyolab.css",
-      "checksum": "201da2ea5e15d199dfe5843d20345b737102f9b66b0a900b0bcdce5be31a72ac",
-      "size": 54248
+      "checksum": "64d1fdbc002d46ad4c785f3eb7306c598f3bd085a52c8b43ee4e821d07291d09",
+      "size": 55179
     },
     {
       "path": "assets/brand/kimyolab-logo.webp",

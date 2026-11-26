@@ -18,6 +18,7 @@ import {createLabDomain} from '../../domain/lab/lab-domain.ts';
 import {renderLabScene,subscriptFormula} from './scene.ts';
 import {iconSvg,iconForKind} from '../practice/apparatus-icons.ts';
 import {setChemText} from '../../ui/chem-text.ts';
+import {BENCH_IMAGES} from './bench-assets.ts';
 
 type ObjectRef={kind:'apparatus'|'substance'|'target';id:string};
 
@@ -129,8 +130,13 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
   // the bench: a reagent "in hand", the vessel being worked with, and the pour that just happened (motion only)
   let inHand:string|null=null, focusVessel:string|null=null, pourFx:string|null=null, lastNote:string|null=null;
   const containers=profile.apparatus.filter(a=>a.isContainer);
+  // pictures for the bench (decoration): a metal sample by its formula; a solution in a clear bottle, a solid in a brown jar
+  const METAL_IMAGE:Record<string,string>={Mg:BENCH_IMAGES.mg,Zn:BENCH_IMAGES.zn,Fe:BENCH_IMAGES.fe,Cu:BENCH_IMAGES.cu};
+  const isLiquid=(id:string)=>{ const s=profile.substances.find(x=>x.id===id) as any; const f=s?.declaredForm?.form; return f==='liquid'||f==='solution'||/solution|dilute|water|suv/.test(id); };
+  const sampleImage=(id:string)=>{ const f=formulaOf(id); return f&&!isLiquid(id)?METAL_IMAGE[f]??null:null; };
+  const shelfImage=(id:string)=>sampleImage(id)??(isLiquid(id)?BENCH_IMAGES['bottle-clear']:BENCH_IMAGES['bottle-amber']);
   const drawScene=()=>renderLabScene(scene,benchMode
-    ?{profile,state,formulaOf,labelOf:apparatusName,large:true,armed:inHand!==null,focus:focusVessel,pour:pourFx,onSelect:(id)=>vesselClick(id),onDrop:(id)=>{ if(inHand) pour(inHand,id); }}
+    ?{profile,state,formulaOf,labelOf:apparatusName,large:true,sampleImage,armed:inHand!==null,focus:focusVessel,pour:pourFx,onSelect:(id)=>vesselClick(id),onDrop:(id)=>{ if(inHand) pour(inHand,id); }}
     :{profile,state,formulaOf,labelOf:apparatusName,onSelect:(id)=>{ objectsBox.querySelector<HTMLButtonElement>(`[data-object="apparatus:${id}"]`)?.click(); }});
   const bench=el('section',{className:'kl-bench',attrs:{'aria-labelledby':'dlab-bench-title','data-dlab-bench':''}});
   const benchHint=el('p',{className:'kl-bench__hint',attrs:{'aria-live':'polite'}});
@@ -167,7 +173,8 @@ export function renderDynamicLab(root:HTMLElement,page:StudentPracticePageModel,
     benchHint.classList.toggle('is-result',!inHand&&!!lastNote); lastNote=null;
     for(const sub of profile.substances){
       const b=el('button',{className:`kl-bench__bottle${inHand===sub.id?' is-in-hand':''}`,attrs:{type:'button',draggable:'true','aria-pressed':String(inHand===sub.id),'data-bench-substance':sub.id}});
-      const f=formulaOf(sub.id); const ic=iconSvg('bottle'); if(ic) b.append(ic);
+      const f=formulaOf(sub.id);
+      b.append(el('img',{className:'kl-bench__bottle-img',attrs:{src:shelfImage(sub.id),alt:'',draggable:'false'}}));
       if(f) b.append(el('span',{className:'kl-dlab__formula',text:subscriptFormula(f),attrs:{'aria-hidden':'true'}}));
       const nm=el('span',{className:'kl-bench__bottle-name'}); setChemText(nm,substanceName(sub.id)); b.append(nm);
       b.addEventListener('click',()=>{ inHand=inHand===sub.id?null:sub.id; focusVessel=null; draw(); });

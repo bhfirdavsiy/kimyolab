@@ -34,8 +34,8 @@
       "id": "artifact-checksum",
       "pass": true,
       "detail": {
-        "files": 238,
-        "sha256": "53bd6e7d5bd6f2bad1dce14a665745a1f36c3df4c49ad4d02838bdc4fd51bd11"
+        "files": 239,
+        "sha256": "b8ca7f87681c1817fad3550da596ff575448d3685b9b197ba41bfaf7d1d3cc1f"
       }
     },
     {
@@ -103,7 +103,7 @@
       "id": "reproducible-build",
       "pass": true,
       "detail": {
-        "sha256": "53bd6e7d5bd6f2bad1dce14a665745a1f36c3df4c49ad4d02838bdc4fd51bd11"
+        "sha256": "b8ca7f87681c1817fad3550da596ff575448d3685b9b197ba41bfaf7d1d3cc1f"
       }
     },
     {
